@@ -22,9 +22,22 @@
         </section>
         
         <section id="contact">
-            <h2>Contact</h2>
-            <p>Get in touch with us for any inquiries or collaborations.</p>
-        </section>
+    <h2>Contact</h2>
+    <p>Get in touch with us for any inquiries or collaborations.</p>
+    
+    <form action="submit.php" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+        
+        <button type="submit">Send</button>
+    </form>
+</section>
         
         <section id="posts">
             <!-- Posts will be added here -->
