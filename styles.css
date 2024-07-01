@@ -1,51 +1,15 @@
-/* Стили для header */
-header {
-    background-color: #0077cc; /* Голубой цвет фона */
-    color: #fff; /* Белый цвет текста */
-    padding: 10px;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 36px;
-    margin: 0;
-    text-transform: uppercase; /* Преобразование текста в верхний регистр */
-    color: #fff; /* Белый цвет текста */
-}
-
-/* Пример стилей для разделения на две колонки */
+/* Общие стили для контейнера */
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-.left-column {
-    width: 70%;
-}
-
-.right-column {
-    width: 30%;
-}
-
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .left-column, .right-column {
-        width: 100%;
-    }
-}
-
 /* Стили для header */
 header {
     background-color: #0077cc; /* Голубой цвет фона */
     color: #fff; /* Белый цвет текста */
-    padding: 10px;
+    padding: 10px 0;
     text-align: center;
 }
 
@@ -53,7 +17,6 @@ header h1 {
     font-size: 36px;
     margin: 0;
     text-transform: uppercase; /* Преобразование текста в верхний регистр */
-    color: #fff; /* Белый цвет текста */
 }
 
 nav ul {
@@ -77,20 +40,20 @@ nav ul li a:hover {
 }
 
 /* Стили для разделов */
-section {
-    margin-bottom: 30px;
+section, aside {
     background-color: #f0f0f0;
     padding: 20px;
+    margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-h2 {
+section h2, aside h2 {
     font-size: 24px;
     color: #333;
 }
 
-p {
+section p, aside p {
     font-size: 16px;
     line-height: 1.5;
     color: #666;
@@ -101,10 +64,7 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 10px 0;
 }
 
 footer p {
