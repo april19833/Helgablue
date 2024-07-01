@@ -5,127 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helga Blue</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Пример стилей для разделения на две колонки */
-        .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .left-column {
-            width: 70%;
-        }
-
-        .right-column {
-            width: 30%;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .left-column, .right-column {
-                width: 100%;
-            }
-        }
-
-        /* Стили для header */
-        header {
-            background-color: #0077cc; /* Голубой цвет фона */
-            color: #fff; /* Белый цвет текста */
-            padding: 10px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 36px;
-            margin: 0;
-            text-transform: uppercase; /* Преобразование текста в верхний регистр */
-            color: #fff; /* Белый цвет текста */
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-
-        /* Стили для разделов */
-        section {
-            margin-bottom: 30px;
-            background-color: #f0f0f0;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            font-size: 24px;
-            color: #333;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 1.5;
-            color: #666;
-        }
-    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Orbit</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>Welcome to Orbit</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <div class="container">
-        <div class="left-column">
-            <!-- Содержимое левой колонки -->
-            <section id="about">
-                <h2>About Us</h2>
-                <p>We are a team passionate about creating beautiful and functional websites.</p>
-            </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We are a team passionate about creating beautiful and functional websites.</p>
+        </section>
 
-            <section id="blog">
-                <h2>Blog</h2>
-                <p>Read our latest articles and insights.</p>
-                <!-- Здесь можно добавить список постов из вашего блога -->
-            </section>
-        </div>
-        <div class="right-column">
-            <!-- Содержимое правой колонки -->
-            <section id="contact">
-                <h2>Contact</h2>
-                <p>Get in touch with us for any inquiries or collaborations.</p>
-                <!-- Здесь можно добавить форму обратной связи или контактные данные -->
-            </section>
-        </div>
+        <section id="blog">
+            <h2>Blog</h2>
+            <p>Read our latest articles and insights.</p>
+            <!-- Здесь можно добавить список постов из вашего блога -->
+        </section>
+
+        <aside id="contact">
+            <h2>Contact</h2>
+            <p>Get in touch with us for any inquiries or collaborations.</p>
+            <!-- Здесь можно добавить форму обратной связи или контактные данные -->
+        </aside>
     </div>
     <footer>
-        <p>© 2024 My blog. All rights reserved.</p>
+        <div class="container">
+            <p>© 2024 My blog. All rights reserved.</p>
+        </div>
     </footer>
     <script src="scripts.js"></script>
 </body>
