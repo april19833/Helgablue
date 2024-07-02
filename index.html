@@ -64,7 +64,7 @@
                 <input type="number" id="cupsCount" name="cupsCount" min="0" step="1"><br>
 
                 <label for="timeOfDay">What time of day did you drink them?</label><br>
-                <input type="text" id="timeOfDay" name="timeOfDay"><br>
+                <input type="text" id="timeOfDay" name="timeOfDay" readonly><br> <!-- readonly чтобы пользователь не мог ввести дату вручную -->
 
                 <button type="button" onclick="recordWater()">Record</button>
             </form>
@@ -84,18 +84,29 @@
             };
 
             function recordWater() {
-                // Получаем данные из формы
+                // Получаем текущую дату и время
+                const now = new Date();
+                const dateStr = now.toLocaleDateString();
+                const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                // Заполняем поле с текущей датой и временем
+                const timeField = document.getElementById('timeOfDay');
+                timeField.value = `${dateStr} ${timeStr}`;
+
+                // Получаем данные о потреблении
                 const cups = document.getElementById('cupsCount').value;
-                const time = document.getElementById('timeOfDay').value;
+
+                // Добавляем данные в массив или отправляем на сервер и т.д.
+                // Здесь можно добавить код для сохранения записи и обновления графика
 
                 // Добавляем данные в массив
-                waterData.labels.push(time);
+                waterData.labels.push(timeField.value);
                 waterData.data.push(parseInt(cups));
 
                 // Создаем новую запись на странице
                 const recordElement = document.createElement('div');
                 recordElement.classList.add('waterRecord');
-                recordElement.innerHTML = `<p>Today, you drank ${cups} ${cups === '1' ? 'cup' : 'cups'} of water with lemon at ${time}.</p>`;
+                recordElement.innerHTML = `<p>Today, you drank ${cups} ${cups === '1' ? 'cup' : 'cups'} of water with lemon at ${timeField.value}.</p>`;
 
                 // Добавляем запись в контейнер на странице
                 const recordsContainer = document.getElementById('waterRecords');
