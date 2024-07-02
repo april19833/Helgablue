@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const darkModeToggle = document.getElementById('darkModeToggle');
+    const openDonateModal = document.getElementById('openDonateModal');
+    const donateModal = document.getElementById('donateModal');
+    const closeBtn = donateModal.getElementsByClassName('close')[0];
 
     darkModeToggle.addEventListener('change', function() {
         document.body.classList.toggle('dark-theme');
@@ -16,6 +19,23 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.remove('dark-theme');
         darkModeToggle.checked = false;
     }
+
+    // Открытие модального окна
+    openDonateModal.addEventListener('click', function() {
+        donateModal.style.display = 'block';
+    });
+
+    // Закрытие модального окна
+    closeBtn.addEventListener('click', function() {
+        donateModal.style.display = 'none';
+    });
+
+    // Закрытие модального окна при клике вне его
+    window.addEventListener('click', function(event) {
+        if (event.target == donateModal) {
+            donateModal.style.display = 'none';
+        }
+    });
 
     // Функция записи воды с лимоном
     window.recordWater = function() {
