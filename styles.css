@@ -39,7 +39,7 @@ nav ul li a {
     padding: 5px 10px;
     background-color: #005fa3;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 nav ul li a:hover {
@@ -53,11 +53,12 @@ nav ul li a:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .donate-button:hover {
     background-color: #218838;
+    transform: scale(1.05);
 }
 
 .theme-switch {
@@ -81,7 +82,6 @@ nav ul li a:hover {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
     transition: display 0.3s;
 }
@@ -129,24 +129,16 @@ nav ul li a:hover {
 /* Стили для разделов */
 section {
     margin: 20px 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
 }
 
 section h2 {
     font-size: 28px;
     margin-bottom: 10px;
-}
-
-/* Переходы */
-body, header, section, footer {
-    transition: background-color 0.3s, color 0.3s;
-}
-
-nav ul li a {
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.donate-button {
-    transition: background-color 0.3s;
 }
 
 /* Темная тема */
@@ -165,6 +157,15 @@ body.dark-theme nav ul li a {
 
 body.dark-theme nav ul li a:hover {
     background-color: #555;
+}
+
+body.dark-theme .donate-button {
+    background-color: #218838;
+}
+
+body.dark-theme section {
+    background-color: #343a40;
+    color: #ccc;
 }
 
 /* Стили для кнопок */
