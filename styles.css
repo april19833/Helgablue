@@ -3,6 +3,9 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивная сетка на основе ширины контейнера */
+    gap: 20px;
 }
 
 /* Стили для header */
@@ -128,7 +131,6 @@ nav ul li a:hover {
 
 /* Стили для разделов */
 section {
-    margin: 20px 0;
     padding: 20px;
     background-color: #f8f9fa;
     border-radius: 8px;
