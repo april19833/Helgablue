@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helga Blue</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"> <!-- Добавляем каллиграфический шрифт -->
 </head>
 <body>
     <header>
@@ -28,6 +29,9 @@
             <div class="theme-switch">
                 <input type="checkbox" id="darkModeToggle">
                 <label for="darkModeToggle">Dark Mode</label>
+            </div>
+            <div class="donate">
+                <a href="https://helga.beam.eco/" target="_blank" class="donate-button">Donate</a>
             </div>
         </div>
     </header>
@@ -66,7 +70,7 @@
                 <input type="number" id="cupsCount" name="cupsCount" min="0" step="1"><br>
                 
                 <label for="timeOfDay">What time of day did you drink them?</label><br>
-                <input type="text" id="timeOfDay" name="timeOfDay"><br>
+                <input type="date" id="timeOfDay" name="timeOfDay"><br>
                 
                 <button type="button" onclick="recordWater()">Record</button>
             </form>
@@ -108,6 +112,21 @@
     </footer>
     <script src="scripts.js"></script>
     <script>
+        function recordWater() {
+            // Get form data
+            const cups = document.getElementById('cupsCount').value;
+            const time = document.getElementById('timeOfDay').value;
+
+            // Create a new record element
+            const recordElement = document.createElement('div');
+            recordElement.classList.add('waterRecord');
+            recordElement.innerHTML = `<p>Today, you drank ${cups} ${cups === '1' ? 'cup' : 'cups'} of water with lemon on ${time}.</p>`;
+
+            // Append record to the records container
+            const recordsContainer = document.getElementById('waterRecords');
+            recordsContainer.appendChild(recordElement);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const darkModeToggle = document.getElementById('darkModeToggle');
 
