@@ -84,3 +84,18 @@ footer {
 footer p {
     margin: 0;
 }
+
+/* Стили для ссылки на донаты в шапке */
+.donate-link {
+    color: #fff;
+    background-color: #f44336; /* Красный цвет фона */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px; /* Пространство между элементами */
+}
+
+.donate-link:hover {
+    background-color: #d32f2f; /* Темнее красный цвет фона при наведении */
+}
