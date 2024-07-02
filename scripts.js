@@ -1,61 +1,54 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const openDonateModal = document.getElementById('openDonateModal');
-    const donateModal = document.getElementById('donateModal');
-    const closeBtn = donateModal.getElementsByClassName('close')[0];
-    const notification = document.getElementById('notification');
+// Определяем модальное окно
+const modal = document.getElementById('donateModal');
 
-    darkModeToggle.addEventListener('change', function() {
-        document.body.classList.toggle('dark-theme');
-        
-        // Сохранение выбора пользователя
-        localStorage.setItem('darkModeEnabled', this.checked);
-    });
+// Определяем кнопку, которая открывает модальное окно
+const openModalBtn = document.getElementById('openDonateModal');
 
-    // Проверка состояния при загрузке страницы
-    if (localStorage.getItem('darkModeEnabled') === 'true') {
-        document.body.classList.add('dark-theme');
-        darkModeToggle.checked = true;
-    } else {
-        document.body.classList.remove('dark-theme');
-        darkModeToggle.checked = false;
+// Определяем элемент <span>, который закрывает модальное окно
+const closeModalBtn = document.getElementsByClassName('close')[0];
+
+// Когда пользователь кликает на кнопку, открываем модальное окно
+openModalBtn.onclick = function() {
+    modal.style.display = 'block';
+};
+
+// Когда пользователь кликает на <span> (x), закрываем модальное окно
+closeModalBtn.onclick = function() {
+    modal.style.display = 'none';
+};
+
+// Когда пользователь кликает в любое место вне модального окна, закрываем его
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
     }
+};
 
-    // Открытие модального окна
-    openDonateModal.addEventListener('click', function() {
-        donateModal.style.display = 'block';
-    });
+// Функция для записи количества выпитых стаканов воды
+function recordWater() {
+    const cupsCount = document.getElementById('cupsCount').value;
+    const timeOfDay = document.getElementById('timeOfDay').value;
 
-    // Закрытие модального окна
-    closeBtn.addEventListener('click', function() {
-        donateModal.style.display = 'none';
-    });
+    // Создаем элемент для записи данных
+    const recordElement = document.createElement('div');
+    recordElement.classList.add('water-record');
+    recordElement.innerHTML = `<strong>${cupsCount}</strong> cups at ${timeOfDay}`;
 
-    // Закрытие модального окна при клике вне его
-    window.addEventListener('click', function(event) {
-        if (event.target == donateModal) {
-            donateModal.style.display = 'none';
-        }
-    });
+    // Добавляем запись в список
+    const waterRecords = document.getElementById('waterRecords');
+    waterRecords.appendChild(recordElement);
 
-    // Функция записи воды с лимоном
-    window.recordWater = function() {
-        const cupsCount = document.getElementById('cupsCount').value;
-        const timeOfDay = document.getElementById('timeOfDay').value;
+    // Очищаем поля ввода
+    document.getElementById('cupsCount').value = '';
+    document.getElementById('timeOfDay').value = '';
 
-        if (cupsCount && timeOfDay) {
-            const waterRecords = document.getElementById('waterRecords');
-            const recordDiv = document.createElement('div');
-            recordDiv.className = 'waterRecord';
-            recordDiv.innerHTML = `<strong>${timeOfDay}:</strong> ${cupsCount} cup(s) of water with lemon`;
-            waterRecords.appendChild(recordDiv);
+    // Показываем уведомление
+    const notification = document.getElementById('notification');
+    notification.innerHTML = `Water intake recorded for ${timeOfDay}`;
+    notification.classList.add('show');
 
-            // Показ уведомления
-            notification.textContent = 'Record added successfully!';
-            notification.classList.add('show');
-            setTimeout(function() {
-                notification.classList.remove('show');
-            }, 3000);
-        }
-    };
-});
+    // Закрываем уведомление через 3 секунды
+    setTimeout(function() {
+        notification.classList.remove('show');
+    }, 3000);
+}
