@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helga Blue</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Подключение Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-   <header>
-    <div class="container">
-        <h1>Welcome to Orbit</h1>
-        <nav>
-            <ul>
-                <li><a href="#neural-network">Neural Network</a></li>
-                <li><a href="#yoga">Yoga</a></li>
-                <li><a href="#nft">NFT</a></li>
-                <li><a href="#spy-women">Spy Women</a></li>
-                <li><a href="#sales-funnel">Sales Funnel</a></li>
-                <li><a href="#water-lemon">Water with Lemon</a></li>
-                <li><a href="#fresh-skin">Fresh Skin</a></li>
-                <li><a href="#asmr-meditation">ASMR Meditation</a></li>
-                <li><a href="#herbarium-therapy">Herbarium Therapy</a></li>
-                <li><a href="#crypto">Crypto</a></li>
-                <li><a href="https://helga.beam.eco/donate" target="_blank" class="donate-link">Donate</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <header>
+        <div class="container">
+            <h1>Welcome to Orbit</h1>
+            <nav>
+                <ul>
+                    <li><a href="#neural-network">Neural Network</a></li>
+                    <li><a href="#yoga">Yoga</a></li>
+                    <li><a href="#nft">NFT</a></li>
+                    <li><a href="#spy-women">Spy Women</a></li>
+                    <li><a href="#sales-funnel">Sales Funnel</a></li>
+                    <li><a href="#water-lemon">Water with Lemon</a></li>
+                    <li><a href="#fresh-skin">Fresh Skin</a></li>
+                    <li><a href="#asmr-meditation">ASMR Meditation</a></li>
+                    <li><a href="#herbarium-therapy">Herbarium Therapy</a></li>
+                    <li><a href="#crypto">Crypto</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="theme-switch">
+                <input type="checkbox" id="darkModeToggle">
+                <label for="darkModeToggle">Dark Mode</label>
+            </div>
+        </div>
+    </header>
     <div class="container">
         <section id="neural-network">
             <h2>Neural Network</h2>
@@ -60,91 +60,21 @@
         <section id="water-lemon">
             <h2>Water with Lemon</h2>
             <p>The benefits of drinking water with lemon in the morning.</p>
-
+            
             <form id="waterForm">
                 <label for="cupsCount">How many cups of water with lemon did you drink today?</label><br>
                 <input type="number" id="cupsCount" name="cupsCount" min="0" step="1"><br>
-
+                
                 <label for="timeOfDay">What time of day did you drink them?</label><br>
-                <input type="text" id="timeOfDay" name="timeOfDay" readonly><br> <!-- readonly чтобы пользователь не мог ввести дату вручную -->
-
+                <input type="text" id="timeOfDay" name="timeOfDay"><br>
+                
                 <button type="button" onclick="recordWater()">Record</button>
             </form>
-
+            
             <div id="waterRecords">
                 <!-- Records will be dynamically added here -->
             </div>
-
-            <canvas id="waterChart" width="400" height="200"></canvas>
         </section>
-
-        <script>
-            // Глобальная переменная для хранения данных о потреблении воды с лимоном
-            let waterData = {
-                labels: [],
-                data: []
-            };
-
-            function recordWater() {
-                // Получаем текущую дату и время
-                const now = new Date();
-                const dateStr = now.toLocaleDateString();
-                const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-                // Заполняем поле с текущей датой и временем
-                const timeField = document.getElementById('timeOfDay');
-                timeField.value = `${dateStr} ${timeStr}`;
-
-                // Получаем данные о потреблении
-                const cups = document.getElementById('cupsCount').value;
-
-                // Добавляем данные в массив или отправляем на сервер и т.д.
-                // Здесь можно добавить код для сохранения записи и обновления графика
-
-                // Добавляем данные в массив
-                waterData.labels.push(timeField.value);
-                waterData.data.push(parseInt(cups));
-
-                // Создаем новую запись на странице
-                const recordElement = document.createElement('div');
-                recordElement.classList.add('waterRecord');
-                recordElement.innerHTML = `<p>Today, you drank ${cups} ${cups === '1' ? 'cup' : 'cups'} of water with lemon at ${timeField.value}.</p>`;
-
-                // Добавляем запись в контейнер на странице
-                const recordsContainer = document.getElementById('waterRecords');
-                recordsContainer.appendChild(recordElement);
-
-                // Обновляем график
-                updateChart();
-            }
-
-            function updateChart() {
-                // Получаем элемент canvas, где будет отображаться график
-                const ctx = document.getElementById('waterChart').getContext('2d');
-
-                // Создаем новый график с помощью Chart.js
-                const myChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: waterData.labels,
-                        datasets: [{
-                            label: 'Cups of Water with Lemon',
-                            data: waterData.data,
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                            borderColor: 'rgba(54, 162, 235, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            }
-        </script>
 
         <section id="fresh-skin">
             <h2>Fresh Skin</h2>
@@ -167,9 +97,9 @@
         </section>
 
         <section id="contact">
-    <h2>Contact</h2>
-    <p>For course payments, visit <a href="https://helga.beam.eco/" target="_blank">helga.beam.eco</a>.</p>
-</section>
+            <h2>Contact</h2>
+            <p>For course payments, visit <a href="https://helga.beam.eco/" target="_blank">helga.beam.eco</a>.</p>
+        </section>
     </div>
     <footer>
         <div class="container">
@@ -177,24 +107,26 @@
         </div>
     </footer>
     <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+
+            darkModeToggle.addEventListener('change', function() {
+                document.body.classList.toggle('dark-theme');
+                
+                // Сохранение выбора пользователя (опционально)
+                localStorage.setItem('darkModeEnabled', this.checked);
+            });
+
+            // Проверка состояния при загрузке страницы
+            if (localStorage.getItem('darkModeEnabled') === 'true') {
+                document.body.classList.add('dark-theme');
+                darkModeToggle.checked = true;
+            } else {
+                document.body.classList.remove('dark-theme');
+                darkModeToggle.checked = false;
+            }
+        });
+    </script>
 </body>
 </html>
-<div id="clock-widget">
-    <script>
-        function updateClock() {
-            var now = new Date();
-            var hours = now.getHours();
-            var minutes = now.getMinutes();
-            var seconds = now.getSeconds();
-            hours = hours < 10 ? '0' + hours : hours;
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-            var timeString = hours + ':' + minutes + ':' + seconds;
-            document.getElementById('clock-widget').innerHTML = timeString;
-            setTimeout(updateClock, 1000); // Update every second
-        }
-        updateClock(); // Initial call to update immediately
-    </script>
-</div>
-<input type="checkbox" id="darkModeToggle">
-<label for="darkModeToggle">Dark Mode</label>
