@@ -4,6 +4,13 @@
     margin: 0 auto;
     padding: 20px;
 }
+button, .donate-button {
+    transition: transform 0.3s;
+}
+
+button:hover, .donate-button:hover {
+    transform: scale(1.05);
+}
 
 /* Добавить переходы */
 body, header, section, footer {
