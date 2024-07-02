@@ -90,3 +90,33 @@ document.addEventListener('DOMContentLoaded', function() {
         waterRecords.appendChild(recordElement);
     });
 });
+
+// Определяем кнопку для переключения темы
+const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+// Определяем тело страницы
+const body = document.body;
+
+// Обработчик события клика по кнопке
+themeToggleBtn.addEventListener('click', function() {
+    // Проверяем текущую тему страницы
+    if (body.classList.contains('dark-theme')) {
+        // Если текущая тема - темная, переключаем на светлую
+        body.classList.remove('dark-theme');
+        localStorage.setItem('theme', 'light');
+    } else {
+        // Если текущая тема - светлая, переключаем на темную
+        body.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+    }
+});
+
+// Проверяем сохраненную тему в localStorage при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-theme');
+    } else {
+        body.classList.remove('dark-theme');
+    }
+});
