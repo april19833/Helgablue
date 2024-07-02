@@ -26,21 +26,45 @@ window.onclick = function(event) {
 
 // Функция для записи количества выпитых стаканов воды
 function recordWater() {
-    const cupsCount = document.getElementById('cupsCount').value;
-    const timeOfDay = document.getElementById('timeOfDay').value;
+    const cupsCountInput = document.getElementById('cupsCount');
+    const timeOfDayInput = document.getElementById('timeOfDay');
+    
+    const cupsCount = parseInt(cupsCountInput.value);
+    const timeOfDay = timeOfDayInput.value;
 
-    // Создаем элемент для записи данных
+    if (isNaN(cupsCount) || cupsCount <= 0) {
+        alert('Please enter a valid number of cups (greater than zero).');
+        return;
+    }
+
+    // Создаем объект записи
+    const waterRecord = {
+        cups: cupsCount,
+        time: timeOfDay,
+        timestamp: new Date().toISOString()
+    };
+
+    // Получаем текущие записи из localStorage, если они есть
+    let records = JSON.parse(localStorage.getItem('waterRecords')) || [];
+
+    // Добавляем новую запись
+    records.push(waterRecord);
+
+    // Сохраняем записи обратно в localStorage
+    localStorage.setItem('waterRecords', JSON.stringify(records));
+
+    // Создаем элемент для отображения новой записи
     const recordElement = document.createElement('div');
     recordElement.classList.add('water-record');
-    recordElement.innerHTML = `<strong>${cupsCount}</strong> cups at ${timeOfDay}`;
+    recordElement.innerHTML = `<strong>${waterRecord.cups}</strong> cups at ${waterRecord.time}`;
 
     // Добавляем запись в список
     const waterRecords = document.getElementById('waterRecords');
     waterRecords.appendChild(recordElement);
 
     // Очищаем поля ввода
-    document.getElementById('cupsCount').value = '';
-    document.getElementById('timeOfDay').value = '';
+    cupsCountInput.value = '';
+    timeOfDayInput.value = '';
 
     // Показываем уведомление
     const notification = document.getElementById('notification');
@@ -52,3 +76,17 @@ function recordWater() {
         notification.classList.remove('show');
     }, 3000);
 }
+
+// Проверяем, есть ли записи в localStorage при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    const records = JSON.parse(localStorage.getItem('waterRecords')) || [];
+
+    // Выводим записи, если они есть
+    const waterRecords = document.getElementById('waterRecords');
+    records.forEach(function(record) {
+        const recordElement = document.createElement('div');
+        recordElement.classList.add('water-record');
+        recordElement.innerHTML = `<strong>${record.cups}</strong> cups at ${record.time}`;
+        waterRecords.appendChild(recordElement);
+    });
+});
