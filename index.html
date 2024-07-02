@@ -54,9 +54,40 @@
         </section>
 
         <section id="water-lemon">
-            <h2>Water with Lemon</h2>
-            <p>The benefits of drinking water with lemon in the morning.</p>
-        </section>
+    <h2>Water with Lemon</h2>
+    <p>The benefits of drinking water with lemon in the morning.</p>
+
+    <form id="waterForm">
+        <label for="cupsCount">How many cups of water with lemon did you drink today?</label><br>
+        <input type="number" id="cupsCount" name="cupsCount" min="0" step="1"><br>
+
+        <label for="timeOfDay">What time of day did you drink them?</label><br>
+        <input type="text" id="timeOfDay" name="timeOfDay"><br>
+
+        <button type="button" onclick="recordWater()">Record</button>
+    </form>
+
+    <div id="waterRecords">
+        <!-- Records will be dynamically added here -->
+    </div>
+</section>
+
+<script>
+    function recordWater() {
+        // Get form data
+        const cups = document.getElementById('cupsCount').value;
+        const time = document.getElementById('timeOfDay').value;
+
+        // Create a new record element
+        const recordElement = document.createElement('div');
+        recordElement.classList.add('waterRecord');
+        recordElement.innerHTML = `<p>Today, you drank ${cups} ${cups === '1' ? 'cup' : 'cups'} of water with lemon at ${time}.</p>`;
+
+        // Append record to the records container
+        const recordsContainer = document.getElementById('waterRecords');
+        recordsContainer.appendChild(recordElement);
+    }
+</script>
 
         <section id="fresh-skin">
             <h2>Fresh Skin</h2>
