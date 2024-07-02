@@ -112,3 +112,35 @@ footer p {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
+/* Стили для темной темы */
+.dark-theme {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-theme header {
+    background-color: #111;
+}
+
+.dark-theme nav ul li a {
+    background-color: #222;
+}
+
+.dark-theme section {
+    background-color: #444;
+    color: #ccc;
+    box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+}
+
+.dark-theme section a {
+    color: #66c2ff;
+}
+
+.dark-theme section a:hover {
+    text-decoration: underline;
+}
+
+.dark-theme footer {
+    background-color: #222;
+    color: #999;
+}
