@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helga Blue</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Подключение Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -54,40 +56,82 @@
         </section>
 
         <section id="water-lemon">
-    <h2>Water with Lemon</h2>
-    <p>The benefits of drinking water with lemon in the morning.</p>
+            <h2>Water with Lemon</h2>
+            <p>The benefits of drinking water with lemon in the morning.</p>
 
-    <form id="waterForm">
-        <label for="cupsCount">How many cups of water with lemon did you drink today?</label><br>
-        <input type="number" id="cupsCount" name="cupsCount" min="0" step="1"><br>
+            <form id="waterForm">
+                <label for="cupsCount">How many cups of water with lemon did you drink today?</label><br>
+                <input type="number" id="cupsCount" name="cupsCount" min="0" step="1"><br>
 
-        <label for="timeOfDay">What time of day did you drink them?</label><br>
-        <input type="text" id="timeOfDay" name="timeOfDay"><br>
+                <label for="timeOfDay">What time of day did you drink them?</label><br>
+                <input type="text" id="timeOfDay" name="timeOfDay"><br>
 
-        <button type="button" onclick="recordWater()">Record</button>
-    </form>
+                <button type="button" onclick="recordWater()">Record</button>
+            </form>
 
-    <div id="waterRecords">
-        <!-- Records will be dynamically added here -->
-    </div>
-</section>
+            <div id="waterRecords">
+                <!-- Records will be dynamically added here -->
+            </div>
 
-<script>
-    function recordWater() {
-        // Get form data
-        const cups = document.getElementById('cupsCount').value;
-        const time = document.getElementById('timeOfDay').value;
+            <canvas id="waterChart" width="400" height="200"></canvas>
+        </section>
 
-        // Create a new record element
-        const recordElement = document.createElement('div');
-        recordElement.classList.add('waterRecord');
-        recordElement.innerHTML = `<p>Today, you drank ${cups} ${cups === '1' ? 'cup' : 'cups'} of water with lemon at ${time}.</p>`;
+        <script>
+            // Глобальная переменная для хранения данных о потреблении воды с лимоном
+            let waterData = {
+                labels: [],
+                data: []
+            };
 
-        // Append record to the records container
-        const recordsContainer = document.getElementById('waterRecords');
-        recordsContainer.appendChild(recordElement);
-    }
-</script>
+            function recordWater() {
+                // Получаем данные из формы
+                const cups = document.getElementById('cupsCount').value;
+                const time = document.getElementById('timeOfDay').value;
+
+                // Добавляем данные в массив
+                waterData.labels.push(time);
+                waterData.data.push(parseInt(cups));
+
+                // Создаем новую запись на странице
+                const recordElement = document.createElement('div');
+                recordElement.classList.add('waterRecord');
+                recordElement.innerHTML = `<p>Today, you drank ${cups} ${cups === '1' ? 'cup' : 'cups'} of water with lemon at ${time}.</p>`;
+
+                // Добавляем запись в контейнер на странице
+                const recordsContainer = document.getElementById('waterRecords');
+                recordsContainer.appendChild(recordElement);
+
+                // Обновляем график
+                updateChart();
+            }
+
+            function updateChart() {
+                // Получаем элемент canvas, где будет отображаться график
+                const ctx = document.getElementById('waterChart').getContext('2d');
+
+                // Создаем новый график с помощью Chart.js
+                const myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: waterData.labels,
+                        datasets: [{
+                            label: 'Cups of Water with Lemon',
+                            data: waterData.data,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+        </script>
 
         <section id="fresh-skin">
             <h2>Fresh Skin</h2>
