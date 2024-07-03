@@ -73,9 +73,11 @@ function recordWater() {
 function showNotification(message, isError) {
     const notification = document.getElementById('notification');
     notification.textContent = message;
-    notification.classList.remove('error');
+    notification.classList.remove('error', 'success'); // Remove both error and success classes
     if (isError) {
         notification.classList.add('error');
+    } else {
+        notification.classList.add('success');
     }
     notification.style.display = 'block';
 
