@@ -1,122 +1,21 @@
-// Определяем модальное окно
-const modal = document.getElementById('donateModal');
+document.getElementById('themeToggleBtn').addEventListener('click', function() {
+    document.body.classList.toggle('dark-theme');
+});
 
-// Определяем кнопку, которая открывает модальное окно
-const openModalBtn = document.getElementById('openDonateModal');
+const donateModal = document.getElementById("donateModal");
+const donateBtn = document.getElementById("openDonateModal");
+const closeBtn = document.getElementsByClassName("close")[0];
 
-// Определяем элемент <span>, который закрывает модальное окно
-const closeModalBtn = document.getElementsByClassName('close')[0];
-
-// Когда пользователь кликает на кнопку, открываем модальное окно
-openModalBtn.onclick = function() {
-    modal.style.display = 'block';
-};
-
-// Когда пользователь кликает на <span> (x), закрываем модальное окно
-closeModalBtn.onclick = function() {
-    modal.style.display = 'none';
-};
-
-// Когда пользователь кликает в любое место вне модального окна, закрываем его
-window.onclick = function(event) {
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-};
-
-// Функция для записи количества выпитых стаканов воды
-function recordWater() {
-    const cupsCountInput = document.getElementById('cupsCount');
-    const timeOfDayInput = document.getElementById('timeOfDay');
-    
-    const cupsCount = parseInt(cupsCountInput.value);
-    const timeOfDay = timeOfDayInput.value;
-
-    if (isNaN(cupsCount) || cupsCount <= 0) {
-        alert('Please enter a valid number of cups (greater than zero).');
-        return;
-    }
-
-    // Создаем объект записи
-    const waterRecord = {
-        cups: cupsCount,
-        time: timeOfDay,
-        timestamp: new Date().toISOString()
-    };
-
-    // Получаем текущие записи из localStorage, если они есть
-    let records = JSON.parse(localStorage.getItem('waterRecords')) || [];
-
-    // Добавляем новую запись
-    records.push(waterRecord);
-
-    // Сохраняем записи обратно в localStorage
-    localStorage.setItem('waterRecords', JSON.stringify(records));
-
-    // Создаем элемент для отображения новой записи
-    const recordElement = document.createElement('div');
-    recordElement.classList.add('water-record');
-    recordElement.innerHTML = `<strong>${waterRecord.cups}</strong> cups at ${waterRecord.time}`;
-
-    // Добавляем запись в список
-    const waterRecords = document.getElementById('waterRecords');
-    waterRecords.appendChild(recordElement);
-
-    // Очищаем поля ввода
-    cupsCountInput.value = '';
-    timeOfDayInput.value = '';
-
-    // Показываем уведомление
-    const notification = document.getElementById('notification');
-    notification.innerHTML = `Water intake recorded for ${timeOfDay}`;
-    notification.classList.add('show');
-
-    // Закрываем уведомление через 3 секунды
-    setTimeout(function() {
-        notification.classList.remove('show');
-    }, 3000);
+donateBtn.onclick = function() {
+    donateModal.style.display = "block";
 }
 
-// Проверяем, есть ли записи в localStorage при загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-    const records = JSON.parse(localStorage.getItem('waterRecords')) || [];
+closeBtn.onclick = function() {
+    donateModal.style.display = "none";
+}
 
-    // Выводим записи, если они есть
-    const waterRecords = document.getElementById('waterRecords');
-    records.forEach(function(record) {
-        const recordElement = document.createElement('div');
-        recordElement.classList.add('water-record');
-        recordElement.innerHTML = `<strong>${record.cups}</strong> cups at ${record.time}`;
-        waterRecords.appendChild(recordElement);
-    });
-});
-
-// Определяем кнопку для переключения темы
-const themeToggleBtn = document.getElementById('themeToggleBtn');
-
-// Определяем тело страницы
-const body = document.body;
-
-// Обработчик события клика по кнопке
-themeToggleBtn.addEventListener('click', function() {
-    // Проверяем текущую тему страницы
-    if (body.classList.contains('dark-theme')) {
-        // Если текущая тема - темная, переключаем на светлую
-        body.classList.remove('dark-theme');
-        localStorage.setItem('theme', 'light');
-    } else {
-        // Если текущая тема - светлая, переключаем на темную
-        body.classList.add('dark-theme');
-        localStorage.setItem('theme', 'dark');
+window.onclick = function(event) {
+    if (event.target == donateModal) {
+        donateModal.style.display = "none";
     }
-});
-
-// Проверяем сохраненную тему в localStorage при загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-theme');
-    } else {
-        body.classList.remove('dark-theme');
-    }
-});
+}
