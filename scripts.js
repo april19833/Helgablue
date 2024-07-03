@@ -97,3 +97,50 @@ window.onclick = function(event) {
         modal.style.display = 'none';
     }
 }
+// Функция для показа уведомлений
+function showNotification(message, isError) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.classList.remove('error'); // Удалить класс ошибки, если он есть
+    if (isError) {
+        notification.classList.add('error'); // Добавить класс ошибки для красного фона
+    }
+    notification.style.display = 'block'; // Показать уведомление
+
+    // Автоматически скрыть через 5 секунд
+    setTimeout(function() {
+        notification.style.display = 'none';
+    }, 5000); // 5000 миллисекунд = 5 секунд
+}
+
+// Пример функции для записи воды с лимоном
+function recordWater() {
+    const cupsCount = document.getElementById('cupsCount').value;
+    const timeOfDay = document.getElementById('timeOfDay').value;
+
+    if (!cupsCount || cupsCount < 1) {
+        showNotification('Пожалуйста, введите правильное количество чашек.', true);
+        return;
+    }
+
+    // Здесь можно выполнить AJAX запрос для сохранения данных на сервере
+
+    // В данном примере просто показываем успешное уведомление через 1 секунду
+    setTimeout(function() {
+        showNotification('Вода с лимоном успешно записана!', false);
+        // Очистить поля формы или обновить UI при необходимости
+        document.getElementById('cupsCount').value = '';
+        document.getElementById('timeOfDay').value = '';
+    }, 1000); // 1000 миллисекунд = 1 секунда
+}
+
+// Закрыть уведомление при клике на кнопку закрытия
+document.addEventListener('DOMContentLoaded', function() {
+    const closeButton = document.querySelector('.notification .close');
+    if (closeButton) {
+        closeButton.addEventListener('click', function() {
+            const notification = document.getElementById('notification');
+            notification.style.display = 'none';
+        });
+    }
+});
