@@ -32,14 +32,42 @@ function recordWater() {
     const timeOfDay = document.getElementById('timeOfDay').value;
 
     if (!cupsCount || cupsCount < 1) {
-        showNotification('Пожалуйста, введите правильное количество чашек.', true);
+        showNotification('Please enter a valid number of cups.', true);
         return;
     }
 
     // В данном примере просто показываем успешное уведомление через 1 секунду
     setTimeout(function() {
-        showNotification('Вода с лимоном успешно записана!', false);
+        showNotification('Water with lemon successfully recorded!', false);
         // Очистить поля формы или обновить UI при необходимости
         document.getElementById('cupsCount').value = '';
         document.getElementById('timeOfDay').value = '';
-    }, 1000); // 1
+    }, 1000); // 1000 миллисекунд = 1 секунда
+}
+
+// Функция для показа уведомления
+function showNotification(message, isError) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.classList.remove('error'); // Удалить класс ошибки, если он есть
+    if (isError) {
+        notification.classList.add('error'); // Добавить класс ошибки для красного фона
+    }
+    notification.style.display = 'block'; // Показать уведомление
+
+    // Автоматически скрыть через 5 секунд
+    setTimeout(function() {
+        notification.style.display = 'none';
+    }, 5000); // 5000 миллисекунд = 5 секунд
+}
+
+// Закрыть уведомление при клике на кнопку закрытия
+document.addEventListener('DOMContentLoaded', function() {
+    const closeButton = document.querySelector('.notification .close');
+    if (closeButton) {
+        closeButton.addEventListener('click', function() {
+            const notification = document.getElementById('notification');
+            notification.style.display = 'none';
+        });
+    }
+});
