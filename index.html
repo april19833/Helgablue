@@ -43,6 +43,50 @@
         .gallery-section a:hover {
             color: #007bff;
         }
+
+        /* Theme toggle button */
+        #themeToggleBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Dark mode */
+        body.dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+
+        /* Progress bar */
+        .progress {
+            margin-top: 20px;
+        }
+
+        .progress h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        progress {
+            width: 100%;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+
+        #progressText {
+            font-family: 'Roboto', sans-serif;
+            color: #555;
+        }
     </style>
 </head>
 <body>
@@ -121,6 +165,11 @@
                             <!-- Records will be dynamically added here -->
                         </tbody>
                     </table>
+                </div>
+                <div class="progress">
+                    <h3>Progress Bar</h3>
+                    <progress id="waterProgress" max="10" value="0"></progress>
+                    <p id="progressText">0 / 10 cups</p>
                 </div>
             </div>
         </section>
@@ -211,13 +260,32 @@
 
         // Record Water Function
         function recordWater() {
-            const cupsCount = document.getElementById('cupsCount').value;
+            const cupsCount = parseInt(document.getElementById('cupsCount').value, 10);
 
-            if (!cupsCount || cupsCount < 1) {
+            if (isNaN(cupsCount) || cupsCount < 1) {
                 showNotification('Please enter a valid number of cups.', true);
                 return;
             }
 
+            // Update progress bar
+            const progress = document.getElementById('waterProgress');
+            const progressText = document.getElementById('progressText');
+            let currentProgress = parseInt(progress.value, 10);
+            currentProgress += cupsCount;
+
+            progress.value = currentProgress;
+            progressText.textContent = `${currentProgress} / 10 cups`;
+
+            // Record and display in table
+            recordWaterInTable(cupsCount);
+
+            showNotification('Water with lemon successfully recorded!', false);
+
+            document.getElementById('cupsCount').value = '';
+        }
+
+        // Record Water in Table Function
+        function recordWaterInTable(cupsCount) {
             const currentDate = new Date();
             const date = currentDate.toLocaleDateString();
             const time = currentDate.toLocaleTimeString();
@@ -237,25 +305,24 @@
 
             const tableBody = document.getElementById('waterRecords');
             tableBody.appendChild(newRow);
-
-            showNotification('Water with lemon successfully recorded!', false);
-
-            document.getElementById('cupsCount').value = '';
         }
 
         // Notification Function
         function showNotification(message, isError) {
             const notification = document.getElementById('notification');
             notification.textContent = message;
-            notification.classList.remove('error');
+
             if (isError) {
-                notification.classList.add('error');
+                notification.style.backgroundColor = '#dc3545';
+            } else {
+                notification.style.backgroundColor = '#28a745';
             }
+
             notification.style.display = 'block';
 
             setTimeout(function() {
                 notification.style.display = 'none';
-            }, 5000);
+            }, 3000); // 3 seconds
         }
     </script>
 </body>
