@@ -462,6 +462,22 @@ footer p {
     transform: scale(1.1);
 }
 
+/* Donate Flower Button Styles */
+.donate-flower-button {
+    background: linear-gradient(45deg, gold, orange);
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.donate-flower-button:hover {
+    background: linear-gradient(45deg, orange, gold);
+}
+
 /* Add necessary dark mode styles */
 .dark-mode {
     background-color: #333;
