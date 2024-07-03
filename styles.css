@@ -183,6 +183,12 @@ footer {
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
+    z-index: 1000; /* Убедитесь, что элемент выше других контейнеров */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notification.error {
+    background-color: #ff6347; /* Красный цвет для ошибки */
 }
 
 /* Темная тема */
