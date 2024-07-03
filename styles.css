@@ -192,29 +192,16 @@ button:hover, .donate-button:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Стили для галереи и её элементов */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
 .gallery-item img,
 .gallery-item video {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.3s ease;
 }
 
-.gallery-item:hover {
+.gallery-item:hover img,
+.gallery-item:hover video {
     transform: scale(1.1);
 }
 
@@ -230,4 +217,10 @@ button:hover, .donate-button:hover {
     color: #0077cc;
     text-align: center;
     margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .gallery-item {
+        width: 100%;
+    }
 }
