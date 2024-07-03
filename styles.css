@@ -1,7 +1,16 @@
+/* Reset and General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    line-height: 1.6;
+    background-color: #fff;
     color: #333;
+    transition: background-color 0.3s ease;
 }
 
 .container {
@@ -10,156 +19,144 @@ body {
     padding: 20px;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    text-align: center;
-    font-family: 'Great Vibes', cursive;
-}
-
-header nav ul {
-    list-style-type: none;
-    text-align: center;
-    padding: 0;
-}
-
-header nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.donate {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.donate-button {
-    background-color: #0077cc;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-section {
-    margin-bottom: 40px;
-}
-
-section h2 {
-    font-size: 24px;
-    color: #0077cc;
+h1, h2, h3, h4, h5, h6 {
     margin-bottom: 10px;
 }
 
-.section {
-    margin-bottom: 40px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
+a {
+    color: #007bff;
+    text-decoration: none;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 40px;
+a:hover {
+    text-decoration: underline;
 }
 
-#themeToggleBtn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #0077cc;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
+ul {
+    list-style-type: none;
+}
+
+button {
     cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
     border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s ease;
 }
 
-/* Стили для галереи и её элементов */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Header Styles */
+header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+}
+
+nav.categories ul {
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+nav.categories ul li {
+    margin-right: 10px;
 }
 
-.gallery-item img,
-.gallery-item video {
-    width: 100%;
-    height: auto;
-    display: block;
-    cursor: pointer;
-}
-
-.gallery-item h3 {
-    font-size: 20px;
-    color: #0077cc;
-    text-align: center;
-    margin: 10px 0;
-}
-
-.gallery-item p {
-    margin-top: 10px;
-    font-size: 16px;
+nav.categories ul li a {
+    font-size: 18px;
     color: #333;
-    text-align: center;
+    transition: color 0.3s ease;
 }
 
-/* CSS для компактного отображения секций и таблицы с записями */
-.water-lemon-table {
-    max-width: 100%;
-    margin: 0 auto;
-    overflow-x: auto; /* Добавлено для горизонтальной прокрутки при необходимости */
+nav.categories ul li a:hover {
+    color: #007bff;
 }
 
-.water-lemon-table table {
-    width: 100%;
-    border-collapse: collapse;
+.donate {
+    margin-left: auto;
+}
+
+/* Section Styles */
+.section {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
     margin-bottom: 20px;
 }
 
-.water-lemon-table th,
-.water-lemon-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+.section h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.gallery-section {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+.gallery-section ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery-section li {
+    margin: 10px;
+}
+
+.gallery-section a {
+    display: block;
+    padding: 10px;
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.gallery-section a:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
     text-align: center;
 }
 
-.water-lemon-table th {
-    background-color: #f2f2f2;
-    color: #333;
+footer p {
+    font-size: 14px;
+    color: #666;
 }
 
-.water-lemon-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.water-lemon-table tbody tr:hover {
-    background-color: #ddd;
-}
-
-/* Стили для модального окна */
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -169,7 +166,6 @@ footer {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
 }
 
@@ -180,107 +176,55 @@ footer {
     border: 1px solid #888;
     width: 80%;
     max-width: 600px;
+    position: relative;
 }
 
 .modal-content h2 {
     font-size: 24px;
-    color: #333;
+    margin-bottom: 10px;
 }
 
 .modal-content p {
-    font-size: 16px;
-    color: #333;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
 }
 
 .close {
-    color: #aaa;
-    float: right;
+    position: absolute;
+    right: 10px;
+    top: 5px;
     font-size: 28px;
     font-weight: bold;
+    color: #888;
+    cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
-/* Стили для уведомлений */
+/* Notification Styles */
 .notification {
-    display: none;
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #0077cc;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px;
+    background-color: #dc3545;
     color: #fff;
-    padding: 10px 20px;
+    font-size: 16px;
     border-radius: 5px;
-    z-index: 1000; /* Убедитесь, что элемент выше других контейнеров */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
 }
 
 .notification.error {
-    background-color: #ff6347; /* Красный цвет для ошибки */
+    background-color: #dc3545;
 }
 
-/* Темная тема */
-body.dark-mode {
-    background-color: #333;
-    color: #f4f4f4;
-}
-
-body.dark-mode header {
-    background-color: #111;
-}
-
-body.dark-mode footer {
-    background-color: #111;
-}
-
-body.dark-mode .donate-button,
-body.dark-mode #themeToggleBtn {
-    background-color: #555;
-    color: #f4f4f4;
-}
-
-body.dark-mode nav ul li a {
-    color: #f4f4f4;
-}
-
-body.dark-mode .modal-content {
-    background-color: #555;
-    color: #f4f4f4;
-}
-
-/* CSS для компактного отображения секций и таблицы с записями */
-.water-lemon-table {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.water-lemon-table table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-.water-lemon-table th,
-.water-lemon-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-.water-lemon-table th {
-    background-color: #f2f2f2;
-    color: #333;
-}
-
-.water-lemon-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.water-lemon-table tbody tr:hover {
-    background-color: #ddd;
+.notification.success {
+    background-color: #28a745;
 }
