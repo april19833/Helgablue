@@ -202,7 +202,7 @@ button:hover, .donate-button:hover {
 
 .gallery-item:hover img,
 .gallery-item:hover video {
-    transform: scale(1.1);
+    transform: scale(2.0);
 }
 
 .gallery-item p {
