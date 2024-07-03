@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button id="themeToggleBtn">Toggle Theme</button>
     <header style="background-color: #4FC3F7;">
         <div class="container">
             <h1><a href="https://april19833.github.io/Helgablue/" style="color: #ffffff; text-decoration: none;">Gallery</a></h1>
@@ -47,6 +46,10 @@
                 <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
                 <li><a href="https://april19833.github.io/Helgablue/" target="_blank">Helga Website</a></li>
             </ul>
+            <!-- Flower widget for theme toggle -->
+            <div class="flower-widget" onclick="toggleTheme()">
+                <img src="flower.png" alt="Flower" class="flower-icon">
+            </div>
         </section>
     </div>
     <footer>
@@ -63,6 +66,8 @@
         </div>
     </div>
 
+    <div id="notification" class="notification"></div>
+    
     <script src="scripts.js"></script>
 </body>
 </html>
