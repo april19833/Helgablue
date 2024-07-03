@@ -114,6 +114,13 @@ nav.categories ul li a:hover {
     padding: 20px;
     border: 2px solid #ccc;
     border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.gallery-section h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #333;
+    margin-bottom: 10px;
 }
 
 .gallery-section ul {
@@ -141,6 +148,87 @@ nav.categories ul li a:hover {
     background-color: #007bff;
     color: #fff;
     border-color: #007bff;
+}
+
+/* Water with Lemon Section Styles */
+
+#water-lemon {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#water-lemon h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#water-lemon p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+#waterForm {
+    margin-bottom: 20px;
+}
+
+#waterForm label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#waterForm input[type="number"], 
+#waterForm input[type="date"], 
+#waterForm button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#waterForm button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#waterForm button:hover {
+    background-color: #0056b3;
+}
+
+#waterRecords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.record-row {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(50% - 10px);
+    box-sizing: border-box;
+}
+
+.record-row p {
+    margin: 5px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .record-row {
+        width: 100%;
+    }
 }
 
 /* Footer Styles */
