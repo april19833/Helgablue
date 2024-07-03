@@ -213,3 +213,34 @@ body.dark-mode .modal-content {
     background-color: #555;
     color: #f4f4f4;
 }
+/* CSS для компактного отображения секций и таблицы с записями */
+.water-lemon-table {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.water-lemon-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.water-lemon-table th,
+.water-lemon-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.water-lemon-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.water-lemon-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.water-lemon-table tbody tr:hover {
+    background-color: #ddd;
+}
