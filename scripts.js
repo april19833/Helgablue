@@ -1,87 +1,83 @@
-// Theme Toggle
-document.getElementById('themeToggleBtn').addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
+// Dark mode toggle
+const toggleButton = document.querySelector(".toggle-dark-mode");
+
+toggleButton.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
 });
 
-// Modal Open/Close
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('donateModal');
-    const openModalBtn = document.getElementById('openDonateModal');
-    const closeModalBtn = document.querySelector('.modal .close');
+// Modal
+const modal = document.getElementById("myModal");
+const btn = document.querySelector(".donate");
+const span = document.getElementsByClassName("close")[0];
 
-    if (openModalBtn && closeModalBtn && modal) {
-        openModalBtn.addEventListener('click', function() {
-            modal.style.display = 'block';
-        });
+btn.onclick = function() {
+  modal.style.display = "block";
+}
 
-        closeModalBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    }
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
-    // Close notification on close button click
-    const closeButton = document.querySelector('.notification .close');
-    if (closeButton) {
-        closeButton.addEventListener('click', function() {
-            const notification = document.getElementById('notification');
-            notification.style.display = 'none';
-        });
-    }
-});
+// Notifications
+function showNotification(type, message) {
+  const notification = document.getElementById("notification");
+  notification.className = `notification ${type}`;
+  notification.innerText = message;
+  notification.style.display = "block";
+  setTimeout(() => {
+    notification.style.display = "none";
+  }, 3000);
+}
 
 // Record Water Function
 function recordWater() {
-    const cupsCount = document.getElementById('cupsCount').value;
+  const cupsCount = document.getElementById('cupsCount').value;
 
-    if (!cupsCount || cupsCount < 1) {
-        showNotification('Please enter a valid number of cups.', true);
-        return;
-    }
+  if (!cupsCount || cupsCount < 1) {
+    showNotification('error', 'Please enter a valid number of cups.');
+    return;
+  }
 
-    const currentDate = new Date();
-    const date = currentDate.toLocaleDateString();
-    const time = currentDate.toLocaleTimeString();
+  const currentDate = new Date();
+  const date = currentDate.toLocaleDateString();
+  const time = currentDate.toLocaleTimeString();
 
-    const newRow = document.createElement('tr');
-    const dateCell = document.createElement('td');
-    const timeCell = document.createElement('td');
-    const cupsCell = document.createElement('td');
+  const newRow = document.createElement('tr');
+  const dateCell = document.createElement('td');
+  const timeCell = document.createElement('td');
+  const cupsCell = document.createElement('td');
 
-    dateCell.textContent = date;
-    timeCell.textContent = time;
-    cupsCell.textContent = cupsCount;
+  dateCell.textContent = date;
+  timeCell.textContent = time;
+  cupsCell.textContent = cupsCount;
 
-    newRow.appendChild(dateCell);
-    newRow.appendChild(timeCell);
-    newRow.appendChild(cupsCell);
+  newRow.appendChild(dateCell);
+  newRow.appendChild(timeCell);
+  newRow.appendChild(cupsCell);
 
-    const tableBody = document.getElementById('waterRecords');
-    tableBody.appendChild(newRow);
+  const tableBody = document.querySelector('#waterRecords tbody');
+  tableBody.appendChild(newRow);
 
-    showNotification('Water with lemon successfully recorded!', false);
+  showNotification('success', 'Water with lemon successfully recorded!');
 
-    document.getElementById('cupsCount').value = '';
+  document.getElementById('cupsCount').value = '';
 }
 
 // Notification Function
-function showNotification(message, isError) {
-    const notification = document.getElementById('notification');
-    notification.textContent = message;
-    notification.classList.remove('error', 'success'); // Remove both error and success classes
-    if (isError) {
-        notification.classList.add('error');
-    } else {
-        notification.classList.add('success');
-    }
-    notification.style.display = 'block';
+function showNotification(type, message) {
+  const notification = document.getElementById('notification');
+  notification.textContent = message;
+  notification.classList.remove('error', 'success'); // Remove both error and success classes
+  notification.classList.add(type);
+  notification.style.display = 'block';
 
-    setTimeout(function() {
-        notification.style.display = 'none';
-    }, 5000);
+  setTimeout(function() {
+    notification.style.display = 'none';
+  }, 5000);
 }
