@@ -35,6 +35,24 @@ function recordWater() {
         showNotification('Please enter a valid number of cups.', true);
         return;
     }
+// Создаем новую строку для таблицы
+const newRow = document.createElement('tr');
+
+// Создаем ячейки для даты и количества чашек
+const dateCell = document.createElement('td');
+const cupsCell = document.createElement('td');
+
+// Устанавливаем значения ячеек
+dateCell.textContent = new Date().toLocaleDateString(); // Используем текущую дату
+cupsCell.textContent = cupsCount;
+
+// Добавляем ячейки в строку
+newRow.appendChild(dateCell);
+newRow.appendChild(cupsCell);
+
+// Добавляем строку в таблицу
+const tableBody = document.getElementById('waterRecords');
+tableBody.appendChild(newRow);
 
     // В данном примере просто показываем успешное уведомление через 1 секунду
     setTimeout(function() {
