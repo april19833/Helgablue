@@ -357,38 +357,20 @@ color: #fff;
 
 /* Flower Widget Styles for Gallery Section */
 .gallery-section .flower-widget {
-position: fixed;
-bottom: 20px;
-right: 20px;
-cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
 }
 
-.gallery-section .flower-icon {
-width: 50px;
-height: 50px;
-background: radial-gradient(circle at center, #FFD700, #FFA500, #FF4500);
-border-radius: 50%;
-transition: transform 0.3s ease;
+.flower-icon {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle at center, #FFD700, #FFA500, #FF4500);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
 }
 
-.gallery-section .flower-icon
-{
-transform: scale(1.1);
-}
-
-/* Donate Flower Button Styles for Gallery Section */
-.gallery-section .donate-flower-button {
-background: linear-gradient(45deg, gold, orange);
-border: none;
-padding: 10px 20px;
-color: white;
-font-size: 16px;
-cursor: pointer;
-border-radius: 5px;
-transition: background 0.3s ease;
-}
-
-.gallery-section .donate-flower-button
-{
-background: linear-gradient(45deg, orange, gold);
+.flower-icon:hover {
+    transform: scale(1.1);
 }
