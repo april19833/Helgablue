@@ -1,78 +1,121 @@
-/* Общие стили для контейнера */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивная сетка на основе ширины контейнера */
-    gap: 20px;
 }
 
-/* Стили для header */
 header {
-    background-color: #0077cc;
+    background-color: #333;
     color: #fff;
     padding: 10px 0;
-    text-align: center;
+    margin-bottom: 20px;
 }
 
 header h1 {
-    font-size: 36px;
-    margin: 0;
-    text-transform: uppercase;
+    text-align: center;
     font-family: 'Great Vibes', cursive;
 }
 
-nav ul {
+header nav ul {
     list-style-type: none;
+    text-align: center;
     padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
-nav ul li {
-    margin: 5px 10px;
+header nav ul li {
+    display: inline;
+    margin: 0 10px;
 }
 
-nav ul li a {
+header nav ul li a {
     color: #fff;
     text-decoration: none;
-    padding: 5px 10px;
-    background-color: #005fa3;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-nav ul li a:hover {
-    background-color: #004080;
+.donate {
+    text-align: center;
+    margin-top: 10px;
 }
 
 .donate-button {
-    background-color: #28a745;
+    background-color: #0077cc;
     color: #fff;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 5px;
 }
 
-.donate-button:hover {
-    background-color: #218838;
-    transform: scale(1.05);
+section {
+    margin-bottom: 40px;
 }
 
-.theme-switch {
+section h2 {
+    font-size: 24px;
+    color: #0077cc;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 40px;
+}
+
+#themeToggleBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #0077cc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Стили для галереи и её элементов */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.gallery-item img,
+.gallery-item video {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.gallery-item h3 {
+    font-size: 20px;
+    color: #0077cc;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.gallery-item p {
     margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.theme-switch input {
-    margin-right: 10px;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
 }
 
 /* Стили для модального окна */
@@ -86,16 +129,26 @@ nav ul li a:hover {
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
-    transition: display 0.3s;
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #fff;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    max-width: 600px;
     border-radius: 8px;
+}
+
+.modal-content h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.modal-content p {
+    font-size: 16px;
+    color: #333;
 }
 
 .close {
@@ -116,105 +169,39 @@ nav ul li a:hover {
 .notification {
     display: none;
     position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: #28a745;
-    color: white;
-    padding: 15px;
+    top: 20px;
+    right: 20px;
+    background-color: #0077cc;
+    color: #fff;
+    padding: 10px 20px;
     border-radius: 5px;
-    z-index: 1000;
-}
-
-.notification.show {
-    display: block;
-}
-
-/* Стили для разделов */
-section {
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: background-color 0.3s;
-}
-
-section h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
 }
 
 /* Темная тема */
-body.dark-theme {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-body.dark-theme header {
-    background-color: #1f1f1f;
-}
-
-body.dark-theme nav ul li a {
+body.dark-mode {
     background-color: #333;
+    color: #f4f4f4;
 }
 
-body.dark-theme nav ul li a:hover {
+body.dark-mode header {
+    background-color: #111;
+}
+
+body.dark-mode footer {
+    background-color: #111;
+}
+
+body.dark-mode .donate-button,
+body.dark-mode #themeToggleBtn {
     background-color: #555;
+    color: #f4f4f4;
 }
 
-body.dark-theme .donate-button {
-    background-color: #218838;
+body.dark-mode nav ul li a {
+    color: #f4f4f4;
 }
 
-body.dark-theme section {
-    background-color: #343a40;
-    color: #ccc;
-}
-
-/* Стили для кнопок */
-button, .donate-button {
-    transition: transform 0.3s;
-}
-
-button:hover, .donate-button:hover {
-    transform: scale(1.05);
-}
-
-/* Стили для раздела галереи */
-#gallery {
-    margin-top: 40px;
-}
-
-#gallery ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#gallery ul li {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-#gallery ul li a {
-    text-decoration: none;
-    color: #0077cc;
-    font-size: 18px;
-    transition: color 0.3s;
-}
-
-#gallery ul li a:hover {
-    color: #005fa3;
-}
-
-#gallery h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 20px;
-    font-family: 'Great Vibes', cursive;
-}
-
-#gallery p {
-    text-align: center;
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 40px;
+body.dark-mode .modal-content {
+    background-color: #555;
+    color: #f4f4f4;
 }
