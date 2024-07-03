@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery Monad</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            text-align: center;
+        }
+        .gallery-item img, .gallery-item video {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,39 +27,42 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <!-- Add other navigation links if needed -->
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="gallery-monad.html">Gallery Monad</a></li>
+                    <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
+                    <li><a href="https://april19833.github.io/Helgablue/" target="_blank">GitHub Site</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <div class="gallery-container">
-        <div class="gallery-column">
-            <h2>Photos Monad</h2>
+    <div class="container">
+        <section>
+            <h2>Gallery Monad</h2>
+            <p>Explore the gallery of Monad projects.</p>
             <div class="gallery">
-                <img src="photo1.jpg" alt="Photo 1">
-                <img src="photo2.jpg" alt="Photo 2">
-                <!-- Add more photos as needed -->
+                <div class="gallery-item">
+                    <img src="images/a-heist-at-the-monad-crypto-project-lilac-hedgehog-sTdFWJinR8y4ghs5kYxEYg-IbBe5AfzQaOVcCjOLrIjgg.jpeg" alt="Project 1">
+                    <p>Project 1 description</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/tired-cat-lowered-his-head-into-a-watermelon-the-w-8ija-ESySNSBaRevb0oulw-CnzYhrUGSP60JT-7rYUf1Q.jpeg" alt="Project 2">
+                    <p>Project 2 description</p>
+                </div>
+                <div class="gallery-item">
+                    <video controls>
+                        <source src="videos/4cfc5f7f-3194-47dd-896b-01b828f0175d.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>Project 3 video description</p>
+                </div>
             </div>
-        </div>
-        <div class="gallery-column">
-            <h2>Videos Monad</h2>
-            <div class="gallery">
-                <video controls>
-                    <source src="video1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <video controls>
-                    <source src="video2.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <!-- Add more videos as needed -->
-            </div>
-        </div>
+        </section>
     </div>
     <footer>
         <div class="container">
-            <p>© 2024 My blog. All rights reserved.</p>
+            <p>© 2024 Helga Blue. All rights reserved.</p>
         </div>
     </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
