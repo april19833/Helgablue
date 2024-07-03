@@ -6,72 +6,27 @@
     <title>Gallery Monad</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1, h2 {
-            text-align: center;
-        }
-        .gallery {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .gallery-column {
-            flex-basis: calc(50% - 10px);
-        }
-        .gallery-item {
-            margin-bottom: 20px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
+        .gallery-item img {
             transition: transform 0.3s ease;
-        }
-        .gallery-item img,
-        .gallery-item video {
-            width: 100%;
+            max-width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.3s ease;
         }
-        .gallery-item img:hover,
-        .gallery-item video:hover {
+
+        .gallery-item img:hover {
             transform: scale(1.1);
         }
-        .gallery-item p {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            text-align: center;
-            font-size: 18px;
-            padding: 20px;
-            box-sizing: border-box;
-            transition: opacity 0.3s ease;
-        }
-        .gallery-item:hover p {
-            display: block;
-        }
+
         @media (max-width: 768px) {
             .gallery {
-                flex-direction: column;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
             }
-            .gallery-column {
-                flex-basis: 100%;
+
+            .gallery-item {
+                width: 100%;
+                margin-bottom: 20px;
             }
         }
     </style>
@@ -96,24 +51,20 @@
             <h2>Gallery Monad</h2>
             <p>Explore the gallery of Monad projects.</p>
             <div class="gallery">
-                <div class="gallery-column">
-                    <div class="gallery-item">
-                        <img src="images/a-heist-at-the-monad-crypto-project-lilac-hedgehog-sTdFWJinR8y4ghs5kYxEYg-IbBe5AfzQaOVcCjOLrIjgg.jpeg" alt="Project 1">
-                        <p>Project 1 description</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/tired-cat-lowered-his-head-into-a-watermelon-the-w-8ija-ESySNSBaRevb0oulw-CnzYhrUGSP60JT-7rYUf1Q.jpeg" alt="Project 2">
-                        <p>Project 2 description</p>
-                    </div>
+                <div class="gallery-item">
+                    <img src="images/a-heist-at-the-monad-crypto-project-lilac-hedgehog-sTdFWJinR8y4ghs5kYxEYg-IbBe5AfzQaOVcCjOLrIjgg.jpeg" alt="Project 1">
+                    <p>Project 1 description</p>
                 </div>
-                <div class="gallery-column">
-                    <div class="gallery-item">
-                        <video controls>
-                            <source src="videos/4cfc5f7f-3194-47dd-896b-01b828f0175d.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <p>Project 3 video description</p>
-                    </div>
+                <div class="gallery-item">
+                    <img src="images/tired-cat-lowered-his-head-into-a-watermelon-the-w-8ija-ESySNSBaRevb0oulw-CnzYhrUGSP60JT-7rYUf1Q.jpeg" alt="Project 2">
+                    <p>Project 2 description</p>
+                </div>
+                <div class="gallery-item">
+                    <video controls>
+                        <source src="videos/4cfc5f7f-3194-47dd-896b-01b828f0175d.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>Project 3 video description</p>
                 </div>
             </div>
         </section>
