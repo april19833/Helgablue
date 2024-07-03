@@ -33,6 +33,23 @@
         </div>
     </header>
     <div class="container">
+        <section id="neural-network" class="section">
+            <h2>Neural Network</h2>
+            <!-- Add content specific to Neural Network section -->
+        </section>
+
+        <section id="yoga" class="section">
+            <h2>Yoga</h2>
+            <!-- Add content specific to Yoga section -->
+        </section>
+
+        <section id="nft" class="section">
+            <h2>NFT</h2>
+            <!-- Add content specific to NFT section -->
+        </section>
+
+        <!-- Repeat the above structure for all other sections -->
+
         <section id="water-lemon" class="section">
             <h2>Water with Lemon</h2>
             <div class="water-lemon-content">
@@ -62,6 +79,7 @@
             </div>
         </section>
 
+        <!-- Notification -->
         <div id="notification" class="notification"></div>
     </div>
     <footer>
@@ -70,6 +88,7 @@
         </div>
     </footer>
 
+    <!-- Donate Modal -->
     <div id="donateModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -78,14 +97,15 @@
         </div>
     </div>
 
+    <!-- JavaScript -->
     <script src="scripts.js"></script>
     <script>
-        // Переключение темы
+        // Theme Toggle
         document.getElementById('themeToggleBtn').addEventListener('click', function() {
             document.body.classList.toggle('dark-mode');
         });
 
-        // Открытие и закрытие модального окна
+        // Modal Open/Close
         document.addEventListener('DOMContentLoaded', function() {
             const modal = document.getElementById('donateModal');
             const openModalBtn = document.getElementById('openDonateModal');
@@ -108,7 +128,7 @@
             }
         });
 
-        // Функция для записи воды с лимоном
+        // Record Water Function
         function recordWater() {
             const cupsCount = document.getElementById('cupsCount').value;
 
@@ -121,49 +141,40 @@
             const date = currentDate.toLocaleDateString();
             const time = currentDate.toLocaleTimeString();
 
-            // Создаем новую строку для таблицы
             const newRow = document.createElement('tr');
-
-            // Создаем ячейки для даты, времени и количества чашек
             const dateCell = document.createElement('td');
             const timeCell = document.createElement('td');
             const cupsCell = document.createElement('td');
 
-            // Устанавливаем значения ячеек
             dateCell.textContent = date;
             timeCell.textContent = time;
             cupsCell.textContent = cupsCount;
 
-            // Добавляем ячейки в строку
             newRow.appendChild(dateCell);
             newRow.appendChild(timeCell);
             newRow.appendChild(cupsCell);
 
-            // Добавляем строку в таблицу
             const tableBody = document.getElementById('waterRecords');
             tableBody.appendChild(newRow);
 
-            // Показываем уведомление об успешной записи
             showNotification('Water with lemon successfully recorded!', false);
 
-            // Очищаем поле формы
             document.getElementById('cupsCount').value = '';
         }
 
-        // Функция для показа уведомления
+        // Notification Function
         function showNotification(message, isError) {
             const notification = document.getElementById('notification');
             notification.textContent = message;
-            notification.classList.remove('error'); // Удаляем класс ошибки, если он есть
+            notification.classList.remove('error');
             if (isError) {
-                notification.classList.add('error'); // Добавляем класс ошибки для красного фона
+                notification.classList.add('error');
             }
-            notification.style.display = 'block'; // Показываем уведомление
+            notification.style.display = 'block';
 
-            // Автоматически скрываем через 5 секунд
             setTimeout(function() {
                 notification.style.display = 'none';
-            }, 5000); // 5000 миллисекунд = 5 секунд
+            }, 5000);
         }
     </script>
 </body>
