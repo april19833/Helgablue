@@ -213,6 +213,7 @@ body.dark-mode .modal-content {
     background-color: #555;
     color: #f4f4f4;
 }
+
 /* CSS для компактного отображения секций и таблицы с записями */
 .water-lemon-table {
     max-width: 600px;
