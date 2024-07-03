@@ -65,7 +65,7 @@ function recordWater() {
     newRow.appendChild(timeCell);
     newRow.appendChild(cupsCell);
 
-    const tableBody = document.getElementById('waterRecords');
+    const tableBody = document.getElementById('waterRecords').getElementsByTagName('tbody')[0];
     tableBody.appendChild(newRow);
 
     showNotification('Water with lemon successfully recorded!', false);
@@ -77,4 +77,12 @@ function recordWater() {
 const flowerWidget = document.querySelector(".flower-widget");
 if (flowerWidget) {
     flowerWidget.addEventListener("click", toggleTheme);
+}
+
+// Adding event listener to the donate button in the gallery section
+const donateFlowerButton = document.querySelector(".donate-flower-button");
+if (donateFlowerButton) {
+    donateFlowerButton.addEventListener("click", () => {
+        modal.style.display = "block";
+    });
 }
