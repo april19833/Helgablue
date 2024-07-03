@@ -1,4 +1,4 @@
-/* Reset and General Styles */
+/* General Styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -151,7 +151,6 @@ nav.categories ul li a:hover {
 }
 
 /* Water with Lemon Section Styles */
-
 #water-lemon {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -329,191 +328,67 @@ footer p {
 
 .dark-mode .section {
     background-color: #444;
-    border-color: #666;
+border-color: #666;
+color: #fff;
+}
+
+.dark-mode .section h2 {
+color: #fff;
 }
 
 .dark-mode .gallery-section {
-    background-color: #666;
-    border-color: #888;
+background-color: #555;
+border-color: #777;
 }
 
-.dark-mode .gallery-section a {
-    color: #fff;
-    border-color: #fff;
+.dark-mode .gallery-section h2 {
+color: #fff;
 }
 
-.dark-mode footer {
-    background-color: #555;
-    color: #ccc;
+.dark-mode #water-lemon {
+background-color: #444;
+border-color: #666;
+color: #fff;
 }
 
-.dark-mode .modal-content {
-    background-color: #222;
-    border-color: #444;
-    color: #fff;
+.dark-mode #water-lemon h2 {
+color: #fff;
 }
 
-.dark-mode .close {
-    color: #ccc;
-}
-/* Additional styles for progress bar, form, and table */
-
-.water-lemon-form {
-    margin-bottom: 20px;
-}
-
-.water-lemon-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-family: 'Roboto', sans-serif;
-    color: #333;
+/* Flower Widget Styles for Gallery Section */
+.gallery-section .flower-widget {
+position: fixed;
+bottom: 20px;
+right: 20px;
+cursor: pointer;
 }
 
-.water-lemon-form input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.gallery-section .flower-icon {
+width: 50px;
+height: 50px;
+background: radial-gradient(circle at center, #FFD700, #FFA500, #FF4500);
+border-radius: 50%;
+transition: transform 0.3s ease;
 }
 
-.water-lemon-form button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.gallery-section .flower-icon
+{
+transform: scale(1.1);
 }
 
-.water-lemon-form button:hover {
-    background-color: #0056b3;
+/* Donate Flower Button Styles for Gallery Section */
+.gallery-section .donate-flower-button {
+background: linear-gradient(45deg, gold, orange);
+border: none;
+padding: 10px 20px;
+color: white;
+font-size: 16px;
+cursor: pointer;
+border-radius: 5px;
+transition: background 0.3s ease;
 }
 
-.water-lemon-table {
-    margin-top: 20px;
-}
-
-.water-lemon-table h3 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.water-lemon-table table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.water-lemon-table th, .water-lemon-table td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ccc;
-}
-
-.water-lemon-table th {
-    background-color: #f0f0f0;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    color: #333;
-}
-
-.water-lemon-table td {
-    font-family: 'Roboto', sans-serif;
-    color: #555;
-}
-
-.notification {
-    display: none;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-.notification.error {
-    background-color: #dc3545;
-    color: #fff;
-}
-
-.notification.success {
-    background-color: #28a745;
-    color: #fff;
-}
-/* Flower Widget Styles */
-.flower-widget {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    cursor: pointer;
-}
-
-.flower-icon {
-    width: 50px;
-    height: 50px;
-    transition: transform 0.3s ease;
-}
-
-.flower-icon:hover {
-    transform: scale(1.1);
-}
-
-/* Donate Flower Button Styles */
-.donate-flower-button {
-    background: linear-gradient(45deg, gold, orange);
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.donate-flower-button:hover {
-    background: linear-gradient(45deg, orange, gold);
-}
-
-/* Add necessary dark mode styles */
-.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
-.dark-mode header {
-    background-color: #555;
-}
-
-.dark-mode .section {
-    background-color: #444;
-    border-color: #666;
-}
-
-.dark-mode .gallery-section {
-    background-color: #666;
-    border-color: #888;
-}
-
-.dark-mode .gallery-section a {
-    color: #fff;
-    border-color: #fff;
-}
-
-.dark-mode footer {
-    background-color: #555;
-    color: #ccc;
-}
-
-.dark-mode .modal-content {
-    background-color: #222;
-    border-color: #444;
-    color: #fff;
-}
-
-.dark-mode .close {
-    color: #ccc;
+.gallery-section .donate-flower-button
+{
+background: linear-gradient(45deg, orange, gold);
 }
