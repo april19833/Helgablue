@@ -5,7 +5,7 @@ function toggleTheme() {
 
 // Modal
 const modal = document.getElementById("donateModal");
-const btn = document.querySelector(".donate-button");
+const btn = document.querySelector(".donate-flower-button");
 const span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
