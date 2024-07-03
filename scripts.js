@@ -34,3 +34,15 @@ document.querySelectorAll('.gallery-item img, .gallery-item video').forEach(item
         }
     });
 });
+
+// Функция для записи данных "Water with Lemon"
+function recordWater() {
+    const cupsCount = document.getElementById('cupsCount').value;
+    const timeOfDay = document.getElementById('timeOfDay').value;
+    
+    if (cupsCount && timeOfDay) {
+        const record = document.createElement('div');
+        record.textContent = `You drank ${cupsCount} cup(s) of water with lemon at ${timeOfDay}`;
+        document.getElementById('waterRecords').appendChild(record);
+    }
+}
