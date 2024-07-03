@@ -35,18 +35,65 @@ document.querySelectorAll('.gallery-item img, .gallery-item video').forEach(item
     });
 });
 
-// Функция для записи данных "Water with Lemon"
+// Функция для записи данных о потреблении воды с лимоном
 function recordWater() {
-    const cupsCount = document.getElementById('cupsCount').value;
-    const timeOfDay = document.getElementById('timeOfDay').value;
-    
-    if (cupsCount && timeOfDay) {
-        const tableBody = document.getElementById('waterRecords');
-        const newRow = tableBody.insertRow();
-        const dateCell = newRow.insertCell();
-        const cupsCell = newRow.insertCell();
+    // Получаем данные из формы
+    let cupsCount = document.getElementById('cupsCount').value;
+    let timeOfDay = document.getElementById('timeOfDay').value;
 
-        dateCell.textContent = timeOfDay;
-        cupsCell.textContent = cupsCount;
+    // Проверяем, что оба поля заполнены
+    if (cupsCount.trim() === '' || timeOfDay.trim() === '') {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    // Создаем новую строку для таблицы
+    let newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        <td>${timeOfDay}</td>
+        <td>${cupsCount}</td>
+    `;
+
+    // Добавляем новую строку в таблицу
+    let tableBody = document.getElementById('waterRecords');
+    tableBody.appendChild(newRow);
+
+    // Показываем уведомление
+    showNotification('Water with lemon recorded successfully.');
+}
+
+// Функция для показа уведомления
+function showNotification(message) {
+    let notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.style.display = 'block';
+
+    // Скрываем уведомление через 3 секунды
+    setTimeout(function() {
+        notification.style.display = 'none';
+    }, 3000);
+}
+
+// Скрипт для кнопки Toggle Theme (если нужно)
+document.getElementById('themeToggleBtn').addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+});
+
+// Скрипт для модального окна Donate (если нужно)
+let modal = document.getElementById('donateModal');
+let openModalBtn = document.getElementById('openDonateModal');
+let closeModalBtn = document.getElementsByClassName('close')[0];
+
+openModalBtn.onclick = function() {
+    modal.style.display = 'block';
+}
+
+closeModalBtn.onclick = function() {
+    modal.style.display = 'none';
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
     }
 }
