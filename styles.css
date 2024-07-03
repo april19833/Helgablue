@@ -356,3 +356,91 @@ footer p {
 .dark-mode .close {
     color: #ccc;
 }
+/* Additional styles for progress bar, form, and table */
+
+.water-lemon-form {
+    margin-bottom: 20px;
+}
+
+.water-lemon-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+.water-lemon-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.water-lemon-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.water-lemon-form button:hover {
+    background-color: #0056b3;
+}
+
+.water-lemon-table {
+    margin-top: 20px;
+}
+
+.water-lemon-table h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.water-lemon-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.water-lemon-table th, .water-lemon-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+.water-lemon-table th {
+    background-color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: #333;
+}
+
+.water-lemon-table td {
+    font-family: 'Roboto', sans-serif;
+    color: #555;
+}
+
+.notification {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.notification.error {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.notification.success {
+    background-color: #28a745;
+    color: #fff;
+}
