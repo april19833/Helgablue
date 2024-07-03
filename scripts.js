@@ -41,8 +41,12 @@ function recordWater() {
     const timeOfDay = document.getElementById('timeOfDay').value;
     
     if (cupsCount && timeOfDay) {
-        const record = document.createElement('div');
-        record.textContent = `You drank ${cupsCount} cup(s) of water with lemon at ${timeOfDay}`;
-        document.getElementById('waterRecords').appendChild(record);
+        const tableBody = document.getElementById('waterRecords');
+        const newRow = tableBody.insertRow();
+        const dateCell = newRow.insertCell();
+        const cupsCell = newRow.insertCell();
+
+        dateCell.textContent = timeOfDay;
+        cupsCell.textContent = cupsCount;
     }
 }
