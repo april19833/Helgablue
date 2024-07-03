@@ -3,56 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery Monad</title>
+    <title>Helga Blue</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
+    <button id="themeToggleBtn">Toggle Theme</button>
     <header>
         <div class="container">
-            <h1>Gallery Monad</h1>
+            <h1>Welcome to Orbit</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="gallery-monad.html">Gallery Monad</a></li>
-                    <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
-                    <li><a href="https://april19833.github.io/Helgablue/" target="_blank">GitHub Site</a></li>
+                    <li><a href="#neural-network">Neural Network</a></li>
+                    <li><a href="#yoga">Yoga</a></li>
+                    <li><a href="#nft">NFT</a></li>
+                    <li><a href="#spy-women">Spy Women</a></li>
+                    <li><a href="#sales-funnel">Sales Funnel</a></li>
+                    <li><a href="#water-lemon">Water with Lemon</a></li>
+                    <li><a href="#fresh-skin">Fresh Skin</a></li>
+                    <li><a href="#asmr-meditation">ASMR Meditation</a></li>
+                    <li><a href="#herbarium-therapy">Herbarium Therapy</a></li>
+                    <li><a href="#crypto">Crypto</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
+            <div class="donate">
+                <button id="openDonateModal" class="donate-button">Donate</button>
+            </div>
         </div>
     </header>
     <div class="container">
-        <section id="photo-section">
-            <h2>Photos</h2>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="images/a-heist-at-the-monad-crypto-project-lilac-hedgehog-sTdFWJinR8y4ghs5kYxEYg-IbBe5AfzQaOVcCjOLrIjgg.jpeg" alt="Project 1">
-                    <p>Hedgehog Monad_1</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/tired-cat-lowered-his-head-into-a-watermelon-the-w-8ija-ESySNSBaRevb0oulw-CnzYhrUGSP60JT-7rYUf1Q.jpeg" alt="Project 2">
-                    <p>Hedgehog Monad_2</p>
-                </div>
+        <section id="neural-network">
+            <h2>Neural Network</h2>
+            <p>Learn about neural networks and their applications.</p>
+        </section>
+
+        <section id="yoga">
+            <h2>Yoga</h2>
+            <p>Explore the world of yoga and its benefits.</p>
+        </section>
+
+        <section id="nft">
+            <h2>NFT</h2>
+            <p>Understand NFTs and their impact on the digital world.</p>
+        </section>
+
+        <section id="spy-women">
+            <h2>Spy Women</h2>
+            <p>Discover the stories of spy women and their quests for angel investors.</p>
+        </section>
+
+        <section id="sales-funnel">
+            <h2>Sales Funnel</h2>
+            <p>Learn how to create and optimize sales funnels.</p>
+        </section>
+
+        <section id="water-lemon">
+            <h2>Water with Lemon</h2>
+            <p>The benefits of drinking water with lemon in the morning.</p>
+            
+            <form id="waterForm">
+                <label for="cupsCount">How many cups of water with lemon did you drink today?</label><br>
+                <input type="number" id="cupsCount" name="cupsCount" min="0" step="1"><br>
+                
+                <label for="timeOfDay">What time of day did you drink them?</label><br>
+                <input type="date" id="timeOfDay" name="timeOfDay"><br>
+                
+                <button type="button" onclick="recordWater()">Record</button>
+            </form>
+            
+            <div id="waterRecords">
+                <!-- Records will be dynamically added here -->
             </div>
         </section>
-        <section id="video-section">
-            <h2>Videos</h2>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <video controls>
-                        <source src="videos/4cfc5f7f-3194-47dd-896b-01b828f0175d.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <p>Hedgehog Monad video</p>
-                </div>
-            </div>
+
+        <div id="notification" class="notification"></div>
+
+        <section id="fresh-skin">
+            <h2>Fresh Skin</h2>
+            <p>Tips for maintaining fresh and healthy skin.</p>
+        </section>
+
+        <section id="asmr-meditation">
+            <h2>ASMR Meditation</h2>
+            <p>Explore ASMR meditation techniques for relaxation.</p>
+        </section>
+
+        <section id="herbarium-therapy">
+            <h2>Herbarium Therapy</h2>
+            <p>Discover the healing properties of herbarium therapy.</p>
+        </section>
+
+        <section id="crypto">
+            <h2>Crypto</h2>
+            <p>A beginner's guide to understanding and investing in cryptocurrencies.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>For course payments, visit <a href="https://helga.beam.eco/" target="_blank">helga.beam.eco</a>.</p>
+        </section>
+        
+        <!-- Блок для галереи работ -->
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <ul>
+                <li><a href="gallery-monad.html">Gallery Monad</a></li>
+                <!-- Добавьте ссылки на другие галереи по мере их создания -->
+            </ul>
         </section>
     </div>
     <footer>
         <div class="container">
-            <p>© 2024 Helga Blue. All rights reserved.</p>
+            <p>© 2024 My blog. All rights reserved.</p>
         </div>
     </footer>
+
+    <div id="donateModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Support Our Work</h2>
+            <p>For course payments, visit <a href="https://helga.beam.eco/" target="_blank">helga.beam.eco</a>.</p>
+        </div>
+    </div>
+
     <script src="scripts.js"></script>
 </body>
 </html>
