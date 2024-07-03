@@ -12,7 +12,7 @@
     <header>
         <div class="container">
             <h1>Welcome to Orbit</h1>
-            <nav>
+            <nav class="categories">
                 <ul>
                     <li><a href="#neural-network">Neural Network</a></li>
                     <li><a href="#yoga">Yoga</a></li>
@@ -60,31 +60,32 @@
 
         <section id="water-lemon" class="section">
             <h2>Water with Lemon</h2>
-            <p>The benefits of drinking water with lemon in the morning.</p>
-            
-            <div class="water-lemon-table">
-                <table id="waterRecordsTable">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Cups</th>
-                        </tr>
-                    </thead>
-                    <tbody id="waterRecords">
-                        <!-- Records will be dynamically added here -->
-                    </tbody>
-                </table>
+            <div class="water-lemon-content">
+                <div class="water-lemon-form">
+                    <form id="waterForm">
+                        <label for="cupsCount">How many cups of water with lemon did you drink today?</label><br>
+                        <input type="number" id="cupsCount" name="cupsCount" min="0" step="1"><br>
+                        
+                        <label for="timeOfDay">What time of day did you drink them?</label><br>
+                        <input type="date" id="timeOfDay" name="timeOfDay"><br>
+                        
+                        <button type="button" onclick="recordWater()">Record</button>
+                    </form>
+                </div>
+                <div class="water-lemon-table">
+                    <table id="waterRecordsTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Cups</th>
+                            </tr>
+                        </thead>
+                        <tbody id="waterRecords">
+                            <!-- Records will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-            <form id="waterForm">
-                <label for="cupsCount">How many cups of water with lemon did you drink today?</label><br>
-                <input type="number" id="cupsCount" name="cupsCount" min="0" step="1"><br>
-                
-                <label for="timeOfDay">What time of day did you drink them?</label><br>
-                <input type="date" id="timeOfDay" name="timeOfDay"><br>
-                
-                <button type="button" onclick="recordWater()">Record</button>
-            </form>
         </section>
 
         <div id="notification" class="notification"></div>
