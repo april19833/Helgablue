@@ -3,9 +3,6 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивная сетка на основе ширины контейнера */
-    gap: 20px;
 }
 
 /* Стили для header */
@@ -29,7 +26,6 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
 nav ul li {
@@ -40,7 +36,6 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     padding: 5px 10px;
-    background-color: #005fa3;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -49,183 +44,10 @@ nav ul li a:hover {
     background-color: #004080;
 }
 
-.donate-button {
-    background-color: #28a745;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.donate-button:hover {
-    background-color: #218838;
-    transform: scale(1.05);
-}
-
-.theme-switch {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.theme-switch input {
-    margin-right: 10px;
-}
-
-/* Стили для модального окна */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-    transition: display 0.3s;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    border-radius: 8px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Стили для уведомлений */
-.notification {
-    display: none;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: #28a745;
-    color: white;
-    padding: 15px;
-    border-radius: 5px;
-    z-index: 1000;
-}
-
-.notification.show {
-    display: block;
-}
-
-/* Стили для разделов */
-section {
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: background-color 0.3s;
-}
-
-section h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-/* Темная тема */
-body.dark-theme {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-body.dark-theme header {
-    background-color: #1f1f1f;
-}
-
-body.dark-theme nav ul li a {
-    background-color: #333;
-}
-
-body.dark-theme nav ul li a:hover {
-    background-color: #555;
-}
-
-body.dark-theme .donate-button {
-    background-color: #218838;
-}
-
-body.dark-theme section {
-    background-color: #343a40;
-    color: #ccc;
-}
-
-/* Стили для кнопок */
-button, .donate-button {
-    transition: transform 0.3s;
-}
-
-button:hover, .donate-button:hover {
-    transform: scale(1.05);
-}
-/* Стили для раздела галереи */
-#gallery {
-    margin-top: 40px;
-}
-
-#gallery ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#gallery ul li {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-#gallery ul li a {
-    text-decoration: none;
-    color: #0077cc;
-    font-size: 18px;
-    transition: color 0.3s;
-}
-
-#gallery ul li a:hover {
-    color: #005fa3;
-}
-
-#gallery h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 20px;
-    font-family: 'Great Vibes', cursive;
-}
-
-#gallery p {
-    text-align: center;
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 40px;
-}
-/* Стили для раздела галереи */
-#gallery {
-    margin-top: 40px;
-    text-align: center;
-}
-
+/* Стили для галереи и её элементов */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
@@ -234,6 +56,7 @@ button:hover, .donate-button:hover {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
 .gallery-item img,
@@ -241,11 +64,9 @@ button:hover, .donate-button:hover {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.3s ease;
 }
 
-.gallery-item:hover img,
-.gallery-item:hover video {
+.gallery-item:hover {
     transform: scale(1.1);
 }
 
@@ -261,4 +82,10 @@ button:hover, .donate-button:hover {
     color: #0077cc;
     text-align: center;
     margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
 }
