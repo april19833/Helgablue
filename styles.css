@@ -3,6 +3,9 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивная сетка на основе ширины контейнера */
+    gap: 20px;
 }
 
 /* Стили для header */
@@ -61,6 +64,17 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
+.theme-switch {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-switch input {
+    margin-right: 10px;
+}
+
 /* Стили для модального окна */
 .modal {
     display: none;
@@ -117,7 +131,6 @@ nav ul li a:hover {
 
 /* Стили для разделов */
 section {
-    margin: 20px 0;
     padding: 20px;
     background-color: #f8f9fa;
     border-radius: 8px;
@@ -128,4 +141,67 @@ section {
 section h2 {
     font-size: 28px;
     margin-bottom: 10px;
+}
+
+/* Темная тема */
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-theme header {
+    background-color: #1f1f1f;
+}
+
+body.dark-theme nav ul li a {
+    background-color: #333;
+}
+
+body.dark-theme nav ul li a:hover {
+    background-color: #555;
+}
+
+body.dark-theme .donate-button {
+    background-color: #218838;
+}
+
+body.dark-theme section {
+    background-color: #343a40;
+    color: #ccc;
+}
+
+/* Стили для кнопок */
+button, .donate-button {
+    transition: transform 0.3s;
+}
+
+button:hover, .donate-button:hover {
+    transform: scale(1.05);
+}
+
+/* Стили для галереи и её элементов */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.gallery-item img,
+.gallery-item video {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:hover video {
+    transform: scale(1.1);
 }
