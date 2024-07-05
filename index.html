@@ -102,11 +102,15 @@
             <h1>Welcome to Orbit</h1>
             <nav class="categories">
                 <ul>
-                    <li><a href="#crypto">Crypto</a></li>
-                    <li><a href="#crypto-neural-network" class="less-noticeable">Crypto Neural Network</a></li>
-                    <li><a href="#crypto-sport" class="less-noticeable">Crypto Sport</a></li>
+                    <li><a href="#neural-network" class="less-noticeable">Neural Network</a></li>
+                    <li><a href="#yoga" class="less-noticeable">Yoga</a></li>
                     <li><a href="#nft">NFT</a></li>
+                    <li><a href="#spy-women" class="less-noticeable">Spy Women</a></li>
+                    <li><a href="#sales-funnel" class="less-noticeable">Sales Funnel</a></li>
                     <li><a href="#water-lemon">Water with Lemon</a></li>
+                    <li><a href="#fresh-skin" class="less-noticeable">Fresh Skin</a></li>
+                    <li><a href="#asmr-meditation" class="less-noticeable">ASMR Meditation</a></li>
+                    <li><a href="#herbarium-therapy" class="less-noticeable">Herbarium Therapy</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -116,24 +120,29 @@
         </div>
     </header>
     <div class="container">
-        <section id="crypto" class="section">
-            <h2>Crypto</h2>
-            <!-- Add content specific to Crypto section -->
+        <section id="neural-network" class="section">
+            <h2>Neural Network</h2>
+            <!-- Add content specific to Neural Network section -->
         </section>
 
-        <section id="crypto-neural-network" class="section">
-            <h2>Crypto Neural Network</h2>
-            <!-- Add content specific to Crypto Neural Network section -->
-        </section>
-
-        <section id="crypto-sport" class="section">
-            <h2>Crypto Sport</h2>
-            <!-- Add content specific to Crypto Sport section -->
+        <section id="yoga" class="section">
+            <h2>Yoga</h2>
+            <!-- Add content specific to Yoga section -->
         </section>
 
         <section id="nft" class="section">
             <h2>NFT</h2>
             <!-- Add content specific to NFT section -->
+        </section>
+
+        <section id="spy-women" class="section">
+            <h2>Spy Women</h2>
+            <!-- Add content specific to Spy Women section -->
+        </section>
+
+        <section id="sales-funnel" class="section">
+            <h2>Sales Funnel</h2>
+            <!-- Add content specific to Sales Funnel section -->
         </section>
 
         <section id="water-lemon" class="section">
@@ -168,6 +177,36 @@
                     <p id="progressText">0 / 10 cups</p>
                 </div>
             </div>
+        </section>
+
+        <section id="fresh-skin" class="section">
+            <h2>Fresh Skin</h2>
+            <!-- Add content specific to Fresh Skin section -->
+        </section>
+
+        <section id="asmr-meditation" class="section">
+            <h2>ASMR Meditation</h2>
+            <!-- Add content specific to ASMR Meditation section -->
+        </section>
+
+        <section id="herbarium-therapy" class="section">
+            <h2>Herbarium Therapy</h2>
+            <!-- Add content specific to Herbarium Therapy section -->
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <!-- Add content specific to Contact section -->
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section gallery-section">
+            <h2>Gallery</h2>
+            <ul>
+                <li><a href="gallery-monad.html">Gallery Monad</a></li>
+                <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
+                <!-- Add more galleries as needed -->
+            </ul>
         </section>
 
         <!-- Notification -->
@@ -223,37 +262,59 @@
         function recordWater() {
             const cupsCountInput = document.getElementById('cupsCount');
             const cupsCount = parseInt(cupsCountInput.value);
-            if (isNaN(cupsCount) || cupsCount <= 0) {
-                alert('Please enter a valid number of cups.');
-                return;
+
+            if (!isNaN(cupsCount) && cupsCount > 0) {
+                // Record the water consumption
+                const currentDate = new Date();
+                const recordTime = currentDate.toLocaleTimeString();
+                const recordDate = currentDate.toLocaleDateString();
+
+                const tableBody = document.getElementById('waterRecords');
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td>${recordDate}</td>
+                    <td>${recordTime}</td>
+                    <td>${cupsCount}</td>
+                `;
+                tableBody.appendChild(newRow);
+
+                // Update progress bar
+                updateProgressBar(cupsCount);
+                
+                // Clear input
+                cupsCountInput.value = '';
+
+                // Show notification
+                showNotification('green', 'Water consumption recorded successfully.');
+            } else {
+                // Show error notification
+                showNotification('red', 'Please enter a valid number of cups.');
             }
+        }
 
-            const currentDate = new Date();
-            const dateString = currentDate.toLocaleDateString();
-            const timeString = currentDate.toLocaleTimeString();
-
-            const waterRecordsTable = document.getElementById('waterRecords');
-            const newRow = waterRecordsTable.insertRow();
-            newRow.innerHTML = `
-                <td>${dateString}</td>
-                <td>${timeString}</td>
-                <td>${cupsCount}</td>
-            `;
-
-            // Update progress bar
-            const waterProgress = document.getElementById('waterProgress');
-            const currentProgress = parseInt(waterProgress.value) || 0;
-            const newProgress = currentProgress + cupsCount;
-            const maxProgress = parseInt(waterProgress.max);
-
-            waterProgress.value = Math.min(newProgress, maxProgress);
-
-            // Update progress text
+        // Update Progress Bar Function
+        function updateProgressBar(cups) {
+            const progressBar = document.getElementById('waterProgress');
             const progressText = document.getElementById('progressText');
-            progressText.textContent = `${waterProgress.value} / ${maxProgress} cups`;
+            let currentProgress = parseInt(progressBar.value);
+            const maxProgress = parseInt(progressBar.max);
 
-            // Reset the input field
-            cupsCountInput.value = '';
+            if (!isNaN(currentProgress)) {
+                currentProgress += cups;
+                progressBar.value = currentProgress;
+                progressText.textContent = `${currentProgress} / ${maxProgress} cups`;
+            }
+        }
+
+        // Notification Function
+        function showNotification(color, message) {
+            const notification = document.getElementById('notification');
+            notification.innerHTML = message;
+            notification.style.backgroundColor = color;
+
+            setTimeout(function() {
+                notification.innerHTML = '';
+            }, 3000);
         }
     </script>
 </body>
