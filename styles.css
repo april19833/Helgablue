@@ -432,3 +432,22 @@ color: #fff;
 body.dark-mode #theme-toggle {
     color: #f1c40f;
 }
+.moon-widget {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 10px; /* Adjust margin as needed */
+    position: relative;
+    width: 30px; /* Adjust size as needed */
+    height: 30px; /* Adjust size as needed */
+}
+
+.moon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #f1c40f; /* Adjust color as needed */
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
