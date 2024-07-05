@@ -3,6 +3,10 @@ function toggleTheme() {
     document.body.classList.toggle("dark-mode");
 }
 
+function toggleTheme() {
+    document.querySelector('#gallery').classList.toggle('dark-mode');
+}
+
 // Modal
 const modal = document.getElementById("donateModal");
 const btn = document.querySelector(".donate-flower-button");
