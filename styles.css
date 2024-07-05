@@ -243,53 +243,24 @@ footer p {
     color: #666;
 }
 
-/* Стили для виджета цветка */
-.flower-widget {
-    display: inline-block;
-    cursor: pointer;
+.star-widget {
+    width: 40px; /* Ширина звезды */
+    height: 40px; /* Высота звезды */
+    background-color: transparent;
     position: relative;
-    width: 50px;
-    height: 50px;
-    background-color: #f1c40f; /* Цвет цветка */
-    border-radius: 50%; /* Круглая форма */
-    text-align: center;
-    line-height: 50px;
-    color: white;
+    cursor: pointer;
 }
 
-.flower-petal {
+.star {
     position: absolute;
-    width: 10px;
-    height: 25px;
-    background-color: #f1c40f; /* Цвет лепестков */
-    transform-origin: 50% 100%;
-}
-
-.flower-petal:nth-child(1) {
-    transform: rotate(30deg);
-}
-
-.flower-petal:nth-child(2) {
-    transform: rotate(90deg);
-}
-
-.flower-petal:nth-child(3) {
-    transform: rotate(150deg);
-}
-
-.flower-petal:nth-child(4) {
-    transform: rotate(210deg);
-}
-
-.flower-center {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: white; /* Цвет центра цветка */
-    border-radius: 50%; /* Круглая форма */
-    left: 50%;
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 18px solid #FFD700; /* Цвет звезды (золотой) */
 }
 
 /* Стили для кнопки-переключателя темы в виде луны */
