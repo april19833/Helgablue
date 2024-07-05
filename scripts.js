@@ -94,7 +94,6 @@ if (donateFlowerButton) {
 document.addEventListener('DOMContentLoaded', function () {
     const themeToggleButton = document.getElementById('theme-toggle');
     
-    themeToggleButton.addEventListener('click', function () {
-        document.body.classList.toggle('dark-mode');
-    });
-});
+    themeToggleButton.addEventListener('click', function toggleTheme() {
+    document.body.classList.toggle('dark-mode'); // Toggle dark mode class on body
+}
