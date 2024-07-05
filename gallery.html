@@ -12,17 +12,18 @@
     <div class="container">
         <h1><a href="https://april19833.github.io/Helgablue/" style="color: #ffffff; text-decoration: none;">Gallery</a></h1>
         <nav class="categories">
-            <!-- Add navigation items if needed -->
+            <!-- Добавление навигационных элементов, если нужно -->
         </nav>
         <div class="donate">
-            <button id="donate-button">Donate</button>
-        </div>
-        <!-- Donate Modal -->
-    <div id="donateModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Support Our Work</h2>
-            <p>For course payments, visit <a href="https://helga.beam.eco/" target="_blank">helga.beam.eco</a>.</p>
+            <a href="https://beam.eco/u/helga" target="_blank" class="donate-button">Donate via Beam Wallet</a>
+            <div class="flower-widget" onclick="showDonateModal()">
+                <div class="flower-petal"></div>
+                <div class="flower-petal"></div>
+                <div class="flower-petal"></div>
+                <div class="flower-petal"></div>
+                <div class="flower-center"></div>
+                <p>Donate</p>
+            </div>
         </div>
         <div class="moon-widget" onclick="toggleTheme()">
             <div class="moon"></div>
@@ -82,7 +83,7 @@
 <!-- Модальное окно для поддержки -->
 <div id="donateModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" onclick="closeModal()">&times;</span>
         <h2>Support Our Work</h2>
         <p>For course payments, visit <a href="https://helga.beam.eco/" target="_blank">helga.beam.eco</a>.</p>
     </div>
@@ -91,7 +92,7 @@
 <!-- Всплывающее окно уведомления о записи воды с лимоном -->
 <div id="waterRecordNotification" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" onclick="closeWaterRecordModal()">&times;</span>
         <h2>Уведомление</h2>
         <p>Water with lemon successfully recorded!</p>
         <div class="flower-widget">
@@ -105,6 +106,21 @@
     </div>
 </div>
 
-<script src="scripts.js"></script>
+<script>
+    function showDonateModal() {
+        var modal = document.getElementById('donateModal');
+        modal.style.display = 'block';
+    }
+
+    function closeModal() {
+        var modal = document.getElementById('donateModal');
+        modal.style.display = 'none';
+    }
+
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode'); // Добавляем или удаляем класс dark-mode у body
+    }
+</script>
+
 </body>
 </html>
