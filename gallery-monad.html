@@ -5,7 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery Monad</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 10px 0 0 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .section {
+            margin: 20px 0;
+        }
         .gallery {
             display: flex;
             flex-wrap: wrap;
@@ -13,17 +53,66 @@
             gap: 20px;
         }
         .gallery-item {
-            flex: 0 1 calc(25% - 20px); /* 4 items per row */
+            flex: 0 1 calc(25% - 20px);
             margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
         }
         .gallery-item img, .gallery-item video {
             display: block;
             width: 100%;
             height: auto;
             cursor: pointer;
+            border-radius: 5px;
         }
         .gallery-item video {
             max-width: 100%;
+        }
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            position: relative;
+            padding: 20px;
+            width: 80%;
+            max-width: 700px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .modal img {
+            width: 100%;
+            height: auto;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: #333;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
         }
     </style>
 </head>
@@ -43,7 +132,7 @@
         </div>
     </header>
     <div class="container">
-        <section id="photo-section" class="gallery-section">
+        <section id="photo-section" class="section">
             <h2>AI Monad Photos</h2>
             <div class="gallery">
                 <div class="gallery-item">
@@ -63,7 +152,7 @@
                 </div>
             </div>
         </section>
-        <section id="video-section" class="gallery-section">
+        <section id="video-section" class="section">
             <h2>AI Monad Videos</h2>
             <div class="gallery">
                 <div class="gallery-item">
@@ -75,47 +164,35 @@
             </div>
         </section>
     </div>
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="">
+        </div>
+    </div>
     <footer>
         <div class="container">
             <p>© 2024 Helga Blue. All rights reserved.</p>
         </div>
     </footer>
     <script>
-        // JavaScript для открытия изображений в полноэкранном режиме
         document.addEventListener('DOMContentLoaded', function () {
             const galleryItems = document.querySelectorAll('.gallery-item img');
-            const modal = document.createElement('div');
-            modal.id = 'imageModal';
-            modal.classList.add('modal');
-            document.body.appendChild(modal);
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const closeBtn = document.querySelector('.close');
 
             galleryItems.forEach(item => {
                 item.addEventListener('click', () => {
-                    const modalContent = document.createElement('div');
-                    modalContent.classList.add('modal-content');
-                    modal.innerHTML = ''; // Clear previous content
-                    modal.appendChild(modalContent);
-
-                    const closeBtn = document.createElement('span');
-                    closeBtn.classList.add('close');
-                    closeBtn.innerHTML = '&times;';
-                    modalContent.appendChild(closeBtn);
-
-                    const modalImg = document.createElement('img');
-                    modalImg.src = item.src;
-                    modalImg.classList.add('modal-img');
-                    modalContent.appendChild(modalImg);
-
                     modal.style.display = 'flex';
-
-                    // Event listener to close modal
-                    closeBtn.addEventListener('click', () => {
-                        modal.style.display = 'none';
-                    });
+                    modalImg.src = item.src;
                 });
             });
 
-            // Close modal when clicking outside image
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
             window.addEventListener('click', (event) => {
                 if (event.target === modal) {
                     modal.style.display = 'none';
