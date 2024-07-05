@@ -247,64 +247,75 @@ footer p {
 .flower-widget {
     display: inline-block;
     cursor: pointer;
-    margin: 10px 0;
     position: relative;
     width: 50px;
     height: 50px;
+    background-color: #f1c40f; /* Цвет цветка */
+    border-radius: 50%; /* Круглая форма */
+    text-align: center;
+    line-height: 50px;
+    color: white;
 }
 
 .flower-petal {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #FFD700;
-    border-radius: 50%;
+    width: 10px;
+    height: 25px;
+    background-color: #f1c40f; /* Цвет лепестков */
+    transform-origin: 50% 100%;
 }
 
 .flower-petal:nth-child(1) {
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    transform: rotate(30deg);
 }
 
 .flower-petal:nth-child(2) {
-    top: 50%;
-    left: 100%;
-    transform: translateY(-50%);
+    transform: rotate(90deg);
 }
 
 .flower-petal:nth-child(3) {
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -100%);
+    transform: rotate(150deg);
 }
 
 .flower-petal:nth-child(4) {
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    transform: rotate(210deg);
 }
 
 .flower-center {
     position: absolute;
-    top: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: white; /* Цвет центра цветка */
+    border-radius: 50%; /* Круглая форма */
     left: 50%;
-    width: 20px;
-    height: 20px;
-    background: #FF4500;
-    border-radius: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
 }
 
-.flower-widget p {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    color: #333;
+/* Стили для кнопки-переключателя темы в виде луны */
+.moon-widget {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 10px; /* Отступ слева */
+    position: relative;
+    width: 30px; /* Ширина */
+    height: 30px; /* Высота */
 }
-/* Modal Styles */
+
+.moon {
+    position: absolute;
+    width: 20px; /* Ширина луны */
+    height: 20px; /* Высота луны */
+    background-color: #f1c40f; /* Цвет луны */
+    border-radius: 50%; /* Круглая форма */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Стили для модального окна */
 .modal {
-    display: none;
+    display: none; /* По умолчанию скрыто */
     position: fixed;
     z-index: 1;
     left: 0;
@@ -322,132 +333,25 @@ footer p {
     border: 1px solid #888;
     width: 80%;
     max-width: 600px;
-    position: relative;
-}
-
-.modal-content h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.modal-content p {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 20px;
 }
 
 .close {
-    position: absolute;
-    right: 10px;
-    top: 5px;
+    color: #aaa;
+    float: right;
     font-size: 28px;
     font-weight: bold;
-    color: #888;
-    cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-    color: #000;
+    color: black;
     text-decoration: none;
     cursor: pointer;
 }
 
-/* Notification Styles */
-.notification {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 15px;
-    background-color: #dc3545;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 5px;
-    display: none;
-}
-
-.notification.error {
-    background-color: #dc3545;
-}
-
-.notification.success {
-    background-color: #28a745;
-}
-
-/* Dark Mode Styles */
+/* Темная тема */
 .dark-mode {
-    background-color: #333;
-    color: #fff;
+    background-color: #222; /* Цвет фона для темной темы */
+    color: #fff; /* Цвет текста для темной темы */
 }
-
-.dark-mode header {
-    background-color: #555;
-}
-
-.dark-mode .section {
-    background-color: #444;
-border-color: #666;
-color: #fff;
-}
-
-.dark-mode .section h2 {
-color: #fff;
-}
-
-.dark-mode .gallery-section {
-background-color: #555;
-border-color: #777;
-}
-
-.dark-mode .gallery-section h2 {
-color: #fff;
-}
-
-.dark-mode #water-lemon {
-background-color: #444;
-border-color: #666;
-color: #fff;
-}
-
-.dark-mode #water-lemon h2 {
-color: #fff;
-}
-.flower-icon:hover {
-    transform: scale(1.1);
-}
-/* Theme Toggle Button */
-#theme-toggle {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-#theme-toggle:hover {
-    transform: scale(1.2);
-}
-
-body.dark-mode #theme-toggle {
-    color: #f1c40f;
-}
-.moon-widget {
-    display: inline-block;
-    cursor: pointer;
-    margin-left: 10px; /* Adjust margin as needed */
-    position: relative;
-    width: 30px; /* Adjust size as needed */
-    height: 30px; /* Adjust size as needed */
-}
-
-.moon {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #f1c40f; /* Adjust color as needed */
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+</style>
