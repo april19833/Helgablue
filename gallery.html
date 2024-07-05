@@ -22,7 +22,7 @@
                 <div class="flower-petal"></div>
                 <div class="flower-petal"></div>
                 <div class="flower-center"></div>
-            <p></p>
+                <p></p>
             </div>
         </div>
         <div class="moon-widget" onclick="toggleTheme()">
@@ -119,6 +119,36 @@
 
     function toggleTheme() {
         document.body.classList.toggle('dark-mode'); // Добавляем или удаляем класс dark-mode у body
+    }
+
+    function recordWater() {
+        var cupsCount = document.getElementById('cupsCount').value;
+        var timeOfDay = document.getElementById('timeOfDay').value;
+        
+        if (!cupsCount || !timeOfDay) {
+            alert("Please fill in all fields.");
+            return;
+        }
+        
+        var table = document.getElementById('waterRecords').getElementsByTagName('tbody')[0];
+        var newRow = table.insertRow();
+        
+        var dateCell = newRow.insertCell(0);
+        var timeCell = newRow.insertCell(1);
+        var cupsCell = newRow.insertCell(2);
+        
+        dateCell.innerHTML = new Date().toLocaleDateString();
+        timeCell.innerHTML = timeOfDay;
+        cupsCell.innerHTML = cupsCount;
+
+        // Show notification
+        var notification = document.getElementById('waterRecordNotification');
+        notification.style.display = 'block';
+    }
+
+    function closeWaterRecordModal() {
+        var notification = document.getElementById('waterRecordNotification');
+        notification.style.display = 'none';
     }
 </script>
 
