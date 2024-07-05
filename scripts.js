@@ -90,3 +90,11 @@ if (donateFlowerButton) {
         modal.style.display = "block";
     });
 }
+// script.js
+document.addEventListener('DOMContentLoaded', function () {
+    const themeToggleButton = document.getElementById('theme-toggle');
+    
+    themeToggleButton.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+    });
+});
