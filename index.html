@@ -87,6 +87,12 @@
             font-family: 'Roboto', sans-serif;
             color: #555;
         }
+
+        /* Less noticeable categories */
+        .less-noticeable {
+            font-size: 14px;
+            color: #888;
+        }
     </style>
 </head>
 <body>
@@ -96,15 +102,15 @@
             <h1>Welcome to Orbit</h1>
             <nav class="categories">
                 <ul>
-                    <li><a href="#neural-network">Neural Network</a></li>
-                    <li><a href="#yoga">Yoga</a></li>
+                    <li><a href="#neural-network" class="less-noticeable">Neural Network</a></li>
+                    <li><a href="#yoga" class="less-noticeable">Yoga</a></li>
                     <li><a href="#nft">NFT</a></li>
-                    <li><a href="#spy-women">Spy Women</a></li>
-                    <li><a href="#sales-funnel">Sales Funnel</a></li>
+                    <li><a href="#spy-women" class="less-noticeable">Spy Women</a></li>
+                    <li><a href="#sales-funnel" class="less-noticeable">Sales Funnel</a></li>
                     <li><a href="#water-lemon">Water with Lemon</a></li>
-                    <li><a href="#fresh-skin">Fresh Skin</a></li>
-                    <li><a href="#asmr-meditation">ASMR Meditation</a></li>
-                    <li><a href="#herbarium-therapy">Herbarium Therapy</a></li>
+                    <li><a href="#fresh-skin" class="less-noticeable">Fresh Skin</a></li>
+                    <li><a href="#asmr-meditation" class="less-noticeable">ASMR Meditation</a></li>
+                    <li><a href="#herbarium-therapy" class="less-noticeable">Herbarium Therapy</a></li>
                     <li><a href="#crypto">Crypto</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -258,71 +264,41 @@
             }
         });
 
-        // Record Water Function
+        // Water Recording Functionality
         function recordWater() {
-            const cupsCount = parseInt(document.getElementById('cupsCount').value, 10);
-
-            if (isNaN(cupsCount) || cupsCount < 1) {
-                showNotification('Please enter a valid number of cups.', true);
+            const cupsCountInput = document.getElementById('cupsCount');
+            const cupsCount = parseInt(cupsCountInput.value);
+            if (isNaN(cupsCount) || cupsCount <= 0) {
+                alert('Please enter a valid number of cups.');
                 return;
             }
 
-            // Update progress bar
-            const progress = document.getElementById('waterProgress');
-            const progressText = document.getElementById('progressText');
-            let currentProgress = parseInt(progress.value, 10);
-            currentProgress += cupsCount;
-
-            progress.value = currentProgress;
-            progressText.textContent = `${currentProgress} / 10 cups`;
-
-            // Record and display in table
-            recordWaterInTable(cupsCount);
-
-            showNotification('Water with lemon successfully recorded!', false);
-
-            document.getElementById('cupsCount').value = '';
-        }
-
-        // Record Water in Table Function
-        function recordWaterInTable(cupsCount) {
             const currentDate = new Date();
-            const date = currentDate.toLocaleDateString();
-            const time = currentDate.toLocaleTimeString();
+            const dateString = currentDate.toLocaleDateString();
+            const timeString = currentDate.toLocaleTimeString();
 
-            const newRow = document.createElement('tr');
-            const dateCell = document.createElement('td');
-            const timeCell = document.createElement('td');
-            const cupsCell = document.createElement('td');
+            const waterRecordsTable = document.getElementById('waterRecords');
+            const newRow = waterRecordsTable.insertRow();
+            newRow.innerHTML = `
+                <td>${dateString}</td>
+                <td>${timeString}</td>
+                <td>${cupsCount}</td>
+            `;
 
-            dateCell.textContent = date;
-            timeCell.textContent = time;
-            cupsCell.textContent = cupsCount;
+            // Update progress bar
+            const waterProgress = document.getElementById('waterProgress');
+            const currentProgress = parseInt(waterProgress.value) || 0;
+            const newProgress = currentProgress + cupsCount;
+            const maxProgress = parseInt(waterProgress.max);
 
-            newRow.appendChild(dateCell);
-            newRow.appendChild(timeCell);
-            newRow.appendChild(cupsCell);
+            waterProgress.value = Math.min(newProgress, maxProgress);
 
-            const tableBody = document.getElementById('waterRecords');
-            tableBody.appendChild(newRow);
-        }
+            // Update progress text
+            const progressText = document.getElementById('progressText');
+            progressText.textContent = `${waterProgress.value} / ${maxProgress} cups`;
 
-        // Notification Function
-        function showNotification(message, isError) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-
-            if (isError) {
-                notification.style.backgroundColor = '#dc3545';
-            } else {
-                notification.style.backgroundColor = '#28a745';
-            }
-
-            notification.style.display = 'block';
-
-            setTimeout(function() {
-                notification.style.display = 'none';
-            }, 3000); // 3 seconds
+            // Reset the input field
+            cupsCountInput.value = '';
         }
     </script>
 </body>
