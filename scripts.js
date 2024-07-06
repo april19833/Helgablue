@@ -408,3 +408,35 @@
     </script>
 </body>
 </html>
+<script>
+    function showWidget(widgetName) {
+        var widgets = document.getElementsByClassName(widgetName + "-widget");
+        for (var i = 0; i < widgets.length; i++) {
+            widgets[i].classList.toggle("active");
+        }
+    }
+
+    function closeNotification() {
+        var notification = document.getElementById('notification');
+        notification.classList.remove('active');
+    }
+
+    // Добавленный код для работы виджета
+    document.addEventListener('DOMContentLoaded', function () {
+        var flowerWidget = document.getElementById('flower-widget');
+
+        // При клике в любое место страницы, скрывать виджет цветка
+        document.addEventListener('click', function (event) {
+            if (!flowerWidget.contains(event.target)) {
+                flowerWidget.classList.remove('active');
+            }
+        });
+
+        // При клике на кнопку "Donate to support our projects", показывать/скрывать виджет
+        var donateButton = document.querySelector('.donate .button');
+        donateButton.addEventListener('click', function (event) {
+            event.stopPropagation(); // Остановить всплытие события, чтобы не сработал клик по document
+            showWidget('flower');
+        });
+    });
+</script>
