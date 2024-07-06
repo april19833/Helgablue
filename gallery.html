@@ -248,142 +248,107 @@
     <header>
         <div class="container">
             <h1><a href="https://april19833.github.io/Helgablue/" style="color: #ffffff; text-decoration: none;">Gallery</a></h1>
-            <nav class="categories">
-            </nav>
-            <div class="donate">
-                <a href="https://beam.eco/u/helga" target="_blank" class="donate-button"></a>
-                <div class="flower-widget" onclick="showDonateModal()">
-                    <div class="flower-petal"></div>
-                    <div class="flower-petal"></div>
-                    <div class="flower-petal"></div>
-                    <div class="flower-petal"></div>
-                    <div class="flower-center"></div>
-                    <p></p>
-                </div>
-            </div>
-            <div class="moon-widget" onclick="toggleTheme()">
-                <div class="moon"></div>
-            </div>
         </div>
     </header>
 
     <div class="container">
         <section id="water-lemon">
             <h2>Water with Lemon</h2>
-            <p>The benefits of drinking water with lemon in the morning.</p>
-            
-            <form id="waterForm">
-                <label for="cupsCount">How many cups of water with lemon did you drink today?</label><br>
-                <input type="number" id="cupsCount" name="cupsCount" min="0" step="1"><br>
-                
-                <label for="timeOfDay">What time of day did you drink them?</label><br>
-                <input type="date" id="timeOfDay" name="timeOfDay"><br>
-                
-                <button type="button" onclick="recordWater()">Record</button>
+            <p>Record your daily water intake with a twist of lemon.</p>
+            <form id="water-form">
+                <label for="quantity">Quantity (ml)</label>
+                <input type="number" id="quantity" name="quantity" required>
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+                <button type="submit">Save</button>
             </form>
-            
-            <table id="waterRecords">
+            <table id="water-table">
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th>Time</th>
-                        <th>Cups</th>
+                        <th>Quantity (ml)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Records will be dynamically added here -->
+                    <!-- Table rows will be dynamically added here -->
                 </tbody>
             </table>
         </section>
 
-        <section id="gallery" style="text-align: center;">
-            <h2>Gallery</h2>
-            <ul>
-                <li><a href="gallery-monad.html">Gallery Monad</a></li>
-                <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
-                <li><a href="https://april19833.github.io/Helgablue/" target="_blank">Helga Website</a></li>
-            </ul>
-        </section>
-    </div>
-
-    <footer>
-        <div class="container">
-            <p>© 2024 My blog. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Всплывающее окно уведомления -->
-    <div id="notification" class="notification"></div>
-
-    <!-- Модальное окно для поддержки -->
-    <div id="donateModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Support Our Work</h2>
-            <p>For course payments, visit <a href="https://helga.beam.eco/" target="_blank">helga.beam.eco</a>.</p>
+        <!-- Notification Box -->
+        <div id="notification" class="notification">
+            <span class="notification-close" onclick="closeNotification()">×</span>
+            <p>Record saved successfully!</p>
         </div>
     </div>
 
-    <!-- Всплывающее окно уведомления о записи воды с лимоном -->
-    <div id="waterRecordNotification" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeWaterRecordModal()">&times;</span>
-            <h2>Notification</h2>
-            <p>Water with lemon successfully recorded!</p>
-            <div class="flower-widget">
-                <div class="flower-petal"></div>
-                <div class="flower-petal"></div>
-                <div class="flower-petal"></div>
-                <div class="flower-petal"></div>
-                <div class="flower-center"></div>
-                <p>Thank you!</p>
-            </div>
-        </div>
-    </div>
-
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/confetti.js@0.0.12"></script>
     <script>
-        function showDonateModal() {
-            var modal = document.getElementById('donateModal');
-            modal.style.display = 'block';
-        }
-    
-        function closeModal() {
-            var modal = document.getElementById('donateModal');
-            modal.style.display = 'none';
-        }
-    
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode'); // Добавляем или удаляем класс dark-mode у body
-        }
-    
-        function recordWater() {
-            var cupsCount = document.getElementById('cupsCount').value;
-            var timeOfDay = document.getElementById('timeOfDay').value;
-            
-            if (!cupsCount || !timeOfDay) {
-                alert("Please fill in all fields.");
-                return;
-            }
-            
-            var table = document.getElementById('waterRecords').getElementsByTagName('tbody')[0];
-            var newRow = table.insertRow();
-            
-            var dateCell = newRow.insertCell(0);
-            var timeCell = newRow.insertCell(1);
-            var cupsCell = newRow.insertCell(2);
-            
-            dateCell.innerHTML = new Date().toLocaleDateString();
-            timeCell.innerHTML = timeOfDay;
-            cupsCell.innerHTML = cupsCount;
-    
+        // Function to handle form submission
+        document.getElementById('water-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get form values
+            var quantity = document.getElementById('quantity').value;
+            var date = document.getElementById('date').value;
+
+            // Add new row to table
+            var table = document.getElementById('water-table').getElementsByTagName('tbody')[0];
+            var row = table.insertRow(0);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            cell1.textContent = date;
+            cell2.textContent = quantity;
+
             // Show notification
-            var notification = document.getElementById('waterRecordNotification');
-            notification.style.display = 'block';
+            var notification = document.getElementById('notification');
+            notification.classList.add('active');
+
+            // Clear form
+            document.getElementById('quantity').value = '';
+            document.getElementById('date').value = '';
+
+            // Trigger confetti animation
+            startConfetti();
+        });
+
+        // Function to close notification
+        function closeNotification() {
+            var notification = document.getElementById('notification');
+            notification.classList.remove('active');
         }
-    
-        function closeWaterRecordModal() {
-            var notification = document.getElementById('waterRecordNotification');
-            notification.style.display = 'none';
+
+        // Function to start confetti animation
+        function startConfetti() {
+            confetti.start();
+            setTimeout(function() {
+                confetti.stop();
+            }, 3000); // Stop confetti after 3 seconds
+        }
+    </script>
+
+    <!-- Flower Widget -->
+    <div class="flower-widget">
+        <div class="flower-petal"></div>
+        <div class="flower-petal"></div>
+        <div class="flower-petal"></div>
+        <div class="flower-petal"></div>
+        <div class="flower-center"></div>
+        <p>Donate via Beam Wallet</p>
+    </div>
+
+    <!-- Moon Widget -->
+    <div class="moon-widget" onclick="toggleTheme()">
+        <div class="moon"></div>
+    </div>
+
+    <!-- JavaScript for Dark Mode Toggle -->
+    <script>
+        // Function to toggle dark mode
+        function toggleTheme() {
+            var body = document.body;
+            body.classList.toggle('dark-mode');
         }
     </script>
 </body>
