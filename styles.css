@@ -50,6 +50,51 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+/* Общие стили для шапки */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 0 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+/* Медиа-запросы для адаптации шапки на мобильных устройствах */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em; /* Уменьшаем размер шрифта для заголовка */
+    }
+
+    nav ul {
+        flex-direction: column; /* Элементы списка становятся в столбец */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Уменьшаем отступы между элементами списка */
+    }
+}
 
 /* Header Styles */
 header {
