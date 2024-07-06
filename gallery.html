@@ -219,38 +219,62 @@
         <p>Content for Gallery Mezo goes <a href="https://april19833.github.io/Helgablue/gallery-mezo.html">here</a>.</p>
     </section>
 
+    <section id="gallery" class="gallery-section">
+        <h2>Gallery</h2>
+        <p>Content for Gallery goes <a href="https://april19833.github.io/Helgablue/gallery.html">here</a>.</p>
+    </section>
+
     <div class="donate">
         <button onclick="showWidget('flower')" class="button donation__bitcoin">Donate to support our projects</button>
-        <div id="flower-widget" class="flower-widget">
-            <div class="flower-petal"></div>
-            <div class="flower-petal"></div>
-            <div class="flower-petal"></div>
-            <div class="flower-petal"></div>
-            <div class="flower-center"></div>
-            <p>Donate to support our projects</p>
-        </div>
-
-        <div class="moon-widget" onclick="showWidget('moon')">
-            <div class="moon"></div>
-        </div>
     </div>
 
-    <div id="notification" class="notification">
-        <span onclick="closeNotification()" class="notification-close">&times;</span>
-        <p>Thank you for your donation!</p>
+    <div id="flower-widget" class="flower-widget">
+        <div class="flower-petal"></div>
+        <div class="flower-petal"></div>
+        <div class="flower-petal"></div>
+        <div class="flower-petal"></div>
+        <div class="flower-center"></div>
+        <p>Click <a href="https://beam.eco/u/helga">here</a> to donate</p>
+    </div>
+
+    <div id="notification">
+        <span class="notification-close" onclick="hideNotification()">&times;</span>
+        <p id="notification-message"></p>
     </div>
 
     <script>
-        function showWidget(widgetName) {
-            var widgets = document.getElementsByClassName(widgetName + "-widget");
-            for (var i = 0; i < widgets.length; i++) {
-                widgets[i].classList.toggle("active");
+        function showNotification(message, type) {
+            const notification = document.getElementById('notification');
+            const notificationMessage = document.getElementById('notification-message');
+            notificationMessage.textContent = message;
+
+            if (type === 'success') {
+                notification.style.backgroundColor = '#4CAF50';
+            } else if (type === 'error') {
+                notification.style.backgroundColor = '#F44336';
             }
+
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
         }
 
-        function closeNotification() {
-            var notification = document.getElementById('notification');
-            notification.classList.remove('active');
+        function hideNotification() {
+            const notification = document.getElementById('notification');
+            notification.style.display = 'none';
+        }
+
+        function showWidget(widgetId) {
+            const widgets = document.querySelectorAll('.flower-widget, .moon-widget');
+            widgets.forEach(widget => {
+                widget.classList.remove('active');
+            });
+
+            const widget = document.getElementById(widgetId + '-widget');
+            if (widget) {
+                widget.classList.add('active');
+            }
         }
     </script>
 </body>
