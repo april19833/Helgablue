@@ -47,7 +47,7 @@
             display: inline-block;
             margin-left: auto;
         }
-        .flower-widget {
+        .flower-widget, .moon-widget {
             position: absolute;
             top: 100%;
             left: 50%;
@@ -59,11 +59,10 @@
             text-align: center;
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000; /* Чтобы виджеты находились над всеми элементами */
         }
-        .flower-widget p {
-            margin: 0;
-            font-size: 14px;
-            color: #333;
+        .flower-widget.active, .moon-widget.active {
+            display: block;
         }
         .flower-petal {
             width: 20px;
@@ -96,17 +95,6 @@
             left: 50%;
             transform: translateX(-50%);
             border-radius: 50%;
-        }
-        .flower-widget.active {
-            display: block;
-        }
-        .moon-widget {
-            cursor: pointer;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: none;
         }
         .moon {
             width: 30px;
@@ -153,61 +141,6 @@
         }
         .dark-mode .flower-center {
             background-color: #333;
-        }
-        #water-lemon {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 5px;
-        }
-        #water-lemon h2 {
-            font-size: 1.5em;
-            color: #333;
-        }
-        #water-lemon p {
-            color: #666;
-        }
-        #water-lemon form {
-            margin-top: 20px;
-        }
-        #water-lemon form label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        #water-lemon form input[type="number"], #water-lemon form input[type="date"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box;
-        }
-        #water-lemon form button {
-            padding: 10px 20px;
-            background-color: #4FC3F7;
-            color: #ffffff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        #water-lemon form button:hover {
-            background-color: #3BA0E0;
-        }
-        #water-lemon table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
-        #water-lemon table th, #water-lemon table td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: left;
-        }
-        #water-lemon table th {
-            background-color: #f2f2f2;
         }
         #notification {
             display: none;
@@ -275,6 +208,10 @@
             <div class="flower-petal"></div>
             <div class="flower-center"></div>
             <p>Donate to support our projects</p>
+        </div>
+
+        <div class="moon-widget" onclick="showWidget('moon')">
+            <div class="moon"></div>
         </div>
     </div>
 
