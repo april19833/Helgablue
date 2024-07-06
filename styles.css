@@ -180,8 +180,8 @@ nav.categories ul li a:hover {
     color: #333;
 }
 
-#waterForm input[type="number"], 
-#waterForm input[type="date"], 
+#waterForm input[type="number"],
+#waterForm input[type="date"],
 #waterForm button {
     width: 100%;
     padding: 10px;
@@ -224,56 +224,40 @@ nav.categories ul li a:hover {
 }
 
 @media (max-width: 768px) {
-    /* Увеличиваем размер изображений в галерее */
+    /* Increase image size in gallery */
     .gallery-item img {
-        width: 100%; /* Занимаем всю ширину контейнера */
-        height: auto; /* Автоматическая высота */
-        max-width: 100%; /* Максимальная ширина изображения */
-        border-radius: 5px;
-        margin-bottom: 10px; /* Добавляем небольшой отступ между изображениями */
-    }
-/* Добавляем стили для бургер-меню */
-.burger {
-    display: none; /* Скрыть по умолчанию для больших экранов */
-    cursor: pointer;
-}
-
-.nav-links {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-}
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-@media screen and (max-width: 768px) {
-    .nav-links {
-        display: none; /* Скрываем обычные ссылки на маленьких экранах */
-        flex-direction: column;
-        align-items: center;
         width: 100%;
-        position: absolute;
-        top: 70px; /* Расстояние от верха страницы */
-        left: 0;
-        background-color: #333;
-        padding: 10px 0;
-        text-align: center;
-        z-index: 1000;
+        height: auto;
+        max-width: 100%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    /* Burger menu styles */
+    .burger {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin: 0 15px;
     }
 
     .nav-links.active {
-        display: flex; /* Показываем наше меню, когда активно */
+        display: none;
     }
 
     .burger {
-        display: block; /* Показываем бургер на маленьких экранах */
+        display: block;
         position: absolute;
         top: 20px;
         right: 20px;
-        z-index: 1500;
     }
 
     .burger .line1,
@@ -297,15 +281,66 @@ nav.categories ul li a:hover {
     .burger.active .line3 {
         transform: rotate(45deg) translate(-5px, -6px);
     }
-}
 
-    /* Стили для видео в галерее */
+    /* Video styles in gallery */
     .gallery-item video {
-        width: 100%; /* Занимаем всю ширину контейнера */
-        height: auto; /* Автоматическая высота */
-        max-width: 100%; /* Максимальная ширина видео */
+        width: 100%;
+        height: auto;
+        max-width: 100%;
         border-radius: 5px;
-        margin-bottom: 10px; /* Добавляем небольшой отступ между видео */
+        margin-bottom: 10px;
+    }
+
+    /* Side menu styles */
+    nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 200px;
+        background-color: #333;
+        z-index: 1000;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    nav.open {
+        width: 100%;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+        background-color: #555;
     }
 }
 
@@ -322,7 +357,7 @@ footer p {
     color: #666;
 }
 
-/* Стили для виджета цветка */
+/* Flower Widget Styles */
 .flower-widget {
     display: inline-block;
     cursor: pointer;
@@ -334,16 +369,14 @@ footer p {
     text-align: center;
     line-height: 50px;
     color: white;
-    z-index: 1200; /* Увеличиваем z-index, чтобы виджет был выше кнопки и других элементов */
+    z-index: 1200;
 }
-
-/* Если есть конфликт с другими элементами, можно увеличить z-index еще больше */
 
 .flower-petal {
     position: absolute;
     width: 10px;
     height: 25px;
-    background-color: #f1c40f; /* Цвет лепестков */
+    background-color: #f1c40f;
     transform-origin: 50% 100%;
 }
 
@@ -367,197 +400,21 @@ footer p {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: white; /* Цвет центра цветка */
-    border-radius: 50%; /* Круглая форма */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Стили для кнопки-переключателя темы в виде луны */
-.moon-widget {
-    display: inline-block;
-    cursor: pointer;
-    margin-left: 10px; /* Отступ слева */
-    position: relative;
-    width: 30px; /* Ширина */
-    height: 30px; /* Высота */
-    z-index: 1200; /* Увеличиваем z-index, чтобы кнопка была выше модального окна */
-}
-
-.moon {
-    position: absolute;
-    width: 20px; /* Ширина луны */
-    height: 20px; /* Высота луны */
-    background-color: #f1c40f; /* Цвет луны */
-    border-radius: 50%; /* Круглая форма */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Стили для модального окна */
-.modal {
-    display: none; /* По умолчанию скрыто */
-    position: fixed;
-    z-index: 1100; /* Уменьшаем z-index, чтобы модальное окно было над кнопками виджета */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Темная тема */
-.dark-mode {
-    background-color: #222; /* Цвет фона для темной темы */
-    color: #fff; /* Цвет текста для темной темы */
-}
-
-/* Moon Widget Styles */
-.moon-widget {
-    display: inline-block;
-    cursor: pointer;
-    margin-left: 10px;
-    position: relative;
-    width: 30px;
-    height: 30px;
-}
-
-.moon {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #f1c40f;
+    background-color: white;
     border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 20px;
+    top: 20px;
 }
 
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+.flower-widget:hover .flower-petal {
+    animation: bloom 0.8s ease forwards;
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Dark Mode */
-.dark-mode {
-    background-color: #222;
-    color: #fff;
-}
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5em;
-        text-align: center; /* Центрируем текст */
+@keyframes bloom {
+    0% {
+        height: 0;
     }
-
-    /* Стили для бокового меню */
-    nav {
-        display: none; /* По умолчанию скрываем меню на мобильных устройствах */
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 200px;
-        background-color: #333;
-        z-index: 1000;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-    }
-
-    /* Открываем боковое меню при активации */
-    nav.open {
-        width: 100%; /* Раскрываем меню на весь экран */
-    }
-
-    /* Кнопка для открытия бокового меню */
-    .menu-toggle {
-        display: block;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        color: white;
-        font-size: 24px;
-        cursor: pointer;
-        z-index: 1100;
-    }
-
-    /* Стили для элементов списка в боковом меню */
-    nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 10px;
-        color: white;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-
-    nav ul li a:hover {
-        background-color: #555;
+    100% {
+        height: 25px;
     }
 }
