@@ -65,6 +65,7 @@
             width: 100%;
             height: auto;
             border-radius: 5px;
+            transition: transform 0.3s ease; /* Добавляем плавный переход */
         }
         .gallery-item p {
             text-align: center;
@@ -73,6 +74,9 @@
         }
         .gallery-item:hover {
             transform: translateY(-10px);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1); /* Увеличиваем изображение при наведении */
         }
         .modal {
             display: none;
@@ -230,29 +234,32 @@
                     <p>Mezo Image 5</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/sticker-design-an-red-fly-mushroom-with-mustache-i-NCCVXpS_S1W-wRxvlYo8eA-bOMjj8WkTKabRGgugEfIVw.jpeg" alt="Mezo Image 6">
+                    <img src="images/2-d-illustration-of-a-mushroom-and-equipment-hJHZt7VfF78mK5JvHyuNmA-DmBZOjvPTU-7GVk99Nki9A.jpeg" alt="Mezo Image 6">
                     <p>Mezo Image 6</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/sticker-design-neon-red-fly-mushroom-with-mustache-GVhDf95UT1asuc0WqmB-5w-IzSb3STgQAOT_WQ2_d0UkQ.jpeg" alt="Mezo Image 7">
+                    <img src="images/3d-illustration-of-a-cute-furry-blue-monster-sitting-tcRU1fCCbG5om7vWvHXtqw-DmBZOjvPTU-7GVk99Nki9A.jpeg" alt="Mezo Image 7">
                     <p>Mezo Image 7</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/sticker-design-neon-red-fly-mushroom-with-mustache-L7GfYVkpQaigkVbpbQetxA-IzSb3STgQAOT_WQ2_d0UkQ.jpeg" alt="Mezo Image 8">
+                    <img src="images/3d-rendering-of-a-adorable-furry-monster-with-a-bi-GcXj70XxjNED4_0Ip2J37A-cki-lgSLT8uK9oaOIEsZLA.jpeg" alt="Mezo Image 8">
                     <p>Mezo Image 8</p>
                 </div>
             </div>
         </section>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const burger = document.querySelector('.burger');
-            const navLinks = document.querySelector('.nav-links');
+    <footer>
+        <p>&copy; 2024 Helga Blue. All rights reserved.</p>
+    </footer>
 
-            burger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                burger.classList.toggle('active');
-            });
+    <script>
+        // JavaScript для бургер-меню на мобильных устройствах
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            burger.classList.toggle('active');
         });
     </script>
 </body>
