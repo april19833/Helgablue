@@ -81,24 +81,18 @@ nav ul li a {
     font-size: 1.2em;
 }
 
-/* Медиа-запросы для адаптации шапки на мобильных устройствах */
+/* Общие стили для мобильной версии */
+
+/* Медиа-запросы для мобильных устройств */
 @media (max-width: 768px) {
+    /* Уменьшаем размер шрифта для заголовка на главной странице */
     header h1 {
-        font-size: 2em; /* Уменьшаем размер шрифта для заголовка */
+        font-size: 1.5em;
     }
 
-    nav ul {
-        flex-direction: column; /* Элементы списка становятся в столбец */
-    }
-
-    nav ul li {
-        margin: 5px 0; /* Уменьшаем отступы между элементами списка */
-    }
-}
-/* Медиа-запросы для адаптации бокового меню на мобильных устройствах */
-@media (max-width: 768px) {
+    /* Стили для бокового меню */
     nav {
-        display: none; /* Скрываем основное меню для мобильных устройств */
+        display: none; /* По умолчанию скрываем меню на мобильных устройствах */
         position: fixed;
         top: 0;
         left: 0;
@@ -111,47 +105,64 @@ nav ul li a {
         padding-top: 60px;
     }
 
+    /* Открываем боковое меню при активации */
     nav.open {
-        width: 0;
-        overflow: hidden;
+        width: 100%; /* Раскрываем меню на весь экран */
+    }
+
+    /* Кнопка для открытия бокового меню */
+    .menu-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    /* Стили для элементов списка в боковом меню */
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+        background-color: #555;
+    }
+
+    /* Увеличиваем размер изображений в галерее */
+    .gallery-item img {
+        width: 100%; /* Занимаем всю ширину контейнера */
+        height: auto; /* Автоматическая высота */
+        max-width: 100%; /* Максимальная ширина изображения */
+        border-radius: 5px;
+        margin-bottom: 10px; /* Добавляем небольшой отступ между изображениями */
+    }
+
+    /* Стили для видео в галерее */
+    .gallery-item video {
+        width: 100%; /* Занимаем всю ширину контейнера */
+        height: auto; /* Автоматическая высота */
+        max-width: 100%; /* Максимальная ширина видео */
+        border-radius: 5px;
+        margin-bottom: 10px; /* Добавляем небольшой отступ между видео */
     }
 }
-
-/* Кнопка для открытия бокового меню на мобильных устройствах */
-.menu-toggle {
-    display: block;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1100;
-}
-
-/* Стили для элементов меню на мобильных устройствах */
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    margin: 10px 0;
-}
-
-nav ul li a {
-    display: block;
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    background-color: #555;
-}
-
 /* Header Styles */
 header {
     background-color: #f8f9fa;
