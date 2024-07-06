@@ -4,6 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery Mezo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .section {
+            margin-top: 20px; /* Пример отступа сверху */
+        }
+        .gallery-title {
+            text-align: center;
+            font-size: 2em;
+            background-image: linear-gradient(to right, #00c6ff, #0072ff, #00c6ff); /* Градиентные цвета */
+            -webkit-background-clip: text; /* Клип для текста */
+            background-clip: text;
+            color: transparent; /* Делаем текст прозрачным */
+            animation: shimmer 2s infinite linear; /* Анимация мерцания */
+        }
+        @keyframes shimmer {
+            0% { background-position: -1000% 0%; }
+            100% { background-position: 1000% 0%; }
+        }
+        .gallery-mezo-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .gallery-item {
+            flex: 1 1 calc(25% - 30px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item p {
+            text-align: center;
+            margin: 10px 0 0 0;
+            font-size: 1em;
+        }
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="gallery-title">Gallery Mezo</h1>
+        </div>
+    </header>
+    <div class="container">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Mezo</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
