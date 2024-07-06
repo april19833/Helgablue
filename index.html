@@ -8,6 +8,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Additional styles specific to this page */
+        body {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #f8f8f8;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+            width: 100%;
+        }
+
         .section {
             margin-bottom: 20px;
             padding: 20px;
@@ -96,25 +130,24 @@
     </style>
 </head>
 <body>
-    <button id="themeToggleBtn">Toggle Theme</button>
-    <header>
-        <div class="container">
-            <h1>Welcome to Orbit</h1>
-            <nav class="categories">
-                <ul>
-                    <li><a href="#yoga" class="less-noticeable">CrYpto Sport/Relaxis</a></li>
-                    <li><a href="#nft">NFT</a></li>                    
-                    <li><a href="#water-lemon">Water with Lemon</a></li>    
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="donate">
-                <button id="openDonateModal" class="donate-button">Donate</button>
+    <div class="sidebar">
+        <a href="#yoga" class="less-noticeable">CrYpto Sport/Relaxis</a>
+        <a href="#nft">NFT</a>
+        <a href="#water-lemon">Water with Lemon</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="content">
+        <button id="themeToggleBtn">Toggle Theme</button>
+        <header>
+            <div class="container">
+                <h1>Welcome to Orbit</h1>
+                <div class="donate">
+                    <button id="openDonateModal" class="donate-button">Donate</button>
+                </div>
             </div>
-        </div>
-    </header>
-    <div class="container">    
-
+        </header>
+        
         <section id="yoga" class="section">
             <h2>CrYpto Sport/Relaxis</h2>
             <!-- Add content specific to Yoga section -->
@@ -248,38 +281,18 @@
                 
                 // Clear input
                 cupsCountInput.value = '';
-
-                // Show notification
-                showNotification('green', 'Water consumption recorded successfully.');
-            } else {
-                // Show error notification
-                showNotification('red', 'Please enter a valid number of cups.');
             }
         }
 
-        // Update Progress Bar Function
         function updateProgressBar(cups) {
-            const progressBar = document.getElementById('waterProgress');
+            const progress = document.getElementById('waterProgress');
             const progressText = document.getElementById('progressText');
-            let currentProgress = parseInt(progressBar.value);
-            const maxProgress = parseInt(progressBar.max);
 
-            if (!isNaN(currentProgress)) {
-                currentProgress += cups;
-                progressBar.value = currentProgress;
-                progressText.textContent = `${currentProgress} / ${maxProgress} cups`;
-            }
-        }
+            let currentProgress = parseInt(progress.value);
+            currentProgress += cups;
+            progress.value = currentProgress;
 
-        // Notification Function
-        function showNotification(color, message) {
-            const notification = document.getElementById('notification');
-            notification.innerHTML = message;
-            notification.style.backgroundColor = color;
-
-            setTimeout(function() {
-                notification.innerHTML = '';
-            }, 3000);
+            progressText.textContent = `${currentProgress} / ${progress.max} cups`;
         }
     </script>
 </body>
