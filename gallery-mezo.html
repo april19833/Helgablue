@@ -23,7 +23,7 @@
         header h1 {
             margin: 0;
             font-size: 2.5em;
-            font-family: 'Great Vibes', cursive;
+            font-family: 'Great Vibes', cursive; /* Добавляем выбранный шрифт */
         }
         nav ul {
             list-style: none;
@@ -60,13 +60,12 @@
             background-color: white;
             padding: 10px;
             border-radius: 5px;
-            cursor: pointer;
         }
         .gallery-item img {
             width: 100%;
             height: auto;
             border-radius: 5px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease; /* Добавляем плавный переход */
         }
         .gallery-item p {
             text-align: center;
@@ -77,7 +76,7 @@
             transform: translateY(-10px);
         }
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.1); /* Увеличиваем изображение при наведении */
         }
         .modal {
             display: none;
@@ -118,10 +117,25 @@
             color: white;
             text-align: center;
             padding: 10px 0;
-            position: fixed;
             width: 100%;
             bottom: 0;
         }
+        footer nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+        footer nav ul li {
+            margin: 0 15px;
+        }
+        footer nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        /* Стили для бургер-меню на мобильных устройствах */
         .burger {
             display: none;
             cursor: pointer;
@@ -184,17 +198,6 @@
     <header>
         <div class="container">
             <h1>Gallery Mezo</h1>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                </ul>
-                <div class="burger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
-                </div>
-            </nav>
         </div>
     </header>
     <div class="container">
@@ -230,53 +233,50 @@
                     <p>Mezo Image 7</p>
                 </div>
                 <div class="gallery-item" onclick="openModal(this)">
-                    <img src="images/sticker-design-neon-red-fly-mushroom-with-mustache-L7KmnwfbO-aAuv1rYTL_vA-va-gue0sTiiHEm2mMnrBmg.jpeg" alt="Mezo Image 8">
+                    <img src="images/a-3d-cartoon-of-an-angry-looking-mushroom-robot-w-V5LcrN3KXT1asuc0WqmB-5w-IzSb3STgQAOT_WQ2_d0UkQ.jpeg" alt="Mezo Image 8">
                     <p>Mezo Image 8</p>
                 </div>
             </div>
         </section>
     </div>
-
-    <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
+    <!-- Модальное окно -->
+    <div id="imageModal" class="modal">
         <div class="modal-content">
-            <img id="modalImage" src="" alt="">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Modal Image">
         </div>
     </div>
-
-     <footer>
-        <p>&copy; 2024 Helga Blue. All rights reserved.</p>
-        <nav class="footer-nav">
-            <ul>
-                <li><a href="gallery-monad.html">Gallery Monad</a></li>
-                <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
-                <li><a href="main.html">Main Helga Blue</a></li>
-            </ul>
-        </nav>
+    <!-- Футер с навигацией -->
+    <footer>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
+                    <li><a href="gallery-monad.html">Gallery Monad</a></li>
+                    <li><a href="index.html">Main Helga Blue</a></li>
+                </ul>
+            </nav>
+        </div>
     </footer>
-
     <script>
-        const navSlide = () => {
-            const burger = document.querySelector('.burger');
-            const nav = document.querySelector('.nav-links');
-            const navLinks = document.querySelectorAll('.nav-links li');
-
-            burger.addEventListener('click', () => {
-                nav.classList.toggle('active');
-                burger.classList.toggle('active');
-            });
+        // Функции для модального окна
+        function openModal(element) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImage");
+            modalImg.src = element.querySelector("img").src;
+            modal.style.display = "flex";
         }
 
-        const openModal = (element) => {
-            document.getElementById("myModal").style.display = "flex";
-            document.getElementById("modalImage").src = element.getElementsByTagName('img')[0].src;
+        function closeModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none";
         }
 
-        const closeModal = () => {
-            document.getElementById("myModal").style.display = "none";
-        }
-
-        navSlide();
+        // Скрипт для бургер-меню
+        document.querySelector('.burger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.classList.toggle('active');
+        });
     </script>
 </body>
 </html>
