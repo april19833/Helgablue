@@ -50,119 +50,7 @@ button {
 button:hover {
     background-color: #0056b3;
 }
-/* Общие стили для шапки */
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
 
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    margin: 10px 0 0 0;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-
-/* Общие стили для мобильной версии */
-
-/* Медиа-запросы для мобильных устройств */
-@media (max-width: 768px) {
-    /* Уменьшаем размер шрифта для заголовка на главной странице */
-    header h1 {
-        font-size: 1.5em;
-    }
-
-    /* Стили для бокового меню */
-    nav {
-        display: none; /* По умолчанию скрываем меню на мобильных устройствах */
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 200px;
-        background-color: #333;
-        z-index: 1000;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-    }
-
-    /* Открываем боковое меню при активации */
-    nav.open {
-        width: 100%; /* Раскрываем меню на весь экран */
-    }
-
-    /* Кнопка для открытия бокового меню */
-    .menu-toggle {
-        display: block;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        color: white;
-        font-size: 24px;
-        cursor: pointer;
-        z-index: 1100;
-    }
-
-    /* Стили для элементов списка в боковом меню */
-    nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 10px;
-        color: white;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-
-    nav ul li a:hover {
-        background-color: #555;
-    }
-
-    /* Увеличиваем размер изображений в галерее */
-    .gallery-item img {
-        width: 100%; /* Занимаем всю ширину контейнера */
-        height: auto; /* Автоматическая высота */
-        max-width: 100%; /* Максимальная ширина изображения */
-        border-radius: 5px;
-        margin-bottom: 10px; /* Добавляем небольшой отступ между изображениями */
-    }
-
-    /* Стили для видео в галерее */
-    .gallery-item video {
-        width: 100%; /* Занимаем всю ширину контейнера */
-        height: auto; /* Автоматическая высота */
-        max-width: 100%; /* Максимальная ширина видео */
-        border-radius: 5px;
-        margin-bottom: 10px; /* Добавляем небольшой отступ между видео */
-    }
-}
 /* Header Styles */
 header {
     background-color: #f8f9fa;
@@ -355,15 +243,15 @@ footer p {
     color: #666;
 }
 
-***/* Стили для виджета цветка */
+/* Flower Widget Styles */
 .flower-widget {
     display: inline-block;
     cursor: pointer;
     position: relative;
     width: 50px;
     height: 50px;
-    background-color: #f1c40f; /* Цвет цветка */
-    border-radius: 50%; /* Круглая форма */
+    background-color: #f1c40f;
+    border-radius: 50%;
     text-align: center;
     line-height: 50px;
     color: white;
@@ -373,7 +261,7 @@ footer p {
     position: absolute;
     width: 10px;
     height: 25px;
-    background-color: #f1c40f; /* Цвет лепестков */
+    background-color: #f1c40f;
     transform-origin: 50% 100%;
 }
 
@@ -397,37 +285,37 @@ footer p {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: white; /* Цвет центра цветка */
-    border-radius: 50%; /* Круглая форма */
+    background-color: white;
+    border-radius: 50%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* Стили для кнопки-переключателя темы в виде луны */
+/* Moon Widget Styles */
 .moon-widget {
     display: inline-block;
     cursor: pointer;
-    margin-left: 10px; /* Отступ слева */
+    margin-left: 10px;
     position: relative;
-    width: 30px; /* Ширина */
-    height: 30px; /* Высота */
+    width: 30px;
+    height: 30px;
 }
 
 .moon {
     position: absolute;
-    width: 20px; /* Ширина луны */
-    height: 20px; /* Высота луны */
-    background-color: #f1c40f; /* Цвет луны */
-    border-radius: 50%; /* Круглая форма */
+    width: 20px;
+    height: 20px;
+    background-color: #f1c40f;
+    border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* Стили для модального окна */
+/* Modal Styles */
 .modal {
-    display: none; /* По умолчанию скрыто */
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -461,9 +349,8 @@ footer p {
     cursor: pointer;
 }
 
-/* Темная тема */
+/* Dark Mode */
 .dark-mode {
-    background-color: #222; /* Цвет фона для темной темы */
-    color: #fff; /* Цвет текста для темной темы */
+    background-color: #222;
+    color: #fff;
 }
-</style>
