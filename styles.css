@@ -268,7 +268,7 @@ footer p {
     text-align: center;
     line-height: 50px;
     color: white;
-    z-index: 1200; /* Увеличиваем z-index, чтобы виджет был выше модального окна */
+    z-index: 1200; /* Увеличиваем z-index, чтобы виджет был выше кнопки */
 }
 
 .flower-petal {
