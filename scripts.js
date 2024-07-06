@@ -1,36 +1,34 @@
 // Dark mode toggle
-function toggleTheme() {
-    document.body.classList.toggle("dark-mode");
-}
+const themeToggleButton = document.getElementById('theme-toggle');
 
-function toggleTheme() {
-    document.querySelector('#gallery').classList.toggle('dark-mode');
-}
+themeToggleButton.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+});
 
 // Modal
 const modal = document.getElementById("donateModal");
-const btn = document.querySelector(".donate-flower-button");
-const span = document.getElementsByClassName("close")[0];
+const donateFlowerButton = document.querySelector(".donate-flower-button");
+const closeModalButton = document.querySelector(".close");
 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+donateFlowerButton.addEventListener("click", function() {
+    modal.style.display = "block";
+});
 
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
+closeModalButton.addEventListener("click", function() {
     modal.style.display = "none";
-  }
-}
+});
+
+window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
 
 // Notifications
 function showNotification(message, isError) {
     const notification = document.getElementById('notification');
     notification.textContent = message;
-    notification.classList.remove('error', 'success'); // Remove both error and success classes
+    notification.classList.remove('error', 'success');
     if (isError) {
         notification.classList.add('error');
     } else {
@@ -80,20 +78,15 @@ function recordWater() {
 // Adding event listener to the flower widget for theme toggle
 const flowerWidget = document.querySelector(".flower-widget");
 if (flowerWidget) {
-    flowerWidget.addEventListener("click", toggleTheme);
+    flowerWidget.addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode");
+    });
 }
 
 // Adding event listener to the donate button in the gallery section
-const donateFlowerButton = document.querySelector(".donate-flower-button");
-if (donateFlowerButton) {
-    donateFlowerButton.addEventListener("click", () => {
+const donateButton = document.querySelector(".donate-button");
+if (donateButton) {
+    donateButton.addEventListener("click", function() {
         modal.style.display = "block";
     });
-}
-// script.js
-document.addEventListener('DOMContentLoaded', function () {
-    const themeToggleButton = document.getElementById('theme-toggle');
-    
-    themeToggleButton.addEventListener('click', function toggleTheme() {
-    document.body.classList.toggle('dark-mode'); // Toggle dark mode class on body
 }
