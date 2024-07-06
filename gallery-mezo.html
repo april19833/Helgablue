@@ -4,6 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery Mezo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .section {
+            margin-top: 20px; /* Пример отступа сверху */
+        }
+        .gallery-title {
+            text-align: center;
+            font-size: 2em;
+            background-image: linear-gradient(to right, #00c6ff, #0072ff, #00c6ff); /* Градиентные цвета */
+            -webkit-background-clip: text; /* Клип для текста */
+            background-clip: text;
+            color: transparent; /* Делаем текст прозрачным */
+            animation: shimmer 2s infinite linear; /* Анимация мерцания */
+        }
+        @keyframes shimmer {
+            0% { background-position: -1000% 0%; }
+            100% { background-position: 1000% 0%; }
+        }
+        .gallery-mezo-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .gallery-item {
+            flex: 1 1 calc(25% - 30px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item p {
+            text-align: center;
+            margin: 10px 0 0 0;
+            font-size: 1em;
+        }
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+<body>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
@@ -204,23 +274,6 @@
             font-size: 1.2em;
             margin: 10px 0;
         }
-
-        /* Анимация мерцания текста */
-        .gallery-title {
-            text-align: center;
-            font-size: 2.5em;
-            font-family: 'Great Vibes', cursive;
-            background-image: linear-gradient(to right, #00c6ff, #0072ff, #00c6ff); /* Градиентные цвета */
-            -webkit-background-clip: text; /* Клип для текста */
-            background-clip: text;
-            color: transparent; /* Делаем текст прозрачным */
-            animation: shimmer 2s infinite linear; /* Анимация мерцания */
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -1000% 0%; }
-            100% { background-position: 1000% 0%; }
-        }
     </style>
 </head>
 <body>
@@ -250,20 +303,20 @@
                     <p>Mezo Image 4</p>
                 </div>
                 <div class="gallery-item" onclick="openModal(this)">
-                    <img src="images/3d-rendering-of-a-minimalist-atom-and-molecule-in-f-6hfN_QqEmG7xylI9unw-YQIh_f9rxZiByIfi4Jh10yEXw.jpeg" alt="Mezo Image 5">
+                    <img src="images/a-cartoon-of-a-red-fly-mushroom-with-a-mustache-in-4LXvZP1lQOGi9Gq5E_FyVw-va-gue0sTiiHEm2mMnrBmg.jpeg" alt="Mezo Image 5">
                     <p>Mezo Image 5</p>
                 </div>
                 <div class="gallery-item" onclick="openModal(this)">
-                    <img src="images/a-cute-and-beautiful-nature-scene-of-a-little-girl-pl-vdb6v2oYQl4HTkIw4K2Uw_sFfS2yZMTuUgkhptYs.JPG" alt="Mezo Image 6">
+                    <img src="images/sticker-design-neon-red-fly-mushroom-with-mustache-GVhDf95UT1asuc0WqmB-5w-IzSb3STgQAOT_WQ2_d0UkQ.jpeg" alt="Mezo Image 6">
                     <p>Mezo Image 6</p>
                 </div>
-                <div class="gallery-item" onclick="openModal(this)">
-                    <img src="images/a-bright-and-colorful-abstract-vector-illustration-rho-mnTm0WYYwNq1kS6YhJTGk4bcFUulagjwI2w.JPG" alt="Mezo Image 7">
-                    <p>Mezo Image 7</p>
+                 <div class="gallery-item" onclick="openModal(this)">
+                    <img src="images/sticker-design-an-red-fly-mushroom-with-mustache-i-NCCVXpS_S1W-wRxvlYo8eA-bOMjj8WkTKabRGgugEfIVw.jpeg" alt="Mezo Image 7">
+                    <p>Mezo Image 3</p>
                 </div>
-                <div class="gallery-item" onclick="openModal(this)">
-                    <img src="images/a-black-and-white-illustration-of-a-bull-skull-n1QJf-W0jkc3lLrL6nkiKg_jpzWtRc8ngiB0fxgXG1UHg.jpeg" alt="Mezo Image 8">
-                    <p>Mezo Image 8</p>
+                 <div class="gallery-item" onclick="openModal(this)">
+                    <img src="images/sticker-design-neon-red-fly-mushroom-with-mustache-L7GfYVkpQaigkVbpbQetxA-IzSb3STgQAOT_WQ2_d0UkQ.jpeg" alt="Mezo Image 8">
+                    <p>Mezo Image 3</p>
                 </div>
             </div>
         </section>
@@ -275,34 +328,41 @@
             <img id="modalImg" src="" alt="Modal Image">
         </div>
     </div>
+       <!-- Gallery Section -->
+        <section id="gallery" class="section gallery-section">
+            <h2>Sections</h2>
+            <ul>
+                <li><a href="gallery-monad.html">Gallery Monad</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="index.html">Home</a></li>
+                <!-- Add more galleries as needed -->
+            </ul>
+        </section>
 
+        <!-- Notification -->
+        <div id="notification" class="notification"></div>
+    </div>
     <footer>
         <div class="container">
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Gallery Monad</a></li>
-                    <li><a href="#">Gallery Mezo</a></li>
-                </ul>
-            </nav>
             <p>© 2024 Helga Blue. All rights reserved.</p>
         </div>
     </footer>
-
     <script>
-        // Modal functions
+        // Функция для открытия модального окна с изображением
         function openModal(element) {
             var modal = document.getElementById("myModal");
             var modalImg = document.getElementById("modalImg");
-            modal.style.display = "flex";
-            modalImg.src = element.querySelector('img').src;
+            modal.style.display = "flex"; // Показываем модальное окно
+            modalImg.src = element.querySelector('img').src; // Устанавливаем изображение в модальное окно
         }
         
+        // Функция для закрытия модального окна
         function closeModal() {
             var modal = document.getElementById("myModal");
-            modal.style.display = "none";
+            modal.style.display = "none"; // Скрываем модальное окно
         }
         
+        // Закрыть модальное окно при клике за его пределами
         window.onclick = function(event) {
             var modal = document.getElementById("myModal");
             if (event.target == modal) {
