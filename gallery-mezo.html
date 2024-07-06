@@ -240,4 +240,50 @@
                     <img src="images/sticker-design-neon-red-fly-mushroom-with-mustache-GVhDf95UT1asuc0WqmB-5w-IzSb3STgQAOT_WQ2_d0UkQ.jpeg" alt="Mezo Image 6">
                     <p>Mezo Image 6</p>
                 </div>
-                <div
+            </div>
+        </section>
+    </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImg" src="" alt="Modal Image">
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Gallery Monad</a></li>
+                    <li><a href="#">Gallery Mezo</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <script>
+        // Функция для открытия модального окна с изображением
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImg");
+            modal.style.display = "flex"; // Показываем модальное окно
+            modalImg.src = element.querySelector('img').src; // Устанавливаем изображение в модальное окно
+        }
+        
+        // Функция для закрытия модального окна
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none"; // Скрываем модальное окно
+        }
+        
+        // Закрыть модальное окно при клике за его пределами
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
