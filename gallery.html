@@ -42,10 +42,33 @@
             text-decoration: none;
             font-size: 1.2em;
         }
+        .gallery-section {
+            padding: 20px 0;
+            text-align: center;
+        }
+        .gallery-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .gallery-section p {
+            font-size: 1.1em;
+        }
         .donate {
-            position: relative;
-            display: inline-block;
-            margin-left: auto;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .donate .button {
+            background-color: #4FC3F7;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .donate .button:hover {
+            background-color: #3EA1D1;
         }
         .flower-widget, .moon-widget {
             position: absolute;
@@ -164,9 +187,6 @@
         .notification p {
             margin: 0;
         }
-        .notification.active {
-            display: block;
-        }
         .notification-close {
             position: absolute;
             top: 5px;
@@ -192,15 +212,17 @@
     </header>
 
     <section id="gallery-monad" class="gallery-section">
-        <!-- Your gallery Monad content here -->
+        <h2>Gallery Monad</h2>
+        <p>Content for Gallery Monad goes here...</p>
     </section>
 
     <section id="gallery-mezo" class="gallery-section">
-        <!-- Your gallery Mezo content here -->
+        <h2>Gallery Mezo</h2>
+        <p>Content for Gallery Mezo goes here...</p>
     </section>
 
     <div class="donate">
-        <button onclick="showWidget('flower')" class="button donation__bitcoin">Donate via Beam Wallet</button>
+        <button onclick="showWidget('flower')" class="button donation__bitcoin">Donate to support our projects</button>
         <div id="flower-widget" class="flower-widget">
             <div class="flower-petal"></div>
             <div class="flower-petal"></div>
