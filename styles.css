@@ -232,6 +232,72 @@ nav.categories ul li a:hover {
         border-radius: 5px;
         margin-bottom: 10px; /* Добавляем небольшой отступ между изображениями */
     }
+/* Добавляем стили для бургер-меню */
+.burger {
+    display: none; /* Скрыть по умолчанию для больших экранов */
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Скрываем обычные ссылки на маленьких экранах */
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Расстояние от верха страницы */
+        left: 0;
+        background-color: #333;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex; /* Показываем наше меню, когда активно */
+    }
+
+    .burger {
+        display: block; /* Показываем бургер на маленьких экранах */
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1500;
+    }
+
+    .burger .line1,
+    .burger .line2,
+    .burger .line3 {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .burger.active .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .burger.active .line2 {
+        opacity: 0;
+    }
+
+    .burger.active .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
 
     /* Стили для видео в галерее */
     .gallery-item video {
