@@ -4,6 +4,36 @@
     <meta charset="UTF-8">
     <title>NFT Course</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="lightbox.css"> <!-- Assuming you have a CSS file for Lightbox -->
+    <script src="lightbox.js"></script> <!-- Assuming you have a JavaScript file for Lightbox -->
+    <style>
+        /* Additional CSS styles for animation and interaction */
+        .gallery img, .gallery video {
+            transition: transform 0.2s ease-in-out;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .gallery img:hover, .gallery video:hover {
+            transform: scale(1.1);
+        }
+
+        /* Dark mode toggle button styling */
+        #theme-toggle {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        // JavaScript for theme toggle button
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('dark-theme');
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -17,6 +47,7 @@
                 <li><a href="#additional-resources">Additional Resources</a></li>
             </ul>
         </nav>
+        <button id="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
     </header>
 
     <main>
@@ -36,6 +67,16 @@
 
         <section id="applications">
             <h2>Applications of NFTs in Various Industries</h2>
+            <div class="gallery">
+                <h3>NFT Gallery</h3>
+                <a href="path/to/image1.jpg" data-lightbox="nft-gallery" data-title="Description of Image 1">
+                    <img src="path/to/thumb1.jpg" alt="NFT Image 1">
+                </a>
+                <a href="path/to/video1.mp4" data-lightbox="nft-gallery" data-title="Description of Video 1">
+                    <img src="path/to/video1-thumb.jpg" alt="NFT Video 1">
+                </a>
+                <!-- Add more images and videos as needed -->
+            </div>
             <ul>
                 <li><strong>Art and Collectibles:</strong> Creators can produce unique digital artworks and sell them as valuable collectibles.</li>
                 <li><strong>Music and Copyright:</strong> Artists can release albums and tracks as NFTs, securing copyright and royalties for each use.</li>
