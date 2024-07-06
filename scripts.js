@@ -101,3 +101,12 @@ document.addEventListener('DOMContentLoaded', function () {
     themeToggleButton.addEventListener('click', function toggleTheme() {
     document.body.classList.toggle('dark-mode'); // Toggle dark mode class on body
 }
+document.addEventListener('DOMContentLoaded', function () {
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+
+    burger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        burger.classList.toggle('active');
+    });
+});
