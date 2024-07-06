@@ -23,7 +23,7 @@
         header h1 {
             margin: 0;
             font-size: 2.5em;
-            font-family: 'Great Vibes', cursive; /* Добавляем выбранный шрифт */
+            font-family: 'Great Vibes', cursive;
         }
         nav ul {
             list-style: none;
@@ -60,12 +60,13 @@
             background-color: white;
             padding: 10px;
             border-radius: 5px;
+            cursor: pointer;
         }
         .gallery-item img {
             width: 100%;
             height: auto;
             border-radius: 5px;
-            transition: transform 0.3s ease; /* Добавляем плавный переход */
+            transition: transform 0.3s ease;
         }
         .gallery-item p {
             text-align: center;
@@ -76,7 +77,7 @@
             transform: translateY(-10px);
         }
         .gallery-item:hover img {
-            transform: scale(1.1); /* Увеличиваем изображение при наведении */
+            transform: scale(1.1);
         }
         .modal {
             display: none;
@@ -121,24 +122,19 @@
             width: 100%;
             bottom: 0;
         }
-
-        /* Стили для бургер-меню на мобильных устройствах */
         .burger {
             display: none;
             cursor: pointer;
         }
-
         .nav-links {
             display: flex;
             justify-content: center;
             list-style: none;
             padding: 0;
         }
-
         .nav-links li {
             margin: 0 15px;
         }
-
         @media screen and (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -153,11 +149,9 @@
                 text-align: center;
                 z-index: 1000;
             }
-
             .nav-links.active {
                 display: flex;
             }
-
             .burger {
                 display: block;
                 position: absolute;
@@ -165,7 +159,6 @@
                 right: 20px;
                 z-index: 1500;
             }
-
             .burger .line1,
             .burger .line2,
             .burger .line3 {
@@ -175,15 +168,12 @@
                 margin: 5px;
                 transition: all 0.3s ease;
             }
-
             .burger.active .line1 {
                 transform: rotate(-45deg) translate(-5px, 6px);
             }
-
             .burger.active .line2 {
                 opacity: 0;
             }
-
             .burger.active .line3 {
                 transform: rotate(45deg) translate(-5px, -6px);
             }
@@ -198,8 +188,6 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="gallery-monad.html">Gallery Monad</a></li>
-                    <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
                 </ul>
                 <div class="burger">
                     <div class="line1"></div>
@@ -213,50 +201,75 @@
         <section id="gallery-mezo" class="section">
             <h2>AI Mezo Photos</h2>
             <div class="gallery-mezo-content">
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openModal(this)">
                     <img src="images/3d-rendering-of-a-minimalistic-icon-rad-mushroom-m-nCExEreHTfCfY06Q794WMg-DmBZOjvPTU-7GVk99Nki9A.jpeg" alt="Mezo Image 1">
                     <p>Mezo Image 1</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openModal(this)">
                     <img src="images/adorable-eye-catching-3d-render-of-a-fluffy-cute-r-6fyDIVYeSYuvH1atyFq7kw-cki-lgSLT8uK9oaOIEsZLA.jpeg" alt="Mezo Image 2">
                     <p>Mezo Image 2</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openModal(this)">
                     <img src="images/a-whimsical-and-surreal-cartoon-showcasing-a-red-f-HV1X2_jKSx-Pdx0u0EgDAw-va-gue0sTiiHEm2mMnrBmg.jpeg" alt="Mezo Image 3">
                     <p>Mezo Image 3</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openModal(this)">
                     <img src="images/a-set-of-simple-black-vector-icons-of-fly-mushroom-rkuMourCQLiR8XqXmNeK_g-fU0_fVkLTF-8oRWA-bsI8Q.jpeg" alt="Mezo Image 4">
                     <p>Mezo Image 4</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openModal(this)">
                     <img src="images/a-cartoon-of-a-red-fly-mushroom-with-a-mustache-in-4LXvZP1lQOGi9Gq5E_FyVw-va-gue0sTiiHEm2mMnrBmg.jpeg" alt="Mezo Image 5">
                     <p>Mezo Image 5</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openModal(this)">
                     <img src="images/sticker-design-neon-red-fly-mushroom-with-mustache-GVhDf95UT1asuc0WqmB-5w-IzSb3STgQAOT_WQ2_d0UkQ.jpeg" alt="Mezo Image 6">
                     <p>Mezo Image 6</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openModal(this)">
                     <img src="images/sticker-design-an-red-fly-mushroom-with-mustache-i-NCCVXpS_S1W-wRxvlYo8eA-bOMjj8WkTKabRGgugEfIVw.jpeg" alt="Mezo Image 7">
                     <p>Mezo Image 7</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/sticker-design-neon-red-fly-mushroom-with-mustache-L7GfYVkpQaigkVbpbQetxA-IzSb3STgQAOT_WQ2_d0UkQ.jpeg" alt="Mezo Image 8">
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="images/sticker-design-neon-red-fly-mushroom-with-mustache-L7KmnwfbO-aAuv1rYTL_vA-va-gue0sTiiHEm2mMnrBmg.jpeg" alt="Mezo Image 8">
                     <p>Mezo Image 8</p>
                 </div>
             </div>
         </section>
     </div>
-    <footer>
-        <p>Copyright &copy; 2024 Helga Blue. All rights reserved.</p>
-    </footer>
+
     <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <img src="" alt="" id="modal-img">
+            <img id="modalImage" src="" alt="">
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <footer>
+        <p>&copy; 2024 Helga Blue. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                burger.classList.toggle('active');
+            });
+        }
+
+        const openModal = (element) => {
+            document.getElementById("myModal").style.display = "flex";
+            document.getElementById("modalImage").src = element.getElementsByTagName('img')[0].src;
+        }
+
+        const closeModal = () => {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        navSlide();
+    </script>
 </body>
 </html>
