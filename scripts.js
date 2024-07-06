@@ -6,6 +6,10 @@ function toggleTheme() {
 function toggleTheme() {
     document.querySelector('#gallery').classList.toggle('dark-mode');
 }
+function toggleNav() {
+    var nav = document.querySelector('nav');
+    nav.classList.toggle('open');
+}
 
 // Modal
 const modal = document.getElementById("donateModal");
