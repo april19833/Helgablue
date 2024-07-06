@@ -95,6 +95,62 @@ nav ul li a {
         margin: 5px 0; /* Уменьшаем отступы между элементами списка */
     }
 }
+/* Медиа-запросы для адаптации бокового меню на мобильных устройствах */
+@media (max-width: 768px) {
+    nav {
+        display: none; /* Скрываем основное меню для мобильных устройств */
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 200px;
+        background-color: #333;
+        z-index: 1000;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    nav.open {
+        width: 0;
+        overflow: hidden;
+    }
+}
+
+/* Кнопка для открытия бокового меню на мобильных устройствах */
+.menu-toggle {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+/* Стили для элементов меню на мобильных устройствах */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
 
 /* Header Styles */
 header {
