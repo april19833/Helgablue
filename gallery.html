@@ -267,7 +267,7 @@
     </section>
 
     <div class="donate">
-        <button onclick="showWidget('flower')" class="button donation__bitcoin">Donation via Beam Wallet</button>
+        <button onclick="showWidget('flower')" class="button donation__bitcoin">Donate via Beam Wallet</button>
         <div id="flower-widget" class="flower-widget">
             <div class="flower-petal"></div>
             <div class="flower-petal"></div>
@@ -283,6 +283,18 @@
         <p>Your record has been successfully saved!</p>
     </div>
 
-    <script src="scripts.js"></script>
+    <script>
+        function showWidget(widgetName) {
+            var widgets = document.getElementsByClassName(widgetName + "-widget");
+            for (var i = 0; i < widgets.length; i++) {
+                widgets[i].classList.toggle("active");
+            }
+        }
+
+        function closeNotification() {
+            var notification = document.getElementById('notification');
+            notification.classList.remove('active');
+        }
+    </script>
 </body>
 </html>
