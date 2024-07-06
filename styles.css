@@ -1,357 +1,110 @@
-/* General Styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helga Blue</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Helga Blue</h1>
+            <nav class="categories">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Water with Lemon</a></li>
+                    <li><a href="#">Crypto</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="donate">
+                <button>Donate</button>
+            </div>
+            <div class="moon-widget" onclick="toggleDarkMode()">
+                <div class="moon"></div>
+            </div>
+            <div class="flower-widget" onclick="toggleModal()">
+                <div class="flower-petal"></div>
+                <div class="flower-petal"></div>
+                <div class="flower-petal"></div>
+                <div class="flower-petal"></div>
+                <div class="flower-center"></div>
+            </div>
+        </div>
+    </header>
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #fff;
-    color: #333;
-    transition: background-color 0.3s ease;
-}
+    <div class="container">
+        <main>
+            <section class="section">
+                <h2>Welcome to Helga Blue</h2>
+                <p>Your go-to place for inspiration and creativity.</p>
+            </section>
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+            <section class="gallery-section">
+                <h2>Gallery</h2>
+                <ul>
+                    <li><a href="#">Gallery Monad</a></li>
+                    <li><a href="#">Gallery Mezo</a></li>
+                </ul>
+            </section>
 
-h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 10px;
-}
+            <section id="water-lemon">
+                <h2>Water with Lemon</h2>
+                <p>Discover the refreshing benefits of water with lemon.</p>
+                <form id="waterForm">
+                    <label for="amount">Amount of Water (ml)</label>
+                    <input type="number" id="amount" name="amount" required>
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                    <button type="submit">Save Record</button>
+                </form>
+                <div id="waterRecords">
+                    <!-- Water records will be dynamically generated here -->
+                </div>
+            </section>
+        </main>
 
-a {
-    color: #007bff;
-    text-decoration: none;
-}
+        <aside class="sidebar">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Water with Lemon</a></li>
+                <li><a href="#">Crypto</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </aside>
+    </div>
 
-a:hover {
-    text-decoration: underline;
-}
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Helga Blue. All rights reserved.</p>
+        </div>
+    </footer>
 
-ul {
-    list-style-type: none;
-}
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleModal()">&times;</span>
+            <p>Modal content goes here.</p>
+        </div>
+    </div>
 
-button {
-    cursor: pointer;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Header Styles */
-header {
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 36px;
-}
-
-nav.categories ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-nav.categories ul li {
-    margin-right: 10px;
-}
-
-nav.categories ul li a {
-    font-size: 18px;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-nav.categories ul li a:hover {
-    color: #007bff;
-}
-
-.donate {
-    margin-left: auto;
-}
-
-/* Section Styles */
-.section {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.section h2 {
-    font-family: 'Great Vibes', cursive;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.gallery-section {
-    text-align: center;
-    background-color: #f0f0f0;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.gallery-section h2 {
-    font-family: 'Great Vibes', cursive;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.gallery-section ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.gallery-section li {
-    margin: 10px;
-}
-
-.gallery-section a {
-    display: block;
-    padding: 10px;
-    font-size: 18px;
-    color: #333;
-    text-decoration: none;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-.gallery-section a:hover {
-    background-color: #007bff;
-    color: #fff;
-    border-color: #007bff;
-}
-
-/* Water with Lemon Section Styles */
-#water-lemon {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-#water-lemon h2 {
-    font-family: 'Great Vibes', cursive;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-#water-lemon p {
-    color: #555;
-    margin-bottom: 20px;
-}
-
-#waterForm {
-    margin-bottom: 20px;
-}
-
-#waterForm label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-#waterForm input[type="number"], 
-#waterForm input[type="date"], 
-#waterForm button {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-#waterForm button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#waterForm button:hover {
-    background-color: #0056b3;
-}
-
-#waterRecords {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.record-row {
-    background-color: #f0f0f0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: calc(50% - 10px);
-    box-sizing: border-box;
-}
-
-.record-row p {
-    margin: 5px 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .record-row {
-        width: 100%;
-    }
-}
-
-/* Footer Styles */
-footer {
-    background-color: #f8f9fa;
-    border-top: 1px solid #ccc;
-    padding: 10px 0;
-    text-align: center;
-}
-
-footer p {
-    font-size: 14px;
-    color: #666;
-}
-
-***/* Стили для виджета цветка */
-.flower-widget {
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    width: 50px;
-    height: 50px;
-    background-color: #f1c40f; /* Цвет цветка */
-    border-radius: 50%; /* Круглая форма */
-    text-align: center;
-    line-height: 50px;
-    color: white;
-}
-
-.flower-petal {
-    position: absolute;
-    width: 10px;
-    height: 25px;
-    background-color: #f1c40f; /* Цвет лепестков */
-    transform-origin: 50% 100%;
-}
-
-.flower-petal:nth-child(1) {
-    transform: rotate(30deg);
-}
-
-.flower-petal:nth-child(2) {
-    transform: rotate(90deg);
-}
-
-.flower-petal:nth-child(3) {
-    transform: rotate(150deg);
-}
-
-.flower-petal:nth-child(4) {
-    transform: rotate(210deg);
-}
-
-.flower-center {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: white; /* Цвет центра цветка */
-    border-radius: 50%; /* Круглая форма */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Стили для кнопки-переключателя темы в виде луны */
-.moon-widget {
-    display: inline-block;
-    cursor: pointer;
-    margin-left: 10px; /* Отступ слева */
-    position: relative;
-    width: 30px; /* Ширина */
-    height: 30px; /* Высота */
-}
-
-.moon {
-    position: absolute;
-    width: 20px; /* Ширина луны */
-    height: 20px; /* Высота луны */
-    background-color: #f1c40f; /* Цвет луны */
-    border-radius: 50%; /* Круглая форма */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Стили для модального окна */
-.modal {
-    display: none; /* По умолчанию скрыто */
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Темная тема */
-.dark-mode {
-    background-color: #222; /* Цвет фона для темной темы */
-    color: #fff; /* Цвет текста для темной темы */
-}
-</style>
+    <script>
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+        }
+        
+        // Toggle modal
+        function toggleModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
