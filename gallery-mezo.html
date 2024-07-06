@@ -23,6 +23,7 @@
         header h1 {
             margin: 0;
             font-size: 2.5em;
+            font-family: 'Great Vibes', cursive; /* Добавляем выбранный шрифт */
         }
         nav ul {
             list-style: none;
@@ -116,6 +117,73 @@
             width: 100%;
             bottom: 0;
         }
+
+        /* Стили для бургер-меню на мобильных устройствах */
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background-color: #333;
+                padding: 10px 0;
+                text-align: center;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .burger {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                z-index: 1500;
+            }
+
+            .burger .line1,
+            .burger .line2,
+            .burger .line3 {
+                width: 25px;
+                height: 3px;
+                background-color: #fff;
+                margin: 5px;
+                transition: all 0.3s ease;
+            }
+
+            .burger.active .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .burger.active .line2 {
+                opacity: 0;
+            }
+
+            .burger.active .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -123,12 +191,17 @@
         <div class="container">
             <h1>Gallery Mezo</h1>
             <nav>
-                <ul>
+                <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="gallery-monad.html">Gallery Monad</a></li>
                     <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
                 </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
             </nav>
         </div>
     </header>
@@ -165,66 +238,22 @@
                     <p>Mezo Image 7</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/sticker-design-neon-red-fly-mushroom-with-mustache-L7GfYVkpQaigkVbpbQetxA-IzSb3STgQAOT_WQ2_d0UkQ.jpeg" alt="Mezo Image 8">
+                    <img src="images/3d-rendering-of-a-minimalistic-icon-red-mushroom-m-iBkDWdI6x-V8flRv8W_m6g-tTESSlTErpTU8Pp1yobY5A.jpeg" alt="Mezo Image 8">
                     <p>Mezo Image 8</p>
                 </div>
             </div>
         </section>
     </div>
-    <div id="imageModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modalImage" src="" alt="">
-        </div>
-    </div>
-    <footer>
-        <div class="container">
-            <p>© 2024 Helga Blue. All rights reserved.</p>
-        </div>
-    </footer>
     <script>
-        // JavaScript для открытия изображений в полноэкранном режиме
         document.addEventListener('DOMContentLoaded', function () {
-            const galleryItems = document.querySelectorAll('.gallery-item img');
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            const closeBtn = document.querySelector('.close');
+            const burger = document.querySelector('.burger');
+            const navLinks = document.querySelector('.nav-links');
 
-            galleryItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    modal.style.display = 'flex';
-                    modalImg.src = item.src;
-                });
-            });
-
-            closeBtn.addEventListener('click', () => {
-                modal.style.display = 'none';
-            });
-
-            window.addEventListener('click', (event) => {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
+            burger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                burger.classList.toggle('active');
             });
         });
     </script>
 </body>
 </html>
-<header>
-    <div class="container">
-        <h1>Gallery Mezo</h1>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="gallery-monad.html">Gallery Monad</a></li>
-                <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </div>
-</header>
