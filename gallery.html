@@ -6,151 +6,390 @@
     <title>Helga Blue</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        header {
+            background-color: #4FC3F7;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 10px 0 0 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .donate {
+            position: relative;
+            display: inline-block;
+            margin-left: auto;
+        }
+        .flower-widget {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .flower-widget p {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+        .flower-petal {
+            width: 20px;
+            height: 40px;
+            background-color: #FFD700;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+        }
+        .flower-petal:nth-child(1) {
+            transform: translate(-50%, -20%) rotate(30deg);
+        }
+        .flower-petal:nth-child(2) {
+            transform: translate(-50%, -20%) rotate(90deg);
+        }
+        .flower-petal:nth-child(3) {
+            transform: translate(-50%, -20%) rotate(150deg);
+        }
+        .flower-petal:nth-child(4) {
+            transform: translate(-50%, -20%) rotate(210deg);
+        }
+        .flower-center {
+            width: 10px;
+            height: 10px;
+            background-color: #FFD700;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+        }
+        .flower-widget.active {
+            display: block;
+        }
+        .moon-widget {
+            cursor: pointer;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+        .moon {
+            width: 30px;
+            height: 30px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            border: 2px solid #333;
+            position: relative;
+        }
+        .moon::before, .moon::after {
+            content: '';
+            position: absolute;
+            background-color: #ffffff;
+        }
+        .moon::before {
+            width: 20px;
+            height: 2px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .moon::after {
+            width: 2px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .dark-mode .moon {
+            background-color: #333;
+            border-color: #ffffff;
+        }
+        .dark-mode .moon::before, .dark-mode .moon::after {
+            background-color: #333;
+        }
+        .dark-mode .moon::before {
+            width: 20px;
+        }
+        .dark-mode .moon::after {
+            height: 20px;
+        }
+        .dark-mode .flower-petal {
+            background-color: #333;
+        }
+        .dark-mode .flower-center {
+            background-color: #333;
+        }
+        #water-lemon {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        #water-lemon h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+        #water-lemon p {
+            color: #666;
+        }
+        #water-lemon form {
+            margin-top: 20px;
+        }
+        #water-lemon form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        #water-lemon form input[type="number"], #water-lemon form input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        #water-lemon form button {
+            padding: 10px 20px;
+            background-color: #4FC3F7;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #water-lemon form button:hover {
+            background-color: #3BA0E0;
+        }
+        #water-lemon table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        #water-lemon table th, #water-lemon table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        #water-lemon table th {
+            background-color: #f2f2f2;
+        }
+        #notification {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            width: 80%;
+            max-width: 400px;
+        }
+        .dark-mode #notification {
+            background-color: #333;
+        }
+        .notification p {
+            margin: 0;
+        }
+        .notification.active {
+            display: block;
+        }
+        .notification-close {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
-<header style="background-color: #4FC3F7;">
-    <div class="container">
-        <h1><a href="https://april19833.github.io/Helgablue/" style="color: #ffffff; text-decoration: none;">Gallery</a></h1>
-        <nav class="categories">
+    <header>
+        <div class="container">
+            <h1><a href="https://april19833.github.io/Helgablue/" style="color: #ffffff; text-decoration: none;">Gallery</a></h1>
+            <nav class="categories">
+                <ul>
+                    <li><a href="gallery-monad.html">Gallery Monad</a></li>
+                    <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
+                    <li><a href="https://april19833.github.io/Helgablue/" target="_blank">Helga Website</a></li>
+                </ul>
+            </nav>
+            <div class="donate">
+                <a href="https://beam.eco/u/helga" target="_blank" class="donate-button"></a>
+                <div class="flower-widget" onclick="showDonateModal()">
+                    <div class="flower-petal"></div>
+                    <div class="flower-petal"></div>
+                    <div class="flower-petal"></div>
+                    <div class="flower-petal"></div>
+                    <div class="flower-center"></div>
+                    <p></p>
+                </div>
+            </div>
+            <div class="moon-widget" onclick="toggleTheme()">
+                <div class="moon"></div>
+            </div>
+        </div>
+    </header>
 
-        </nav>
-        <div class="donate">
-            <a href="https://beam.eco/u/helga" target="_blank" class="donate-button"></a>
-            <div class="flower-widget" onclick="showDonateModal()">
+    <div class="container">
+        <section id="water-lemon">
+            <h2>Water with Lemon</h2>
+            <p>The benefits of drinking water with lemon in the morning.</p>
+            
+            <form id="waterForm">
+                <label for="cupsCount">How many cups of water with lemon did you drink today?</label><br>
+                <input type="number" id="cupsCount" name="cupsCount" min="0" step="1"><br>
+                
+                <label for="timeOfDay">What time of day did you drink them?</label><br>
+                <input type="date" id="timeOfDay" name="timeOfDay"><br>
+                
+                <button type="button" onclick="recordWater()">Record</button>
+            </form>
+            
+            <table id="waterRecords">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Cups</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Records will be dynamically added here -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="gallery" style="text-align: center;">
+            <h2>Gallery</h2>
+            <ul>
+                <li><a href="gallery-monad.html">Gallery Monad</a></li>
+                <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
+                <li><a href="https://april19833.github.io/Helgablue/" target="_blank">Helga Website</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 My blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Всплывающее окно уведомления -->
+    <div id="notification" class="notification"></div>
+
+    <!-- Модальное окно для поддержки -->
+    <div id="donateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Support Our Work</h2>
+            <p>For course payments, visit <a href="https://helga.beam.eco/" target="_blank">helga.beam.eco</a>.</p>
+        </div>
+    </div>
+
+    <!-- Всплывающее окно уведомления о записи воды с лимоном -->
+    <div id="waterRecordNotification" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeWaterRecordModal()">&times;</span>
+            <h2>Notification</h2>
+            <p>Water with lemon successfully recorded!</p>
+            <div class="flower-widget">
                 <div class="flower-petal"></div>
                 <div class="flower-petal"></div>
                 <div class="flower-petal"></div>
                 <div class="flower-petal"></div>
                 <div class="flower-center"></div>
-                <p></p>
+                <p>Thank you!</p>
             </div>
         </div>
-        <div class="moon-widget" onclick="toggleTheme()">
-            <div class="moon"></div>
-        </div>
     </div>
-</header>
 
-<div class="container">
-    <section id="water-lemon">
-        <h2>Water with Lemon</h2>
-        <p>The benefits of drinking water with lemon in the morning.</p>
-        
-        <form id="waterForm">
-            <label for="cupsCount">How many cups of water with lemon did you drink today?</label><br>
-            <input type="number" id="cupsCount" name="cupsCount" min="0" step="1"><br>
-            
-            <label for="timeOfDay">What time of day did you drink them?</label><br>
-            <input type="date" id="timeOfDay" name="timeOfDay"><br>
-            
-            <button type="button" onclick="recordWater()">Record</button>
-        </form>
-        
-        <table id="waterRecords">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Cups</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Records will be dynamically added here -->
-            </tbody>
-        </table>
-    </section>
-
-    <!-- Галерея -->
-    <section id="gallery" style="text-align: center;">
-        <h2>Gallery</h2>
-        <ul>
-            <li><a href="gallery-monad.html">Gallery Monad</a></li>
-            <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
-            <li><a href="https://april19833.github.io/Helgablue/" target="_blank">Helga Website</a></li>
-        </ul>
-    </section>
-</div>
-
-<footer>
-    <div class="container">
-        <p>© 2024 My blog. All rights reserved.</p>
-    </div>
-</footer>
-
-<!-- Всплывающее окно уведомления -->
-<div id="notification" class="notification"></div>
-
-<!-- Модальное окно для поддержки -->
-<div id="donateModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Support Our Work</h2>
-        <p>For course payments, visit <a href="https://helga.beam.eco/" target="_blank">helga.beam.eco</a>.</p>
-    </div>
-</div>
-
-<!-- Всплывающее окно уведомления о записи воды с лимоном -->
-<div id="waterRecordNotification" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeWaterRecordModal()">&times;</span>
-        <h2>Notification</h2>
-        <p>Water with lemon successfully recorded!</p>
-        <div class="flower-widget">
-            <div class="flower-petal"></div>
-            <div class="flower-petal"></div>
-            <div class="flower-petal"></div>
-            <div class="flower-petal"></div>
-            <div class="flower-center"></div>
-            <p>Thank you!</p>
-        </div>
-    </div>
-</div>
-
-<script>
-    function showDonateModal() {
-        var modal = document.getElementById('donateModal');
-        modal.style.display = 'block';
-    }
-
-    function closeModal() {
-        var modal = document.getElementById('donateModal');
-        modal.style.display = 'none';
-    }
-
-    function toggleTheme() {
-        document.body.classList.toggle('dark-mode'); // Добавляем или удаляем класс dark-mode у body
-    }
-
-    function recordWater() {
-        var cupsCount = document.getElementById('cupsCount').value;
-        var timeOfDay = document.getElementById('timeOfDay').value;
-        
-        if (!cupsCount || !timeOfDay) {
-            alert("Please fill in all fields.");
-            return;
+    <script>
+        function showDonateModal() {
+            var modal = document.getElementById('donateModal');
+            modal.style.display = 'block';
         }
-        
-        var table = document.getElementById('waterRecords').getElementsByTagName('tbody')[0];
-        var newRow = table.insertRow();
-        
-        var dateCell = newRow.insertCell(0);
-        var timeCell = newRow.insertCell(1);
-        var cupsCell = newRow.insertCell(2);
-        
-        dateCell.innerHTML = new Date().toLocaleDateString();
-        timeCell.innerHTML = timeOfDay;
-        cupsCell.innerHTML = cupsCount;
-
-        // Show notification
-        var notification = document.getElementById('waterRecordNotification');
-        notification.style.display = 'block';
-    }
-
-    function closeWaterRecordModal() {
-        var notification = document.getElementById('waterRecordNotification');
-        notification.style.display = 'none';
-    }
-</script>
-
+    
+        function closeModal() {
+            var modal = document.getElementById('donateModal');
+            modal.style.display = 'none';
+        }
+    
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode'); // Добавляем или удаляем класс dark-mode у body
+        }
+    
+        function recordWater() {
+            var cupsCount = document.getElementById('cupsCount').value;
+            var timeOfDay = document.getElementById('timeOfDay').value;
+            
+            if (!cupsCount || !timeOfDay) {
+                alert("Please fill in all fields.");
+                return;
+            }
+            
+            var table = document.getElementById('waterRecords').getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow();
+            
+            var dateCell = newRow.insertCell(0);
+            var timeCell = newRow.insertCell(1);
+            var cupsCell = newRow.insertCell(2);
+            
+            dateCell.innerHTML = new Date().toLocaleDateString();
+            timeCell.innerHTML = timeOfDay;
+            cupsCell.innerHTML = cupsCount;
+    
+            // Show notification
+            var notification = document.getElementById('waterRecordNotification');
+            notification.style.display = 'block';
+        }
+    
+        function closeWaterRecordModal() {
+            var notification = document.getElementById('waterRecordNotification');
+            notification.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
