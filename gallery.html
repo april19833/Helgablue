@@ -248,108 +248,41 @@
     <header>
         <div class="container">
             <h1><a href="https://april19833.github.io/Helgablue/" style="color: #ffffff; text-decoration: none;">Gallery</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="#gallery-monad">Gallery Monad</a></li>
+                    <li><a href="#gallery-mezo">Gallery Mezo</a></li>
+                    <li><a href="https://april19833.github.io/Helgablue/" style="color: #ffffff; text-decoration: none;">Helga Blue</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <div class="container">
-        <section id="water-lemon">
-            <h2>Water with Lemon</h2>
-            <p>Record your daily water intake with a twist of lemon.</p>
-            <form id="water-form">
-                <label for="quantity">Quantity (ml)</label>
-                <input type="number" id="quantity" name="quantity" required>
-                <label for="date">Date</label>
-                <input type="date" id="date" name="date" required>
-                <button type="submit">Save</button>
-            </form>
-            <table id="water-table">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Quantity (ml)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Table rows will be dynamically added here -->
-                </tbody>
-            </table>
-        </section>
+    <section id="gallery-monad" class="gallery-section">
+        <!-- Your gallery Monad content here -->
+    </section>
 
-        <!-- Notification Box -->
-        <div id="notification" class="notification">
-            <span class="notification-close" onclick="closeNotification()">×</span>
-            <p>Record saved successfully!</p>
+    <section id="gallery-mezo" class="gallery-section">
+        <!-- Your gallery Mezo content here -->
+    </section>
+
+    <div class="donate">
+        <button onclick="showWidget('flower')" class="button donation__bitcoin">Donation via Beam Wallet</button>
+        <div id="flower-widget" class="flower-widget">
+            <div class="flower-petal"></div>
+            <div class="flower-petal"></div>
+            <div class="flower-petal"></div>
+            <div class="flower-petal"></div>
+            <div class="flower-center"></div>
+            <p>Donate to support our projects</p>
         </div>
     </div>
 
-    <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/confetti.js@0.0.12"></script>
-    <script>
-        // Function to handle form submission
-        document.getElementById('water-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting
-
-            // Get form values
-            var quantity = document.getElementById('quantity').value;
-            var date = document.getElementById('date').value;
-
-            // Add new row to table
-            var table = document.getElementById('water-table').getElementsByTagName('tbody')[0];
-            var row = table.insertRow(0);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            cell1.textContent = date;
-            cell2.textContent = quantity;
-
-            // Show notification
-            var notification = document.getElementById('notification');
-            notification.classList.add('active');
-
-            // Clear form
-            document.getElementById('quantity').value = '';
-            document.getElementById('date').value = '';
-
-            // Trigger confetti animation
-            startConfetti();
-        });
-
-        // Function to close notification
-        function closeNotification() {
-            var notification = document.getElementById('notification');
-            notification.classList.remove('active');
-        }
-
-        // Function to start confetti animation
-        function startConfetti() {
-            confetti.start();
-            setTimeout(function() {
-                confetti.stop();
-            }, 3000); // Stop confetti after 3 seconds
-        }
-    </script>
-
-    <!-- Flower Widget -->
-    <div class="flower-widget">
-        <div class="flower-petal"></div>
-        <div class="flower-petal"></div>
-        <div class="flower-petal"></div>
-        <div class="flower-petal"></div>
-        <div class="flower-center"></div>
-        <p>Donate via Beam Wallet</p>
+    <div id="notification" class="notification">
+        <span onclick="closeNotification()" class="notification-close">&times;</span>
+        <p>Your record has been successfully saved!</p>
     </div>
 
-    <!-- Moon Widget -->
-    <div class="moon-widget" onclick="toggleTheme()">
-        <div class="moon"></div>
-    </div>
-
-    <!-- JavaScript for Dark Mode Toggle -->
-    <script>
-        // Function to toggle dark mode
-        function toggleTheme() {
-            var body = document.body;
-            body.classList.toggle('dark-mode');
-        }
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
