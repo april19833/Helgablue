@@ -2,34 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NFT Course</title>
+    <title>NFT Course: Introduction to Non-Fungible Tokens</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="lightbox.css"> <!-- Assuming you have a CSS file for Lightbox -->
+    <link rel="stylesheet" href="lightbox.css">
     <style>
-        /* Light Theme */
         body {
             background-color: #fff;
             color: #333;
+            font-family: Arial, sans-serif;
         }
 
-        /* Dark Theme */
         body.dark-theme {
             background-color: #333;
             color: #fff;
         }
 
-        /* Additional CSS styles for animation and interaction */
-        .gallery img, .gallery video {
-            transition: transform 0.2s ease-in-out;
-            max-width: 100%;
-            height: auto;
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
         }
 
-        .gallery img:hover, .gallery video:hover {
-            transform: scale(1.1);
+        nav ul {
+            list-style-type: none;
+            padding: 0;
         }
 
-        /* Dark mode toggle button styling */
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
         #theme-toggle {
             background-color: #333;
             color: #fff;
@@ -42,13 +54,84 @@
             background-color: #fff;
             color: #333;
         }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .gallery a {
+            flex: 1 0 21%; /* Makes each item take up 21% of the row */
+            box-sizing: border-box;
+        }
+
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+
+        .module-navigation {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .module-navigation a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .module-navigation a:hover {
+            background-color: #555;
+        }
+
+        .subscription-info {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .subscription-info button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .subscription-info button:hover {
+            background-color: #555;
+        }
     </style>
-    <script src="lightbox.js"></script> <!-- Assuming you have a JavaScript file for Lightbox -->
+    <script src="lightbox.js"></script>
     <script>
-        // JavaScript for theme toggle button
         function toggleTheme() {
-            const body = document.body;
-            body.classList.toggle('dark-theme');
+            document.body.classList.toggle('dark-theme');
         }
     </script>
 </head>
@@ -124,22 +207,37 @@
             <p>The popularity of NFTs is growing, opening new opportunities for innovations and business model development:</p>
             <ul>
                 <li><strong>Economic Impact:</strong> NFTs are becoming a significant asset in the market, affecting prices and investment strategies in the cryptocurrency sector.</li>
-                <li><strong>Cultural Impact:</strong> The use of NFTs in cultural and creative industries promotes the development of new art forms and digital interactions.</li>
-                <li><strong>Technological Innovations:</strong> The development of blockchain infrastructure and smart contracts opens new technological possibilities for using NFTs in various fields.</li>
+                <li><strong>Technological Innovations:</strong> Developers are working on new ways to use NFTs in various industries, including virtual reality and social networks.</li>
+                <li><strong>Community Engagement:</strong> NFT communities provide opportunities for users to exchange experiences, support projects, and participate in joint creative activities.</li>
             </ul>
         </section>
 
         <section id="additional-resources">
             <h2>Additional Resources</h2>
             <ul>
-                <li><strong>Article 1:</strong> <a href="https://www.example.com/understanding-nfts-guide">Understanding NFTs: The Complete Guide</a></li>
-                <li><strong>Video 1:</strong> <a href="https://www.example.com/introduction-to-nfts-video">Introduction to NFTs: Explained</a></li>
+                <li><a href="https://www.coindesk.com/what-are-nfts">What Are NFTs?</a></li>
+                <li><a href="https://www.theverge.com/2021/3/2/22306615/nft-explainer-what-is-blockchain-crypto-art-faq">The Verge: NFT Explained</a></li>
+                <li><a href="https://www.bbc.com/news/technology-56371912">BBC: NFTs - New Digital Art Form</a></li>
+                <li><a href="https://ethereum.org/en/nft/">Ethereum: NFTs</a></li>
             </ul>
         </section>
+
+        <div class="subscription-info">
+            <p>If you enjoyed the course, consider subscribing to support our work and access more content!</p>
+            <button onclick="window.location.href='https://example.com/subscribe'">Subscribe Now</button>
+        </div>
+
+        <div class="module-navigation">
+            <a href="module1.html">Module 1: History of NFTs</a>
+            <a href="module2.html">Module 2: Creating and Minting NFTs</a>
+            <a href="module3.html">Module 3: Trading and Marketplaces</a>
+            <a href="module4.html">Module 4: Legal Aspects and Security</a>
+            <a href="module5.html">Module 5: Future of NFTs</a>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Helga Blue. All rights reserved.</p>
+        <p>&copy; 2024 NFT Course. All rights reserved.</p>
     </footer>
 </body>
 </html>
