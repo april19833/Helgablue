@@ -418,3 +418,5 @@ footer p {
         height: 25px;
     }
 }
+<!-- Lightbox CSS from a CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
