@@ -26,69 +26,54 @@
         nav ul {
             list-style-type: none;
             padding: 0;
+            float: left;
+            width: 20%;
+            background-color: #f1f1f1;
+            height: 100vh;
+            overflow: auto;
         }
 
         nav ul li {
-            display: inline;
-            margin: 0 10px;
+            display: block;
+            margin: 10px 0;
         }
 
         nav ul li a {
+            display: block;
+            padding: 10px 15px;
             text-decoration: none;
             color: #333;
         }
 
         nav ul li a:hover {
-            text-decoration: underline;
-        }
-
-        #theme-toggle {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        body.dark-theme #theme-toggle {
-            background-color: #fff;
-            color: #333;
+            background-color: #ddd;
         }
 
         main {
             padding: 20px;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .gallery a {
-            flex: 1 0 21%;
-            box-sizing: border-box;
-        }
-
-        .gallery img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.1);
+            float: left;
+            width: 70%;
+            height: 100vh;
+            overflow: auto;
         }
 
         footer {
+            clear: both;
             text-align: center;
             padding: 20px;
             background-color: #f8f8f8;
+        }
+
+        .module-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+
+        .module-content.active {
+            display: block;
         }
 
         .module-navigation {
@@ -108,85 +93,6 @@
         .module-navigation a:hover {
             background-color: #555;
         }
-
-        .subscription-info {
-            text-align: center;
-            margin: 20px 0;
-            padding: 20px;
-            border: 1px solid #ddd;
-        }
-
-        .subscription-info button {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        .subscription-info button:hover {a
-            background-color: #555;
-        }
-
-        /* Styles for modal form */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            padding-top: 60px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        #sign-up-form label {
-            display: block;
-            margin: 10px 0 5px;
-        }
-
-        #sign-up-form input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-
-        #sign-up-form button {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-        #sign-up-form button:hover {
-            background-color: #555;
-        }
     </style>
     <script src="lightbox.js"></script>
     <script>
@@ -194,24 +100,19 @@
             document.body.classList.toggle('dark-theme');
         }
 
-        function openForm() {
-            document.getElementById("signUpForm").style.display = "block";
+        function openModule(moduleId) {
+            // Hide all module contents
+            var modules = document.querySelectorAll('.module-content');
+            modules.forEach(function(module) {
+                module.classList.remove('active');
+            });
+
+            // Show selected module content
+            var selectedModule = document.getElementById(moduleId);
+            if (selectedModule) {
+                selectedModule.classList.add('active');
+            }
         }
-
-        function closeForm() {
-            document.getElementById("signUpForm").style.display = "none";
-        }
-
-        document.getElementById('sign-up-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const name = document.getElementById('signup-name').value;
-            const email = document.getElementById('signup-email').value;
-            const telegram = document.getElementById('signup-telegram').value;
-
-            alert(`Thank you for signing up, ${name}! We will contact you via ${email} or Telegram: ${telegram}.`);
-
-            closeForm();
-        });
     </script>
 </head>
 <body>
@@ -219,104 +120,66 @@
         <h1>NFT Course: Introduction to Non-Fungible Tokens</h1>
         <nav>
             <ul>
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#properties">Key Properties</a></li>
-                <li><a href="#applications">Applications</a></li>
-                <li><a href="#market-potential">Market Potential</a></li>
-                <li><a href="#additional-resources">Additional Resources</a></li>
+                <li><a href="#" onclick="openModule('introduction')">Introduction</a></li>
+                <li><a href="#" onclick="openModule('properties')">Key Properties</a></li>
+                <li><a href="#" onclick="openModule('applications')">Applications</a></li>
+                <li><a href="#" onclick="openModule('market-potential')">Market Potential</a></li>
+                <li><a href="#" onclick="openModule('additional-resources')">Additional Resources</a></li>
             </ul>
         </nav>
         <button id="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
     </header>
 
     <main>
-        <section id="introduction">
+        <div id="introduction" class="module-content">
             <h2>Introduction to NFTs</h2>
             <p>NFT (Non-Fungible Token) is a unique digital asset recorded on the blockchain that has no identical copies and is not interchangeable with other tokens.</p>
-        </section>
+            <p><a href="#" onclick="openModule('module1')">Start Module 1: History of NFTs</a></p>
+        </div>
 
-        <section id="properties">
-            <h2>Key Properties of NFTs</h2>
-            <ul>
-                <li><strong>Uniqueness and Irreversibility:</strong> Each NFT has unique characteristics and cannot be divided or replaced with another token.</li>
-                <li><strong>Transparency and Security:</strong> All data about NFTs are stored on a public blockchain, ensuring transparency and protection against counterfeiting.</li>
-                <li><strong>Inalienability of Ownership:</strong> The owner of an NFT has exclusive rights to use and dispose of it, making it valuable for collectors and creative industries.</li>
-            </ul>
-        </section>
+        <div id="module1" class="module-content">
+            <h2>Module 1: History of NFTs</h2>
+            <p>Content of Module 1 goes here...</p>
+            <p><a href="#" onclick="openModule('module2')">Next Module: Creating and Minting NFTs</a></p>
+        </div>
 
-        <section id="applications">
-            <h2>Applications of NFTs in Various Industries</h2>
-            <div class="gallery">
-                <h3>NFT Gallery</h3>
-                <a href="https://beeple.artstation.com/projects/lVJnx" data-lightbox="nft-gallery" data-title="Beeple's Giant Emoji">
-                    <img src="https://cdn.artstation.com/p/assets/images/images/002/120/976/large/beeple-crap-s3b1k37.jpg" alt="Digital Artwork">
-                </a>
-                <a href="https://www.cryptokitties.co/kitty/896775" data-lightbox="nft-gallery" data-title="CryptoKitty #896775">
-                    <img src="https://www.cryptokitties.co/images/kitty-896775.png" alt="Collectible">
-                </a>
-                <a href="https://www.larvalabs.com/cryptopunks/details/3100" data-lightbox="nft-gallery" data-title="CryptoPunk #3100">
-                    <img src="https://www.larvalabs.com/cryptopunks/cryptopunk3100.png" alt="Game Asset">
-                </a>
-                <a href="https://decentraland.org" data-lightbox="nft-gallery" data-title="Decentraland">
-                    <img src="https://decentraland.org/images/home/home-explore-dcl.jpg" alt="Virtual Real Estate">
-                </a>
-            </div>
-        </section>
+        <div id="module2" class="module-content">
+            <h2>Module 2: Creating and Minting NFTs</h2>
+            <p>Content of Module 2 goes here...</p>
+            <p><a href="#" onclick="openModule('module3')">Next Module: Trading and Marketplaces</a></p>
+        </div>
 
-        <section id="market-potential">
-            <h2>Market Potential for NFTs</h2>
-            <p>The NFT market is experiencing rapid growth, with billions of dollars in sales and a wide variety of applications, from digital art and collectibles to virtual real estate and gaming.</p>
-        </section>
+        <div id="module3" class="module-content">
+            <h2>Module 3: Trading and Marketplaces</h2>
+            <p>Content of Module 3 goes here...</p>
+            <p><a href="#" onclick="openModule('module4')">Next Module: Legal Aspects and Security</a></p>
+        </div>
 
-        <section id="additional-resources">
+        <div id="module4" class="module-content">
+            <h2>Module 4: Legal Aspects and Security</h2>
+            <p>Content of Module 4 goes here...</p>
+            <p><a href="#" onclick="openModule('module5')">Next Module: Future of NFTs</a></p>
+        </div>
+
+        <div id="module5" class="module-content">
+            <h2>Module 5: Future of NFTs</h2>
+            <p>Content of Module 5 goes here...</p>
+            <p>Special Bonus Task...</p>
+        </div>
+
+        <div id="additional-resources" class="module-content">
             <h2>Additional Resources</h2>
             <p>For more information about NFTs and their applications, visit the following resources:</p>
             <ul>
                 <li><a href="https://opensea.io">OpenSea</a></li>
                 <li><a href="https://rarible.com">Rarible</a></li>
                 <li><a href="https://superrare.com">SuperRare</a></li>
-                <li><a href="https://foundation.app/">Foundation</a></li>
             </ul>
-        </section>
-        <section id="pricing">
-            <h2>Course Pricing</h2>
-            <ul>
-                <li><strong>Basic Plan:</strong> Access to all course materials for 1 month - $99</li>
-                <li><strong>Standard Plan:</strong> Access to all course materials and 3 live Q&A sessions - $199</li>
-                <li><strong>Premium Plan:</strong> All features of Standard Plan plus personal mentorship for 3 months - $499</li>
-            </ul>
-            <button onclick="openForm()">Sign Up</button>
-        </section>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Your Course Name. All rights reserved.</p>
+        <p>&copy; 2024 NFT Course. All rights reserved.</p>
     </footer>
-
-    <div id="signUpForm" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeForm()">&times;</span>
-            <h2>Sign Up for the NFT Course</h2>
-            <form id="sign-up-form">
-                <label for="signup-name">Name:</label>
-                <input type="text" id="signup-name" name="name" required>
-
-                <label for="signup-email">Email:</label>
-                <input type="email" id="signup-email" name="email" required>
-
-                <label for="signup-telegram">Telegram:</label>
-                <input type="text" id="signup-telegram" name="telegram" required>
-
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
 </body>
 </html>
- <div class="module-navigation">
-            <a href="module1.html">Module 1: History of NFTs</a>
-            <a href="module2.html">Module 2: Creating and Minting NFTs</a>
-            <a href="module3.html">Module 3: Trading and Marketplaces</a>
-            <a href="module4.html">Module 4: Legal Aspects and Security</a>
-            <a href="module5.html">Module 5: Future of NFTs</a>
-        </div>
