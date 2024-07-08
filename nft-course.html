@@ -2,184 +2,136 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NFT Course: Introduction to Non-Fungible Tokens</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="lightbox.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT Course Subscription</title>
     <style>
         body {
-            background-color: #fff;
-            color: #333;
             font-family: Arial, sans-serif;
-        }
-
-        body.dark-theme {
-            background-color: #333;
-            color: #fff;
-        }
-
-        header {
-            background-color: #f8f8f8;
-            padding: 20px;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style-type: none;
+            margin: 0;
             padding: 0;
-            float: left;
-            width: 20%;
-            background-color: #f1f1f1;
-            height: 100vh;
-            overflow: auto;
+            background-color: #f0f0f0;
         }
-
-        nav ul li {
-            display: block;
-            margin: 10px 0;
-        }
-
-        nav ul li a {
-            display: block;
-            padding: 10px 15px;
-            text-decoration: none;
-            color: #333;
-        }
-
-        nav ul li a:hover {
-            background-color: #ddd;
-        }
-
-        main {
+        .container {
+            width: 80%;
+            margin: 0 auto;
             padding: 20px;
-            float: left;
-            width: 70%;
-            height: 100vh;
-            overflow: auto;
         }
-
-        footer {
-            clear: both;
-            text-align: center;
-            padding: 20px;
-            background-color: #f8f8f8;
+        .tariffs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
         }
-
-        .module-content {
-            display: none;
+        .tariff {
+            background-color: #fff;
             padding: 20px;
             border: 1px solid #ccc;
-            margin-bottom: 20px;
-            background-color: #fff;
+            border-radius: 8px;
+            width: 45%;
         }
-
-        .module-content.active {
+        .tariff h3 {
+            margin-top: 0;
+        }
+        .tariff a {
             display: block;
-        }
-
-        .module-navigation {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .module-navigation a {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 5px;
-            background-color: #333;
-            color: #fff;
+            margin: 5px 0;
+            color: #007bff;
             text-decoration: none;
         }
-
-        .module-navigation a:hover {
-            background-color: #555;
+        .subscription-form {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .subscription-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .subscription-form input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .subscription-form input[type="submit"]:hover {
+            background-color: #0056b3;
         }
     </style>
-    <script src="lightbox.js"></script>
-    <script>
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
-        }
-
-        function openModule(moduleId) {
-            // Hide all module contents
-            var modules = document.querySelectorAll('.module-content');
-            modules.forEach(function(module) {
-                module.classList.remove('active');
-            });
-
-            // Show selected module content
-            var selectedModule = document.getElementById(moduleId);
-            if (selectedModule) {
-                selectedModule.classList.add('active');
-            }
-        }
-    </script>
 </head>
 <body>
-    <header>
-        <h1>NFT Course: Introduction to Non-Fungible Tokens</h1>
-        <nav>
-            <ul>
-                <li><a href="#" onclick="openModule('introduction')">Introduction</a></li>
-                <li><a href="#" onclick="openModule('properties')">Key Properties</a></li>
-                <li><a href="#" onclick="openModule('applications')">Applications</a></li>
-                <li><a href="#" onclick="openModule('market-potential')">Market Potential</a></li>
-                <li><a href="#" onclick="openModule('additional-resources')">Additional Resources</a></li>
-            </ul>
-        </nav>
-        <button id="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
-    </header>
-
-    <main>
-        <div id="introduction" class="module-content">
-            <h2>Introduction to NFTs</h2>
-            <p>NFT (Non-Fungible Token) is a unique digital asset recorded on the blockchain that has no identical copies and is not interchangeable with other tokens.</p>
-            <p><a href="#" onclick="openModule('module1')">Start Module 1: History of NFTs</a></p>
+    <div class="container">
+        <h1>Подписка на курс NFT</h1>
+        <div class="tariffs">
+            <div class="tariff">
+                <h3>Тариф "БАЗОВЫЙ" - 15$</h3>
+                <a href="module1.html">Module 1: History of NFTs</a>
+                <a href="module2.html">Module 2: Creating and Minting NFTs</a>
+                <a href="module3.html">Module 3: Trading and Marketplaces</a>
+                <a href="module4.html">Module 4: Legal Aspects and Security</a>
+                <a href="module5.html">Module 5: Future of NFTs</a>
+            </div>
+            <div class="tariff">
+                <h3>Тариф "PRO" - 50$</h3>
+                <a href="module1.html">Module 1: History of NFTs</a>
+                <a href="module2.html">Module 2: Creating and Minting NFTs</a>
+                <a href="module3.html">Module 3: Trading and Marketplaces</a>
+                <a href="module4.html">Module 4: Legal Aspects and Security</a>
+                <a href="module5.html">Module 5: Future of NFTs</a>
+                <p>Бонусный курс "нейросети помощники"</p>
+                <p>Электронный сертификат о прохождении</p>
+                <p>Проверка домашних заданий</p>
+            </div>
         </div>
-
-        <div id="module1" class="module-content">
-            <h2>Module 1: History of NFTs</h2>
-            <p>Content of Module 1 goes here...</p>
-            <p><a href="#" onclick="openModule('module2')">Next Module: Creating and Minting NFTs</a></p>
+        <div class="subscription-form">
+            <h2>Записаться на курс</h2>
+            <form id="subscription-form" action="submit_subscription.php" method="post">
+                <label>
+                    <input type="radio" name="tariff" value="basic" required> Тариф "БАЗОВЫЙ" - 15$
+                </label><br>
+                <label>
+                    <input type="radio" name="tariff" value="pro" required> Тариф "PRO" - 50$
+                </label><br><br>
+    
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+    
+                <label for="nickname">Ник:</label><br>
+                <input type="text" id="nickname" name="nickname" required><br><br>
+    
+                <label for="telegram">Телеграм Логин:</label><br>
+                <input type="text" id="telegram" name="telegram" required><br><br>
+    
+                <label for="wallet">Адрес кошелька для оплаты:</label><br>
+                <input type="text" id="wallet" name="wallet" value="0x9703fc5F0C0274740f251F30D7Ada155d1E597ff" readonly><br><br>
+    
+                <input type="submit" value="Записаться">
+            </form>
         </div>
-
-        <div id="module2" class="module-content">
-            <h2>Module 2: Creating and Minting NFTs</h2>
-            <p>Content of Module 2 goes here...</p>
-            <p><a href="#" onclick="openModule('module3')">Next Module: Trading and Marketplaces</a></p>
-        </div>
-
-        <div id="module3" class="module-content">
-            <h2>Module 3: Trading and Marketplaces</h2>
-            <p>Content of Module 3 goes here...</p>
-            <p><a href="#" onclick="openModule('module4')">Next Module: Legal Aspects and Security</a></p>
-        </div>
-
-        <div id="module4" class="module-content">
-            <h2>Module 4: Legal Aspects and Security</h2>
-            <p>Content of Module 4 goes here...</p>
-            <p><a href="#" onclick="openModule('module5')">Next Module: Future of NFTs</a></p>
-        </div>
-
-        <div id="module5" class="module-content">
-            <h2>Module 5: Future of NFTs</h2>
-            <p>Content of Module 5 goes here...</p>
-            <p>Special Bonus Task...</p>
-        </div>
-
-        <div id="additional-resources" class="module-content">
-            <h2>Additional Resources</h2>
-            <p>For more information about NFTs and their applications, visit the following resources:</p>
-            <ul>
-                <li><a href="https://opensea.io">OpenSea</a></li>
-                <li><a href="https://rarible.com">Rarible</a></li>
-                <li><a href="https://superrare.com">SuperRare</a></li>
-            </ul>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 NFT Course. All rights reserved.</p>
-    </footer>
+    </div>
+    <script>
+        document.getElementById('subscription-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            
+            fetch('submit_subscription.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                alert('Вы успешно подписались на курс!'); 
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
 </body>
 </html>
