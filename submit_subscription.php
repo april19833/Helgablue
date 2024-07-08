@@ -1,36 +1,38 @@
 <?php
+session_start();
+
+// Проверка метода запроса
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Получение данных из формы подписки
     $tariff = $_POST['tariff'];
     $email = $_POST['email'];
     $nickname = $_POST['nickname'];
     $telegram = $_POST['telegram'];
     
-    // Здесь можно добавить код для обработки данных, например, сохранение в базу данных или отправка на email
-    // Пример отправки на email
-    $to = "your-email@example.com";
-    $subject = "Новая подписка на курс";
+    // Отправка уведомления о подписке
+    $to = "olgatelb@gmail.com";
+    $subject = "Новая подписка на курс NFT";
     $message = "Тариф: $tariff\nEmail: $email\nНик: $nickname\nТелеграм: $telegram";
     $headers = "From: no-reply@yourdomain.com";
     
+    // Отправка уведомления на почту о новой подписке
     if (mail($to, $subject, $message, $headers)) {
         echo "Подписка успешно оформлена!";
+
+        // Здесь можно добавить дополнительный код, например, сохранение данных в базу данных
+        
     } else {
         echo "Произошла ошибка при оформлении подписки.";
     }
 } else {
     echo "Неверный метод запроса.";
 }
-?>
-<?php
-session_start();
 
-// Проверка сессии
+// Проверка сессии пользователя для доступа к материалам курса
 if (!isset($_SESSION['user_email'])) {
     header("Location: payment.php");
     exit();
 }
-
-// Здесь находится материал курса, доступный только для подписанных пользователей
 ?>
 <!DOCTYPE html>
 <html lang="en">
