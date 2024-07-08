@@ -4,11 +4,17 @@ session_start();
 // Проверка метода запроса
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Получение данных из формы подписки
-    $tariff = $_POST['tariff'];
-    $email = $_POST['email'];
-    $nickname = $_POST['nickname'];
-    $telegram = $_POST['telegram'];
+    $tariff = htmlspecialchars($_POST['tariff']);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $nickname = htmlspecialchars($_POST['nickname']);
+    $telegram = htmlspecialchars($_POST['telegram']);
     
+    // Проверка данных на пустоту
+    if (empty($tariff) || empty($email) || empty($nickname) || empty($telegram)) {
+        echo "Пожалуйста, заполните все поля.";
+        exit();
+    }
+
     // Отправка уведомления о подписке
     $to = "olgatelb@gmail.com";
     $subject = "Новая подписка на курс NFT";
@@ -39,10 +45,10 @@ if (!isset($_SESSION['user_email'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 1: History of NFTs</title>
+    <title>Модуль 1: История NFT</title>
 </head>
 <body>
-    <h1>Module 1: History of NFTs</h1>
+    <h1>Модуль 1: История NFT</h1>
     <p>Контент модуля...</p>
 </body>
 </html>
