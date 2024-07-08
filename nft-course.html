@@ -70,7 +70,7 @@
         }
 
         .gallery a {
-            flex: 1 0 21%; /* Makes each item take up 21% of the row */
+            flex: 1 0 21%;
             box-sizing: border-box;
         }
 
@@ -124,7 +124,67 @@
             cursor: pointer;
         }
 
-        .subscription-info button:hover {
+        .subscription-info button:hover {a
+            background-color: #555;
+        }
+
+        /* Styles for modal form */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #sign-up-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        #sign-up-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        #sign-up-form button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #sign-up-form button:hover {
             background-color: #555;
         }
     </style>
@@ -133,6 +193,25 @@
         function toggleTheme() {
             document.body.classList.toggle('dark-theme');
         }
+
+        function openForm() {
+            document.getElementById("signUpForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("signUpForm").style.display = "none";
+        }
+
+        document.getElementById('sign-up-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const telegram = document.getElementById('signup-telegram').value;
+
+            alert(`Thank you for signing up, ${name}! We will contact you via ${email} or Telegram: ${telegram}.`);
+
+            closeForm();
+        });
     </script>
 </head>
 <body>
@@ -179,72 +258,65 @@
                     <img src="https://www.larvalabs.com/cryptopunks/cryptopunk3100.png" alt="Game Asset">
                 </a>
                 <a href="https://decentraland.org" data-lightbox="nft-gallery" data-title="Decentraland">
-                    <img src="https://decentraland.org/images/logo.svg" alt="Virtual Real Estate">
-                </a>
-                <a href="https://niftygateway.com/collections/grimes" data-lightbox="nft-gallery" data-title="Grimes' WarNymph Collection">
-                    <img src="https://res.cloudinary.com/nifty-gateway/video/upload/v1614380818/video_stills/Grimes_WarNymph_Collection.jpg" alt="Digital Art Creation Process">
-                </a>
-                <a href="https://somniumspace.com" data-lightbox="nft-gallery" data-title="Virtual Tour of Somnium Space">
-                    <img src="https://www.somniumspace.com/images/Somnium_Space.jpg" alt="Virtual Worlds">
-                </a>
-                <a href="https://www.youtube.com/watch?v=dDGsR-PV22U" data-lightbox="nft-gallery" data-title="Axie Infinity Gameplay">
-                    <img src="https://img.youtube.com/vi/dDGsR-PV22U/0.jpg" alt="Game Demos">
-                </a>
-                <a href="https://niftygateway.com/itemdetail/secondary/0x7bd29408f11d2bfc23c34f18275bbf23bb716bc7/1" data-lightbox="nft-gallery" data-title="Beeple's Crossroad">
-                    <img src="https://res.cloudinary.com/nifty-gateway/image/upload/c_fill,g_center,w_280,h_280/secondary/0x7bd29408f11d2bfc23c34f18275bbf23bb716bc7/1.png" alt="NFT Events">
+                    <img src="https://decentraland.org/images/home/home-explore-dcl.jpg" alt="Virtual Real Estate">
                 </a>
             </div>
-            <ul>
-                <li><strong>Art and Collectibles:</strong> Creators can produce unique digital artworks and sell them as valuable collectibles.</li>
-                <li><strong>Music and Copyright:</strong> Artists can release albums and tracks as NFTs, securing copyright and royalties for each use.</li>
-                <li><strong>Video Games and Virtual Worlds:</strong> Game developers use NFTs to create unique items and characters that users can buy, sell, and trade.</li>
-                <li><strong>Virtual Real Estate and Metaverses:</strong> NFTs enable owners to purchase virtual land plots, build structures, and create unique virtual worlds.</li>
-            </ul>
         </section>
 
         <section id="market-potential">
-            <h2>Market Potential and Innovations</h2>
-            <p>The popularity of NFTs is growing, opening new opportunities for innovations and business model development:</p>
-            <ul>
-                <li><strong>Economic Impact:</strong> NFTs are becoming a significant asset in the market, affecting prices and investment strategies in the cryptocurrency sector.</li>
-                <li><strong>Technological Innovations:</strong> Developers are working on new ways to use NFTs in various industries, including virtual reality and social networks.</li>
-                <li><strong>Community Engagement:</strong> NFT communities provide opportunities for users to exchange experiences, support projects, and participate in joint creative activities.</li>
-            </ul>
+            <h2>Market Potential for NFTs</h2>
+            <p>The NFT market is experiencing rapid growth, with billions of dollars in sales and a wide variety of applications, from digital art and collectibles to virtual real estate and gaming.</p>
         </section>
 
         <section id="additional-resources">
             <h2>Additional Resources</h2>
+            <p>For more information about NFTs and their applications, visit the following resources:</p>
             <ul>
                 <li><a href="https://opensea.io">OpenSea</a></li>
                 <li><a href="https://rarible.com">Rarible</a></li>
-                <li><a href="https://foundation.app">Foundation</a></li>
                 <li><a href="https://superrare.com">SuperRare</a></li>
+                <li><a href="https://foundation.app/">Foundation</a></li>
             </ul>
         </section>
-
-        <section class="subscription-info">
-            <h3>Course Subscription Information</h3>
-            <p>For access to all modules of the course, please subscribe to our platform.</p>
-            <button onclick="subscribe()">Subscribe Now</button>
-        </section>
-
-        <section class="module-navigation">
-           <a href="module1.html">Module 1: History of NFTs</a>
-            <a href="module2.html">Module 2: Creating and Minting NFTs</a>
-            <a href="module3.html">Module 3: Trading and Marketplaces</a>
-            <a href="module4.html">Module 4: Legal Aspects and Security</a>
-            <a href="module5.html">Module 5: Future of NFTs</a>
+        <section id="pricing">
+            <h2>Course Pricing</h2>
+            <ul>
+                <li><strong>Basic Plan:</strong> Access to all course materials for 1 month - $99</li>
+                <li><strong>Standard Plan:</strong> Access to all course materials and 3 live Q&A sessions - $199</li>
+                <li><strong>Premium Plan:</strong> All features of Standard Plan plus personal mentorship for 3 months - $499</li>
+            </ul>
+            <button onclick="openForm()">Sign Up</button>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 NFT Course. All rights reserved.</p>
+        <p>&copy; 2024 Your Course Name. All rights reserved.</p>
     </footer>
 
-    <script>
-        function subscribe() {
-            alert("Subscription process initiated!");
-        }
-    </script>
+    <div id="signUpForm" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeForm()">&times;</span>
+            <h2>Sign Up for the NFT Course</h2>
+            <form id="sign-up-form">
+                <label for="signup-name">Name:</label>
+                <input type="text" id="signup-name" name="name" required>
+
+                <label for="signup-email">Email:</label>
+                <input type="email" id="signup-email" name="email" required>
+
+                <label for="signup-telegram">Telegram:</label>
+                <input type="text" id="signup-telegram" name="telegram" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
+ <div class="module-navigation">
+            <a href="module1.html">Module 1: History of NFTs</a>
+            <a href="module2.html">Module 2: Creating and Minting NFTs</a>
+            <a href="module3.html">Module 3: Trading and Marketplaces</a>
+            <a href="module4.html">Module 4: Legal Aspects and Security</a>
+            <a href="module5.html">Module 5: Future of NFTs</a>
+        </div>
