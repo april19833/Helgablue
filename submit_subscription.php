@@ -1,5 +1,10 @@
 <?php
 session_start();
+require 'db.php';
+require 'vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 // Проверка метода запроса
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -15,20 +20,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Отправка уведомления о подписке
-    $to = "olgatelb@gmail.com";
-    $subject = "Новая подписка на курс NFT";
-    $message = "Тариф: $tariff\nEmail: $email\nНик: $nickname\nТелеграм: $telegram";
-    $headers = "From: no-reply@yourdomain.com";
-    
-    // Отправка уведомления на почту о новой подписке
-    if (mail($to, $subject, $message, $headers)) {
-        echo "Подписка успешно оформлена!";
+    // Подготовка запроса для вставки данных в базу данных
+    $sql = "INSERT INTO subscriptions (tariff, email, nickname, telegram) VALUES (?, ?, ?, ?)";
+    $stmt = $pdo->prepare($sql);
 
-        // Здесь можно добавить дополнительный код, например, сохранение данных в базу данных
-        
-    } else {
-        echo "Произошла ошибка при оформлении подписки.";
+    try {
+        // Вставка данных в базу данных
+        $stmt->execute([$tariff, $email, $nickname, $telegram]);
+
+        // Отправка уведомления о подписке с помощью PHPMailer
+        $mail = new PHPMailer(true);
+        try {
+            // Настройки сервера
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.example.com';  // Укажите SMTP-сервер
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'your_email@example.com';  // Ваш SMTP username
+            $mail->Password   = 'your_email_password';  // Ваш SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = 587;
+
+            // Получатели
+            $mail->setFrom('no-reply@yourdomain.com', 'No Reply');
+            $mail->addAddress('olgatelb@gmail.com');
+
+            // Содержимое письма
+            $mail->isHTML(true);
+            $mail->Subject = 'Новая подписка на курс NFT';
+            $mail->Body    = "Тариф: $tariff<br>Email: $email<br>Ник: $nickname<br>Телеграм: $telegram";
+
+            $mail->send();
+            // Перенаправление на страницу успеха
+            header("Location: success.html");
+            exit();
+        } catch (Exception $e) {
+            // Перенаправление на страницу ошибки с сообщением
+            header("Location: error.html?message=" . urlencode('Ошибка при отправке email: ' . $mail->ErrorInfo));
+            exit();
+        }
+    } catch (\PDOException $e) {
+        // Перенаправление на страницу ошибки с сообщением
+        header("Location: error.html?message=" . urlencode('Ошибка при сохранении данных: ' . $e->getMessage()));
+        exit();
     }
 } else {
     echo "Неверный метод запроса.";
@@ -41,7 +74,7 @@ if (!isset($_SESSION['user_email'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
