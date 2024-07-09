@@ -57,6 +57,39 @@
         .subscription-form input[type="submit"]:hover {
             background-color: #0056b3;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -109,6 +142,18 @@
             </form>
         </div>
     </div>
+
+    <!-- Modal for subscription success -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Subscription Successful!</h2>
+            <p>Thank you for subscribing to the NFT Course.</p>
+            <p>Please check your email or Telegram for payment instructions.</p>
+            <p>For Beam Wallet payments, proceed <a href="https://helga.beam.eco/">here</a>.</p>
+        </div>
+    </div>
+
     <script>
         document.getElementById('subscription-form').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -122,17 +167,28 @@
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
+                // Show success modal
+                document.getElementById('successModal').style.display = 'block';
                 return response.text();
             })
             .then(data => {
-                alert('You have successfully subscribed to the course! Check your email or Telegram for payment instructions.'); 
                 console.log(data);
-                // Redirect to Beam wallet payment link
-                window.location.href = 'https://helga.beam.eco/';
             })
             .catch(error => {
                 console.error('Error:', error);
             });
+        });
+
+        // Close modal when clicking on close button
+        document.querySelector('.close').addEventListener('click', function() {
+            document.getElementById('successModal').style.display = 'none';
+        });
+
+        // Close modal when clicking outside of it
+        window.addEventListener('click', function(event) {
+            if (event.target == document.getElementById('successModal')) {
+                document.getElementById('successModal').style.display = 'none';
+            }
         });
     </script>
 </body>
