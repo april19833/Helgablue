@@ -61,10 +61,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>Подписка на курс NFT</h1>
+        <h1>NFT Course Subscription</h1>
         <div class="tariffs">
             <div class="tariff">
-                <h3>Тариф "БАЗОВЫЙ" - 15$</h3>
+                <h3>Basic Plan - $15</h3>
                 <a href="module1.html">Module 1: History of NFTs</a>
                 <a href="module2.html">Module 2: Creating and Minting NFTs</a>
                 <a href="module3.html">Module 3: Trading and Marketplaces</a>
@@ -72,40 +72,40 @@
                 <a href="module5.html">Module 5: Future of NFTs</a>
             </div>
             <div class="tariff">
-                <h3>Тариф "PRO" - 50$</h3>
+                <h3>PRO Plan - $50</h3>
                 <a href="module1.html">Module 1: History of NFTs</a>
                 <a href="module2.html">Module 2: Creating and Minting NFTs</a>
                 <a href="module3.html">Module 3: Trading and Marketplaces</a>
                 <a href="module4.html">Module 4: Legal Aspects and Security</a>
                 <a href="module5.html">Module 5: Future of NFTs</a>
-                <p>Бонусный курс "нейросети помощники"</p>
-                <p>Электронный сертификат о прохождении</p>
-                <p>Проверка домашних заданий</p>
+                <p>Bonus Course: Neural Networks Assistants</p>
+                <p>Electronic Certificate of Completion</p>
+                <p>Homework Submission</p>
             </div>
         </div>
         <div class="subscription-form">
-            <h2>Записаться на курс</h2>
+            <h2>Subscribe to the Course</h2>
             <form id="subscription-form" action="submit_subscription.php" method="post">
                 <label>
-                    <input type="radio" name="tariff" value="basic" required> Тариф "БАЗОВЫЙ" - 15$
+                    <input type="radio" name="tariff" value="basic" required> Basic Plan - $15
                 </label><br>
                 <label>
-                    <input type="radio" name="tariff" value="pro" required> Тариф "PRO" - 50$
+                    <input type="radio" name="tariff" value="pro" required> PRO Plan - $50
                 </label><br><br>
     
                 <label for="email">Email:</label><br>
                 <input type="email" id="email" name="email" required><br><br>
     
-                <label for="nickname">Ник:</label><br>
+                <label for="nickname">Nickname:</label><br>
                 <input type="text" id="nickname" name="nickname" required><br><br>
     
-                <label for="telegram">Телеграм Логин:</label><br>
+                <label for="telegram">Telegram Username:</label><br>
                 <input type="text" id="telegram" name="telegram" required><br><br>
     
-                <label for="wallet">Адрес кошелька для оплаты:</label><br>
+                <label for="wallet">Payment Wallet Address:</label><br>
                 <input type="text" id="wallet" name="wallet" value="0x9703fc5F0C0274740f251F30D7Ada155d1E597ff" readonly><br><br>
     
-                <input type="submit" value="Записаться">
+                <input type="submit" value="Subscribe">
             </form>
         </div>
     </div>
@@ -125,7 +125,7 @@
                 return response.text();
             })
             .then(data => {
-                alert('Вы успешно подписались на курс!'); 
+                alert('You have successfully subscribed to the course!'); 
                 console.log(data);
             })
             .catch(error => {
