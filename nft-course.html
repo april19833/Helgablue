@@ -125,8 +125,10 @@
                 return response.text();
             })
             .then(data => {
-                alert('You have successfully subscribed to the course!'); 
+                alert('You have successfully subscribed to the course! Check your email or Telegram for payment instructions.'); 
                 console.log(data);
+                // Redirect to Beam wallet payment link
+                window.location.href = 'https://helga.beam.eco/';
             })
             .catch(error => {
                 console.error('Error:', error);
