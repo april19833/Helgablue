@@ -11,6 +11,30 @@
             padding: 0;
             background-color: #f0f0f0;
         }
+        .header {
+            background-image: url('header-background.jpg'); /* Add your background image here */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .header p {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .header-logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 60px;
+        }
         .container {
             width: 80%;
             margin: 0 auto;
@@ -92,6 +116,11 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <img src="logo.png" alt="Logo" class="header-logo"> <!-- Add your logo here -->
+        <h1>NFT Course Subscription</h1>
+        <p>Unlock the secrets of NFTs with our comprehensive course</p>
+    </div>
     <div class="container">
         <h1>NFT Course Subscription</h1>
         <div class="tariffs">
