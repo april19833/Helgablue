@@ -6,82 +6,84 @@ require 'vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Проверка метода запроса
+// Check request method
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Получение данных из формы подписки
+    // Sanitize and validate form data
     $tariff = htmlspecialchars($_POST['tariff']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $nickname = htmlspecialchars($_POST['nickname']);
     $telegram = htmlspecialchars($_POST['telegram']);
     
-    // Проверка данных на пустоту
+    // Check for empty fields
     if (empty($tariff) || empty($email) || empty($nickname) || empty($telegram)) {
-        echo "Пожалуйста, заполните все поля.";
+        echo "Please fill out all fields.";
         exit();
     }
 
-    // Подготовка запроса для вставки данных в базу данных
+    // Prepare SQL query to insert data into database
     $sql = "INSERT INTO subscriptions (tariff, email, nickname, telegram) VALUES (?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
 
     try {
-        // Вставка данных в базу данных
+        // Execute SQL query to insert data into database
         $stmt->execute([$tariff, $email, $nickname, $telegram]);
 
-        // Отправка уведомления о подписке с помощью PHPMailer
+        // Send subscription notification using PHPMailer
         $mail = new PHPMailer(true);
         try {
-            // Настройки сервера
+            // SMTP settings
             $mail->isSMTP();
-            $mail->Host       = 'smtp.example.com';  // Укажите SMTP-сервер
+            $mail->Host       = 'smtp.example.com';  // Replace with your SMTP server
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'your_email@example.com';  // Ваш SMTP username
-            $mail->Password   = 'your_email_password';  // Ваш SMTP password
+            $mail->Username   = 'your_email@example.com';  // Replace with your SMTP username
+            $mail->Password   = 'your_email_password';  // Replace with your SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
 
-            // Получатели
+            // Sender and recipient
             $mail->setFrom('no-reply@yourdomain.com', 'No Reply');
             $mail->addAddress('olgatelb@gmail.com');
 
-            // Содержимое письма
+            // Email content
             $mail->isHTML(true);
-            $mail->Subject = 'Новая подписка на курс NFT';
-            $mail->Body    = "Тариф: $tariff<br>Email: $email<br>Ник: $nickname<br>Телеграм: $telegram";
+            $mail->Subject = 'New NFT Course Subscription';
+            $mail->Body    = "Tariff: $tariff<br>Email: $email<br>Nickname: $nickname<br>Telegram: $telegram";
 
+            // Send email
             $mail->send();
-            // Перенаправление на страницу успеха
+
+            // Redirect to success page
             header("Location: success.html");
             exit();
         } catch (Exception $e) {
-            // Перенаправление на страницу ошибки с сообщением
-            header("Location: error.html?message=" . urlencode('Ошибка при отправке email: ' . $mail->ErrorInfo));
+            // Redirect to error page with message
+            header("Location: error.html?message=" . urlencode('Error sending email: ' . $mail->ErrorInfo));
             exit();
         }
     } catch (\PDOException $e) {
-        // Перенаправление на страницу ошибки с сообщением
-        header("Location: error.html?message=" . urlencode('Ошибка при сохранении данных: ' . $e->getMessage()));
+        // Redirect to error page with message
+        header("Location: error.html?message=" . urlencode('Error saving data: ' . $e->getMessage()));
         exit();
     }
 } else {
-    echo "Неверный метод запроса.";
+    echo "Invalid request method.";
 }
 
-// Проверка сессии пользователя для доступа к материалам курса
+// Check user session for course access
 if (!isset($_SESSION['user_email'])) {
     header("Location: payment.php");
     exit();
 }
 ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Модуль 1: История NFT</title>
+    <title>Module 1: History of NFTs</title>
 </head>
 <body>
-    <h1>Модуль 1: История NFT</h1>
-    <p>Контент модуля...</p>
+    <h1>Module 1: History of NFTs</h1>
+    <p>Module content...</p>
 </body>
 </html>
