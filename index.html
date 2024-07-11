@@ -286,7 +286,7 @@
 </head>
 <body>
     <div class="sidebar">
-        <a href="#yoga" class="less-noticeable" data-image="images/earn-money.gif">CrYpto Sport/Relaxis</a>
+        <a href="#yoga" class="less-noticeable" data-image="images/earn-money.gif">Crypto Sport/Relaxis</a>
         <a href="#nft" data-image="images/nft.gif">NFT</a>
         <a href="#water-lemon" data-image="images/hypoallergenic.gif">Water with Lemon</a>
         <a href="#gallery" data-image="images/photo-gallery.gif">Gallery</a>
@@ -294,8 +294,8 @@
     </div>
     <div class="content">
         <div class="section" id="yoga">
-            <h2>CrYpto Sport/Relaxis</h2>
-            <p>Overview of CrYpto Sport/Relaxis</p>
+            <h2>Crypto Sport/Relaxis</h2>
+            <p>Overview of Crypto Sport/Relaxis</p>
         </div>
         <div class="section" id="nft">
             <h2>NFT</h2>
@@ -318,37 +318,39 @@
                     </tr>
                     <tr>
                         <td>2023-08-02</td>
-                        <td>300</td>
-                    </tr>
-                    <tr>
-                        <td>2023-08-03</td>
                         <td>250</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="gallery-section section" id="gallery">
+        <div class="section gallery-section" id="gallery">
             <h2>Gallery</h2>
-            <a href="gallery-monad.html">Gallery Monad</a>
-            <a href="gallery-mezo.html">Gallery Mezo</a>
+            <a href="#monad">Gallery Monad</a>
+            <a href="#mezo">Gallery Mezo</a>
+            <a href="https://helgablue.com">Main Helga Blue Website</a>
         </div>
         <div class="section" id="contact">
             <h2>Contact</h2>
-            <p>Contact information</p>
+            <p>Contact information and form here.</p>
         </div>
     </div>
-    <button id="themeToggleBtn" onclick="toggleTheme()"></button>
+    <button id="themeToggleBtn" onclick="toggleDarkMode()"></button>
+
+    <!-- Modal -->
     <div id="donateModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <p>Donate via Helga Blue Wallet</p>
-            <p>Helga Blue Wallet Address: <span id="walletAddress">helga.beam.eco</span></p>
-            <p>Bitcoin Exchange Rate: 1 BTC = $14,032.88</p>
+            <p>Donate via Helga Blue Wallet: [BTC address]</p>
+            <p>Thank you for your support!</p>
         </div>
     </div>
-    <div id="waterNotification" class="notification">
-        Water record saved successfully!
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        Record successfully saved!
     </div>
-    <script src="scripts.js"></script>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
