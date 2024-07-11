@@ -393,58 +393,31 @@ footer p {
     font-size: 14px;
     color: #666;
 }
+/* styles.css */
 
-/* Flower Widget Styles */
-.flower-widget {
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    width: 50px;
-    height: 50px;
-    background-color: #f1c40f;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 50px;
-    color: white;
-    z-index: 1200;
-}
+/* Base styles retained from the previous version */
 
-.flower-petal {
-    position: absolute;
-    width: 10px;
-    height: 25px;
-    background-color: #f1c40f;
-    transform-origin: 50% 100%;
-}
-
-.flower-petal:nth-child(1) {
-    transform: rotate(30deg);
-}
-
-.flower-petal:nth-child(2) {
-    transform: rotate(90deg);
-}
-
-.flower-petal:nth-child(3) {
-    transform: rotate(150deg);
-}
-
-.flower-petal:nth-child(4) {
-    transform: rotate(210deg);
-}
-
-.flower-center {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    border-radius: 50%;
+/* Notification style */
+.notification {
+    display: none;
+    position: fixed;
+    bottom: 20px;
     left: 20px;
-    top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    animation-name: fadeInOut;
+    animation-duration: 2s;
 }
 
-.flower-widget:hover .flower-petal {
-    animation: bloom 0.8s ease forwards;
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 @keyframes bloom {
