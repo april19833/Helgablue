@@ -24,18 +24,11 @@ window.addEventListener('click', function(event) {
 });
 
 // Water with Lemon functionality
-const waterForm = document.getElementById('waterForm');
-const waterRecordsTable = document.getElementById('waterRecords');
-const waterProgress = document.getElementById('waterProgress');
+const waterRecordsTable = document.getElementById('waterRecordsTable');
 const progressText = document.getElementById('progressText');
+const notification = document.getElementById('notification');
 
-function recordWater() {
-    const cupsCount = parseInt(document.getElementById('cupsCount').value);
-    if (isNaN(cupsCount) || cupsCount < 0) {
-        alert('Please enter a valid number of cups.');
-        return;
-    }
-
+function recordWater(amount) {
     const currentDate = new Date();
     const dateFormatted = currentDate.toLocaleDateString();
     const timeFormatted = currentDate.toLocaleTimeString();
@@ -43,45 +36,65 @@ function recordWater() {
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
         <td>${dateFormatted}</td>
-        <td>${timeFormatted}</td>
-        <td>${cupsCount}</td>
+        <td>${amount}</td>
     `;
-    waterRecordsTable.appendChild(newRow);
+    waterRecordsTable.querySelector('tbody').appendChild(newRow);
 
-    updateProgress(cupsCount);
+    updateProgress(amount);
+    showNotification();
 }
 
-function updateProgress(cupsCount) {
-    let totalCups = 0;
+function updateProgress(amount) {
+    let totalAmount = 0;
     const rows = waterRecordsTable.getElementsByTagName('tr');
     for (let i = 0; i < rows.length; i++) {
-        const cups = parseInt(rows[i].getElementsByTagName('td')[2].innerText);
-        totalCups += cups;
+        const cups = parseInt(rows[i].getElementsByTagName('td')[1].innerText);
+        totalAmount += cups;
     }
 
-    waterProgress.value = totalCups;
-    progressText.textContent = `${totalCups} out of 10 cups`;
+    const goal = 1000; // Adjust the daily goal amount here
+    const percentage = Math.min((totalAmount / goal) * 100, 100);
+    progressText.textContent = `${totalAmount} ml out of ${goal} ml`;
 
-    if (totalCups >= 10) {
+    const waterProgress = document.getElementById('waterProgress');
+    waterProgress.value = percentage;
+
+    if (totalAmount >= goal) {
         alert('Congratulations! You have reached your daily goal.');
     }
 }
 
-// Adding GIFs to sidebar categories
-const categoriesSidebar = document.querySelector('.categories');
-const galleryMonad = document.createElement('img');
-galleryMonad.src = 'path/to/gallery-monad.gif';
-galleryMonad.alt = 'Gallery Monad';
-categoriesSidebar.appendChild(galleryMonad);
+function showNotification() {
+    notification.classList.add('show-notification');
+    setTimeout(function() {
+        notification.classList.remove('show-notification');
+    }, 3000); // Notification disappears after 3 seconds
+}
 
-const galleryMezo = document.createElement('img');
-galleryMezo.src = 'path/to/gallery-mezo.gif';
-galleryMezo.alt = 'Gallery Mezo';
-categoriesSidebar.appendChild(galleryMezo);
+// GIFs for sidebar links
+const sidebarLinks = document.querySelectorAll('.sidebar a');
 
-// Footer with contacts
-const footer = document.createElement('footer');
-footer.innerHTML = `
-    <p>Contact us: example@email.com | Phone: +123456789</p>
-`;
-document.body.appendChild(footer);
+sidebarLinks.forEach(link => {
+    link.addEventListener('mouseover', function() {
+        const imageUrl = this.getAttribute('data-image');
+        if (imageUrl) {
+            themeToggleBtn.style.backgroundImage = `url(${imageUrl})`;
+        }
+    });
+
+    link.addEventListener('mouseout', function() {
+        themeToggleBtn.style.backgroundImage = `url('images/illuminati.gif')`;
+    });
+});
+
+// Modal functions
+function openModal() {
+    donateModal.style.display = 'block';
+}
+
+function closeModal() {
+    donateModal.style.display = 'none';
+}
+
+// Initial setup for the GIF on theme toggle button
+themeToggleBtn.style.backgroundImage = `url('images/illuminati.gif')`;
