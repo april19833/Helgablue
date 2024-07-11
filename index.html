@@ -30,7 +30,7 @@
             color: #333;
             text-decoration: none;
             transition: background-color 0.3s ease;
-            position: relative; /* Добавлено для позиционирования изображений */
+            position: relative; /* Added for image positioning */
         }
 
         .sidebar a::before {
@@ -38,19 +38,19 @@
             display: block;
             position: absolute;
             top: 50%;
-            left: -30px; /* Расположение изображения */
+            left: -30px; /* Image positioning */
             transform: translateY(-50%);
-            width: 24px; /* Ширина изображения */
-            height: 24px; /* Высота изображения */
+            width: 24px; /* Image width */
+            height: 24px; /* Image height */
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0; /* Скрыть изображение по умолчанию */
+            opacity: 0; /* Hide image by default */
             transition: opacity 0.3s ease;
         }
 
         .sidebar a:hover::before {
-            opacity: 1; /* Отобразить изображение при наведении */
+            opacity: 1; /* Show image on hover */
         }
 
         .content {
@@ -65,8 +65,8 @@
             background-color: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 5px;
-            animation-duration: 0.5s; /* Длительность анимации */
-            animation-fill-mode: both; /* Применить стили анимации в начальной и конечной точках */
+            animation-duration: 0.5s; /* Animation duration */
+            animation-fill-mode: both; /* Apply styles at both keyframes */
         }
 
         .section h2 {
@@ -104,7 +104,7 @@
             right: 20px;
             padding: 10px;
             font-size: 16px;
-            background-image: url('images/illuminati.gif');
+            background-image: url('images/illuminati.gif'); /* Background image */
             background-size: cover;
             background-repeat: no-repeat;
             background-color: transparent;
@@ -301,85 +301,20 @@
         </section>
     </div>
 
-    <!-- Donate Modal -->
+    <!-- Modal -->
     <div id="donateModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>https://helga.beam.eco/</p>
+            <h2>Support Our Cause</h2>
+            <p>Your donation helps us continue our mission. Thank you for your generosity!</p>
+            <form action="#">
+                <label for="donateAmount">Amount ($)</label><br>
+                <input type="number" id="donateAmount" name="donateAmount" min="1" step="1" required><br><br>
+                <button type="submit">Donate Now</button>
+            </form>
         </div>
     </div>
 
-    <script>
-        // Theme Toggle
-        const themeToggleBtn = document.getElementById('themeToggleBtn');
-        themeToggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
-
-        // Donate Modal
-        const openDonateModal = document.getElementById('openDonateModal');
-        const donateModal = document.getElementById('donateModal');
-        const closeDonateModal = donateModal.querySelector('.close');
-
-        openDonateModal.addEventListener('click', () => {
-            donateModal.style.display = 'block';
-        });
-
-        closeDonateModal.addEventListener('click', () => {
-            donateModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target === donateModal) {
-                donateModal.style.display = 'none';
-            }
-        });
-
-        // Water with Lemon Form
-        const waterForm = document.getElementById('waterForm');
-        const waterRecords = document.getElementById('waterRecords');
-        const waterProgress = document.getElementById('waterProgress');
-        const progressText = document.getElementById('progressText');
-
-        function recordWater() {
-            const cupsCount = parseInt(document.getElementById('cupsCount').value);
-            if (isNaN(cupsCount) || cupsCount <= 0) {
-                alert('Please enter a valid number of cups.');
-                return;
-            }
-
-            const date = new Date();
-            const dateString = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
-            const timeString = `${date.getHours()}:${(date.getMinutes() < 10 ? '0' : '')}${date.getMinutes()}`;
-
-            const recordHTML = `
-                <tr>
-                    <td>${dateString}</td>
-                    <td>${timeString}</td>
-                    <td>${cupsCount}</td>
-                </tr>
-            `;
-            waterRecords.innerHTML += recordHTML;
-
-            const currentProgress = parseInt(waterProgress.value);
-            const newProgress = currentProgress + cupsCount;
-            waterProgress.value = newProgress;
-            progressText.textContent = `${newProgress} / 10 cups`;
-
-            if (newProgress >= 10) {
-                alert('Congratulations! You have achieved your daily goal of 10 cups of water with lemon.');
-            }
-        }
-
-        // Sidebar Images
-        const sidebarLinks = document.querySelectorAll('.sidebar a');
-
-        sidebarLinks.forEach(link => {
-            const imagePath = link.getAttribute('data-image');
-            if (imagePath) {
-                link.style.backgroundImage = `url(${imagePath})`;
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
