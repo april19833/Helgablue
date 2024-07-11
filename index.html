@@ -74,6 +74,19 @@
             font-weight: 700;
             color: #333;
             margin-bottom: 10px;
+            animation-name: slideInDown;
+            animation-duration: 0.5s;
+        }
+
+        @keyframes slideInDown {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .gallery-section {
@@ -281,18 +294,16 @@
                     <div class="progress">
                         <h3>Your Daily Progress</h3>
                         <progress id="waterProgress" max="10" value="0"></progress><br>
-                        <span id="progressText">0 / 10 cups</span>
+                        <span id="progressText">0 out of 10 cups</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="gallery" class="section animate__animated animate__slideInDown">
+        <section id="gallery" class="gallery-section section animate__animated animate__slideInDown">
             <h2>Gallery</h2>
-            <div class="gallery-section">
-                <a href="#gallery-monad">Gallery Monad</a>
-                <a href="#gallery-mezo">Gallery Mezo</a>
-            </div>
+            <a href="#gallery-monad">Gallery Monad</a>
+            <a href="#gallery-mezo">Gallery Mezo</a>
         </section>
 
         <section id="contact" class="section animate__animated animate__slideInDown">
