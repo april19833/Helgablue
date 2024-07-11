@@ -323,34 +323,42 @@
                 </tbody>
             </table>
         </div>
-        <div class="section gallery-section" id="gallery">
+        <div class="gallery-section">
             <h2>Gallery</h2>
-            <a href="#monad">Gallery Monad</a>
-            <a href="#mezo">Gallery Mezo</a>
-            <a href="https://helgablue.com">Main Helga Blue Website</a>
+            <a href="gallery-monad.html">Gallery Monad</a>
+            <a href="gallery-mezo.html">Gallery Mezo</a>
         </div>
         <div class="section" id="contact">
             <h2>Contact</h2>
-            <p>Contact information and form here.</p>
+            <p>Contact information</p>
         </div>
     </div>
-    <button id="themeToggleBtn" onclick="toggleDarkMode()"></button>
+    <button id="themeToggleBtn" onclick="toggleTheme()"></button>
 
-    <!-- Modal -->
+    <!-- Donate modal -->
     <div id="donateModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <p>Donate via Helga Blue Wallet: [BTC address]</p>
-            <p>Thank you for your support!</p>
+            <p>Donate via Helga Blue Wallet:</p>
+            <p>1 Bitcoin</p>
         </div>
     </div>
 
     <!-- Notification -->
-    <div id="notification" class="notification">
-        Record successfully saved!
-    </div>
+    <div id="notification" class="notification"></div>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <script>
+        function openModal() {
+            document.getElementById("donateModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("donateModal").style.display = "none";
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
 </body>
 </html>
