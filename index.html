@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helga Blue</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Lightbox CSS from CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Additional styles specific to this page */
         body {
@@ -79,6 +78,21 @@
             color: #007bff;
         }
 
+        /* Theme toggle button */
+        #themeToggleBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
         /* Dark mode */
         body.dark-mode {
             background-color: #222;
@@ -112,6 +126,22 @@
         .less-noticeable {
             font-size: 14px;
             color: #888;
+        }
+
+        /* Donate button styling */
+        .donate-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .donate-button:hover {
+            background-color: #0056b3;
         }
 
         /* Donate modal */
@@ -173,35 +203,34 @@
 </head>
 <body>
     <div class="sidebar">
-        <a href="#crypto" class="less-noticeable">CrYpto Sport/Relaxis</a>
+        <a href="#yoga" class="less-noticeable">CrYpto Sport/Relaxis</a>
         <a href="#nft">NFT</a>
         <a href="#water-lemon">Water with Lemon</a>
         <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
     </div>
     <div class="content">
-        <img src="images/illuminati.gif" id="themeToggle" alt="Theme Toggle" style="cursor: pointer;">
         <header>
             <div class="container">
-                <h1>Welcome to Helga Blue</h1>
+                <h1>Welcome to Orbit</h1>
                 <div class="donate">
                     <button id="openDonateModal" class="donate-button">Donate</button>
                 </div>
             </div>
         </header>
         
-        <section id="crypto" class="section">
-            <h2><img src="images/earn-money.gif" alt="Crypto"> CrYpto Sport/Relaxis</h2>
-            <p>Content related to CrYpto Sport/Relaxis.</p>
+        <section id="yoga" class="section">
+            <h2>CrYpto Sport/Relaxis</h2>
+            <!-- Add content specific to Yoga section -->
         </section>
 
         <section id="nft" class="section">
-            <h2><img src="images/nft.gif" alt="NFT"> NFT</h2>
-            <p>NFT-related content.</p>
+            <h2>NFT</h2>
+            <!-- Add content specific to NFT section -->
         </section>
        
         <section id="water-lemon" class="section">
-            <h2><img src="images/hypoallergenic.gif" alt="Water with Lemon"> Water with Lemon</h2>
+            <h2>Water with Lemon</h2>
             <div class="water-lemon-content">
                 <div class="water-lemon-form">
                     <form id="waterForm">
@@ -235,17 +264,17 @@
         </section>
            
         <section id="contact" class="section">
-            <h2><img src="images/agenda.gif" alt="Contact"> Contact</h2>
-            <p>Contact information goes here.</p>
+            <h2>Contact</h2>
+            <!-- Add content specific to Contact section -->
         </section>
 
         <!-- Gallery Section -->
-        <section id="gallery" class="gallery-section section">
-            <h2><img src="images/photo-gallery.gif" alt="Gallery"> Gallery</h2>
+        <section id="gallery" class="section gallery-section">
+            <h2>Gallery</h2>
             <ul>
-                <li><a href="images/gallery-image1.jpg" data-lightbox="gallery">Image 1</a></li>
-                <li><a href="images/gallery-image2.jpg" data-lightbox="gallery">Image 2</a></li>
-                <!-- Add more gallery items as needed -->
+                <li><a href="gallery-monad.html">Gallery Monad</a></li>
+                <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
+                <!-- Add more galleries as needed -->
             </ul>
         </section>
 
@@ -267,48 +296,61 @@
         </div>
     </div>
 
-    <!-- Lightbox JS from CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <!-- JavaScript for water records and dark mode toggle -->
+    <!-- JavaScript -->
+    <script src="scripts.js"></script>
     <script>
-        // Toggle theme
-        const themeToggle = document.getElementById('themeToggle');
-        themeToggle.addEventListener('click', function() {
+        // Theme Toggle with GIF
+        var themeToggleGIF = document.createElement('img');
+        themeToggleGIF.src = 'path-to-your-gif.gif'; // Replace with the actual path to your GIF
+        themeToggleGIF.style.position = 'fixed';
+        themeToggleGIF.style.bottom = '20px';
+        themeToggleGIF.style.right = '20px';
+        themeToggleGIF.style.width = '50px';
+        themeToggleGIF.style.height = '50px';
+        themeToggleGIF.style.cursor = 'pointer';
+        themeToggleGIF.style.zIndex = '1000';
+        document.body.appendChild(themeToggleGIF);
+
+        themeToggleGIF.addEventListener('click', function () {
             document.body.classList.toggle('dark-mode');
         });
 
-        // Water with lemon records
+        // Water with Lemon record and progress update
         function recordWater() {
-            const cupsCount = document.getElementById('cupsCount').value;
-            const date = new Date().toLocaleDateString();
-            const time = new Date().toLocaleTimeString();
-            const recordsTable = document.getElementById('waterRecords');
-            const progress = document.getElementById('waterProgress');
-            const progressText = document.getElementById('progressText');
+            var cupsCount = document.getElementById('cupsCount').value;
+            if (cupsCount) {
+                var date = new Date();
+                var dateString = date.toLocaleDateString();
+                var timeString = date.toLocaleTimeString();
 
-            // Add record to table
-            const row = `<tr><td>${date}</td><td>${time}</td><td>${cupsCount}</td></tr>`;
-            recordsTable.innerHTML += row;
+                var table = document.getElementById('waterRecords');
+                var newRow = table.insertRow();
+                var dateCell = newRow.insertCell(0);
+                var timeCell = newRow.insertCell(1);
+                var cupsCell = newRow.insertCell(2);
 
-            // Update progress bar
-            const currentValue = parseInt(progress.value);
-            progress.value = currentValue + parseInt(cupsCount);
-            progressText.textContent = `${progress.value} / ${progress.max} cups`;
+                dateCell.textContent = dateString;
+                timeCell.textContent = timeString;
+                cupsCell.textContent = cupsCount;
+
+                var progress = document.getElementById('waterProgress');
+                var progressText = document.getElementById('progressText');
+                progress.value = parseInt(progress.value) + parseInt(cupsCount);
+                progressText.textContent = progress.value + " / " + progress.max + " cups";
+            }
         }
 
-        // Modal functionality
-        const donateModal = document.getElementById('donateModal');
-        const openDonateModalBtn = document.getElementById('openDonateModal');
-        const closeModalBtns = document.getElementsByClassName('close');
+        // Donate modal functionality
+        var donateModal = document.getElementById('donateModal');
+        var openDonateModal = document.getElementById('openDonateModal');
+        var closeDonateModal = document.getElementsByClassName('close')[0];
 
-        openDonateModalBtn.onclick = function() {
+        openDonateModal.onclick = function() {
             donateModal.style.display = 'block';
         }
 
-        for (let i = 0; i < closeModalBtns.length; i++) {
-            closeModalBtns[i].onclick = function() {
-                donateModal.style.display = 'none';
-            }
+        closeDonateModal.onclick = function() {
+            donateModal.style.display = 'none';
         }
 
         window.onclick = function(event) {
@@ -316,6 +358,18 @@
                 donateModal.style.display = 'none';
             }
         }
+
+        // Notification
+        function showNotification(message, type) {
+            var notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = 'notification ' + type;
+            notification.style.display = 'block';
+            setTimeout(function() {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+
     </script>
 </body>
 </html>
