@@ -6,7 +6,6 @@
     <title>Helga Blue</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         /* Additional styles specific to this page */
         body {
@@ -86,10 +85,14 @@
             right: 20px;
             padding: 10px;
             font-size: 16px;
-            background-color: #007bff;
-            color: #fff;
+            background-image: url('images/illuminati.gif'); /* Добавленная гифка в качестве фона */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            color: transparent;
             border: none;
-            border-radius: 5px;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
             z-index: 1000;
         }
@@ -211,6 +214,7 @@
         <a href="#contact">Contact</a>
     </div>
     <div class="content">
+        <button id="themeToggleBtn" title="Toggle Theme"></button>
         <header>
             <div class="container">
                 <h1>Welcome to Orbit</h1>
@@ -264,105 +268,102 @@
             </div>
         </section>
            
-        <section id="gallery" class="gallery-section">
-            <h2>Gallery</h2>
-            <a href="#">Gallery Monad</a>
-            <a href="#">Gallery Mezo</a>
-            <a href="#">Main Helga Blue Site</a>
-        </section>
-
         <section id="contact" class="section">
             <h2>Contact</h2>
             <!-- Add content specific to Contact section -->
         </section>
-    </div>
 
-    <!-- Modal -->
+        <!-- Gallery Section -->
+        <section id="gallery" class="section gallery-section">
+            <h2>Gallery</h2>
+            <ul>
+                <li><a href="gallery-monad.html">Gallery Monad</a></li>
+                <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
+                <!-- Add more galleries as needed -->
+            </ul>
+        </section>
+
+        <!-- Notification -->
+        <div id="notification" class="notification"></div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>© 2024 Helga Blue. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Donate Modal -->
     <div id="donateModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Donate to Support</h2>
-            <p>Please donate to support our mission and projects.</p>
-            <button type="button" onclick="showNotification('Thank you for your donation!', 'success')">Donate via Beam Wallet</button>
+            <h2>Support Our Work</h2>
+            <p>For course payments, visit <a href="https://helga.beam.eco/" target="_blank">helga.beam.eco</a>.</p>
         </div>
     </div>
 
-    <!-- Notification -->
-    <div id="notification" class="notification"></div>
-
+    <!-- JavaScript -->
+    <script src="scripts.js"></script>
     <script>
-        // Theme Toggle with GIF
-        var themeToggleGIF = document.createElement('img');
-        themeToggleGIF.src = 'path-to-your-gif.gif'; // Replace with the actual path to your GIF
-        themeToggleGIF.classList.add('animate__animated', 'animate__flipInX');
-        themeToggleGIF.style.position = 'fixed';
-        themeToggleGIF.style.bottom = '20px';
-        themeToggleGIF.style.right = '20px';
-        themeToggleGIF.style.width = '50px';
-        themeToggleGIF.style.height = '50px';
-        themeToggleGIF.style.cursor = 'pointer';
-        themeToggleGIF.style.zIndex = '1000';
-        document.body.appendChild(themeToggleGIF);
-
-        themeToggleGIF.addEventListener('click', function () {
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        themeToggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
         });
 
-        // Water with Lemon record and progress update
-        function recordWater() {
-            var cupsCount = document.getElementById('cupsCount').value;
-            if (cupsCount) {
-                var date = new Date();
-                var dateString = date.toLocaleDateString();
-                var timeString = date.toLocaleTimeString();
+        // Donate Modal
+        const openDonateModal = document.getElementById('openDonateModal');
+        const donateModal = document.getElementById('donateModal');
+        const closeDonateModal = donateModal.querySelector('.close');
 
-                var table = document.getElementById('waterRecords');
-                var newRow = table.insertRow();
-                var dateCell = newRow.insertCell(0);
-                var timeCell = newRow.insertCell(1);
-                var cupsCell = newRow.insertCell(2);
-
-                dateCell.textContent = dateString;
-                timeCell.textContent = timeString;
-                cupsCell.textContent = cupsCount;
-
-                var progress = document.getElementById('waterProgress');
-                var progressText = document.getElementById('progressText');
-                progress.value = parseInt(progress.value) + parseInt(cupsCount);
-                progressText.textContent = progress.value + " / " + progress.max + " cups";
-            }
-        }
-
-        // Donate modal functionality
-        var donateModal = document.getElementById('donateModal');
-        var openDonateModal = document.getElementById('openDonateModal');
-        var closeDonateModal = document.getElementsByClassName('close')[0];
-
-        openDonateModal.onclick = function() {
+        openDonateModal.addEventListener('click', () => {
             donateModal.style.display = 'block';
-        }
+        });
 
-        closeDonateModal.onclick = function() {
+        closeDonateModal.addEventListener('click', () => {
             donateModal.style.display = 'none';
-        }
+        });
 
-        window.onclick = function(event) {
-            if (event.target == donateModal) {
+        window.addEventListener('click', (event) => {
+            if (event.target === donateModal) {
                 donateModal.style.display = 'none';
             }
-        }
+        });
 
-        // Notification
-        function showNotification(message, type) {
-            var notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.className = 'notification ' + type;
-            notification.style.display = 'block';
-            setTimeout(function() {
-                notification.style.display = 'none';
-            }, 3000);
-        }
+        // Water with Lemon Form
+        const waterForm = document.getElementById('waterForm');
+        const waterRecords = document.getElementById('waterRecords');
+        const waterProgress = document.getElementById('waterProgress');
+        const progressText = document.getElementById('progressText');
 
+        function recordWater() {
+            const cupsCount = parseInt(document.getElementById('cupsCount').value);
+            if (isNaN(cupsCount) || cupsCount <= 0) {
+                alert('Please enter a valid number of cups.');
+                return;
+            }
+
+            const date = new Date();
+            const dateString = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+            const timeString = `${date.getHours()}:${(date.getMinutes() < 10 ? '0' : '')}${date.getMinutes()}`;
+
+            const recordHTML = `
+                <tr>
+                    <td>${dateString}</td>
+                    <td>${timeString}</td>
+                    <td>${cupsCount}</td>
+                </tr>
+            `;
+            waterRecords.innerHTML += recordHTML;
+
+            const currentProgress = parseInt(waterProgress.value);
+            const newProgress = currentProgress + cupsCount;
+            waterProgress.value = newProgress;
+            progressText.textContent = `${newProgress} / 10 cups`;
+
+            if (newProgress >= 10) {
+                alert('Congratulations! You have achieved your daily goal of 10 cups of water with lemon.');
+            }
+        }
     </script>
 </body>
 </html>
