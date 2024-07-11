@@ -66,3 +66,22 @@ function updateProgress(cupsCount) {
         alert('Congratulations! You have reached your daily goal.');
     }
 }
+
+// Adding GIFs to sidebar categories
+const categoriesSidebar = document.querySelector('.categories');
+const galleryMonad = document.createElement('img');
+galleryMonad.src = 'path/to/gallery-monad.gif';
+galleryMonad.alt = 'Gallery Monad';
+categoriesSidebar.appendChild(galleryMonad);
+
+const galleryMezo = document.createElement('img');
+galleryMezo.src = 'path/to/gallery-mezo.gif';
+galleryMezo.alt = 'Gallery Mezo';
+categoriesSidebar.appendChild(galleryMezo);
+
+// Footer with contacts
+const footer = document.createElement('footer');
+footer.innerHTML = `
+    <p>Contact us: example@email.com | Phone: +123456789</p>
+`;
+document.body.appendChild(footer);
