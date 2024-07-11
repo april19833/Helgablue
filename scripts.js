@@ -78,3 +78,45 @@ function showNotification(message) {
         notification.style.display = 'none';
     }, 5000); // Hide after 5 seconds
 }
+// Script for Donation Modal
+document.getElementById('openDonateModal').addEventListener('click', function() {
+    document.getElementById('donateModal').style.display = 'block';
+});
+
+document.querySelector('.close').addEventListener('click', function() {
+    document.getElementById('donateModal').style.display = 'none';
+});
+
+// Script for Water with Lemon Section
+function recordWater() {
+    const cupsCount = document.getElementById('cupsCount').value;
+    const waterRecords = document.getElementById('waterRecords');
+    const waterProgress = document.getElementById('waterProgress');
+    const progressText = document.getElementById('progressText');
+
+    // Display notification
+    const notification = document.getElementById('notification');
+    notification.innerHTML = `<div class="alert">Recorded ${cupsCount} cups successfully!</div>`;
+    setTimeout(function() {
+        notification.innerHTML = '';
+    }, 3000);
+
+    // Update progress
+    let currentProgress = parseInt(waterProgress.value);
+    currentProgress += parseInt(cupsCount);
+    waterProgress.value = currentProgress;
+
+    progressText.textContent = `${currentProgress} / 10 cups`;
+
+    // Display recorded cups
+    const recordRow = document.createElement('div');
+    recordRow.classList.add('record-row');
+    recordRow.innerHTML = `<p>Recorded: ${cupsCount} cups</p>`;
+    waterRecords.appendChild(recordRow);
+}
+
+// Script for Theme Toggle
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+}
