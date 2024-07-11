@@ -255,6 +255,33 @@
         #waterRecordsTable th {
             background-color: #f2f2f2;
         }
+
+        /* Notification style */
+        .notification {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            animation-name: fadeInOut;
+            animation-duration: 2s;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .show-notification {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -276,59 +303,52 @@
         </div>
         <div class="section" id="water-lemon">
             <h2>Water with Lemon</h2>
-            <button class="donate-button" onclick="openModal()">Donate via Helga Blue</button>
+            <button class="donate-button" onclick="openModal()">Donate via Helga Blue Wallet</button>
             <table id="waterRecordsTable">
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th>Time</th>
+                        <th>Amount (ml)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Water records will be dynamically added here -->
+                    <tr>
+                        <td>2023-08-01</td>
+                        <td>200</td>
+                    </tr>
+                    <tr>
+                        <td>2023-08-02</td>
+                        <td>300</td>
+                    </tr>
+                    <tr>
+                        <td>2023-08-03</td>
+                        <td>250</td>
+                    </tr>
                 </tbody>
             </table>
-            <div id="waterNotification" class="notification"></div>
         </div>
-        <div class="section gallery-section" id="gallery">
+        <div class="gallery-section section" id="gallery">
             <h2>Gallery</h2>
-            <a href="#gallery-meadow">Gallery Monad</a>
-            <a href="#gallery-quad">Gallery Mezo</a>
-            <a href="https://helga.beam.eco">Helga Blue</a>
+            <a href="gallery-monad.html">Gallery Monad</a>
+            <a href="gallery-mezo.html">Gallery Mezo</a>
         </div>
         <div class="section" id="contact">
             <h2>Contact</h2>
-            <p>Contact information goes here.</p>
+            <p>Contact information</p>
         </div>
     </div>
-
-    <!-- Modal for donation -->
+    <button id="themeToggleBtn" onclick="toggleTheme()"></button>
     <div id="donateModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <p>Donate to Helga Blue:</p>
-            <p><a href="https://helga.beam.eco" target="_blank" rel="noopener noreferrer">Visit Helga Blue</a></p>
+            <p>Donate via Helga Blue Wallet</p>
+            <p>Helga Blue Wallet Address: <span id="walletAddress">helga.beam.eco</span></p>
+            <p>Bitcoin Exchange Rate: 1 BTC = $14,032.88</p>
         </div>
     </div>
-
-    <!-- Theme toggle button -->
-    <button id="themeToggleBtn" onclick="toggleTheme()"></button>
-
-    <!-- JavaScript for modal and theme toggle -->
-    <script>
-        // Modal functionality
-        function openModal() {
-            document.getElementById('donateModal').style.display = 'block';
-        }
-
-        function closeModal() {
-            document.getElementById('donateModal').style.display = 'none';
-        }
-
-        // Theme toggle functionality
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-        }
-    </script>
+    <div id="waterNotification" class="notification">
+        Water record saved successfully!
+    </div>
+    <script src="scripts.js"></script>
 </body>
 </html>
