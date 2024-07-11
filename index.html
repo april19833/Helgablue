@@ -6,6 +6,7 @@
     <title>Helga Blue</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         /* Additional styles specific to this page */
         body {
@@ -263,45 +264,37 @@
             </div>
         </section>
            
+        <section id="gallery" class="gallery-section">
+            <h2>Gallery</h2>
+            <a href="#">Gallery Monad</a>
+            <a href="#">Gallery Mezo</a>
+            <a href="#">Main Helga Blue Site</a>
+        </section>
+
         <section id="contact" class="section">
             <h2>Contact</h2>
             <!-- Add content specific to Contact section -->
         </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery" class="section gallery-section">
-            <h2>Gallery</h2>
-            <ul>
-                <li><a href="gallery-monad.html">Gallery Monad</a></li>
-                <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
-                <!-- Add more galleries as needed -->
-            </ul>
-        </section>
-
-        <!-- Notification -->
-        <div id="notification" class="notification"></div>
     </div>
-    <footer>
-        <div class="container">
-            <p>© 2024 Helga Blue. All rights reserved.</p>
-        </div>
-    </footer>
 
-    <!-- Donate Modal -->
+    <!-- Modal -->
     <div id="donateModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Support Our Work</h2>
-            <p>For course payments, visit <a href="https://helga.beam.eco/" target="_blank">helga.beam.eco</a>.</p>
+            <h2>Donate to Support</h2>
+            <p>Please donate to support our mission and projects.</p>
+            <button type="button" onclick="showNotification('Thank you for your donation!', 'success')">Donate via Beam Wallet</button>
         </div>
     </div>
 
-    <!-- JavaScript -->
-    <script src="scripts.js"></script>
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
     <script>
         // Theme Toggle with GIF
         var themeToggleGIF = document.createElement('img');
         themeToggleGIF.src = 'path-to-your-gif.gif'; // Replace with the actual path to your GIF
+        themeToggleGIF.classList.add('animate__animated', 'animate__flipInX');
         themeToggleGIF.style.position = 'fixed';
         themeToggleGIF.style.bottom = '20px';
         themeToggleGIF.style.right = '20px';
