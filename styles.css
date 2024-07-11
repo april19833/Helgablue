@@ -50,6 +50,43 @@ button {
 button:hover {
     background-color: #004B56;
 }
+/* Sidebar Navigation Styles */
+nav ul li a::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+nav ul li a:hover::before {
+    opacity: 1;
+}
+
+/* Animation for Section Headings */
+.section h2 {
+    opacity: 0;
+    animation: slideInDown 0.5s forwards;
+}
+
+@keyframes slideInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* Header Styles */
 header {
