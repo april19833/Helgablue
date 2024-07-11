@@ -50,6 +50,7 @@ button {
 button:hover {
     background-color: #004B56;
 }
+
 /* Sidebar Navigation Styles */
 nav ul li a::before {
     content: "";
@@ -393,40 +394,37 @@ footer p {
     font-size: 14px;
     color: #666;
 }
-/* styles.css */
 
-/* Base styles retained from the previous version */
-
-/* Notification style */
+/* Notification Style */
 .notification {
     display: none;
     position: fixed;
     bottom: 20px;
-    left: 20px;
+    right: 20px;
     padding: 10px;
-    background-color: #007bff;
-    color: #fff;
     border-radius: 5px;
-    animation-name: fadeInOut;
-    animation-duration: 2s;
+    color: #fff;
+    z-index: 1000;
 }
 
-@keyframes fadeInOut {
-    0%, 100% {
-        opacity: 0;
-    }
-    50% {
+.notification.success {
+    background-color: #28a745;
+}
+
+.notification.error {
+    background-color: #dc3545;
+}
+
+.notification.show {
+    display: block;
+    animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
         opacity: 1;
     }
-}
-
-@keyframes bloom {
-    0% {
-        height: 0;
-    }
     100% {
-        height: 25px;
+        opacity: 0;
     }
 }
-<!-- Lightbox CSS from a CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
