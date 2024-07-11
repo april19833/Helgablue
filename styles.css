@@ -401,23 +401,25 @@ footer p {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    color: #fff;
-    z-index: 1000;
-}
-
-.notification.success {
     background-color: #28a745;
-}
-
-.notification.error {
-    background-color: #dc3545;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
 }
 
 .notification.show {
     display: block;
-    animation: fadeOut 3s forwards;
+    animation: slideInUp 0.5s forwards, fadeOut 2s 2s forwards;
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeOut {
@@ -427,4 +429,64 @@ footer p {
     100% {
         opacity: 0;
     }
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1100;
+    cursor: pointer;
+}
+
+.theme-toggle .toggle-btn {
+    position: relative;
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle .toggle-btn::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 21px;
+    height: 21px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle.dark .toggle-btn {
+    background-color: #555;
+}
+
+.theme-toggle.dark .toggle-btn::before {
+    transform: translateX(25px);
+}
+
+/* Scroll to Top Button Styles */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.scroll-to-top:hover {
+    background-color: #0056b3;
 }
