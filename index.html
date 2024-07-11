@@ -49,6 +49,26 @@
             transition: opacity 0.3s ease;
         }
 
+        .sidebar a[href="#yoga"]::before {
+            background-image: url('images/earn-money.gif');
+        }
+
+        .sidebar a[href="#nft"]::before {
+            background-image: url('images/nft.gif');
+        }
+
+        .sidebar a[href="#water-lemon"]::before {
+            background-image: url('images/hypoallergenic.gif');
+        }
+
+        .sidebar a[href="#gallery"]::before {
+            background-image: url('images/photo-gallery.gif');
+        }
+
+        .sidebar a[href="#contact"]::before {
+            background-image: url('images/agenda.gif');
+        }
+
         .sidebar a:hover::before {
             opacity: 1; /* Show image on hover */
         }
@@ -239,92 +259,76 @@
 </head>
 <body>
     <div class="sidebar">
-        <a href="#crypto-sport" class="less-noticeable" data-image="images/earn-money.gif">CrYpto Sport/Relaxis</a>
+        <a href="#yoga" class="less-noticeable" data-image="images/earn-money.gif">CrYpto Sport/Relaxis</a>
         <a href="#nft" data-image="images/nft.gif">NFT</a>
         <a href="#water-lemon" data-image="images/hypoallergenic.gif">Water with Lemon</a>
         <a href="#gallery" data-image="images/photo-gallery.gif">Gallery</a>
         <a href="#contact" data-image="images/agenda.gif">Contact</a>
     </div>
     <div class="content">
-        <button id="themeToggleBtn" title="Toggle Theme"></button>
-        <header>
-            <div class="container">
-                <h1>Welcome to Orbit</h1>
-                <div class="donate">
-                    <button id="openDonateModal" class="donate-button">Donate</button>
-                </div>
-            </div>
-        </header>
-        
-        <section id="crypto-sport" class="section animate__animated animate__slideInDown">
+        <div class="section" id="yoga">
             <h2>CrYpto Sport/Relaxis</h2>
-            <!-- Add content specific to Crypto Sport section -->
-        </section>
-
-        <section id="nft" class="section animate__animated animate__slideInDown">
+            <p>Overview of CrYpto Sport/Relaxis</p>
+        </div>
+        <div class="section" id="nft">
             <h2>NFT</h2>
-            <!-- Add content specific to NFT section -->
-        </section>
-       
-        <section id="water-lemon" class="section animate__animated animate__slideInDown">
+            <p>Overview of NFT</p>
+        </div>
+        <div class="section" id="water-lemon">
             <h2>Water with Lemon</h2>
-            <div class="water-lemon-content">
-                <div class="water-lemon-form">
-                    <form id="waterForm">
-                        <label for="cupsCount">How many cups of water with lemon did you drink today?</label><br>
-                        <input type="number" id="cupsCount" name="cupsCount" min="0" step="1"><br>
-                        
-                        <button type="button" onclick="recordWater()">Record</button>
-                    </form>
-                </div>
-                <div class="water-lemon-table">
-                    <h3>Your Water Consumption Records</h3>
-                    <table id="waterRecordsTable">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Cups</th>
-                            </tr>
-                        </thead>
-                        <tbody id="waterRecords">
-                            <!-- Records will be dynamically added here -->
-                        </tbody>
-                    </table>
-                    <div class="progress">
-                        <h3>Your Daily Progress</h3>
-                        <progress id="waterProgress" max="10" value="0"></progress><br>
-                        <span id="progressText">0 out of 10 cups</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="gallery" class="gallery-section animate__animated animate__slideInDown">
+            <button class="donate-button" onclick="openModal()">Donate via Helga Blue</button>
+            <table id="waterRecordsTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Water records will be dynamically added here -->
+                </tbody>
+            </table>
+            <div id="waterNotification" class="notification"></div>
+        </div>
+        <div class="section gallery-section" id="gallery">
             <h2>Gallery</h2>
-            <a href="#gallery-monad">Gallery Monad</a>
-            <a href="#gallery-mezo">Gallery Mezo</a>
-            <a href="https://helga.blue">Main Helga Blue Site</a>
-        </section>
-
-        <section id="contact" class="section animate__animated animate__slideInDown">
+            <a href="#gallery-meadow">Gallery Monad</a>
+            <a href="#gallery-quad">Gallery Mezo</a>
+            <a href="https://helga.beam.eco">Helga Blue</a>
+        </div>
+        <div class="section" id="contact">
             <h2>Contact</h2>
-            <!-- Add contact form or information -->
-        </section>
-    </div>
-
-    <!-- Donate Modal -->
-    <div id="donateModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeDonateModal">&times;</span>
-            <h2>Support Our Work</h2>
-            <p>Your support helps us continue creating great content!</p>
-            <p>Donate via Beam Wallet:</p>
-            <p>1 Bitcoin: 1BeamwWALLeBvERFFapMdxh7MsU3uVw</p>
-            <p>Any amount is greatly appreciated!</p>
+            <p>Contact information goes here.</p>
         </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <!-- Modal for donation -->
+    <div id="donateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Donate to Helga Blue:</p>
+            <p><a href="https://helga.beam.eco" target="_blank" rel="noopener noreferrer">Visit Helga Blue</a></p>
+        </div>
+    </div>
+
+    <!-- Theme toggle button -->
+    <button id="themeToggleBtn" onclick="toggleTheme()"></button>
+
+    <!-- JavaScript for modal and theme toggle -->
+    <script>
+        // Modal functionality
+        function openModal() {
+            document.getElementById('donateModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('donateModal').style.display = 'none';
+        }
+
+        // Theme toggle functionality
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
 </html>
