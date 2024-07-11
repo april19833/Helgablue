@@ -120,3 +120,17 @@ function toggleDarkMode() {
     const body = document.body;
     body.classList.toggle('dark-mode');
 }
+// Example JavaScript for handling data-image attribute
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            const imageUrl = this.getAttribute('data-image');
+            if (imageUrl) {
+                // Preload or display the image as needed
+                console.log(`Displaying image: ${imageUrl}`);
+            }
+        });
+    });
+});
