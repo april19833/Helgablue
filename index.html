@@ -309,7 +309,6 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="donate-button" onclick="openModal()">Donate via Helga Blue Wallet</button>
             <div class="progress">
                 <h3>Donation Progress</h3>
                 <progress value="70" max="100"></progress>
@@ -321,46 +320,52 @@
             <div class="gallery-section">
                 <a href="#monad-gallery">Monad Gallery</a>
                 <a href="#mezo-gallery">Mezo Gallery</a>
-                <a href="https://helgablue.beam.eco" target="_blank">Main Helga Blue Site</a>
+                <a href="https://helgablue.com">Go to Helga Blue</a>
             </div>
         </div>
         <div class="section" id="contact">
             <h2>Contact</h2>
-            <p>Overview of Contact</p>
+            <p>Contact information</p>
         </div>
     </div>
-    <button id="themeToggleBtn" onclick="toggleTheme()"></button>
-    <div id="donationModal" class="modal">
+
+    <!-- Modal -->
+    <div id="donateModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Support the Project</h2>
-            <p>To support the project, please send your donation to the Beam wallet address below:</p>
-            <p><strong>Beam Wallet Address:</strong> <code>helga.beam.eco</code></p>
+            <p>Donate via Helga Blue Wallet</p>
+            <p>Instructions for donation</p>
         </div>
     </div>
-    <div id="notification" class="notification">
-        Record saved successfully!
-    </div>
-    <script>
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-        }
 
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        Record Saved Successfully!
+    </div>
+
+    <!-- Theme toggle button -->
+    <button id="themeToggleBtn" onclick="toggleDarkMode()"></button>
+
+    <script>
         function openModal() {
-            document.getElementById('donationModal').style.display = 'block';
+            document.getElementById('donateModal').style.display = 'block';
         }
 
         function closeModal() {
-            document.getElementById('donationModal').style.display = 'none';
+            document.getElementById('donateModal').style.display = 'none';
         }
 
-        function showNotification() {
-            var notification = document.getElementById('notification');
-            notification.classList.add('show-notification');
-            setTimeout(function () {
-                notification.classList.remove('show-notification');
-            }, 2000);
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
         }
+
+        // Simulate notification after 3 seconds
+        setTimeout(() => {
+            document.getElementById('notification').classList.add('show-notification');
+            setTimeout(() => {
+                document.getElementById('notification').classList.remove('show-notification');
+            }, 3000);
+        }, 3000);
     </script>
 </body>
 </html>
