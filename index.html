@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Additional styles specific to this page */
         body {
             display: flex;
         }
@@ -50,23 +49,23 @@
         }
 
         .sidebar a[href="#yoga"]::before {
-            background-image: url('images/earn-money.gif');
+            background-image: url('./images/earn-money.gif');
         }
 
         .sidebar a[href="#nft"]::before {
-            background-image: url('images/nft.gif');
+            background-image: url('./images/nft.gif');
         }
 
         .sidebar a[href="#water-lemon"]::before {
-            background-image: url('images/hypoallergenic.gif');
+            background-image: url('./images/hypoallergenic.gif');
         }
 
         .sidebar a[href="#gallery"]::before {
-            background-image: url('images/photo-gallery.gif');
+            background-image: url('./images/photo-gallery.gif');
         }
 
         .sidebar a[href="#contact"]::before {
-            background-image: url('images/agenda.gif');
+            background-image: url('./images/agenda.gif');
         }
 
         .sidebar a:hover::before {
@@ -130,14 +129,13 @@
             color: #007bff;
         }
 
-        /* Theme toggle button */
         #themeToggleBtn {
             position: fixed;
             bottom: 20px;
             right: 20px;
             padding: 10px;
             font-size: 16px;
-            background-image: url('images/illuminati.gif'); /* Background image */
+            background-image: url('./images/illuminati.gif');
             background-size: cover;
             background-repeat: no-repeat;
             background-color: transparent;
@@ -149,13 +147,11 @@
             z-index: 1000;
         }
 
-        /* Dark mode */
         body.dark-mode {
             background-color: #222;
             color: #fff;
         }
 
-        /* Progress bar */
         .progress {
             margin-top: 20px;
         }
@@ -178,13 +174,11 @@
             color: #555;
         }
 
-        /* Less noticeable categories */
         .less-noticeable {
             font-size: 14px;
             color: #888;
         }
 
-        /* Donate button styling */
         .donate-button {
             background-color: #007bff;
             color: #fff;
@@ -200,7 +194,6 @@
             background-color: #0056b3;
         }
 
-        /* Donate modal */
         .modal {
             display: none;
             position: fixed;
@@ -238,7 +231,6 @@
             cursor: pointer;
         }
 
-        /* Water with Lemon table */
         #waterRecordsTable {
             width: 100%;
             margin-top: 20px;
@@ -256,7 +248,6 @@
             background-color: #f2f2f2;
         }
 
-        /* Notification style */
         .notification {
             display: none;
             position: fixed;
@@ -286,11 +277,11 @@
 </head>
 <body>
     <div class="sidebar">
-        <a href="#yoga" class="less-noticeable" data-image="images/earn-money.gif">Crypto Sport/Relaxis</a>
-        <a href="#nft" data-image="images/nft.gif">NFT</a>
-        <a href="#water-lemon" data-image="images/hypoallergenic.gif">Water with Lemon</a>
-        <a href="#gallery" data-image="images/photo-gallery.gif">Gallery</a>
-        <a href="#contact" data-image="images/agenda.gif">Contact</a>
+        <a href="#yoga" class="less-noticeable">Crypto Sport/Relaxis</a>
+        <a href="#nft">NFT</a>
+        <a href="#water-lemon">Water with Lemon</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
     </div>
     <div class="content">
         <div class="section" id="yoga">
@@ -303,82 +294,73 @@
         </div>
         <div class="section" id="water-lemon">
             <h2>Water with Lemon</h2>
-            <p>Benefits of drinking water with lemon</p>
+            <button class="donate-button" onclick="openModal()">Donate via Helga Blue Wallet</button>
             <table id="waterRecordsTable">
-                <tr>
-                    <th>Date</th>
-                    <th>Amount</th>
-                </tr>
-                <!-- Add your rows here -->
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Amount (liters)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2023-01-01</td>
+                        <td>2.0</td>
+                    </tr>
+                </tbody>
             </table>
+            <button class="donate-button" onclick="openModal()">Donate via Helga Blue Wallet</button>
+            <div class="progress">
+                <h3>Donation Progress</h3>
+                <progress value="70" max="100"></progress>
+                <span id="progressText">70% to the goal</span>
+            </div>
         </div>
-        <div class="section gallery-section" id="gallery">
+        <div class="section" id="gallery">
             <h2>Gallery</h2>
-            <a href="#">Monad Gallery</a>
-            <a href="#">Mezo Gallery</a>
-            <a href="#">Main Helga Blue Site</a>
+            <div class="gallery-section">
+                <a href="#monad-gallery">Monad Gallery</a>
+                <a href="#mezo-gallery">Mezo Gallery</a>
+                <a href="https://helgablue.beam.eco" target="_blank">Main Helga Blue Site</a>
+            </div>
         </div>
         <div class="section" id="contact">
             <h2>Contact</h2>
-            <p>Contact details</p>
+            <p>Overview of Contact</p>
         </div>
-        <div class="section progress">
-            <h3>Progress</h3>
-            <progress id="progressBar" value="70" max="100"></progress>
-            <div id="progressText">70% complete</div>
-        </div>
-        <!-- Donate button -->
-        <button class="donate-button" id="openModalBtn">Donate</button>
-        <!-- Donate modal -->
-        <div id="donateModal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="closeModalBtn">&times;</span>
-                <h2>Donate via Beam Wallet</h2>
-                <p>To unlock the first task, please donate $50 to the specified Beam wallet address.</p>
-                <!-- Add donation instructions here -->
-            </div>
-        </div>
-        <!-- Notification -->
-        <div id="notification" class="notification"></div>
     </div>
-    <!-- Theme toggle button -->
-    <button id="themeToggleBtn"></button>
+    <button id="themeToggleBtn" onclick="toggleTheme()"></button>
+    <div id="donationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Support the Project</h2>
+            <p>To support the project, please send your donation to the Beam wallet address below:</p>
+            <p><strong>Beam Wallet Address:</strong> <code>helga.beam.eco</code></p>
+        </div>
+    </div>
+    <div id="notification" class="notification">
+        Record saved successfully!
+    </div>
     <script>
-        const themeToggleBtn = document.getElementById('themeToggleBtn');
-        const body = document.body;
-        
-        themeToggleBtn.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-        });
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
 
-        // Notification function
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
+        function openModal() {
+            document.getElementById('donationModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('donationModal').style.display = 'none';
+        }
+
+        function showNotification() {
+            var notification = document.getElementById('notification');
             notification.classList.add('show-notification');
-            setTimeout(() => {
+            setTimeout(function () {
                 notification.classList.remove('show-notification');
             }, 2000);
         }
-
-        // Modal functionality
-        const openModalBtn = document.getElementById('openModalBtn');
-        const donateModal = document.getElementById('donateModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-
-        openModalBtn.addEventListener('click', () => {
-            donateModal.style.display = 'block';
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            donateModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target === donateModal) {
-                donateModal.style.display = 'none';
-            }
-        });
     </script>
 </body>
 </html>
