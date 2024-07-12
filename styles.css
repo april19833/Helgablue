@@ -42,7 +42,7 @@ button {
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #0C703C;
     color: #fff;
     transition: background-color 0.3s ease;
 }
@@ -91,7 +91,7 @@ nav ul li a:hover::before {
 
 /* Header Styles */
 header {
-    background-color: #A5D3D2;
+    background-color: #D3BBA5;
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
 }
@@ -124,7 +124,7 @@ nav.categories ul li a {
 }
 
 nav.categories ul li a:hover {
-    color: #BBA5D3;
+    color: #D3A5A6;
 }
 
 .donate {
@@ -133,7 +133,7 @@ nav.categories ul li a:hover {
 
 /* Section Styles */
 .section {
-    background-color: #BDD3A5;
+    background-color: #D3D2A5;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
@@ -148,7 +148,7 @@ nav.categories ul li a:hover {
 
 .gallery-section {
     text-align: center;
-    background-color: #A6D3A5;
+    background-color: #D3D2A5;
     padding: 20px;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -183,9 +183,9 @@ nav.categories ul li a:hover {
 }
 
 .gallery-section a:hover {
-    background-color: #007bff;
+    background-color: #0C706E;
     color: #fff;
-    border-color: #007bff;
+    border-color: #0C4070;
 }
 @-webkit-keyframes kenburns-left {
   0% {
@@ -427,7 +427,7 @@ footer p {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #28a745;
+    background-color: #0C703C;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -500,7 +500,7 @@ footer p {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #007bff;
+    background-color: #0C703C;
     color: #fff;
     width: 50px;
     height: 50px;
@@ -514,5 +514,5 @@ footer p {
 }
 
 .scroll-to-top:hover {
-    background-color: #0056b3;
+    background-color: #0C703C;
 }
