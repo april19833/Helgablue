@@ -59,10 +59,16 @@
             background-image: url('images/earn-money.gif');
         }
 
-        .sidebar a[href="#nft"]::before {
-            background-image: url('images/nft.gif');
-        }
-
+     .sidebar a[href="#nft"]::before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    margin-right: 10px; /* Adjust spacing */
+    background-image: url('images/nft.gif'); /* Path to your image */
+    background-size: cover; /* Adjust image size */
+}
+        
         .sidebar a[href="#water-lemon"]::before {
             background-image: url('images/hypoallergenic.gif');
         }
