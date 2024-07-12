@@ -42,7 +42,7 @@
         .gallery-section {
             width: 200px; /* Circle section width */
             height: 200px; /* Circle section height */
-            margin: 120px auto 20px; /* Increase top margin to avoid overlap with header */
+            margin: 20px;
             padding: 20px;
             background-color: #D3A5A6; /* Circle section background color */
             border-radius: 50%; /* Circle border radius */
@@ -50,7 +50,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            display: inline-block;
+            float: right; /* Float circles to the right */
         }
         .gallery-section h2 {
             font-size: 1.5em;
@@ -138,6 +138,10 @@
 </head>
 <body>
 
+    <div class="donate">
+        <a href="https://beam.eco/u/helga" class="button donation__bitcoin">Donate to support our projects</a>
+    </div>
+
     <section id="gallery-monad" class="gallery-section">
         <h2>Gallery Monad</h2>
         <p>Content for Gallery Monad goes <a href="https://april19833.github.io/Helgablue/gallery-monad.html">here</a>.</p>
@@ -147,10 +151,6 @@
         <h2>Gallery Mezo</h2>
         <p>Content for Gallery Mezo goes <a href="https://april19833.github.io/Helgablue/gallery-mezo.html">here</a>.</p>
     </section>
-
-    <div class="donate">
-        <a href="https://beam.eco/u/helga" class="button donation__bitcoin">Donate to support our projects</a>
-    </div>
 
     <header>
         <div class="container">
