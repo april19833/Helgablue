@@ -34,6 +34,7 @@
             width: 100%;
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: none; /* Remove header */
         }
         header h1 {
             margin: 0;
@@ -45,7 +46,7 @@
             height: 200px; /* Circle section height */
             margin: 80px auto 20px; /* Increase top margin to avoid overlap with header */
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: #D3A5A6; /* Circle section background color */
             border-radius: 50%; /* Circle border radius */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -62,6 +63,13 @@
         .gallery-section p {
             font-size: 1.1em;
             color: #555;
+        }
+        .gallery-section a {
+            color: #333;
+            text-decoration: none;
+        }
+        .gallery-section a:hover {
+            text-decoration: underline;
         }
         .donate {
             text-align: center;
