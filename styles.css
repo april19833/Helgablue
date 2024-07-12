@@ -516,3 +516,69 @@ footer p {
 .scroll-to-top:hover {
     background-color: #0056b3;
 }
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+.theme-toggle .toggle-label {
+  display: inline-block;
+  width: 40px; /* Adjust width as needed */
+  height: 20px; /* Adjust height as needed */
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle .toggle-label .moon-icon,
+.theme-toggle .toggle-label .sun-icon {
+  display: inline-block;
+  width: 20px; /* Adjust icon size as needed */
+  height: 20px; /* Adjust icon size as needed */
+  position: absolute;
+  top: 0;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle .toggle-label .moon-icon {
+  left: 0;
+  transform: translateY(0);
+}
+
+.theme-toggle .toggle-label .sun-icon {
+  right: 0;
+  transform: translateY(0);
+}
+
+.theme-toggle .hidden-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-toggle .toggle-label::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 30px; /* Adjust size of the toggle button */
+  height: 30px; /* Adjust size of the toggle button */
+  border-radius: 50%;
+  background-color: #ccc; /* Default background color */
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle .hidden-checkbox:checked + .toggle-label::before {
+  background-color: #555; /* Dark mode background color */
+}
+
+.theme-toggle .hidden-checkbox:checked + .toggle-label .moon-icon {
+  transform: translateY(-100%);
+}
+
+.theme-toggle .hidden-checkbox:checked + .toggle-label .sun-icon {
+  transform: translateY(100%);
+}
