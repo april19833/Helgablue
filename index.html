@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Additional styles specific to this page */
         body {
             display: flex;
         }
@@ -49,23 +50,23 @@
         }
 
         .sidebar a[href="#yoga"]::before {
-            background-image: url('./images/earn-money.gif');
+            background-image: url('images/earn-money.gif');
         }
 
         .sidebar a[href="#nft"]::before {
-            background-image: url('./images/nft.gif');
+            background-image: url('images/nft.gif');
         }
 
         .sidebar a[href="#water-lemon"]::before {
-            background-image: url('./images/hypoallergenic.gif');
+            background-image: url('images/hypoallergenic.gif');
         }
 
         .sidebar a[href="#gallery"]::before {
-            background-image: url('./images/photo-gallery.gif');
+            background-image: url('images/photo-gallery.gif');
         }
 
         .sidebar a[href="#contact"]::before {
-            background-image: url('./images/agenda.gif');
+            background-image: url('images/agenda.gif');
         }
 
         .sidebar a:hover::before {
@@ -129,13 +130,14 @@
             color: #007bff;
         }
 
+        /* Theme toggle button */
         #themeToggleBtn {
             position: fixed;
             bottom: 20px;
             right: 20px;
             padding: 10px;
             font-size: 16px;
-            background-image: url('./images/illuminati.gif');
+            background-image: url('images/illuminati.gif'); /* Background image */
             background-size: cover;
             background-repeat: no-repeat;
             background-color: transparent;
@@ -147,11 +149,13 @@
             z-index: 1000;
         }
 
+        /* Dark mode */
         body.dark-mode {
             background-color: #222;
             color: #fff;
         }
 
+        /* Progress bar */
         .progress {
             margin-top: 20px;
         }
@@ -174,11 +178,13 @@
             color: #555;
         }
 
+        /* Less noticeable categories */
         .less-noticeable {
             font-size: 14px;
             color: #888;
         }
 
+        /* Donate button styling */
         .donate-button {
             background-color: #007bff;
             color: #fff;
@@ -194,6 +200,7 @@
             background-color: #0056b3;
         }
 
+        /* Donate modal */
         .modal {
             display: none;
             position: fixed;
@@ -231,6 +238,7 @@
             cursor: pointer;
         }
 
+        /* Water with Lemon table */
         #waterRecordsTable {
             width: 100%;
             margin-top: 20px;
@@ -248,6 +256,7 @@
             background-color: #f2f2f2;
         }
 
+        /* Notification style */
         .notification {
             display: none;
             position: fixed;
@@ -277,11 +286,11 @@
 </head>
 <body>
     <div class="sidebar">
-        <a href="#yoga" class="less-noticeable">Crypto Sport/Relaxis</a>
-        <a href="#nft">NFT</a>
-        <a href="#water-lemon">Water with Lemon</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
+        <a href="#yoga" class="less-noticeable" data-image="images/earn-money.gif">Crypto Sport/Relaxis</a>
+        <a href="#nft" data-image="images/nft.gif">NFT</a>
+        <a href="#water-lemon" data-image="images/hypoallergenic.gif">Water with Lemon</a>
+        <a href="#gallery" data-image="images/photo-gallery.gif">Gallery</a>
+        <a href="#contact" data-image="images/agenda.gif">Contact</a>
     </div>
     <div class="content">
         <div class="section" id="yoga">
@@ -294,34 +303,31 @@
         </div>
         <div class="section" id="water-lemon">
             <h2>Water with Lemon</h2>
-            <button class="donate-button" onclick="openModal()">Donate via Helga Blue Wallet</button>
+            <button class="donate-button" onclick="window.location.href='https://helga.beam.eco'">Donate via Helga Blue Wallet</button>
             <table id="waterRecordsTable">
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th>Amount (liters)</th>
+                        <th>Amount (ml)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>2023-01-01</td>
-                        <td>2.0</td>
+                        <td>2023-08-01</td>
+                        <td>200</td>
+                    </tr>
+                    <tr>
+                        <td>2023-08-02</td>
+                        <td>250</td>
                     </tr>
                 </tbody>
             </table>
-            <div class="progress">
-                <h3>Donation Progress</h3>
-                <progress value="70" max="100"></progress>
-                <span id="progressText">70% to the goal</span>
-            </div>
         </div>
-        <div class="section" id="gallery">
+        <div class="section gallery-section" id="gallery">
             <h2>Gallery</h2>
-            <div class="gallery-section">
-                <a href="#monad-gallery">Monad Gallery</a>
-                <a href="#mezo-gallery">Mezo Gallery</a>
-                <a href="https://helgablue.com">Go to Helga Blue</a>
-            </div>
+            <a href="#monad">Gallery Monad</a>
+            <a href="#mezo">Gallery Mezo</a>
+            <a href="https://helgablue.com">Main Helga Blue Website</a>
         </div>
         <div class="section" id="contact">
             <h2>Contact</h2>
@@ -329,43 +335,33 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div id="donateModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p>Donate via Helga Blue Wallet</p>
-            <p>Instructions for donation</p>
-        </div>
-    </div>
-
-    <!-- Notification -->
-    <div id="notification" class="notification">
-        Record Saved Successfully!
-    </div>
-
     <!-- Theme toggle button -->
     <button id="themeToggleBtn" onclick="toggleDarkMode()"></button>
 
+    <!-- JavaScript for theme toggle and notification -->
     <script>
-        function openModal() {
-            document.getElementById('donateModal').style.display = 'block';
-        }
-
-        function closeModal() {
-            document.getElementById('donateModal').style.display = 'none';
-        }
-
+        // Function to toggle dark mode
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
         }
 
-        // Simulate notification after 3 seconds
-        setTimeout(() => {
-            document.getElementById('notification').classList.add('show-notification');
+        // Example notification function
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.classList.add('notification');
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
             setTimeout(() => {
-                document.getElementById('notification').classList.remove('show-notification');
-            }, 3000);
-        }, 3000);
+                notification.classList.add('show-notification');
+                setTimeout(() => {
+                    notification.classList.remove('show-notification');
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 1000);
+                }, 2000);
+            }, 100);
+        }
     </script>
 </body>
 </html>
