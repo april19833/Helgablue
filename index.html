@@ -1,15 +1,9 @@
-<!DOCTYPE html> 
-</header>
+<!DOCTYPE html>
 <html lang="en">
-    <header>
-    <div class="container">
-        <h1>Welcome to Orbit</h1>
-    </div>
-</header>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Helga Blue</title>
+    <title>Welcome to Orbit</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -313,35 +307,126 @@
             <h2>NFT</h2>
             <p>Overview of NFT</p>
         </div>
-        <div class="section" id="water-lemon">
-            <h2>Water with Lemon</h2>
-            <button class="donate-button" onclick="window.location.href='https://helga.beam.eco'">Donate via Helga Blue Wallet</button>
-            <table id="waterRecordsTable">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Amount (ml)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2023-08-02</td>
-                        <td>250</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-       <div class="section gallery-section" id="gallery">
-    <h2>Gallery</h2>
-    <a href="gallery-monad.html">Gallery Monad</a>
-    <a href="gallery-mezo.html">Gallery Mezo</a>
-</div>
-        <div class="section" id="contact">
+       <div class="water-lemon-table">
+                    <h3>Your Water Consumption Records</h3>
+                    <table id="waterRecordsTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Cups</th>
+                            </tr>
+                        </thead>
+                        <tbody id="waterRecords">
+                            <!-- Records will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="progress">
+                    <h3>Progress Bar</h3>
+                    <progress id="waterProgress" max="10" value="0"></progress>
+                    <p id="progressText">0 / 10 cups</p>
+                </div>
+            </div>
+        </section>
+           
+        <section id="contact" class="section">
             <h2>Contact</h2>
-            <p>Contact information</p>
+            <!-- Add content specific to Contact section -->
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section gallery-section">
+            <h2>Gallery</h2>
+            <a href="gallery-monad.html">Gallery Monad</a>
+            <a href="gallery-mezo.html">Gallery Mezo</a>
+            <!-- Add more galleries as needed -->
+        </section>
+
+       <div class="section gallery-section" id="gallery">
+        <!-- Notification -->
+        <div id="notification" class="notification"></div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>© 2024 Helga Blue. All rights reserved.</p>
+        </div>
+    </footer>
+<!-- Donate Modal -->
+    <div id="donateModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Support Our Work</h2>
+            <p>For course payments, visit <a href="https://helga.beam.eco/" target="_blank">helga.beam.eco</a>.</p>
         </div>
     </div>
 
+    <!-- JavaScript -->
+    <script src="scripts.js"></script>
+    <script>
+        // Theme Toggle
+        document.getElementById('themeToggleBtn').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Modal
+        var donateModal = document.getElementById('donateModal');
+        var openModalBtn = document.getElementById('openDonateModal');
+        var closeModalBtn = document.getElementsByClassName('close')[0];
+
+        openModalBtn.onclick = function() {
+            donateModal.style.display = 'block';
+        }
+
+        closeModalBtn.onclick = function() {
+            donateModal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == donateModal) {
+                donateModal.style.display = 'none';
+            }
+        };
+
+        // Water with Lemon Recording
+        function recordWater() {
+            var cupsCount = document.getElementById('cupsCount').value;
+            var currentDate = new Date();
+            var time = currentDate.getHours() + ':' + currentDate.getMinutes();
+            var record = '<tr><td>' + currentDate.toDateString() + '</td><td>' + time + '</td><td>' + cupsCount + '</td></tr>';
+            document.getElementById('waterRecords').innerHTML += record;
+
+            updateProgress(cupsCount);
+        }
+
+        // Update Progress Bar
+        function updateProgress(cups) {
+            var progressBar = document.getElementById('waterProgress');
+            var progressText = document.getElementById('progressText');
+            var currentProgress = parseInt(progressBar.value);
+            var newProgress = currentProgress + parseInt(cups);
+
+            progressBar.value = newProgress;
+            progressText.textContent = newProgress + ' / 10 cups';
+
+            if (newProgress >= 10) {
+                showNotification('Congratulations! You have reached your daily goal of 10 cups of water with lemon.');
+            }
+        }
+
+        // Show Notification
+        function showNotification(message) {
+            var notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.display = 'block';
+
+            setTimeout(function() {
+                notification.style.display = 'none';
+            }, 5000); // Hide after 5 seconds
+        }
+    </script>
+</body>
+</html>
     <!-- Theme toggle button -->
     <button id="themeToggleBtn" onclick="toggleDarkMode()"></button>
 
