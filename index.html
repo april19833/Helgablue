@@ -303,62 +303,82 @@
         </div>
         <div class="section" id="water-lemon">
             <h2>Water with Lemon</h2>
-            <button class="donate-button" onclick="openModal()">Donate via Helga Blue Wallet</button>
+            <p>Benefits of drinking water with lemon</p>
             <table id="waterRecordsTable">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Amount (ml)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2023-08-01</td>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <td>2023-08-02</td>
-                        <td>250</td>
-                    </tr>
-                </tbody>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                </tr>
+                <!-- Add your rows here -->
             </table>
         </div>
-        <div class="gallery-section">
+        <div class="section gallery-section" id="gallery">
             <h2>Gallery</h2>
-            <a href="gallery-monad.html">Gallery Monad</a>
-            <a href="gallery-mezo.html">Gallery Mezo</a>
+            <a href="#">Monad Gallery</a>
+            <a href="#">Mezo Gallery</a>
+            <a href="#">Main Helga Blue Site</a>
         </div>
         <div class="section" id="contact">
             <h2>Contact</h2>
-            <p>Contact information</p>
+            <p>Contact details</p>
         </div>
-    </div>
-    <button id="themeToggleBtn" onclick="toggleTheme()"></button>
-
-    <!-- Donate modal -->
-    <div id="donateModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p>Donate via Helga Blue Wallet:</p>
-            <p>1 Bitcoin</p>
+        <div class="section progress">
+            <h3>Progress</h3>
+            <progress id="progressBar" value="70" max="100"></progress>
+            <div id="progressText">70% complete</div>
         </div>
+        <!-- Donate button -->
+        <button class="donate-button" id="openModalBtn">Donate</button>
+        <!-- Donate modal -->
+        <div id="donateModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModalBtn">&times;</span>
+                <h2>Donate via Beam Wallet</h2>
+                <p>To unlock the first task, please donate $50 to the specified Beam wallet address.</p>
+                <!-- Add donation instructions here -->
+            </div>
+        </div>
+        <!-- Notification -->
+        <div id="notification" class="notification"></div>
     </div>
-
-    <!-- Notification -->
-    <div id="notification" class="notification"></div>
-
+    <!-- Theme toggle button -->
+    <button id="themeToggleBtn"></button>
     <script>
-        function openModal() {
-            document.getElementById("donateModal").style.display = "block";
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const body = document.body;
+        
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+
+        // Notification function
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.classList.add('show-notification');
+            setTimeout(() => {
+                notification.classList.remove('show-notification');
+            }, 2000);
         }
 
-        function closeModal() {
-            document.getElementById("donateModal").style.display = "none";
-        }
+        // Modal functionality
+        const openModalBtn = document.getElementById('openModalBtn');
+        const donateModal = document.getElementById('donateModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
 
-        function toggleTheme() {
-            document.body.classList.toggle("dark-mode");
-        }
+        openModalBtn.addEventListener('click', () => {
+            donateModal.style.display = 'block';
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            donateModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === donateModal) {
+                donateModal.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
