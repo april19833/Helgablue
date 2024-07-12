@@ -31,6 +31,9 @@
             padding: 10px 0;
             text-align: center;
             width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
@@ -71,6 +74,10 @@
         .donate {
             text-align: center;
             margin-bottom: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         .donate .button {
             background-color: rgba(79, 195, 247, 0.8);
@@ -81,6 +88,7 @@
             cursor: pointer;
             border-radius: 5px;
             text-decoration: none;
+            display: block;
         }
         .donate .button:hover {
             background-color: rgba(62, 161, 209, 0.8);
@@ -138,6 +146,12 @@
 </head>
 <body>
 
+    <header>
+        <div class="container">
+            <h1><a href="https://april19833.github.io/Helgablue/" style="color: #ffffff; text-decoration: none;">Helga Blue</a></h1>
+        </div>
+    </header>
+
     <div class="donate">
         <a href="https://beam.eco/u/helga" class="button donation__bitcoin">Donate to support our projects</a>
     </div>
@@ -152,12 +166,6 @@
         <p>Content for Gallery Mezo goes <a href="https://april19833.github.io/Helgablue/gallery-mezo.html">here</a>.</p>
     </section>
 
-    <header>
-        <div class="container">
-            <h1><a href="https://april19833.github.io/Helgablue/" style="color: #ffffff; text-decoration: none;">Helga Blue</a></h1>
-        </div>
-    </header>
-
     <div id="flower-widget" class="flower-widget">
         <div class="flower-petal"></div>
         <div class="flower-petal"></div>
@@ -166,5 +174,6 @@
         <div class="flower-center"></div>
         <p>Click <a href="https://beam.eco/u/helga">here</a> to donate</p>
     </div>
+
 </body>
 </html>
