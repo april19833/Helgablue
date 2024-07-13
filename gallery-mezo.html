@@ -12,13 +12,27 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #f8f8f8;
+            background: #000000; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #e74c3c, #000000); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #e74c3c, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            color: white;
         }
         header {
             background-color: #333;
             color: white;
             padding: 10px 0;
             text-align: center;
+            animation: fadeInDown 1s ease;
+        }
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .container {
             width: 80%;
@@ -34,12 +48,15 @@
         }
         .gallery-mezo-content {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            overflow-x: auto;
             gap: 15px;
-            justify-content: center;
+            justify-content: flex-start;
+            padding: 10px 0;
+            margin-bottom: 20px;
         }
         .gallery-item {
-            flex: 1 1 calc(25% - 30px);
+            flex: 1 0 auto;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             transition: transform 0.3s;
             background-color: white;
@@ -106,64 +123,28 @@
             padding: 10px 0;
             width: 100%;
             bottom: 0;
-            position: fixed; /* Ensuring footer stays at the bottom */
-        }
-        footer nav ul {
-            list-style: none;
-            padding: 0;
+            position: fixed;
             display: flex;
+            align-items: center;
             justify-content: center;
-            margin: 0;
         }
-        footer nav ul li {
-            margin: 0 15px;
+        footer .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        footer nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
+        .hello-guy {
+            animation: waveHello 2s infinite;
         }
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                background-color: #333;
-                padding: 10px 0;
-                text-align: center;
-                z-index: 1000;
+        @keyframes waveHello {
+            0%, 100% {
+                transform: rotate(0deg);
             }
-            .nav-links.active {
-                display: flex;
+            25% {
+                transform: rotate(-10deg);
             }
-            .burger {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                z-index: 1500;
-            }
-            .burger .line1,
-            .burger .line2,
-            .burger .line3 {
-                width: 25px;
-                height: 3px;
-                background-color: #fff;
-                margin: 5px;
-                transition: all 0.3s ease;
-            }
-            .burger.active .line1 {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-            .burger.active .line2 {
-                opacity: 0;
-            }
-            .burger.active .line3 {
-                transform: rotate(45deg) translate(-5px, -6px);
+            75% {
+                transform: rotate(10deg);
             }
         }
     </style>
@@ -221,28 +202,31 @@
         </div>
     </div>
     <footer>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Gallery Monad</a></li>
-                <li><a href="#">Gallery Mezo</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="footer-content">
+            <p class="hello-guy" style="font-size: 1.5em; margin-right: 10px;">Hello</p>
+            <img src="https://emojicombos.com/files/uploads/2020/04/waving-hand-sign-emoji.png" alt="waving-hand" width="40" height="40">
+        </div>
     </footer>
+
     <script>
-        // Function to open modal
+        // Modal functions
         function openModal(element) {
             var modal = document.getElementById("myModal");
-            var modalImage = document.getElementById("modalImage");
-            modal.style.display = "flex";
-            modalImage.src = element.getElementsByTagName("img")[0].src;
+            var modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = element.getElementsByTagName('img')[0].src;
+        }
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
         }
 
-        // Function to close modal
-        function closeModal() {
-            document.getElementById("myModal").style.display = "none";
+        // Close modal when clicking outside of the modal content
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
     </script>
 </body>
