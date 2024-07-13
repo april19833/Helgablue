@@ -23,15 +23,25 @@
         }
 
         header {
-            background-color: #333;
+            background: #659999; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #f4791f, #659999); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #f4791f, #659999); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             color: white;
             padding: 10px 0;
             text-align: center;
+            animation: headerAnimation 5s ease infinite;
+        }
+
+        @keyframes headerAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         header h1 {
             margin: 0;
             font-size: 2.5em;
+            font-family: 'Great Vibes', cursive;
         }
 
         nav ul {
@@ -40,6 +50,16 @@
             display: flex;
             justify-content: center;
             margin: 10px 0 0 0;
+            background: #ad5389; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #3c1053, #ad5389); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            animation: navAnimation 7s ease infinite;
+        }
+
+        @keyframes navAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         nav ul li {
@@ -210,46 +230,6 @@
             <p>© 2024 Helga Blue. All rights reserved.</p>
         </div>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const galleryItems = document.querySelectorAll('.gallery-item img');
-            const galleryVideos = document.querySelectorAll('.gallery-item video');
-            const imageModal = document.getElementById('imageModal');
-            const videoModal = document.getElementById('videoModal');
-            const modalImg = document.getElementById('modalImage');
-            const modalVideo = document.getElementById('modalVideo');
-            const closeBtns = document.querySelectorAll('.close');
-
-            galleryItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    imageModal.style.display = 'flex';
-                    modalImg.src = item.src;
-                });
-            });
-
-            galleryVideos.forEach(video => {
-                video.addEventListener('click', () => {
-                    videoModal.style.display = 'flex';
-                    modalVideo.src = video.querySelector('source').src;
-                });
-            });
-
-            closeBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    imageModal.style.display = 'none';
-                    videoModal.style.display = 'none';
-                    modalVideo.pause();
-                });
-            });
-
-            window.addEventListener('click', (event) => {
-                if (event.target === imageModal || event.target === videoModal) {
-                    imageModal.style.display = 'none';
-                    videoModal.style.display = 'none';
-                    modalVideo.pause();
-                }
-            });
-        });
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
