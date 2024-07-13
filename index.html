@@ -10,6 +10,7 @@
         /* Additional styles specific to this page */
         body {
             display: flex;
+            font-family: 'Roboto', sans-serif;
         }
 
         .sidebar {
@@ -25,44 +26,35 @@
         }
 
         .sidebar a {
-            display: block;
+            display: flex;
+            align-items: center;
             padding: 10px;
             color: #333;
             text-decoration: none;
-            transition: background-color 0.3s ease;
-            position: relative; /* Added for image positioning */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
         }
 
         .sidebar a::before {
             content: '';
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: -30px; /* Image positioning */
-            transform: translateY(-50%);
-            width: 24px; /* Image width */
-            height: 24px; /* Image height */
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0; /* Hide image by default */
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .sidebar a[href="#yoga"]::before {
             background-image: url('images/earn-money.gif');
         }
 
-     .sidebar a[href="#nft"]::before {
-    content: '';
-    display: inline-block;
-    width: 20px; /* Adjust width as needed */
-    height: 20px; /* Adjust height as needed */
-    margin-right: 10px; /* Adjust spacing */
-    background-image: url('images/nft.gif'); /* Path to your image */
-    background-size: cover; /* Adjust image size */
-}
-        
+        .sidebar a[href="#nft"]::before {
+            background-image: url('images/nft.gif');
+        }
+
         .sidebar a[href="#water-lemon"]::before {
             background-image: url('images/hypoallergenic.gif');
         }
@@ -75,8 +67,13 @@
             background-image: url('images/agenda.gif');
         }
 
+        .sidebar a:hover {
+            background-color: #eee;
+            transform: translateX(10px);
+        }
+
         .sidebar a:hover::before {
-            opacity: 1; /* Show image on hover */
+            transform: rotate(360deg);
         }
 
         .content {
@@ -91,12 +88,11 @@
             background-color: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 5px;
-            animation-duration: 0.5s; /* Animation duration */
-            animation-fill-mode: both; /* Apply styles at both keyframes */
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
         }
 
         .section h2 {
-            font-family: 'Roboto', sans-serif;
             font-weight: 700;
             color: #333;
             margin-bottom: 10px;
@@ -143,7 +139,7 @@
             right: 20px;
             padding: 10px;
             font-size: 16px;
-            background-image: url('images/illuminati.gif'); /* Background image */
+            background-image: url('images/illuminati.gif');
             background-size: cover;
             background-repeat: no-repeat;
             background-color: transparent;
@@ -167,7 +163,6 @@
         }
 
         .progress h3 {
-            font-family: 'Roboto', sans-serif;
             font-weight: 700;
             color: #333;
             margin-bottom: 10px;
@@ -180,7 +175,6 @@
         }
 
         #progressText {
-            font-family: 'Roboto', sans-serif;
             color: #555;
         }
 
@@ -292,11 +286,11 @@
 </head>
 <body>
     <div class="sidebar">
-        <a href="#yoga" class="less-noticeable" data-image="images/earn-money.gif">Crypto Sport/Relaxis</a>
-        <a href="#nft" data-image="images/nft.gif">NFT</a>
-        <a href="#water-lemon" data-image="images/hypoallergenic.gif">Water with Lemon</a>
-        <a href="#gallery" data-image="images/photo-gallery.gif">Gallery</a>
-        <a href="#contact" data-image="images/agenda.gif">Contact</a>
+        <a href="#yoga" class="less-noticeable">Crypto Sport/Relaxis</a>
+        <a href="#nft">NFT</a>
+        <a href="#water-lemon">Water with Lemon</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
     </div>
     <div class="content">
         <div class="section" id="yoga">
@@ -307,154 +301,117 @@
             <h2>NFT</h2>
             <p>Overview of NFT</p>
         </div>
-       <div class="water-lemon-table">
-                    <h3>Your Water Consumption Records</h3>
-                    <table id="waterRecordsTable">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Cups</th>
-                            </tr>
-                        </thead>
-                        <tbody id="waterRecords">
-                            <!-- Records will be dynamically added here -->
-                        </tbody>
-                    </table>
-                </div>
-                <div class="progress">
-                    <h3>Progress Bar</h3>
-                    <progress id="waterProgress" max="10" value="0"></progress>
-                    <p id="progressText">0 / 10 cups</p>
-                </div>
+        <div class="section" id="water-lemon">
+            <h2>Water with Lemon</h2>
+            <div class="water-lemon-table">
+                <h3>Your Water Consumption Records</h3>
+                <table id="waterRecordsTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Cups</th>
+                        </tr>
+                    </thead>
+                    <tbody id="waterRecords">
+                        <!-- Records will be dynamically added here -->
+                    </tbody>
+                </table>
             </div>
-        </section>
-           
+            <div class="progress">
+                <h3>Progress Bar</h3>
+                <progress id="waterProgress" max="10" value="0"></progress>
+                <p id="progressText">0 / 10 cups</p>
+            </div>
+        </div>
         <section id="contact" class="section">
             <h2>Contact</h2>
-            <!-- Add content specific to Contact section -->
+            <p>You can contact us at:</p>
+            <p>Email: <a href="mailto:helgablue@example.com">helgablue@example.com</a></p>
         </section>
-
-        <!-- Gallery Section -->
         <section id="gallery" class="section gallery-section">
             <h2>Gallery</h2>
-            <a href="gallery-monad.html">Gallery Monad</a>
-            <a href="gallery-mezo.html">Gallery Mezo</a>
-            <!-- Add more galleries as needed -->
+            <a href="#">Gallery Monad</a>
+            <a href="#">Gallery Mezo</a>
+            <a href="#">Main Helga Blue Site</a>
         </section>
-
-       <div class="section gallery-section" id="gallery">
-        <!-- Notification -->
-        <div id="notification" class="notification"></div>
     </div>
-    
-<!-- Donate Modal -->
+
+    <!-- Donate Modal -->
     <div id="donateModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Support Our Work</h2>
-            <p>For course payments, visit <a href="https://helga.beam.eco/" target="_blank">helga.beam.eco</a>.</p>
+            <h2>Donate</h2>
+            <p>Support us by making a donation.</p>
+            <button class="donate-button">Donate via Beam Wallet</button>
         </div>
     </div>
 
-    <!-- JavaScript -->
-    <script src="scripts.js"></script>
+    <!-- Theme toggle button -->
+    <button id="themeToggleBtn"></button>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">Record Saved Successfully!</div>
+
     <script>
-        // Theme Toggle
-        document.getElementById('themeToggleBtn').addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggleBtn = document.getElementById('themeToggleBtn');
+            themeToggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+            });
+
+            const modal = document.getElementById("donateModal");
+            const donateBtn = document.querySelector(".donate-button");
+            const span = document.getElementsByClassName("close")[0];
+
+            donateBtn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
         });
 
-        // Modal
-        var donateModal = document.getElementById('donateModal');
-        var openModalBtn = document.getElementById('openDonateModal');
-        var closeModalBtn = document.getElementsByClassName('close')[0];
-
-        openModalBtn.onclick = function() {
-            donateModal.style.display = 'block';
-        }
-
-        closeModalBtn.onclick = function() {
-            donateModal.style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            if (event.target == donateModal) {
-                donateModal.style.display = 'none';
-            }
-        };
-
-        // Water with Lemon Recording
-        function recordWater() {
-            var cupsCount = document.getElementById('cupsCount').value;
-            var currentDate = new Date();
-            var time = currentDate.getHours() + ':' + currentDate.getMinutes();
-            var record = '<tr><td>' + currentDate.toDateString() + '</td><td>' + time + '</td><td>' + cupsCount + '</td></tr>';
-            document.getElementById('waterRecords').innerHTML += record;
-
-            updateProgress(cupsCount);
-        }
-
-        // Update Progress Bar
-        function updateProgress(cups) {
-            var progressBar = document.getElementById('waterProgress');
-            var progressText = document.getElementById('progressText');
-            var currentProgress = parseInt(progressBar.value);
-            var newProgress = currentProgress + parseInt(cups);
-
-            progressBar.value = newProgress;
-            progressText.textContent = newProgress + ' / 10 cups';
-
-            if (newProgress >= 10) {
-                showNotification('Congratulations! You have reached your daily goal of 10 cups of water with lemon.');
-            }
-        }
-
-        // Show Notification
-        function showNotification(message) {
-            var notification = document.getElementById('notification');
+        // Function to show notification
+        function showNotification(message, isSuccess) {
+            const notification = document.getElementById('notification');
             notification.textContent = message;
-            notification.style.display = 'block';
-
-            setTimeout(function() {
-                notification.style.display = 'none';
-            }, 5000); // Hide after 5 seconds
-        }
-    </script>
-</body>
-</html>
-    <!-- Theme toggle button -->
-    <button id="themeToggleBtn" onclick="toggleDarkMode()"></button>
-
-    <!-- JavaScript for theme toggle and notification -->
-    <script>
-        // Function to toggle dark mode
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-
-        // Example notification function
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.classList.add('notification');
-            notification.textContent = message;
-            document.body.appendChild(notification);
-
+            notification.style.backgroundColor = isSuccess ? '#007bff' : '#ff0000';
+            notification.classList.add('show-notification');
             setTimeout(() => {
-                notification.classList.add('show-notification');
-                setTimeout(() => {
-                    notification.classList.remove('show-notification');
-                    setTimeout(() => {
-                        document.body.removeChild(notification);
-                    }, 1000);
-                }, 2000);
-            }, 100);
+                notification.classList.remove('show-notification');
+            }, 3000);
         }
+
+        // Function to add water record
+        function addWaterRecord(date, time, cups) {
+            const table = document.getElementById('waterRecords');
+            const row = table.insertRow();
+            row.insertCell(0).textContent = date;
+            row.insertCell(1).textContent = time;
+            row.insertCell(2).textContent = cups;
+
+            // Update progress bar
+            const progress = document.getElementById('waterProgress');
+            const progressText = document.getElementById('progressText');
+            progress.value = parseInt(progress.value) + parseInt(cups);
+            progressText.textContent = `${progress.value} / 10 cups`;
+
+            // Show success notification
+            showNotification('Record Saved Successfully!', true);
+        }
+
+        // Example of adding a record
+        addWaterRecord('2023-07-12', '09:00', 3);
+        addWaterRecord('2023-07-12', '12:00', 2);
+        addWaterRecord('2023-07-12', '15:00', 1);
     </script>
 </body>
 </html>
-<footer>
-        <div class="container">
-            <p>© 2024 Helga Blue. All rights reserved.</p>
-        </div>
-    </footer>
