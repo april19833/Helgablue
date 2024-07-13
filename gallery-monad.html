@@ -70,6 +70,17 @@
             color: white;
             text-decoration: none;
             font-size: 1.2em;
+            background: linear-gradient(to right, #f4791f, #659999);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: textGradientAnimation 5s ease infinite;
+        }
+
+        @keyframes textGradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
@@ -217,18 +228,12 @@
     <section id="gallery" class="section gallery-section">
         <h2>Sections</h2>
         <ul>
-            <li><a href="gallery-mezo.html">Gallery Mezo</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="index.html">Home</a></li>
-            <!-- Add more galleries as needed -->
+            <li><a href="#gallery-monad">Gallery Monad</a></li>
+            <li><a href="#gallery-mezo">Gallery Mezo</a></li>
         </ul>
     </section>
-    <!-- Notification -->
-    <div id="notification" class="notification"></div>
     <footer>
-        <div class="container">
-            <p>© 2024 Helga Blue. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 Helga Blue. All rights reserved.</p>
     </footer>
     <script src="scripts.js"></script>
 </body>
