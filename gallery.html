@@ -17,57 +17,49 @@
             background-position: center;
             color: #333;
         }
-       
         header {
-            background-color: rgba(149, 175, 192,1.0);
+            background: linear-gradient(270deg, #A5FECB, #20BDFF, #5433FF);
+            background-size: 600% 600%;
+            animation: gradientAnimation 10s ease infinite;
             color: #ffffff;
-            padding: 10px 0;
+            padding: 40px 0;
             text-align: center;
-            width: 100%;
+            position: relative;
             z-index: 1000;
         }
         header h1 {
             margin: 0;
-            font-size: 2em;
+            font-size: 2.5em;
             font-family: 'Great Vibes', cursive;
+            animation: textAnimation 2s ease-in-out infinite;
         }
-        .gallery-section {
-            width: 200px; /* Circle section width */
-            height: 200px; /* Circle section height */
-            margin: 20px;
+        header::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: #f8f8f8;
+            border-radius: 50%;
+        }
+        .container {
+            width: 70%;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
-            background-color: #D3A5A6; /* Circle section background color */
-            border-radius: 50%; /* Circle border radius */
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            float: right; /* Float circles to the right */
-        }
-        .gallery-section h2 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: #0C706E;
-        }
-        .gallery-section p {
-            font-size: 1.1em;
-            color: #0C4070;
-        }
-        .gallery-section a {
-            color: #0C706E;
-            text-decoration: none;
-        }
-        .gallery-section a:hover {
-            text-decoration: underline;
+            border-radius: 10px;
         }
         .donate {
             text-align: center;
             margin-bottom: 20px;
         }
         .donate .button {
-            background: #ffe259;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #ffa751, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #ffa751, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            color: #0C4070;
+            background: #5433FF;
+            background: -webkit-linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);
+            background: linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);
+            color: #ffffff;
             border: none;
             padding: 10px 20px;
             font-size: 1em;
@@ -76,89 +68,39 @@
             text-decoration: none;
         }
         .donate .button:hover {
-            background: #ffe259;  /* fallback for old browsers */
-           background: -webkit-linear-gradient(to right, #ffa751, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
-           background: linear-gradient(to right, #ffa751, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: #5433FF;
+            background: -webkit-linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
+            background: linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
         }
-        .flower-widget {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: none;
-            background-color: white;
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
-            z-index: 1000;
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .flower-widget.active {
-            display: block;
-        }
-        .flower-petal {
-            width: 20px;
-            height: 40px;
-            background-color: #D3A5A6; /* Circle section background color */
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 50%;
-        }
-        .flower-petal:nth-child(1) {
-            transform: translate(-50%, -20%) rotate(30deg);
-        }
-        .flower-petal:nth-child(2) {
-            transform: translate(-50%, -20%) rotate(90deg);
-        }
-        .flower-petal:nth-child(3) {
-            transform: translate(-50%, -20%) rotate(150deg);
-        }
-        .flower-petal:nth-child(4) {
-            transform: translate(-50%, -20%) rotate(210deg);
-        }
-        .flower-center {
-            width: 10px;
-            height: 10px;
-            background-color: #D3A5A6; /* Circle section background color */
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 50%;
+        
+        @keyframes textAnimation {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
     </style>
 </head>
 <body>
-
-    <div class="donate">
-        <a href="https://beam.eco/u/helga" class="button donation__bitcoin">Donate to support our projects</a>
-    </div>
-
-    <section id="gallery-monad" class="gallery-section">
-        <h2>Gallery Monad</h2>
-        <p>Content for Gallery Monad goes <a href="https://april19833.github.io/Helgablue/gallery-monad.html">here</a>.</p>
-    </section>
-
-    <section id="gallery-mezo" class="gallery-section">
-        <h2>Gallery Mezo</h2>
-        <p>Content for Gallery Mezo goes <a href="https://april19833.github.io/Helgablue/gallery-mezo.html">here</a>.</p>
-    </section>
-
     <header>
-        <div class="container">
-            <h1><a href="https://april19833.github.io/Helgablue/" style="color: #0C4070; text-decoration: none;">Helga Blue</a></h1>
-        </div>
+        <h1>Helga Blue</h1>
     </header>
-
-    <div id="flower-widget" class="flower-widget">
-        <div class="flower-petal"></div>
-        <div class="flower-petal"></div>
-        <div class="flower-petal"></div>
-        <div class="flower-petal"></div>
-        <div class="flower-center"></div>
-        <p>Click <a href="https://beam.eco/u/helga">here</a> to donate</p>
+    <div class="container">
+        <div class="donate">
+            <a href="https://beam.eco/u/helga" class="button">Donate to support our projects</a>
+        </div>
+        <section id="gallery-monad" class="gallery-section">
+            <h2>Gallery Monad</h2>
+            <p>Content for Gallery Monad goes <a href="https://april19833.github.io/Helgablue/gallery-monad.html">here</a>.</p>
+        </section>
+        <section id="gallery-mezo" class="gallery-section">
+            <h2>Gallery Mezo</h2>
+            <p>Content for Gallery Mezo goes <a href="https://april19833.github.io/Helgablue/gallery-mezo.html">here</a>.</p>
+        </section>
     </div>
 </body>
 </html>
