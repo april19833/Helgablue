@@ -10,181 +10,19 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #f8f8f8;
+            background: #000000;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #e74c3c, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #e74c3c, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            color: white;
         }
         header {
-            background-color: #333;
+            background: #FFA17F;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #00223E, #FFA17F);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #00223E, #FFA17F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             color: white;
             padding: 10px 0;
             text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-        .section {
-            margin-top: 20px; /* Пример отступа сверху */
-        }
-        .gallery-title {
-            text-align: center;
-            font-size: 2em;
-            background-image: linear-gradient(to right, #00c6ff, #0072ff, #00c6ff); /* Градиентные цвета */
-            -webkit-background-clip: text; /* Клип для текста */
-            background-clip: text;
-            color: transparent; /* Делаем текст прозрачным */
-            animation: shimmer 2s infinite linear; /* Анимация мерцания */
-        }
-        @keyframes shimmer {
-            0% { background-position: -1000% 0%; }
-            100% { background-position: 1000% 0%; }
-        }
-        .gallery-mezo-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-        .gallery-item {
-            flex: 1 1 calc(25% - 30px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-            background-color: white;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            transition: transform 0.3s ease;
-        }
-        .gallery-item p {
-            text-align: center;
-            margin: 10px 0 0 0;
-            font-size: 1em;
-        }
-        .gallery-item:hover {
-            transform: translateY(-10px);
-        }
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1 class="gallery-title">Gallery Mezo</h1>
-        </div>
-    </header>
-    <div class="container">
-        <section id="gallery-mezo" class="section">
-            <div class="gallery-mezo-content">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #f8f8f8;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-        .section {
-            margin-top: 20px; /* Пример отступа сверху */
-        }
-        .gallery-title {
-            text-align: center;
-            font-size: 2em;
-            background-image: linear-gradient(to right, #00c6ff, #0072ff, #00c6ff); /* Градиентные цвета */
-            -webkit-background-clip: text; /* Клип для текста */
-            background-clip: text;
-            color: transparent; /* Делаем текст прозрачным */
-            animation: shimmer 2s infinite linear; /* Анимация мерцания */
-        }
-        @keyframes shimmer {
-            0% { background-position: -1000% 0%; }
-            100% { background-position: 1000% 0%; }
-        }
-        .gallery-mezo-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-        .gallery-item {
-            flex: 1 1 calc(25% - 30px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-            background-color: white;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            transition: transform 0.3s ease;
-        }
-        .gallery-item p {
-            text-align: center;
-            margin: 10px 0 0 0;
-            font-size: 1em;
-        }
-        .gallery-item:hover {
-            transform: translateY(-10px);
-        }
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-<body>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #f8f8f8;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            font-family: 'Great Vibes', cursive; /* Добавляем выбранный шрифт */
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            margin: 10px 0 0 0;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
+            margin-bottom: 20px;
         }
         .container {
             width: 80%;
@@ -193,6 +31,19 @@
         .section {
             margin: 20px 0;
         }
+        .gallery-title {
+            text-align: center;
+            font-size: 2em;
+            background-image: linear-gradient(to right, #00c6ff, #0072ff, #00c6ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 2s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: -1000% 0%; }
+            100% { background-position: 1000% 0%; }
+        }
         .gallery-mezo-content {
             display: flex;
             flex-wrap: wrap;
@@ -206,12 +57,14 @@
             background-color: white;
             padding: 10px;
             border-radius: 5px;
+            overflow: hidden;
+            position: relative;
         }
         .gallery-item img {
             width: 100%;
             height: auto;
             border-radius: 5px;
-            transition: transform 0.3s ease; /* Добавляем плавный переход */
+            transition: transform 0.3s ease;
         }
         .gallery-item p {
             text-align: center;
@@ -222,7 +75,7 @@
             transform: translateY(-10px);
         }
         .gallery-item:hover img {
-            transform: scale(1.1); /* Увеличиваем изображение при наведении */
+            transform: scale(1.1);
         }
         .modal {
             display: none;
@@ -259,12 +112,15 @@
             cursor: pointer;
         }
         footer {
-            background-color: #333;
+            background: #FFA17F;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #00223E, #FFA17F);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #00223E, #FFA17F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             color: white;
             text-align: center;
             padding: 10px 0;
             width: 100%;
             bottom: 0;
+            position: fixed;
         }
         footer nav ul {
             list-style: none;
@@ -281,7 +137,7 @@
             text-decoration: none;
             font-size: 1.2em;
         }
-        /* Стили для бургер-меню на мобильных устройствах */
+        /* Styles for the burger menu on mobile devices */
         .burger {
             display: none;
             cursor: pointer;
@@ -353,8 +209,13 @@
     </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1 class="gallery-title">Gallery Mezo</h1>
+        </div>
+    </header>
+    <div class="container">
         <section id="gallery-mezo" class="section">
-            <h2 style="text-align: center;">AI Mezo Photos</h2>
             <div class="gallery-mezo-content">
                 <div class="gallery-item" onclick="openModal(this)">
                     <img src="images/3d-rendering-of-a-minimalistic-icon-rad-mushroom-m-nCExEreHTfCfY06Q794WMg-DmBZOjvPTU-7GVk99Nki9A.jpeg" alt="Mezo Image 1">
@@ -369,70 +230,43 @@
                     <p>Mezo Image 3</p>
                 </div>
                 <div class="gallery-item" onclick="openModal(this)">
-                    <img src="images/a-set-of-simple-black-vector-icons-of-fly-mushroom-rkuMourCQLiR8XqXmNeK_g-fU0_fVkLTF-8oRWA-bsI8Q.jpeg" alt="Mezo Image 4">
+                    <img src="images/3d-illustration-abstract-background-with-a-spiral-a-PqR2Fn7jZz8bOfADlH8TgEhCe4-lcG8z3JtBDakUV2I8A.jpeg" alt="Mezo Image 4">
                     <p>Mezo Image 4</p>
-                </div>
-                <div class="gallery-item" onclick="openModal(this)">
-                    <img src="images/a-cartoon-of-a-red-fly-mushroom-with-a-mustache-in-4LXvZP1lQOGi9Gq5E_FyVw-va-gue0sTiiHEm2mMnrBmg.jpeg" alt="Mezo Image 5">
-                    <p>Mezo Image 5</p>
-                </div>
-                <div class="gallery-item" onclick="openModal(this)">
-                    <img src="images/sticker-design-neon-red-fly-mushroom-with-mustache-GVhDf95UT1asuc0WqmB-5w-IzSb3STgQAOT_WQ2_d0UkQ.jpeg" alt="Mezo Image 6">
-                    <p>Mezo Image 6</p>
-                </div>
-                 <div class="gallery-item" onclick="openModal(this)">
-                    <img src="images/sticker-design-an-red-fly-mushroom-with-mustache-i-NCCVXpS_S1W-wRxvlYo8eA-bOMjj8WkTKabRGgugEfIVw.jpeg" alt="Mezo Image 7">
-                    <p>Mezo Image 7</p>
-                </div>
-                 <div class="gallery-item" onclick="openModal(this)">
-                    <img src="images/sticker-design-neon-red-fly-mushroom-with-mustache-L7GfYVkpQaigkVbpbQetxA-IzSb3STgQAOT_WQ2_d0UkQ.jpeg" alt="Mezo Image 8">
-                    <p>Mezo Image 8</p>
                 </div>
             </div>
         </section>
     </div>
-    <!-- Modal -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <img id="modalImg" src="" alt="Modal Image">
+            <img id="modal-img" src="" alt="Modal Image">
         </div>
-    </div>
-       <!-- Gallery Section -->
-        <section id="gallery" class="section gallery-section">
-            <h2>Sections</h2>
-            <ul>
-                <li><a href="gallery-monad.html">Gallery Monad</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="index.html">Home</a></li>
-                <!-- Add more galleries as needed -->
-            </ul>
-        </section>
-
-        <!-- Notification -->
-        <div id="notification" class="notification"></div>
     </div>
     <footer>
-        <div class="container">
-            <p>© 2024 Helga Blue. All rights reserved.</p>
-        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
     </footer>
     <script>
-        // Функция для открытия модального окна с изображением
-        function openModal(element) {
+        // Function to open modal and display clicked image
+        function openModal(item) {
             var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("modalImg");
-            modal.style.display = "flex"; // Показываем модальное окно
-            modalImg.src = element.querySelector('img').src; // Устанавливаем изображение в модальное окно
+            var modalImg = document.getElementById("modal-img");
+            modal.style.display = "block";
+            modalImg.src = item.querySelector("img").src;
         }
-        
-        // Функция для закрытия модального окна
+
+        // Function to close modal
         function closeModal() {
             var modal = document.getElementById("myModal");
-            modal.style.display = "none"; // Скрываем модальное окно
+            modal.style.display = "none";
         }
-        
-        // Закрыть модальное окно при клике за его пределами
+
+        // Close modal when clicking outside of modal content
         window.onclick = function(event) {
             var modal = document.getElementById("myModal");
             if (event.target == modal) {
