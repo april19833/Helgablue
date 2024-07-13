@@ -12,18 +12,28 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #6E9FF9;
+            background: linear-gradient(to right, #E4E5E6, #00416A);
+            animation: gradientAnimation 15s ease infinite;
         }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         header {
             background-color: #333;
             color: white;
             padding: 10px 0;
             text-align: center;
         }
+
         header h1 {
             margin: 0;
             font-size: 2.5em;
         }
+
         nav ul {
             list-style: none;
             padding: 0;
@@ -31,21 +41,26 @@
             justify-content: center;
             margin: 10px 0 0 0;
         }
+
         nav ul li {
             margin: 0 15px;
         }
+
         nav ul li a {
             color: white;
             text-decoration: none;
             font-size: 1.2em;
         }
+
         .container {
             width: 80%;
             margin: 0 auto;
         }
+
         .section {
             margin: 20px 0;
         }
+
         .gallery {
             display: flex;
             overflow-x: scroll;
@@ -53,6 +68,7 @@
             padding: 10px;
             scroll-snap-type: x mandatory;
         }
+
         .gallery-item {
             flex: 0 0 auto;
             width: 300px;
@@ -63,6 +79,7 @@
             border-radius: 5px;
             scroll-snap-align: center;
         }
+
         .gallery-item img, .gallery-item video {
             display: block;
             width: 100%;
@@ -70,12 +87,11 @@
             cursor: pointer;
             border-radius: 5px;
         }
-        .gallery-item video {
-            max-width: 100%;
-        }
+
         .gallery-item:hover {
             transform: translateY(-10px);
         }
+
         .modal {
             display: none;
             position: fixed;
@@ -89,6 +105,7 @@
             align-items: center;
             justify-content: center;
         }
+
         .modal-content {
             position: relative;
             padding: 20px;
@@ -98,15 +115,17 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
+
         .modal img {
             width: 100%;
             height: auto;
         }
+
         .modal video {
             width: 100%;
             height: auto;
-            controls: true;
         }
+
         .close {
             position: absolute;
             top: 10px;
@@ -115,6 +134,7 @@
             font-size: 30px;
             cursor: pointer;
         }
+
         footer {
             background-color: #333;
             color: white;
