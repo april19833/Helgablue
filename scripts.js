@@ -98,3 +98,21 @@ function closeModal() {
 
 // Initial setup for the GIF on theme toggle button
 themeToggleBtn.style.backgroundImage = `url('images/illuminati.gif')`;
+// Example of modal functionality
+const modal = document.getElementById('donation-modal');
+const donateBtn = document.querySelector('.donate-btn');
+const closeBtn = document.querySelector('.modal-close-btn');
+
+donateBtn.addEventListener('click', function() {
+  modal.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', function() {
+  modal.style.display = 'none';
+});
+
+window.addEventListener('click', function(event) {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
