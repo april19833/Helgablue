@@ -1,0 +1,30 @@
+import numpy as np
+from PIL import Image, ImageDraw
+
+# Параметры изображения
+width, height = 256, 256
+background_color = 0  # Черный фон
+block_color = (255, 255, 255)  # Цвет блоков (белый)
+block_size = 5  # Размер блоков
+
+# Создаем изображение с черным фоном
+image = Image.new('RGB', (width, height), background_color)
+
+# Дата рождения (15 апреля 1983 года)
+birthday = "15-04-1983"
+
+# Рисуем "шум блоков биткоина"
+draw = ImageDraw.Draw(image)
+
+for i, char in enumerate(birthday):
+    x_start = i * block_size
+    x_end = x_start + block_size
+    y_start = 0
+    y_end = height
+    draw.rectangle([x_start, y_start, x_end, y_end], fill=block_color)
+
+# Сохранение изображения
+image.save('bitcoin_block_noise.png')
+
+# Показ изображения
+image.show()
