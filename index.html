@@ -208,6 +208,331 @@
             background: linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
         }
 
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Water with Lemon table */
+        #waterRecordsTable {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        #waterRecordsTable th,
+        #waterRecordsTable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #waterRecordsTable th {
+            background-color: #f2f2f2;
+        }
+
+        /* Notification style */
+        .notification {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            animation-name: fadeInOut;
+            animation-duration: 2s;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .show-notification {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#yoga" class="less-noticeable">Crypto Sport/Relaxis</a>
+        <a href="#nft">NFT</a>
+        <a href="#water-lemon">Water with Lemon</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="content">
+        <div class="section" id="yoga">
+            <h2>Crypto Sport/Relaxis</h2>
+            <p>Overview of Crypto Sport/Relaxis</p>
+        </div>
+        <div class="section" id="nft">
+            <h2>NFT</hЧтобы добавить модальное окно на вашу страницу, вот обновленный код, включающий функциональность для показа и скрытия модального окна:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Orbit</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #f8f8f8;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        .sidebar a::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .sidebar a[href="#yoga"]::before {
+            background-image: url('images/earn-money.gif');
+        }
+
+        .sidebar a[href="#nft"]::before {
+            background-image: url('images/nft.gif');
+        }
+
+        .sidebar a[href="#water-lemon"]::before {
+            background-image: url('images/hypoallergenic.gif');
+        }
+
+        .sidebar a[href="#gallery"]::before {
+            background-image: url('images/photo-gallery.gif');
+        }
+
+        .sidebar a[href="#contact"]::before {
+            background-image: url('images/agenda.gif');
+        }
+
+        .sidebar a:hover {
+            background-color: #eee;
+            transform: translateX(10px);
+        }
+
+        .sidebar a:hover::before {
+            transform: rotate(360deg);
+        }
+
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+        }
+
+        .section h2 {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            animation-name: slideInDown;
+            animation-duration: 0.5s;
+        }
+
+        @keyframes slideInDown {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .gallery-section {
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .gallery-section a {
+            display: block;
+            margin: 10px;
+            font-size: 18px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .gallery-section a:hover {
+            color: #007bff;
+        }
+
+        /* Theme toggle button */
+        #themeToggleBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-image: url('images/illuminati.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            color: transparent;
+            border: none;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Dark mode */
+        body.dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+
+        /* Progress bar */
+        .progress {
+            margin-top: 20px;
+        }
+
+        .progress h3 {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        progress {
+            width: 100%;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+
+        #progressText {
+            color: #555;
+        }
+
+        /* Less noticeable categories */
+        .less-noticeable {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Donate button styling */
+        .donate {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .donate .button {
+            background: #5433FF;
+            background: -webkit-linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);
+            background: linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .donate .button:hover {
+            background: #5433FF;
+            background: -webkit-linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
+            background: linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
         .modal-content {
             background-color: #fefefe;
             margin: 15% auto;
@@ -307,89 +632,1063 @@
                 <p id="progressText">0 / 10 cups</p>
             </div>
         </div>
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <p>You can contact us at:</p>
-            <p>Email: <a href="mailto:admin@helgablue.xyz">admin@helgablue.xyz</a></p>
-        </section>
-        <section id="gallery" class="section gallery-section">
-            <h2>Gallery</h2>
-            <a href="https://april19833.github.io/Helgablue/gallery-monad.html">Gallery Monad</a>
-            <a href="https://april19833.github.io/Helgablue/gallery-mezo.html">Gallery Mezo</a>
-        </section>
-    </div>
+        <section id="Here is the updated code for your HTML file, including the modal window functionality:
 
-    <!-- Donate Modal -->
-   <div class="donate">
-            <a href="https://beam.eco/u/helga" class="button">Donate</a>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Orbit</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #f8f8f8;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        .sidebar a::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .sidebar a[href="#yoga"]::before {
+            background-image: url('images/earn-money.gif');
+        }
+
+        .sidebar a[href="#nft"]::before {
+            background-image: url('images/nft.gif');
+        }
+
+        .sidebar a[href="#water-lemon"]::before {
+            background-image: url('images/hypoallergenic.gif');
+        }
+
+        .sidebar a[href="#gallery"]::before {
+            background-image: url('images/photo-gallery.gif');
+        }
+
+        .sidebar a[href="#contact"]::before {
+            background-image: url('images/agenda.gif');
+        }
+
+        .sidebar a:hover {
+            background-color: #eee;
+            transform: translateX(10px);
+        }
+
+        .sidebar a:hover::before {
+            transform: rotate(360deg);
+        }
+
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+        }
+
+        .section h2 {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            animation-name: slideInDown;
+            animation-duration: 0.5s;
+        }
+
+        @keyframes slideInDown {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .gallery-section {
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .gallery-section a {
+            display: block;
+            margin: 10px;
+            font-size: 18px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .gallery-section a:hover {
+            color: #007bff;
+        }
+
+        /* Theme toggle button */
+        #themeToggleBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-image: url('images/illuminati.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            color: transparent;
+            border: none;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Dark mode */
+        body.dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+
+        /* Progress bar */
+        .progress {
+            margin-top: 20px;
+        }
+
+        .progress h3 {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        progress {
+            width: 100%;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+
+        #progressText {
+            color: #555;
+        }
+
+        /* Less noticeable categories */
+        .less-noticeable {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Donate button styling */
+        .donate {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .donate .button {
+            background: #5433FF;
+            background: -webkit-linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);
+            background: linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .donate .button:hover {
+            background: #5433FF;
+            background: -webkit-linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
+            background: linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Water with Lemon table */
+        #waterRecordsTable {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        #waterRecordsTable th,
+        #waterRecordsTable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #waterRecordsTable th {
+            background-color: #f2f2f2;
+        }
+
+        /* Notification style */
+        .notification {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            animation-name: fadeInOut;
+            animation-duration: 2s;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .show-notification {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#yoga" class="less-noticeable">Crypto Sport/Relaxis</a>
+        <a href="#nft">NFT</a>
+        <a href="#water-lemon">Water with Lemon</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="content">
+        <div class="section" id="yoga">
+            <h2>Crypto Sport/Relaxis</h2>
+            <p>Overview of Crypto Sport/Relaxis</p>
+        </div>
+        <div class="section" id="nft">
+            <h2>NFT</h2>
+            <p>Overview of NFT</p>
+        </div>
+        <div class="section" id="water-lemon">
+            <h2>Water with Lemon</h2>
+            <div class="water-lemon-table">
+                <h3>Your Water Consumption Records</h3>
+            </div>
+            <div class="progress">
+                <h3>Progress Bar</h3>
+                <progress id="waterProgress" max="10" value="0"></progress>
+                <p id="progressText">0 / 10 cups</p>
+            </div>
+        </div>
+        <section id="gallery">
+            <div class="gallery-section">
+                <Here is the updated code for your HTML file, including the modal window functionality:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Orbit</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #f8f8f8;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        .sidebar a::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .sidebar a[href="#yoga"]::before {
+            background-image: url('images/earn-money.gif');
+        }
+
+        .sidebar a[href="#nft"]::before {
+            background-image: url('images/nft.gif');
+        }
+
+        .sidebar a[href="#water-lemon"]::before {
+            background-image: url('images/hypoallergenic.gif');
+        }
+
+        .sidebar a[href="#gallery"]::before {
+            background-image: url('images/photo-gallery.gif');
+        }
+
+        .sidebar a[href="#contact"]::before {
+            background-image: url('images/agenda.gif');
+        }
+
+        .sidebar a:hover {
+            background-color: #eee;
+            transform: translateX(10px);
+        }
+
+        .sidebar a:hover::before {
+            transform: rotate(360deg);
+        }
+
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+        }
+
+        .section h2 {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            animation-name: slideInDown;
+            animation-duration: 0.5s;
+        }
+
+        @keyframes slideInDown {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .gallery-section {
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .gallery-section a {
+            display: block;
+            margin: 10px;
+            font-size: 18px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .gallery-section a:hover {
+            color: #007bff;
+        }
+
+        /* Theme toggle button */
+        #themeToggleBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-image: url('images/illuminati.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            color: transparent;
+            border: none;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Dark mode */
+        body.dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+
+        /* Progress bar */
+        .progress {
+            margin-top: 20px;
+        }
+
+        .progress h3 {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        progress {
+            width: 100%;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+
+        #progressText {
+            color: #555;
+        }
+
+        /* Less noticeable categories */
+        .less-noticeable {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Donate button styling */
+        .donate {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .donate .button {
+            background: #5433FF;
+            background: -webkit-linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);
+            background: linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .donate .button:hover {
+            background: #5433FF;
+            background: -webkit-linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
+            background: linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Water with Lemon table */
+        #waterRecordsTable {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        #waterRecordsTable th,
+        #waterRecordsTable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #waterRecordsTable th {
+            background-color: #f2f2f2;
+        }
+
+        /* Notification style */
+        .notification {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            animation-name: fadeInOut;
+            animation-duration: 2s;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .show-notification {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#yoga" class="less-noticeable">Crypto Sport/Relaxis</a>
+        <a href="#nft">NFT</a>
+        <a href="#water-lemon">Water with Lemon</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="content">
+        <div class="section" id="yoga">
+            <h2>Crypto Sport/Relaxis</h2>
+            <p>Overview of Crypto Sport/Relaxis</p>
+        </div>
+        <div class="section" id="nft">
+            <h2>NFT</h2>
+            <p>Overview of NFT</p>
+        </div>
+        <div class="section" id="water-lemon">
+            <h2>Water with Lemon</h2>
+            <div class="water-lemon-table">
+                <h3>Your Water Consumption Records</h3>
+                <table id="waterRecordsTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Amount (cups)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="waterRecordsBody">
+                        <!-- Water consumption records will be added here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="progress">
+Here's the completed HTML code for your "Welcome to Orbit" page, including the modal window functionality:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Orbit</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #f8f8f8;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        .sidebar a::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .sidebar a[href="#yoga"]::before {
+            background-image: url('images/earn-money.gif');
+        }
+
+        .sidebar a[href="#nft"]::before {
+            background-image: url('images/nft.gif');
+        }
+
+        .sidebar a[href="#water-lemon"]::before {
+            background-image: url('images/hypoallergenic.gif');
+        }
+
+        .sidebar a[href="#gallery"]::before {
+            background-image: url('images/photo-gallery.gif');
+        }
+
+        .sidebar a[href="#contact"]::before {
+            background-image: url('images/agenda.gif');
+        }
+
+        .sidebar a:hover {
+            background-color: #eee;
+            transform: translateX(10px);
+        }
+
+        .sidebar a:hover::before {
+            transform: rotate(360deg);
+        }
+
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+        }
+
+        .section h2 {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            animation-name: slideInDown;
+            animation-duration: 0.5s;
+        }
+
+        @keyframes slideInDown {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .gallery-section {
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .gallery-section a {
+            display: block;
+            margin: 10px;
+            font-size: 18px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .gallery-section a:hover {
+            color: #007bff;
+        }
+
+        /* Theme toggle button */
+        #themeToggleBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-image: url('images/illuminati.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            color: transparent;
+            border: none;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Dark mode */
+        body.dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+
+        /* Progress bar */
+        .progress {
+            margin-top: 20px;
+        }
+
+        .progress h3 {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        progress {
+            width: 100%;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+
+        #progressText {
+            color: #555;
+        }
+
+        /* Less noticeable categories */
+        .less-noticeable {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Donate button styling */
+        .donate {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .donate .button {
+            background: #5433FF;
+            background: -webkit-linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);
+            background: linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .donate .button:hover {
+            background: #5433FF;
+            background: -webkit-linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
+            background: linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Water with Lemon table */
+        #waterRecordsTable {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        #waterRecordsTable th,
+        #waterRecordsTable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #waterRecordsTable th {
+            background-color: #f2f2f2;
+        }
+
+        /* Notification style */
+        .notification {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            animation-name: fadeInOut;
+            animation-duration: 2s;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .show-notification {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#yoga" class="less-noticeable">Crypto Sport/Relaxis</a>
+        <a href="#nft">NFT</a>
+        <a href="#water-lemon">Water with Lemon</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="content">
+        <div class="section" id="yoga">
+            <h2>Crypto Sport/Relaxis</h2>
+            <p>Overview of Crypto Sport/Relaxis</p>
+        </div>
+        <div class="section" id="nft">
+            <h2>NFT</h2>
+            <p>Overview of NFT</p>
+        </div>
+        <div class="section" id="water-lemon">
+            <h2>Water with Lemon</h2>
+            <div class="water-lemon-table">
+                <h3>Your Water Consumption Records</h3>
+                <table id="waterRecordsTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Amount (cups)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="waterRecordsBody">
+                        <!-- Water consumption records will be added here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <divContinuing from where the HTML was cut off:
+
+```html
+                <button onclick="showModal()">Add Record</button>
+            </div>
+        </div>
+        <div class="section" id="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-section">
+                <a href="#">Gallery Monad</a>
+                <a href="#">Gallery Mezo</a>
+                <a href="#">Main Helga Blue</a>
+            </div>
+        </div>
+        <div class="section" id="contact">
+            <h2>Contact</h2>
+            <p>Contact information</p>
+        </div>
+        <div class="donate">
+            <a href="#" class="button">Donate via Beam Wallet</a>
         </div>
     </div>
-
-    <!-- Theme toggle button -->
     <button id="themeToggleBtn"></button>
-
-    <!-- Notification -->
-    <div id="notification" class="notification">Record Saved Successfully!</div>
-
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add Water Consumption Record</h2>
+            <form id="addWaterRecordForm">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required><br><br>
+                <label for="amount">Amount (cups):</label>
+                <input type="number" id="amount" name="amount" required><br><br>
+                <button type="submit">Add Record</button>
+            </form>
+        </div>
+    </div>
+    
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeToggleBtn = document.getElementById('themeToggleBtn');
-            themeToggleBtn.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-            });
-
-            const modal = document.getElementById("donateModal");
-            const donateBtn = document.querySelector(".donate-button");
-            const span = document.getElementsByClassName("close")[0];
-
-            donateBtn.onclick = function() {
-                modal.style.display = "block";
-            }
-
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
-
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
+        document.getElementById('themeToggleBtn').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
         });
 
-        // Function to show notification
-        function showNotification(message, isSuccess) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.style.backgroundColor = isSuccess ? '#007bff' : '#ff0000';
-            notification.classList.add('show-notification');
+        function showModal() {
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        document.getElementById('addWaterRecordForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const date = document.getElementById('date').value;
+            const amount = document.getElementById('amount').value;
+            const newRow = `<tr><td>${date}</td><td>${amount}</td></tr>`;
+            document.getElementById('waterRecordsBody').insertAdjacentHTML('beforeend', newRow);
+            showNotification('Record added successfully!');
+            closeModal();
+        });
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification show-notification';
+            notification.innerText = message;
+            document.body.appendChild(notification);
             setTimeout(() => {
                 notification.classList.remove('show-notification');
-            }, 3000);
+                notification.remove();
+            }, 2000);
         }
-
-        // Function to add water record
-        function addWaterRecord(date, time, cups) {
-            const table = document.getElementById('waterRecords');
-            const row = table.insertRow();
-            row.insertCell(0).textContent = date;
-            row.insertCell(1).textContent = time;
-            row.insertCell(2).textContent = cups;
-
-            // Update progress bar
-            const progress = document.getElementById('waterProgress');
-            const progressText = document.getElementById('progressText');
-            progress.value = parseInt(progress.value) + parseInt(cups);
-            progressText.textContent = `${progress.value} / 10 cups`;
-
-            // Show success notification
-            showNotification('Record Saved Successfully!', true);
-        }
-
-        // Example of adding a record
-        addWaterRecord('2023-07-12', '09:00', 3);
-        addWaterRecord('2023-07-12', '12:00', 2);
-        addWaterRecord('2023-07-12', '15:00', 1);
     </script>
 </body>
 </html>
