@@ -430,23 +430,74 @@ footer p {
   /* Your notification styles */
 }
 
-/* Donate button styling */
+/* Styling for a bright button */
+.btn-bright {
+    background: #FF9500; /* Background color */
+    color: #fff; /* Text color */
+    border-radius: 1px; /* Border radius */
+    /* Other button styling properties */
+}
+
+/* Hover effect for the bright button */
+.btn-bright:hover {
+    background: #F9A136; /* Background color on hover */
+}
+
+/* Styling for a donation button */
 .donate-btn {
-  /* Your donate button styles */
+    width: 90px; /* Button width */
+    height: 35px; /* Button height */
+    margin-left: 30px; /* Left margin */
+    padding: 7px 16px; /* Padding inside the button */
+    color: #FFFFFF; /* Text color */
+    text-align: center; /* Center text alignment */
+    border-radius: 1px; /* Border radius */
 }
 
-/* Sidebar and content layout */
-.sidebar {
-  /* Your sidebar styles */
+/* Styling for links */
+a {
+    color: #3490E6; /* Link color */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Cursor style */
 }
 
-.content {
-  /* Your content styles */
+/* Styling for the footer */
+.footer {
+    position: relative; /* Relative positioning */
+    padding-top: 60px; /* Top padding */
+    text-align: left; /* Left text alignment */
+    color: #9D9D9D; /* Text color */
+    background: #13161f url(../img/hero/footer-bg.svg?1528322191) top no-repeat; /* Background image */
+    z-index: 10; /* Z-index for stacking */
 }
 
-/* Theme toggle button */
-#themeToggleBtn {
-  /* Your theme toggle button styles */
+/* General body styling */
+body {
+    font-family: "Titillium Web", Arial, sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+    color: #646464; /* Text color */
+    background-color: #fff; /* Background color */
 }
 
-/* Additional specific styles as needed */
+/* Responsive styling for handheld and smaller screens */
+@media handheld, only screen and (max-width: 60em), only screen and (max-device-width: 60em) {
+    .footer {
+        line-height: 1.5em; /* Line height */
+        width: auto; /* Auto width */
+        padding-top: 100px; /* Top padding */
+    }
+}
+
+/* Additional styling for the entire HTML document */
+html {
+    font-family: sans-serif; /* Font family */
+    -webkit-text-size-adjust: 100%; /* Text size adjustment for WebKit */
+    -ms-text-size-adjust: 100%; /* Text size adjustment for Microsoft browsers */
+}
+
+/* Custom CSS variable */
+html {
+    --color-primary: #c5ff4a; /* Primary color variable */
+}
