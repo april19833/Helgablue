@@ -116,3 +116,8 @@ window.addEventListener('click', function(event) {
     modal.style.display = 'none';
   }
 });
+function spinRoulette() {
+    const roulette = document.getElementById('roulette');
+    const randomDegree = Math.floor(Math.random() * 360) + 3600; // Ensuring it spins multiple times
+    roulette.style.transform = `rotate(${randomDegree}deg)`;
+}
