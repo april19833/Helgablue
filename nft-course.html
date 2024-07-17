@@ -9,16 +9,13 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: repeating-linear-gradient(135deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px, transparent 10px, transparent 11px),
-                              repeating-linear-gradient(22.5deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px, transparent 10px, transparent 11px),
-                              linear-gradient(90deg, hsl(194, 74%, 56%), hsl(266, 74%, 56%), hsl(338, 74%, 56%), hsl(50, 74%, 56%), hsl(122, 74%, 56%));
-            background-size: cover;
+            background: #659999;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #f4791f, #659999);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #f4791f, #659999); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             background-attachment: fixed;
         }
         .header {
-            background-image: url('header-background.jpg'); /* Add your background image here */
-            background-size: cover;
-            background-position: center;
+            background: rgba(0, 0, 0, 0.5);
             color: #fff;
             padding: 40px 20px;
             text-align: center;
@@ -38,6 +35,20 @@
             top: 20px;
             left: 20px;
             height: 60px;
+        }
+        .glow {
+            font-size: 3em;
+            color: #fff;
+            text-align: center;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #f4791f, 0 0 20px #f4791f, 0 0 30px #f4791f, 0 0 40px #f4791f, 0 0 50px #f4791f, 0 0 60px #f4791f, 0 0 70px #f4791f;
+            }
+            to {
+                text-shadow: 0 0 20px #659999, 0 0 30px #659999, 0 0 40px #659999, 0 0 50px #659999, 0 0 60px #659999, 0 0 70px #659999, 0 0 80px #659999;
+            }
         }
         .container {
             width: 80%;
@@ -121,7 +132,7 @@
 </head>
 <body>
     <div class="header">
-        <img src="logo.png" alt="Logo" class="header-logo"> <!-- Add your logo here -->
+        <h1 class="glow">Helga Blue</h1>
         <h1>NFT Course Subscription</h1>
         <p>Unlock the secrets of NFTs with our comprehensive course</p>
     </div>
@@ -200,27 +211,28 @@
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                // Show the modal
-                document.getElementById('myModal').style.display = "block";
                 return response.text();
             })
             .then(data => {
                 console.log(data);
+                var modal = document.getElementById("myModal");
+                modal.style.display = "block";
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error('There was a problem with your fetch operation:', error);
             });
         });
 
-        // Close the modal when clicking on the close button (x)
-        document.getElementsByClassName('close')[0].onclick = function() {
-            document.getElementById('myModal').style.display = "none";
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function() {
+            modal.style.display = "none";
         }
 
-        // Close the modal when clicking anywhere outside the modal
         window.onclick = function(event) {
-            if (event.target == document.getElementById('myModal')) {
-                document.getElementById('myModal').style.display = "none";
+            if (event.target == modal) {
+                modal.style.display = "none";
             }
         }
     </script>
