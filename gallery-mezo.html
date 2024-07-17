@@ -56,6 +56,7 @@
             margin-bottom: 20px;
         }
         .gallery-item {
+            position: relative;
             flex: 1 0 auto;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             transition: transform 0.3s;
@@ -63,6 +64,7 @@
             padding: 10px;
             border-radius: 5px;
             cursor: pointer; /* Adding cursor pointer for better UX */
+            overflow: hidden;
         }
         .gallery-item img {
             width: 100%;
@@ -80,6 +82,21 @@
         }
         .gallery-item:hover img {
             transform: scale(1.1);
+        }
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, #F09819, #FF512F);
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+            z-index: -1;
+        }
+        .gallery-item:hover::before {
+            opacity: 1;
         }
         /* Modal styles */
         .modal {
@@ -194,38 +211,28 @@
             </div>
         </section>
     </div>
-    <!-- Modal -->
     <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
             <img id="modalImage" src="" alt="Modal Image">
         </div>
     </div>
     <footer>
         <div class="footer-content">
-            <p class="hello-guy" style="font-size: 1.5em; margin-right: 10px;">Hello</p>
+            <span class="hello-guy">👋</span> <p>Made with love by Helga Blue</p>
         </div>
     </footer>
-
     <script>
-        // Modal functions
         function openModal(element) {
-            var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("modalImage");
-            modal.style.display = "block";
-            modalImg.src = element.getElementsByTagName('img')[0].src;
-        }
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex";
+            modalImg.src = element.querySelector("img").src;
         }
 
-        // Close modal when clicking outside of the modal content
-        window.onclick = function(event) {
-            var modal = document.getElementById("myModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
         }
     </script>
 </body>
