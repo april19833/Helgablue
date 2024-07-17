@@ -5,8 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Modal Buttons</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #141414;
+  }
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+</style>
 </head>
 <body>
+<canvas id="tetrisCanvas"></canvas>
 <div class="container">
     <button class="main-button" id="mainButton">Donate</button>
     <div class="modal" id="modal">
