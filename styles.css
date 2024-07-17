@@ -489,10 +489,3 @@ body {
         padding-top: 100px; /* Top padding */
     }
 }
-
-/* Additional styling for the entire HTML document */
-html {
-    font-family: sans-serif; /* Font family */
-    -webkit-text-size-adjust: 100%; /* Text size adjustment for WebKit */
-    -ms-text-size-adjust: 100%; /* Text size adjustment for Microsoft browsers */
-}
