@@ -9,10 +9,9 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #659999;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #f4791f, #659999);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #f4791f, #659999); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background-image: repeating-linear-gradient(135deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),repeating-linear-gradient(22.5deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),linear-gradient(90deg, hsl(194,74%,56%),hsl(266,74%,56%),hsl(338,74%,56%),hsl(50,74%,56%),hsl(122,74%,56%));
             background-attachment: fixed;
+            color: #fff;
         }
         .header {
             background: rgba(0, 0, 0, 0.5);
@@ -48,6 +47,24 @@
             }
             to {
                 text-shadow: 0 0 20px #659999, 0 0 30px #659999, 0 0 40px #659999, 0 0 50px #659999, 0 0 60px #659999, 0 0 70px #659999, 0 0 80px #659999;
+            }
+        }
+        .circle-orange {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #f4791f;
+            animation: glowCircle 1s ease-in-out infinite alternate;
+        }
+        @keyframes glowCircle {
+            from {
+                box-shadow: 0 0 10px #f4791f, 0 0 20px #f4791f, 0 0 30px #f4791f, 0 0 40px #f4791f, 0 0 50px #f4791f, 0 0 60px #f4791f, 0 0 70px #f4791f;
+            }
+            to {
+                box-shadow: 0 0 20px #f4791f, 0 0 30px #f4791f, 0 0 40px #f4791f, 0 0 50px #f4791f, 0 0 60px #f4791f, 0 0 70px #f4791f, 0 0 80px #f4791f;
             }
         }
         .container {
@@ -133,6 +150,7 @@
 <body>
     <div class="header">
         <h1 class="glow">Helga Blue</h1>
+        <div class="circle-orange"></div>
         <h1>NFT Course Subscription</h1>
         <p>Unlock the secrets of NFTs with our comprehensive course</p>
     </div>
@@ -169,43 +187,27 @@
                     <input type="radio" name="tariff" value="pro" required> PRO Plan - $50
                 </label><br><br>
     
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required><br><br>
-    
-                <label for="nickname">Nickname:</label><br>
-                <input type="text" id="nickname" name="nickname" required><br><br>
-    
-                <label for="telegram">Telegram Username:</label><br>
-                <input type="text" id="telegram" name="telegram" required><br><br>
-    
-                <label for="wallet">Payment Wallet Address:</label><br>
-                <input type="text" id="wallet" name="wallet" value="0x9703fc5F0C0274740f251F30D7Ada155d1E597ff" readonly><br><br>
+                <input type="email" name="email" placeholder="Enter your email" required><br><br>
     
                 <input type="submit" value="Subscribe">
             </form>
         </div>
     </div>
-
-    <!-- The Modal -->
     <div id="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Subscription Successful!</h2>
-        <p>Thank you for subscribing to the NFT Course.</p>
-        <p>Please check your email or Telegram for payment instructions.</p>
-        <p>For Beam Wallet payments, proceed <a href="https://helga.beam.eco/">here</a>.</p>
-      </div>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Thank you for subscribing!</p>
+        </div>
     </div>
-
     <script>
-        document.getElementById('subscription-form').addEventListener('submit', function(event) {
+        var form = document.getElementById("subscription-form");
+    
+        form.addEventListener('submit', function(event) {
             event.preventDefault();
-            var formData = new FormData(this);
-            
-            fetch('submit_subscription.php', {
+    
+            fetch(form.action, {
                 method: 'POST',
-                body: formData
+                body: new FormData(form)
             })
             .then(response => {
                 if (!response.ok) {
@@ -222,14 +224,14 @@
                 console.error('There was a problem with your fetch operation:', error);
             });
         });
-
+    
         var modal = document.getElementById("myModal");
         var span = document.getElementsByClassName("close")[0];
-
+    
         span.onclick = function() {
             modal.style.display = "none";
         }
-
+    
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
