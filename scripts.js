@@ -110,3 +110,44 @@ donateBtn.addEventListener('click', function() {
 closeBtn.addEventListener('click', function() {
   modal.style.display = 'none';
 });
+// Открытие модального окна при клике на кнопку "Donate Course"
+document.getElementById('donateCourseBtn').addEventListener('click', function() {
+    document.getElementById('donationModal').style.display = "block";
+});
+
+// Закрытие модального окна при клике на крестик или вне окна
+document.getElementsByClassName('close')[0].onclick = function() {
+    document.getElementById('donationModal').style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById('donationModal')) {
+        document.getElementById('donationModal').style.display = "none";
+    }
+}
+
+// Обработчики для кнопок различных сумм и кастомного доната
+const donateButtons = document.querySelectorAll('.donate-button');
+
+donateButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const amount = this.getAttribute('data-amount');
+        donate(amount);
+    });
+});
+
+document.getElementById('customDonateBtn').addEventListener('click', function() {
+    const customAmount = document.getElementById('customAmount').value;
+    if (customAmount && !isNaN(customAmount)) {
+        donate(customAmount);
+    }
+});
+
+// Функция для выполнения доната
+function donate(amount) {
+    // Ваш URL для перехода
+    const donateURL = `https://helga.beam.eco/?amount=${amount}`;
+
+    // Выполнить переход на указанный URL
+    window.location.href = donateURL;
+}
