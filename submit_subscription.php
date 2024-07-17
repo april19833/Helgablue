@@ -33,16 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             // SMTP settings
             $mail->isSMTP();
-            $mail->Host       = 'smtp.example.com';  // Replace with your SMTP server
+            $mail->Host       = 'smtp.helgablue.xyz';  // Replace with your SMTP server
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'your_email@example.com';  // Replace with your SMTP username
+            $mail->Username   = 'admin@helgablue.xyz';  // Replace with your SMTP username
             $mail->Password   = 'your_email_password';  // Replace with your SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
 
             // Sender and recipient
-            $mail->setFrom('no-reply@yourdomain.com', 'No Reply');
-            $mail->addAddress('olgatelb@gmail.com');
+            $mail->setFrom('admin@helgablue.xyz', 'No Reply');
+            $mail->addAddress('olgatelb@gmail.com'); // Replace with your recipient address
 
             // Email content
             $mail->isHTML(true);
