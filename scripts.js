@@ -116,15 +116,15 @@ document.getElementById('donateCourseBtn').addEventListener('click', function() 
 });
 
 // Закрытие модального окна при клике на крестик или вне окна
-document.getElementsByClassName('close')[0].onclick = function() {
+document.querySelector('.close').addEventListener('click', function() {
     document.getElementById('donationModal').style.display = "none";
-}
+});
 
-window.onclick = function(event) {
+window.addEventListener('click', function(event) {
     if (event.target == document.getElementById('donationModal')) {
         document.getElementById('donationModal').style.display = "none";
     }
-}
+});
 
 // Обработчики для кнопок различных сумм и кастомного доната
 const donateButtons = document.querySelectorAll('.donate-button');
