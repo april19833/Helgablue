@@ -1,16 +1,263 @@
-/* Styles for Module 1 */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Engine Background</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            background: #191d1e; /* Old browsers */
+            background: -moz-linear-gradient(0deg,  #191d1e 50%, #283139 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#191d1e), color-stop(100%,#283139)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(0deg,  #191d1e 50%,#283139 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(0deg,  #191d1e 50%,#283139 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(0deg,  #191d1e 50%,#283139 100%); /* IE10+ */
+            background: linear-gradient(0deg,  #191d1e 50%,#283139 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#191d1e', endColorstr='#283139',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+            background-attachment: fixed;
+        }
+        #projector {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .center-div {
+            width: 580px;
+            height: 374px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -290px;
+            margin-top: -187px;
+        }
+        #preloaderDiv {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -27px;
+            margin-top: -27px;
+        }
+        #logo {
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        #date2014 {
+            position: absolute;
+            padding-left: 210px;
+            padding-top: 15px;
+            opacity: 0;
+            top: 303px;
+            left: 0;
+            filter: alpha(opacity=0);
+        }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000; /* fallback color */
+        }
+        body {
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling */
+        }
+    </style>
+    <!-- Include CreateJS and TweenMax libraries -->
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+    <canvas id="projector">Your browser does not support the Canvas element.</canvas>
 
-/* Ensure the canvas covers the entire viewport */
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000; /* fallback color */
-}
+    <script>
+        // Particle Engine JavaScript
 
-body {
-    margin: 0;
-    overflow: hidden; /* Prevent scrolling */
-}
+        var ParticleEngine = (function() {
+            'use strict';
+
+            function ParticleEngine(canvas_id) {
+                // enforces new
+                if (!(this instanceof ParticleEngine)) {
+                    return new ParticleEngine(args);
+                }
+                
+                var _ParticleEngine = this;
+
+                this.canvas_id = canvas_id;
+                this.stage = new createjs.Stage(canvas_id);
+                this.totalWidth = this.canvasWidth = document.getElementById(canvas_id).width = document.getElementById(canvas_id).offsetWidth;
+                this.totalHeight = this.canvasHeight = document.getElementById(canvas_id).height = document.getElementById(canvas_id).offsetHeight;
+                this.compositeStyle = "lighter";
+
+                this.particleSettings = [
+                    { id: "small", num: 300, fromX: 0, toX: this.totalWidth, ballwidth: 3, alphamax: 0.4, areaHeight: 0.5, color: "#F0F0F0", fill: false }, 
+                    { id: "medium", num: 100, fromX: 0, toX: this.totalWidth, ballwidth: 8, alphamax: 0.3, areaHeight: 1, color: "#C0C0C0", fill: true }, 
+                    { id: "large", num: 10, fromX: 0, toX: this.totalWidth, ballwidth: 30, alphamax: 0.2, areaHeight: 1, color: "#A0A0A0", fill: true }
+                ];
+                this.particleArray = [];
+                this.lights = [
+                    { ellipseWidth: 400, ellipseHeight: 100, alpha: 0.6, offsetX: 0, offsetY: 0, color: "#D0D0D0" }, 
+                    { ellipseWidth: 350, ellipseHeight: 250, alpha: 0.3, offsetX: -50, offsetY: 0, color: "#B8B8B8" }, 
+                    { ellipseWidth: 100, ellipseHeight: 80, alpha: 0.2, offsetX: 80, offsetY: -50, color: "#F8F8F8" }
+                ];
+
+                this.stage.compositeOperation = _ParticleEngine.compositeStyle;
+
+
+                function drawBgLight()
+                {
+                    var light;
+                    var bounds;
+                    var blurFilter;
+                    for (var i = 0, len = _ParticleEngine.lights.length; i < len; i++) {                
+                        light = new createjs.Shape();
+                        light.graphics.beginFill(_ParticleEngine.lights[i].color).drawEllipse(0, 0, _ParticleEngine.lights[i].ellipseWidth, _ParticleEngine.lights[i].ellipseHeight);
+                        light.regX = _ParticleEngine.lights[i].ellipseWidth / 2;
+                        light.regY = _ParticleEngine.lights[i].ellipseHeight / 2; 
+                        light.y = light.initY = _ParticleEngine.totalHeight / 2 + _ParticleEngine.lights[i].offsetY;
+                        light.x = light.initX = _ParticleEngine.totalWidth / 2 + _ParticleEngine.lights[i].offsetX;
+
+                        blurFilter = new createjs.BlurFilter(_ParticleEngine.lights[i].ellipseWidth, _ParticleEngine.lights[i].ellipseHeight, 1);
+                        bounds = blurFilter.getBounds();
+                        light.filters = [blurFilter];
+                        light.cache(bounds.x - _ParticleEngine.lights[i].ellipseWidth / 2, bounds.y - _ParticleEngine.lights[i].ellipseHeight / 2, bounds.width * 2, bounds.height * 2);
+                        light.alpha = _ParticleEngine.lights[i].alpha;
+
+                        light.compositeOperation = "screen";
+                        _ParticleEngine.stage.addChildAt(light, 0);
+
+                        _ParticleEngine.lights[i].elem = light;
+                    }
+
+                    TweenMax.fromTo(_ParticleEngine.lights[0].elem, 10, { scaleX: 1.5, x: _ParticleEngine.lights[0].elem.initX, y: _ParticleEngine.lights[0].elem.initY }, { yoyo: true, repeat: -1, ease: Power1.easeInOut, scaleX: 2, scaleY: 0.7 });
+                    TweenMax.fromTo(_ParticleEngine.lights[1].elem, 12, { x: _ParticleEngine.lights[1].elem.initX, y: _ParticleEngine.lights[1].elem.initY }, { delay: 5, yoyo: true, repeat: -1, ease: Power1.easeInOut, scaleY: 2, scaleX: 2, y: _ParticleEngine.totalHeight / 2 - 50, x: _ParticleEngine.totalWidth / 2 + 100 });
+                    TweenMax.fromTo(_ParticleEngine.lights[2].elem, 8, { x: _ParticleEngine.lights[2].elem.initX, y: _ParticleEngine.lights[2].elem.initY }, { delay: 2, yoyo: true, repeat: -1, ease: Power1.easeInOut, scaleY: 1.5, scaleX: 1.5, y: _ParticleEngine.totalHeight / 2, x: _ParticleEngine.totalWidth / 2 - 200 });
+                }
+                
+                var blurFilter;
+                function drawParticles(){
+
+                    for (var i = 0, len = _ParticleEngine.particleSettings.length; i < len; i++) {
+
+                        var ball = _ParticleEngine.particleSettings[i];
+                        var circle;
+                        for (var s = 0; s < ball.num; s++ ) {
+                            circle = new createjs.Shape();
+                            if (ball.fill) {
+                                circle.graphics.beginFill(ball.color).drawCircle(0, 0, ball.ballwidth);
+                                blurFilter = new createjs.BlurFilter(ball.ballwidth / 2, ball.ballwidth / 2, 1);
+                                circle.filters = [blurFilter];
+                                var bounds = blurFilter.getBounds();
+                                circle.cache(bounds.x, bounds.y, ball.ballwidth + bounds.width, ball.ballwidth + bounds.height);
+                            } else {
+                                circle.graphics.beginStroke(ball.color).setStrokeStyle(1).drawCircle(0, 0, ball.ballwidth);
+                            }
+
+                            circle.alpha = range(0, 0.1);
+                            circle.alphaMax = ball.alphamax;
+                            circle.distance = ball.ballwidth * 2;
+                            circle.ballwidth = ball.ballwidth;
+                            circle.flag = ball.id;
+                            _ParticleEngine.applySettings(circle, ball.fromX, ball.toX, ball.areaHeight);
+                            circle.speed = range(2, 10);
+                            _ParticleEngine.stage.addChild(circle);
+                            _ParticleEngine.particleArray.push(circle);
+                        }
+                    }
+                }
+
+                drawBgLight();
+                drawParticles();
+
+                // Mousemove event
+                this.mouseX = this.totalWidth / 2;
+                this.mouseY = this.totalHeight / 2;
+                document.onmousemove = function(event) {
+                    event = event || window.event;
+                    _ParticleEngine.mouseX = event.pageX || event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                    _ParticleEngine.mouseY = event.pageY || event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+                };
+
+                window.onresize = function(event){
+                    event = event || window.event;
+                    _ParticleEngine.totalWidth = _ParticleEngine.canvasWidth = document.getElementById(canvas_id).width = document.getElementById(canvas_id).offsetWidth;
+                    _ParticleEngine.totalHeight = _ParticleEngine.canvasHeight = document.getElementById(canvas_id).height = document.getElementById(canvas_id).offsetHeight;
+                    _ParticleEngine.stage.clear();
+                    _ParticleEngine.stage.removeAllChildren();
+                    _ParticleEngine.particleArray = [];
+                    drawBgLight();
+                    drawParticles();
+                };
+
+                // RAF update
+                createjs.Ticker.useRAF = true;
+                createjs.Ticker.setFPS(60);
+                createjs.Ticker.addEventListener("tick", update);
+
+                function update() {
+                    var l = _ParticleEngine.particleArray.length;
+                    while (l--) {
+                        var particle = _ParticleEngine.particleArray[l];
+                        if (particle.flag === "small") {
+                            _ParticleEngine.floatSmall(particle);
+                        } else {
+                            _ParticleEngine.floatLarge(particle);
+                        }
+                        _ParticleEngine.stage.update();
+                    }
+                }
+            }
+
+            ParticleEngine.prototype.applySettings = function(circle, positionXstart, positionXend, areaHeight) {
+                circle.speed = range(1, 3);
+                circle.posXstart = positionXstart;
+                circle.posXend = positionXend;
+                circle.position = (Math.random() * (positionXend - positionXstart)) + positionXstart;
+                circle.alpha = range(0, 0.3);
+                circle.posY = this.totalHeight * areaHeight;
+                circle.fillCmd = circle.graphics.command;
+                circle.y = circle.initY = circle.posY;
+                circle.x = circle.initX = circle.position;
+                circle.radius = circle.ballwidth / 2;
+                circle.scaleX = circle.scaleY = 0;
+                return circle;
+            };
+
+            ParticleEngine.prototype.floatSmall = function(circle) {
+                circle.y -= circle.speed;
+                circle.x += Math.cos(circle.y / 20);
+                circle.alpha = circle.alpha >= circle.alphaMax ? circle.alphaMax : circle.alpha + 0.01;
+                if (circle.y < -circle.radius) {
+                    circle.y = this.totalHeight + circle.radius;
+                }
+            };
+
+            ParticleEngine.prototype.floatLarge = function(circle) {
+                circle.y -= circle.speed;
+                circle.x += Math.cos(circle.y / 40);
+                circle.alpha = circle.alpha >= circle.alphaMax ? circle.alphaMax : circle.alpha + 0.01;
+                if (circle.y < -circle.radius) {
+                    circle.y = this.totalHeight + circle.radius;
+                }
+            };
+
+            function range(min, max) {
+                return min + (max - min) * Math.random();
+            }
+
+            return ParticleEngine;
+        })();
+
+        // Initialize Particle Engine
+        var engine = new ParticleEngine('projector');
+    </script>
+</body>
+</html>
