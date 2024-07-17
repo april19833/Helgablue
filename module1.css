@@ -1,0 +1,16 @@
+/* Styles for Module 1 */
+
+/* Ensure the canvas covers the entire viewport */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* fallback color */
+}
+
+body {
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+}
