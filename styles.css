@@ -496,16 +496,3 @@ html {
     -webkit-text-size-adjust: 100%; /* Text size adjustment for WebKit */
     -ms-text-size-adjust: 100%; /* Text size adjustment for Microsoft browsers */
 }
-
-/* Custom CSS variable */
-html {
-    --color-primary: #c5ff4a; /* Primary color variable */
-}
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-}
