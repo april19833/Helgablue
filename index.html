@@ -304,38 +304,92 @@
             <div class="progress">
                 <h3>Progress Bar</h3>
                 <progress id="waterProgress" max="10" value="0"></progress>
-                <p id="progressText">0% complete</p>
+                <p id="progressText">0 / 10 cups</p>
             </div>
         </div>
-        <div class="section gallery-section" id="gallery">
-            <h2>Gallery</h2>
-            <a href="#gallery-monad">Gallery Monad</a>
-            <a href="#gallery-mezo">Gallery Mezo</a>
-        </div>
-        <div class="section" id="contact">
+        <section id="contact" class="section">
             <h2>Contact</h2>
-            <p>Contact Information</p>
+            <p>You can contact us at:</p>
+            <p>Email: <a href="mailto:admin@helgablue.xyz">admin@helgablue.xyz</a></p>
+        </section>
+        <section id="gallery" class="section gallery-section">
+            <h2>Gallery</h2>
+            <a href="https://april19833.github.io/Helgablue/gallery-monad.html">Gallery Monad</a>
+            <a href="https://april19833.github.io/Helgablue/gallery-mezo.html">Gallery Mezo</a>
+        </section>
+    </div>
+
+    <!-- Donate Modal -->
+   <div class="donate">
+            <a href="https://beam.eco/u/helga" class="button">Donate</a>
         </div>
     </div>
 
-    <!-- Theme Toggle Button -->
-    <button id="themeToggleBtn">Theme Toggle</button>
-
-    <!-- Donation Modal -->
-    <div id="donationModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="donate">
-                <a href="https://april19833.github.io/Helgablue/" class="button">Send donation</a>
-            </div>
-        </div>
-    </div>
+    <!-- Theme toggle button -->
+    <button id="themeToggleBtn"></button>
 
     <!-- Notification -->
-    <div id="notification" class="notification">
-        Payment successful!
-    </div>
+    <div id="notification" class="notification">Record Saved Successfully!</div>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggleBtn = document.getElementById('themeToggleBtn');
+            themeToggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+            });
+
+            const modal = document.getElementById("donateModal");
+            const donateBtn = document.querySelector(".donate-button");
+            const span = document.getElementsByClassName("close")[0];
+
+            donateBtn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+
+        // Function to show notification
+        function showNotification(message, isSuccess) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.backgroundColor = isSuccess ? '#007bff' : '#ff0000';
+            notification.classList.add('show-notification');
+            setTimeout(() => {
+                notification.classList.remove('show-notification');
+            }, 3000);
+        }
+
+        // Function to add water record
+        function addWaterRecord(date, time, cups) {
+            const table = document.getElementById('waterRecords');
+            const row = table.insertRow();
+            row.insertCell(0).textContent = date;
+            row.insertCell(1).textContent = time;
+            row.insertCell(2).textContent = cups;
+
+            // Update progress bar
+            const progress = document.getElementById('waterProgress');
+            const progressText = document.getElementById('progressText');
+            progress.value = parseInt(progress.value) + parseInt(cups);
+            progressText.textContent = `${progress.value} / 10 cups`;
+
+            // Show success notification
+            showNotification('Record Saved Successfully!', true);
+        }
+
+        // Example of adding a record
+        addWaterRecord('2023-07-12', '09:00', 3);
+        addWaterRecord('2023-07-12', '12:00', 2);
+        addWaterRecord('2023-07-12', '15:00', 1);
+    </script>
 </body>
 </html>
