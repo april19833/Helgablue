@@ -489,3 +489,20 @@ body {
         padding-top: 100px; /* Top padding */
     }
 }
+@font-face {
+    font-family: 'Harukaze';
+    src: url('fonts/Harukaze.otf') format('opentype'),
+         url('fonts/Harukaze.ttf') format('truetype');
+    /* Дополнительные стили, если нужно */
+}
+
+body {
+    font-family: 'Harukaze', Arial, sans-serif;
+    /* Ваш стиль для body */
+}
+
+/* Пример использования для заголовка */
+h1 {
+    font-family: 'Harukaze', Arial, sans-serif;
+    /* Ваш стиль для заголовков */
+}
