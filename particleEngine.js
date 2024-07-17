@@ -37,15 +37,15 @@ var ParticleEngine = (function() {
             for (var i = 0, len = _ParticleEngine.lights.length; i < len; i++) {                
                 light = new createjs.Shape();
                 light.graphics.beginFill(_ParticleEngine.lights[i].color).drawEllipse(0, 0, _ParticleEngine.lights[i].ellipseWidth, _ParticleEngine.lights[i].ellipseHeight);
-                light.regX = _ParticleEngine.lights[i].ellipseWidth/2;
-                light.regY = _ParticleEngine.lights[i].ellipseHeight/2; 
-                light.y = light.initY = _ParticleEngine.totalHeight/2 + _ParticleEngine.lights[i].offsetY;
-                light.x = light.initX = _ParticleEngine.totalWidth/2 + _ParticleEngine.lights[i].offsetX;
+                light.regX = _ParticleEngine.lights[i].ellipseWidth / 2;
+                light.regY = _ParticleEngine.lights[i].ellipseHeight / 2; 
+                light.y = light.initY = _ParticleEngine.totalHeight / 2 + _ParticleEngine.lights[i].offsetY;
+                light.x = light.initX = _ParticleEngine.totalWidth / 2 + _ParticleEngine.lights[i].offsetX;
 
                 blurFilter = new createjs.BlurFilter(_ParticleEngine.lights[i].ellipseWidth, _ParticleEngine.lights[i].ellipseHeight, 1);
                 bounds = blurFilter.getBounds();
                 light.filters = [blurFilter];
-                light.cache(bounds.x-_ParticleEngine.lights[i].ellipseWidth/2, bounds.y-_ParticleEngine.lights[i].ellipseHeight/2, bounds.width*2, bounds.height*2);
+                light.cache(bounds.x - _ParticleEngine.lights[i].ellipseWidth / 2, bounds.y - _ParticleEngine.lights[i].ellipseHeight / 2, bounds.width * 2, bounds.height * 2);
                 light.alpha = _ParticleEngine.lights[i].alpha;
 
                 light.compositeOperation = "screen";
@@ -55,8 +55,8 @@ var ParticleEngine = (function() {
             }
 
             TweenMax.fromTo(_ParticleEngine.lights[0].elem, 10, {scaleX:1.5, x:_ParticleEngine.lights[0].elem.initX, y:_ParticleEngine.lights[0].elem.initY},{yoyo:true, repeat:-1, ease:Power1.easeInOut, scaleX:2, scaleY:0.7});
-            TweenMax.fromTo(_ParticleEngine.lights[1].elem, 12, { x:_ParticleEngine.lights[1].elem.initX, y:_ParticleEngine.lights[1].elem.initY},{delay:5, yoyo:true, repeat:-1, ease:Power1.easeInOut, scaleY:2, scaleX:2, y:_ParticleEngine.totalHeight/2-50, x:_ParticleEngine.totalWidth/2+100});
-            TweenMax.fromTo(_ParticleEngine.lights[2].elem, 8, { x:_ParticleEngine.lights[2].elem.initX, y:_ParticleEngine.lights[2].elem.initY},{delay:2, yoyo:true, repeat:-1, ease:Power1.easeInOut, scaleY:1.5, scaleX:1.5, y:_ParticleEngine.totalHeight/2, x:_ParticleEngine.totalWidth/2-200});
+            TweenMax.fromTo(_ParticleEngine.lights[1].elem, 12, { x:_ParticleEngine.lights[1].elem.initX, y:_ParticleEngine.lights[1].elem.initY},{delay:5, yoyo:true, repeat:-1, ease:Power1.easeInOut, scaleY:2, scaleX:2, y:_ParticleEngine.totalHeight / 2 - 50, x:_ParticleEngine.totalWidth / 2 + 100});
+            TweenMax.fromTo(_ParticleEngine.lights[2].elem, 8, { x:_ParticleEngine.lights[2].elem.initX, y:_ParticleEngine.lights[2].elem.initY},{delay:2, yoyo:true, repeat:-1, ease:Power1.easeInOut, scaleY:1.5, scaleX:1.5, y:_ParticleEngine.totalHeight / 2, x:_ParticleEngine.totalWidth / 2 - 200});
         }
         
         var blurFilter;
@@ -68,7 +68,7 @@ var ParticleEngine = (function() {
                     circle = new createjs.Shape();
                     if (ball.fill) {
                         circle.graphics.beginFill(ball.color).drawCircle(0, 0, ball.ballwidth);
-                        blurFilter = new createjs.BlurFilter(ball.ballwidth/2, ball.ballwidth/2, 1);
+                        blurFilter = new createjs.BlurFilter(ball.ballwidth / 2, ball.ballwidth / 2, 1);
                         circle.filters = [blurFilter];
                         var bounds = blurFilter.getBounds();
                         circle.cache(-50 + bounds.x, -50 + bounds.y, 100 + bounds.width, 100 + bounds.height);
@@ -112,19 +112,15 @@ var ParticleEngine = (function() {
         }
 
         function weightedRange(to, from, decimalPlaces, weightedRange, weightStrength) {
-            if (typeof from === "undefined" || from === null) { from = 0; }
-            if (typeof decimalPlaces === "undefined" || decimalPlaces === null) { decimalPlaces = 0; }
-            if (typeof weightedRange === "undefined" || weightedRange === null) { weightedRange = [to]; }
-            if (typeof weightStrength === "undefined" || weightStrength === null) { weightStrength = 0; }
+            if (to === from) return (to);
 
             var ret;
-            if (to === from) { return (to); }
-            if (weightStrength <= 0) { ret = Math.random() * (to - from); }
+            if (weightStrength <= 0) ret = Math.random() * (to - from);
             else {
                 ret = Math.random() * (to - from);
                 var numWeights = weightedRange.length;
                 var s = Math.floor(Math.random() * (numWeights + weightStrength));
-                if (s < numWeights) { ret = weightedRange[s]; }
+                if (s < numWeights) ret = weightedRange[s];
             }
             return (Math.round(ret * (10 * decimalPlaces)) / (10 * decimalPlaces)) + from;
         }
