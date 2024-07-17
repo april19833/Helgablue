@@ -142,3 +142,31 @@ var ParticleEngine = (function() {
 }());
 
 var particleEngine = new ParticleEngine("projector");
+document.addEventListener('DOMContentLoaded', function() {
+    var mainButton = document.getElementById('mainButton');
+    var modal = document.getElementById('modal');
+    var closeButton = document.getElementById('close');
+
+    mainButton.addEventListener('click', function() {
+        modal.style.display = 'block';
+    });
+
+    closeButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+    var donateButtons = document.getElementsByClassName('donate-button');
+    for (var i = 0; i < donateButtons.length; i++) {
+        donateButtons[i].addEventListener('click', function() {
+            var amount = this.getAttribute('data-amount');
+            var url = this.getAttribute('data-url');
+            if (url) {
+                window.location.href = url;
+            } else {
+                // Handle custom donation logic here
+                console.log('Custom donation amount: $' + amount);
+            }
+            modal.style.display = 'none';
+        });
+    }
+});
