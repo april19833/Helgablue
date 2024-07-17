@@ -254,6 +254,29 @@ h1 {
     font-family: 'Harukaze', Arial, sans-serif;
     /* Your heading styles */
 }
+        <!-- Кнопка "Donate Course" -->
+<button id="donateCourseBtn" class="donate-button">Donate Course</button>
+
+<!-- Модальное окно для оплаты курса -->
+<div id="donationModal" class="modal">
+    <!-- Содержимое модального окна -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Donate for the Course</h2>
+        <p>Select an amount to donate:</p>
+        <button class="donate-button" data-amount="10">$10</button>
+        <button class="donate-button" data-amount="15">$15</button>
+        <button class="donate-button" data-amount="50">$50</button>
+        <button class="donate-button" data-amount="100">$100</button>
+        <p>Or enter any amount:</p>
+        <input type="text" id="customAmount" placeholder="Enter custom amount">
+        <button id="customDonateBtn" class="donate-button">Donate</button>
+        <p>Send your donation to:</p>
+        <p>Ethereum: 0x9703fc5F0C0274740f251F30D7Ada155d1E597ff</p>
+        <p>Bitcoin: bc1q85pv37365ut9csa6t2xse208mw33hzv2lxq8ltd6a7a4s9xtp33q8g5xev</p>
+    </div>
+</div>
+
     </script>
 </body>
 </html>
