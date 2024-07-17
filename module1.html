@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Particle Engine Module</title>
-    <link rel="stylesheet" href="module1.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modal Buttons</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <canvas id="projector"></canvas>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-    <script src="particleEngine.js"></script>
+<div class="container">
+    <button class="main-button" id="mainButton">Donate</button>
+    <div class="modal" id="modal">
+        <span class="close" id="close">&times;</span>
+        <div class="modal-content">
+            <button class="donate-button pizza" data-amount="10" data-url="https://helga.beam.eco/">Pizza ($10)</button>
+            <button class="donate-button fries" data-amount="15">French Fries ($15)</button>
+            <button class="donate-button burger" data-amount="50">Burger ($50)</button>
+            <button class="donate-button coke" data-amount="100">Coke ($100)</button>
+            <button class="donate-button bitcoin">Bitcoin (Custom Amount)</button>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
