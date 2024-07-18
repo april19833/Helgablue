@@ -181,37 +181,32 @@
             <h2>Subscribe to the Course</h2>
             <form id="subscription-form" action="submit_subscription.php" method="post">
                 <label>
-                    <input type="radio" name="tariff" value="basic" required> Basic Plan - $15
-                </label><br>
+                    <input type="radio" name="tariff" value="basic" checked> Basic Plan - $15<br>
+                </label>
                 <label>
-                    <input type="radio" name="tariff" value="pro" required> PRO Plan - $50
-                </label><br>
+                    <input type="radio" name="tariff" value="pro"> PRO Plan - $50<br>
+                </label>
+                <input type="text" name="name" placeholder="Your Name" required><br>
                 <input type="email" name="email" placeholder="Your Email" required><br>
                 <input type="submit" value="Subscribe">
             </form>
         </div>
     </div>
+
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Subscription Successful!</h2>
-            <p>Thank you for subscribing to our NFT course. Check your email for further instructions.</p>
+            <p>Thank you for subscribing!</p>
+            <p>You will receive an email with further instructions.</p>
         </div>
     </div>
+
     <script>
         // Get the modal
-        var modal = document.getElementById("myModal");
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
+        var modal = document.getElementById('myModal');
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
@@ -224,6 +219,14 @@
                 modal.style.display = "none";
             }
         }
+
+        // Simulate form submission
+        var form = document.getElementById("subscription-form");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            modal.style.display = "block";
+            // You can add more functionality here, like AJAX form submission
+        });
     </script>
 </body>
 </html>
