@@ -6,7 +6,7 @@
     <title>NFT Course Subscription</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Harukaze', Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-image: repeating-linear-gradient(135deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),repeating-linear-gradient(22.5deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),linear-gradient(90deg, hsl(194,74%,56%),hsl(266,74%,56%),hsl(338,74%,56%),hsl(50,74%,56%),hsl(122,74%,56%));
@@ -49,17 +49,17 @@
                 text-shadow: 0 0 20px #659999, 0 0 30px #659999, 0 0 40px #659999, 0 0 50px #659999, 0 0 60px #659999, 0 0 70px #659999, 0 0 80px #659999;
             }
         }
-        .circle-orange {
+        .bitcoin {
             position: absolute;
             top: 20px;
             right: 20px;
             width: 60px;
             height: 60px;
-            border-radius: 50%;
-            background-color: #f4791f;
-            animation: glowCircle 1s ease-in-out infinite alternate;
+            background: url('https://example.com/bitcoin-icon.png') no-repeat center center;
+            background-size: contain;
+            animation: glowBitcoin 1s ease-in-out infinite alternate;
         }
-        @keyframes glowCircle {
+        @keyframes glowBitcoin {
             from {
                 box-shadow: 0 0 10px #f4791f, 0 0 20px #f4791f, 0 0 30px #f4791f, 0 0 40px #f4791f, 0 0 50px #f4791f, 0 0 60px #f4791f, 0 0 70px #f4791f;
             }
@@ -150,7 +150,7 @@
 <body>
     <div class="header">
         <h1 class="glow">Helga ₿lue 癸亥</h1>
-        <div class="circle-orange"></div>
+        <div class="bitcoin"></div>
         <h1>NFT Course Subscription</h1>
         <p>Unlock the secrets of NFTs with our comprehensive course</p>
     </div>
@@ -193,89 +193,33 @@
             </form>
         </div>
     </div>
-    <div id="myModal" class="modal">
+    <div id="paymentModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>Thank you for subscribing!</p>
+            <h2>Payment Instructions</h2>
+            <p>Please send your payment to the following Beam address:</p>
+            <p><strong>beam_address_goes_here</strong></p>
+            <p>After completing the payment, send the transaction ID to helgablue@example.com to confirm your subscription.</p>
         </div>
     </div>
     <script>
-        var form = document.getElementById("subscription-form");
-    
-        form.addEventListener('submit', function(event) {
+        document.getElementById('subscription-form').addEventListener('submit', function(event) {
             event.preventDefault();
-    
-            fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(data => {
-                console.log(data);
-                var modal = document.getElementById("myModal");
-                modal.style.display = "block";
-            })
-            .catch(error => {
-                console.error('There was a problem with your fetch operation:', error);
-            });
+            var modal = document.getElementById("paymentModal");
+            modal.style.display = "block";
         });
     
-        var modal = document.getElementById("myModal");
-        var span = document.getElementsByClassName("close")[0];
-    
-        span.onclick = function() {
+        document.querySelector('.close').addEventListener('click', function() {
+            var modal = document.getElementById("paymentModal");
             modal.style.display = "none";
-        }
+        });
     
         window.onclick = function(event) {
+            var modal = document.getElementById("paymentModal");
             if (event.target == modal) {
                 modal.style.display = "none";
             }
-        }
-        @font-face {
-    font-family: 'Harukaze';
-    src: url('fonts/Harukaze.otf') format('opentype'),
-         url('fonts/Harukaze.ttf') format('truetype');
-    /* Additional styles if needed */
-}
-
-body {
-    font-family: 'Harukaze', Arial, sans-serif;
-    /* Your body styles */
-}
-
-/* Example usage for headings */
-h1 {
-    font-family: 'Harukaze', Arial, sans-serif;
-    /* Your heading styles */
-}
-<!-- Кнопка "Donate Course" -->
-<button id="donateCourseBtn" class="donate-button">Donate Course</button>
-
-<!-- Модальное окно для оплаты курса -->
-<div id="donationModal" class="modal">
-    <!-- Содержимое модального окна -->
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Donate for the Course</h2>
-        <p>Select an amount to donate:</p>
-        <button class="donate-button" data-amount="10">$10</button>
-        <button class="donate-button" data-amount="15">$15</button>
-        <button class="donate-button" data-amount="50">$50</button>
-        <button class="donate-button" data-amount="100">$100</button>
-        <p>Or enter any amount:</p>
-        <input type="text" id="customAmount" placeholder="Enter custom amount">
-        <button id="customDonateBtn" class="donate-button">Donate</button>
-        <p>Send your donation to:</p>
-        <p>Ethereum: 0x9703fc5F0C0274740f251F30D7Ada155d1E597ff</p>
-        <p>Bitcoin: bc1q85pv37365ut9csa6t2xse208mw33hzv2lxq8ltd6a7a4s9xtp33q8g5xev</p>
-    </div>
-</div>
-  </script>
+        };
+    </script>
 </body>
 </html>
