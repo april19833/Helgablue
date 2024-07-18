@@ -55,7 +55,7 @@
             right: 20px;
             width: 60px;
             height: 60px;
-            background: url('https://bend.eco/app/u/helga') no-repeat center center;
+            background: url('https://cryptologos.cc/logos/bitcoin-btc-logo.png') no-repeat center center;
             background-size: contain;
             animation: glowBitcoin 1s ease-in-out infinite alternate;
         }
@@ -186,40 +186,28 @@
                 <label>
                     <input type="radio" name="tariff" value="pro" required> PRO Plan - $50
                 </label><br><br>
-    
-                <input type="email" name="email" placeholder="Enter your email" required><br><br>
-    
+                <input type="text" name="name" placeholder="Your Full Name" required><br>
+                <input type="email" name="email" placeholder="Your Email" required><br>
                 <input type="submit" value="Subscribe">
             </form>
         </div>
     </div>
-    <div id="paymentModal" class="modal">
+    <div id="thankyouModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Payment Instructions</h2>
-            <p>Please send your payment to the following Beam address:</p>
-            <p><strong>beam_address_goes_here</strong></p>
-            <p>After completing the payment, send the transaction ID to helgablue@example.com to confirm your subscription.</p>
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Thank You for Subscribing!</h2>
+            <p>Your subscription has been successfully processed. Check your email for further details.</p>
         </div>
     </div>
     <script>
         document.getElementById('subscription-form').addEventListener('submit', function(event) {
             event.preventDefault();
-            var modal = document.getElementById("paymentModal");
-            modal.style.display = "block";
+            document.getElementById('thankyouModal').style.display = 'block';
         });
-    
-        document.querySelector('.close').addEventListener('click', function() {
-            var modal = document.getElementById("paymentModal");
-            modal.style.display = "none";
+
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('thankyouModal').style.display = 'none';
         });
-    
-        window.onclick = function(event) {
-            var modal = document.getElementById("paymentModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        };
     </script>
 </body>
 </html>
