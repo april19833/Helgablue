@@ -53,18 +53,24 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            width: 40px; /* Reduced size */
-            height: 40px; /* Reduced size */
+            width: 60px; /* Increased size */
+            height: 60px; /* Increased size */
             background: url('https://cryptologos.cc/logos/bitcoin-btc-logo.png') no-repeat center center;
             background-size: contain;
-            animation: glowBitcoin 1s ease-in-out infinite alternate;
+            animation: pulse 1.5s infinite;
         }
-        @keyframes glowBitcoin {
-            from {
-                box-shadow: 0 0 10px #f4791f, 0 0 20px #f4791f, 0 0 30px #f4791f, 0 0 40px #f4791f, 0 0 50px #f4791f, 0 0 60px #f4791f, 0 0 70px #f4791f;
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
             }
-            to {
-                box-shadow: 0 0 20px #f4791f, 0 0 30px #f4791f, 0 0 40px #f4791f, 0 0 50px #f4791f, 0 0 60px #f4791f, 0 0 70px #f4791f, 0 0 80px #f4791f;
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 20px rgba(255, 165, 0, 0.7);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
             }
         }
         .container {
@@ -188,44 +194,67 @@
                 </label>
                 <input type="text" name="name" placeholder="Your Name" required><br>
                 <input type="email" name="email" placeholder="Your Email" required><br>
-                <input type="submit" value="Subscribe">
+                <input type="submit" value="Submit">
             </form>
         </div>
-    </div>
-    <!-- Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Your subscription has been processed!</p>
+        <div id="payment-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Payment with Arbitrum</h2>
+                <form id="payment-form">
+                    <label for="amount">Amount (ETH):</label>
+                    <input type="text" id="amount" name="amount" required><br>
+                    <input type="submit" value="Pay Now">
+                </form>
+            </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.0/ethers.min.js"></script>
     <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
+        const paymentForm = document.getElementById('payment-form');
+        const paymentModal = document.getElementById('payment-modal');
+        const closeBtn = document.querySelector('.close');
 
-        // Get the button that opens the modal
-        var btn = document.querySelector(".subscription-form input[type='submit']");
+        // Handle form submission
+        paymentForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const amount = document.getElementById('amount').value;
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks the button, open the modal
-        btn.onclick = function(event) {
-            event.preventDefault(); // Prevent form submission
-            modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (typeof window.ethereum !== 'undefined') {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const signer = provider.getSigner();
+                const tx = {
+                    to: 'YOUR_ARBITRUM_ADDRESS', // Replace with your Arbitrum address
+                    value: ethers.utils.parseEther(amount),
+                };
+                try {
+                    const txResponse = await signer.sendTransaction(tx);
+                    console.log('Transaction Hash:', txResponse.hash);
+                    alert('Transaction sent!');
+                } catch (error) {
+                    console.error('Transaction Error:', error);
+                }
+            } else {
+                alert('Please install MetaMask!');
             }
-        }
+        });
+
+        // Show modal
+        const showPaymentModal = () => {
+            paymentModal.style.display = 'block';
+        };
+
+        // Close modal
+        closeBtn.onclick = () => {
+            paymentModal.style.display = 'none';
+        };
+
+        // Close modal when clicking outside
+        window.onclick = (event) => {
+            if (event.target === paymentModal) {
+                paymentModal.style.display = 'none';
+            }
+        };
     </script>
 </body>
 </html>
