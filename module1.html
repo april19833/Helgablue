@@ -7,12 +7,22 @@
     <link rel="stylesheet" href="module1.css">
 </head>
 <body>
-    <button id="openModalBtn">Open Modal</button>
+    <h1 class="intro">[CSS+JS] clip hover effect</h1>
+    <ul class="items">
+        <li class="item" data-title="X-rays" data-src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-xrays.png">
+            <figure class="figure">
+                <img class="figure__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-xrays.png" title="X-rays">
+                <div class="figure__mask"></div>
+                <figcaption class="figure__figcaption">X-rays</figcaption>
+            </figure>
+        </li>
+        <!-- Repeat for other items -->
+    </ul>
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Modal Header</h2>
-            <p>Some text in the modal.</p>
+            <h2 id="modalTitle"></h2>
+            <img id="modalImage" src="" alt="">
         </div>
     </div>
     <script src="module1.js"></script>
