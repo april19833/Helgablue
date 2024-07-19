@@ -1,121 +1,83 @@
-$text-color: #f5f5f5;
-$mask-bgc: #3b3e46;
-$mask-size: 800px;
-$hole-size: 300px;
-$img-size: 300px 200px;
+$db: #2f3238;
+$dc: #f5f5f5;
+$lb: #f9f9f9;
+$lc: #1a1a1a;
+$l: #1abc89;
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 13px;
+  font-family: 'Source Sans Pro', sans-serif;
+  line-height: 1.618;
+  font-weight: 400;
+}
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  text-align: center;
-  background-color: #2f3238;
-  color: $text-color;
-  font-family: 'Source Sans Pro', sans-serif;
+  background-color: $db;
+  color: $dc;
 }
 
-.intro {
-  width: 80%;
-  max-width: 30rem;
-  padding-bottom: 1rem;
-  margin: .5em auto 1em;
-  text-transform: capitalize;
-  border-bottom: 1px dashed rgba($text-color, .3);
+a {
+  color: $l;
 }
 
-.info {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 1em;
-  font-size: .9em;
-  font-style: italic;
-  font-family: serif;
-  text-align: right;
-  opacity: .5;
+a:hover {
+  opacity: .8;
 }
 
-.items {
+p {
+  font-size: 1.2rem;
+  color: rgba($dc, .5);
+}
+
+.small {
+  font-size: 1rem;
+  margin-top: 1em;
+}
+
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  padding-left: 0;
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 1px;
+  padding: 4rem 2rem;
 }
 
-.item {
-  display: inline-block;
+header {
+  text-align: center;
+  padding-bottom: 3rem;
 }
 
-.figure {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  overflow: hidden;
-  margin: 5px;
+h1 {
+  font-size: 2.6rem;
+  line-height: 1.2em;
+  padding-bottom: 1rem;
+  font-weight: 600;
 }
 
-.figure::after {
-  content: '';
+svg {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 3px;
-  box-shadow: 0 0 0 5px #2f3238;
-  pointer-events: none;
-}
-
-.figure__img {
   width: 100%;
   height: 100%;
-  transform: scale(1.1);
-  transition: transform .3s;
-  pointer-events: none;
 }
 
-.item:hover .figure__img {
-  transform: scale(1);
+circle {
+  transform-origin: 50% 50%;
+  transform: scale(0);
+  transition: transform 200ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
 }
 
-.figure__figcaption {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-  opacity: .2;
-  pointer-events: none;
-  transition: opacity .15s;
+text {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  text-anchor: middle;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
-.item:hover .figure__figcaption {
-  opacity: 1;
-}
-
-.figure__mask {
-  position: absolute;
-  top: - $mask-size / 2;
-  left: - $mask-size / 2;
-  width: $mask-size;
-  height: $mask-size;
-  background-color: $mask-bgc;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 400px;
-  transition: box-shadow .3s;
-  pointer-events: none;
-}
-
-.item:hover .figure__mask {
-  box-shadow: inset 0 0 0 calc($mask-size - $hole-size) / 2;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+.svg-text {
+  fill: lighten($db, 
