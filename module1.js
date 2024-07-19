@@ -1,11 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
     var modal = document.getElementById('myModal');
-    var btn = document.getElementById("openModalBtn");
+    var modalTitle = document.getElementById('modalTitle');
+    var modalImage = document.getElementById('modalImage');
     var span = document.getElementsByClassName("close")[0];
 
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
+    document.querySelectorAll('.item').forEach(function(item) {
+        item.addEventListener('click', function() {
+            modalTitle.innerHTML = this.getAttribute('data-title');
+            modalImage.src = this.getAttribute('data-src');
+            modal.style.display = "block";
+        });
+    });
 
     span.onclick = function() {
         modal.style.display = "none";
