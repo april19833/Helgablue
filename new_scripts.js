@@ -39,3 +39,10 @@ function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
 }
+
+// Add event listener for keydown to close modal with Esc key
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape" && modal.style.display === "block") {
+        modal.style.display = "none";
+    }
+});
