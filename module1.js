@@ -1,24 +1,30 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var modal = document.getElementById('myModal');
-    var modalTitle = document.getElementById('modalTitle');
-    var modalImage = document.getElementById('modalImage');
-    var span = document.getElementsByClassName("close")[0];
+let items = document.getElementsByClassName('item');
+let masks = document.getElementsByClassName('figure__mask');
 
-    document.querySelectorAll('.item').forEach(function(item) {
-        item.addEventListener('click', function() {
-            modalTitle.innerHTML = this.getAttribute('data-title');
-            modalImage.src = this.getAttribute('data-src');
-            modal.style.display = "block";
-        });
+let calcTouchPos = ($pos, $item, $i) => {
+  let rect = $item.rect;
+  let x = ~~Math.min(Math.max($pos.clientX - rect.left, 0), 300);
+  let y = ~~Math.min(Math.max($pos.clientY - rect.top, 0), 200);
+  masks[$i].style.transform = `translate(${x}px, ${y}px)`;
+};
+
+let isSupportTouch = 'ontouchstart' in window;
+
+[].forEach.call(items, (item, i) => {
+  item.addEventListener('mousemove', (e) => {
+    masks[i].style.transform = `translate(${e.offsetX}px, ${e.offsetY}px)`;
+  }, false);
+
+  if (isSupportTouch) {
+    item.addEventListener('touchstart', (e) => {
+      let pos = e.targetTouches[0];
+      let target = document.elementFromPoint(pos.clientX, pos.clientY);
+      item.rect = target.getBoundingClientRect();
     });
 
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+    item.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      calcTouchPos(e.targetTouches[0], item, i);
+    });
+  }
 });
