@@ -10,7 +10,7 @@ class FlipBook {
         };
 
         if (!this.elems.book || !this.elems.buttons.next || !this.elems.buttons.prev) {
-            console.error("Не удалось найти один или несколько элементов. Проверьте HTML и идентификаторы.");
+            console.error("Could not find one or more elements. Check HTML and IDs.");
             return;
         }
 
