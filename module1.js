@@ -3,8 +3,8 @@ let masks = document.getElementsByClassName('figure__mask');
 
 let calcTouchPos = ($pos, $item, $i) => {
   let rect = $item.rect;
-  let x = ~~Math.min(Math.max($pos.clientX - rect.left, 0), 300);
-  let y = ~~Math.min(Math.max($pos.clientY - rect.top, 0), 200);
+  let x = Math.min(Math.max($pos.clientX - rect.left, 0), 300);
+  let y = Math.min(Math.max($pos.clientY - rect.top, 0), 200);
   masks[$i].style.transform = `translate(${x}px, ${y}px)`;
 };
 
