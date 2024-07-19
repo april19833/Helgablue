@@ -1,159 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Nunito:wght@300;600&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
 body {
-    min-height: 100vh;
-    margin: 0;
-    max-height: 100vh;
-    overflow: hidden;
-    background-color: #264653;
+  background-image: radial-gradient(
+      circle at 20% 100%,
+      rgba(184, 184, 184, 0.1) 0%,
+      rgba(184, 184, 184, 0.1) 33%,
+      rgba(96, 96, 96, 0.1) 33%,
+      rgba(96, 96, 96, 0.1) 66%,
+      rgba(7, 7, 7, 0.1) 66%,
+      rgba(7, 7, 7, 0.1) 99%
+    ),
+    linear-gradient(40deg, #040a22, #162561, #202e64, #6f7aa6);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-img {
-    border-radius: 0.5em;
+section {
+  display: grid;
+  grid-template-columns: 50% 45%;
+  place-items: center;
+  gap: 60px;
+  min-height: 100vh;
+  padding: 20px 60px;
 }
 
-* {
-    box-sizing: border-box;
+/* CONTENT */
+
+.content {
+  max-width: 2400px;
 }
 
-.centered {
-    margin: auto;
-    width: max-content;
+.content h1 {
+  font-family: "Comfortaa", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  margin-bottom: 36px;
+  color: #fff;
 }
 
-.flipbook {
-    margin: 3em auto;
-    width: 400px;
-    height: 300px;
-    position: relative;
-    transform-style: preserve-3d;
-    perspective: 1000px;
+.content p {
+  font-size: clamp(1rem, 4vw, 1.1rem);
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  color: #fff;
 }
 
-.flipbook .leaf {
-    position: absolute;
-    transform-style: preserve-3d;
-    height: 100%;
-    width: 50%;
-    background-color: #fff;
-    left: 50%;
-    transition: transform 1s;
-    transform: rotate3d(0, 1, 0, 0deg);
-    transform-origin: left 0px;
+.content button {
+  background: #eaeaea;
+  color: #202134;
+  font-size: clamp(0.9rem, 4vw, 1rem);
+  font-weight: 600;
+  border: 0;
+  outline: 0;
+  padding: 8px 14px;
+  border-radius: 7px;
+  transform: scale(1);
+  transition: all 0.4s ease-in;
+  cursor: pointer;
 }
 
-.flipbook .leaf .page {
-    transform-style: preserve-3d;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
+.content button:is(:hover, :focus) {
+  transform: scale(0.98);
+  background-color: #6f7aa6;
+  color: #eaeaea;
 }
 
-.flipbook .leaf .page.front {
-    transform: rotate3d(0, 1, 0, 0deg) translate3d(0, 0, 0.1px);
+/* SLIDER */
+
+.swiper {
+  position: relative;
+  width: 400px;
+  height: 490px;
 }
 
-.flipbook .leaf .page.front:not(.external) {
-    box-shadow: inset 5px 0px 5px -5px #0005;
+.swiper-slide {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  user-select: none;
+  border-radius: 20px;
 }
 
-.flipbook .leaf .page.back {
-    transform: rotate3d(0, 1, 0, 180deg) translate3d(0, 0, 0.1px);
+.cost {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  padding: 6px 10px;
+  color: #fff;
+  font-size: clamp(0.8rem, 4vw, 0.9rem);
+  font-weight: 600;
 }
 
-.flipbook .leaf .page.back:not(.external) {
-    box-shadow: inset -5px 0px 5px -5px #0005;
+.dark-text {
+  color: #202134;
 }
 
-.flipbook .leaf.turned {
-    /* Uncomment if you need a specific transformation for turned pages */
-    /* transform: rotateY(180deg); */
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
 }
 
-.disabled {
-    user-select: none;
-    opacity: 0.6;
+.overlay {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  padding: 10px 20px;
+  background: rgba(93, 95, 145, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 0 0 20px 20px;
 }
 
-/* Book Page Styles */
+.overlay h1 {
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-weight: 600;
+}
 
-.title {
+.overlay p {
+  font-size: clamp(0.8rem, 4vw, 0.9rem);
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+.ratings {
+  display: flex;
+  column-gap: 10px;
+  margin-top: -6px;
+}
+
+.ratings span {
+  font-size: clamp(0.8rem, 4vw, 0.9rem);
+  font-weight: 300;
+}
+
+.star {
+  color: #afe312;
+}
+
+@media (max-width: 1050px) {
+  .swiper {
+    width: 350px;
+    height: 450px;
+  }
+}
+
+@media (max-width: 930px) {
+  section {
+    grid-template-columns: 100%;
+    grid-template-rows: 55% 40%;
+    grid-template-areas:
+      "slider"
+      "content";
+    place-items: center;
+    gap: 64px;
+    padding: 60px;
+  }
+
+  .swiper {
+    grid-area: slider;
+  }
+
+  .content {
+    grid-area: content;
     text-align: center;
-    width: 100%;
-    padding: 0em !important;
-    padding-top: 2em;
+  }
+
+  .content h1 {
+    margin-bottom: 20px;
+  }
 }
 
-.page {
-    padding: 1em;
-}
+@media (max-width: 470px) {
+  section {
+    padding: 40px 40px 60px;
+  }
 
-.page.front {
-    border-radius: 0em 1em 1em 0;
-}
-
-.page.back {
-    border-radius: 1em 0em 0em 1em;
-}
-
-.leaf {
-    background-color: #0000 !important;
-}
-
-.pageNumber {
-    font-size: 0.75em;
-    position: absolute;
-    bottom: 0.5em;
-}
-
-.pageNumber.front {
-    right: 0.75em;
-}
-
-.pageNumber.back {
-    left: 0.75em;
-}
-
-.contents-row {
-    display: flex;
-    flex-flow: row nowrap;
-}
-
-.contents-row .spacer {
-    flex: 1 1;
-    height: 1em;
-    border-bottom: 1px dashed #000;
-}
-
-.contents-row .text {
-    flex: 0 0 auto;
-}
-
-h1, h2, h3 {
-    font-family: cursive;
-}
-
-body[onload] {
-    /* Scaling the preview */
-    transform: scale(1.5);
-    transform-origin: center top;
-}
-
-body[onload] .leaf:nth-child(1) {
-    transform: rotate3d(0, 1, 0, -128deg) !important;
-}
-
-body[onload] .leaf:nth-child(2) {
-    transform: rotate3d(0, 1, 0, -70deg) !important;
-}
-
-body[onload] .leaf:nth-child(3) {
-    transform: rotate3d(0, 1, 0, -40deg) !important;
-}
-
-body[onload] div.leaf:nth-child(4) > div:nth-child(1) {
-    background-color: #e76f51;
-}
-
-.cd__intro {
-    background-color: #c0e; /* Check the security of this color if used on their website */
+  .swiper {
+    width: 300px;
+    height: 400px;
+  }
 }
