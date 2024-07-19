@@ -3,24 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clip Hover Effect</title>
+  <title>SVG Clip-Path Hover Effect</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1 class="intro">[CSS+JS] Clip Hover Effect</h1>
-  <ul class="items">
-    <li class="item">
-      <figure class="figure">
-        <img class="figure__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-xrays.png" alt="X-rays">
-        <div class="figure__mask"></div>
-        <figcaption class="figure__figcaption">X-rays</figcaption>
-      </figure>
-    </li>
-    <!-- Add more items here as needed -->
-  </ul>
-  <blockquote class="info">
-    Inspired by <a href="https://codepen.io/noeldelgado/">Noel Delgado</a>'s Pen <a href="https://codepen.io/noeldelgado/pen/PZJGLx/">SVG clip-path Hover Effect</a>.
-  </blockquote>
+  <div class="container">
+    <header>
+      <h1>SVG Clip-Path Hover Effect</h1>
+      <p>Attempt to re-create <a href="http://www.cjgammon.com/" target="_blank">CJ Gammon’s</a> portfolio grid hover effect using SVG and CSS Transitions.</p>
+      <p class="small"><b>Note:</b> This is an experiment, it does not seem to work on Firefox 43.0.4 neither have touch support.<br>Tested on Chrome 47.0.2526.106, Opera 34.0 and Safari 8.0.6.</p>
+    </header>
+    <main>
+      <div class="items">
+        <div class="item">
+          <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <clipPath id="clip-0">
+                <circle cx="0" cy="0" r="150px" fill="#000"></circle>
+              </clipPath>
+            </defs>
+            <text class="svg-text" x="50%" y="50%" dy=".3em">X-rays</text>
+            <g clip-path="url(#clip-0)">
+              <image xlink:href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-xrays.png" width="100%" height="100%" preserveAspectRatio="xMinYMin slice"></image>
+              <text class="svg-masked-text" x="50%" y="50%" dy=".3em">X-rays</text>
+            </g>
+          </svg>
+        </div>
+        <!-- Repeat for other items -->
+      </div>
+    </main>
+    <div class="options">
+      <button class="dark"></button>
+      <button class="light"></button>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
