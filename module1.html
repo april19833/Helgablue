@@ -1,51 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG Clip-Path Hover Effect</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Clip-Path Hover Effect</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <div class="item">
-      <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <clipPath id="clip-0">
-            <circle cx="150" cy="100" r="100" />
-          </clipPath>
-        </defs>
-        <image xlink:href="https://via.placeholder.com/300x200" width="300" height="200" />
-        <text class="text" x="50%" y="50%" dy=".3em">X-rays</text>
-      </svg>
-    </div>
+    <div class="container">
+        <div class="item">
+            <svg viewBox="0 0 200 200" class="clip-path">
+                <defs>
+                    <clipPath id="clip-circle">
+                        <circle cx="100" cy="100" r="50" />
+                    </clipPath>
+                </defs>
+                <image href="https://via.placeholder.com/200" width="200" height="200" clip-path="url(#clip-circle)" />
+            </svg>
+        </div>
+        
+        <div class="item">
+            <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <clipPath id="clip-0">
+                        <circle cx="150" cy="100" r="100" />
+                    </clipPath>
+                </defs>
+                <image xlink:href="https://via.placeholder.com/300x200" width="300" height="200" clip-path="url(#clip-0)" />
+                <text class="text" x="50%" y="50%" dy=".3em">X-rays</text>
+            </svg>
+        </div>
 
-    <div class="item">
-      <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <clipPath id="clip-1">
-            <circle cx="150" cy="100" r="100" />
-          </clipPath>
-        </defs>
-        <image xlink:href="https://via.placeholder.com/300x200" width="300" height="200" />
-        <text class="text" x="50%" y="50%" dy=".3em">Nature</text>
-      </svg>
-    </div>
+        <div class="item">
+            <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <clipPath id="clip-1">
+                        <circle cx="150" cy="100" r="100" />
+                    </clipPath>
+                </defs>
+                <image xlink:href="https://via.placeholder.com/300x200" width="300" height="200" clip-path="url(#clip-1)" />
+                <text class="text" x="50%" y="50%" dy=".3em">Nature</text>
+            </svg>
+        </div>
 
-    <div class="item">
-      <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <clipPath id="clip-2">
-            <circle cx="150" cy="100" r="100" />
-          </clipPath>
-        </defs>
-        <image xlink:href="https://via.placeholder.com/300x200" width="300" height="200" />
-        <text class="text" x="50%" y="50%" dy=".3em">Technology</text>
-      </svg>
+        <div class="item">
+            <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <clipPath id="clip-2">
+                        <circle cx="150" cy="100" r="100" />
+                    </clipPath>
+                </defs>
+                <image xlink:href="https://via.placeholder.com/300x200" width="300" height="200" clip-path="url(#clip-2)" />
+                <text class="text" x="50%" y="50%" dy=".3em">Technology</text>
+            </svg>
+        </div>
+
+        <!-- Добавьте больше элементов .item по аналогии выше -->
+
     </div>
-    
-    <!-- Добавьте больше элементов .item по аналогии выше -->
-    
-  </div>
 </body>
 </html>
