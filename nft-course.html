@@ -22,7 +22,7 @@
         }
         .header h1 {
             margin: 0;
-            font-size: 3em;
+            font-size: 2em; /* Reduced font size */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         .header p {
@@ -36,7 +36,7 @@
             height: 60px;
         }
         .glow {
-            font-size: 3em;
+            font-size: 2em; /* Reduced font size */
             color: #fff;
             text-align: center;
             animation: glow 1s ease-in-out infinite alternate;
@@ -53,8 +53,8 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            width: 60px;
-            height: 60px;
+            width: 40px; /* Reduced size */
+            height: 40px; /* Reduced size */
             background: url('https://cryptologos.cc/logos/bitcoin-btc-logo.png') no-repeat center center;
             background-size: contain;
             animation: glowBitcoin 1s ease-in-out infinite alternate;
@@ -149,8 +149,8 @@
 </head>
 <body>
     <div class="header">
-        <h1 class="glow">Helga ₿lue 癸亥</h1>
         <div class="bitcoin"></div>
+        <h1 class="glow">Helga ₿lue 癸亥</h1>
         <h1>NFT Course Subscription</h1>
         <p>Unlock the secrets of NFTs with our comprehensive course</p>
     </div>
@@ -192,20 +192,28 @@
             </form>
         </div>
     </div>
-
+    <!-- Modal -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>Thank you for subscribing!</p>
-            <p>You will receive an email with further instructions.</p>
+            <p>Your subscription has been processed!</p>
         </div>
     </div>
     <script>
         // Get the modal
-        var modal = document.getElementById('myModal');
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.querySelector(".subscription-form input[type='submit']");
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function(event) {
+            event.preventDefault(); // Prevent form submission
+            modal.style.display = "block";
+        }
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
@@ -218,14 +226,6 @@
                 modal.style.display = "none";
             }
         }
-
-        // Simulate form submission
-        var form = document.getElementById("subscription-form");
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
-            modal.style.display = "block";
-            // You can add more functionality here, like AJAX form submission
-        });
     </script>
 </body>
 </html>
