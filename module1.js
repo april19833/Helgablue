@@ -1,5 +1,17 @@
+// Переключение темы
+document.getElementById('theme-toggle').addEventListener('change', function () {
+  if (this.checked) {
+    document.body.classList.add('light-theme');
+    document.body.classList.remove('dark-theme');
+  } else {
+    document.body.classList.add('dark-theme');
+    document.body.classList.remove('light-theme');
+  }
+});
+
+// Анимация элементов
 var items = [];
-var point = document.querySelector('svg').createSVGPoint();
+var point = document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGPoint();
 
 function getCoordinates(e, svg) {
   point.x = e.clientX;
