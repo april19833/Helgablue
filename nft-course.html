@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFT Course $ubscription</title>
     <style>
+        /* Ваши существующие стили */
         body {
             font-family: 'Harukaze', Arial, sans-serif;
             margin: 0;
@@ -19,15 +20,6 @@
             padding: 40px 20px;
             text-align: center;
             position: relative;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 2em; /* Reduced font size */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        .header p {
-            font-size: 1.2em;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
         .header-logo {
             position: absolute;
@@ -119,6 +111,16 @@
         .subscription-form input[type="submit"]:hover {
             background-color: #0056b3;
         }
+        .payment-methods {
+            margin-top: 20px;
+        }
+        .payment-methods h3 {
+            margin-top: 0;
+        }
+        .payment-methods img {
+            width: 50px;
+            margin: 5px;
+        }
         .modal {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
@@ -197,6 +199,18 @@
                 <input type="submit" value="Submit">
             </form>
         </div>
+        <div class="payment-methods">
+            <h3>Payment Methods</h3>
+            <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+            <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+            <img src="https://cryptologos.cc/logos/arbitrum-arb-logo.png" alt="Arbitrum">
+            <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="Binance Coin">
+            <img src="https://cryptologos.cc/logos/polygon-matic-logo.png" alt="Polygon">
+            <img src="https://cryptologos.cc/logos/okx-okb-logo.png" alt="OKX Chain">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/MasterCard_logo.svg" alt="MasterCard">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/PayPal_logo_2014.png" alt="PayPal">
+        </div>
+        <button onclick="showPaymentModal()">Make a Payment</button>
         <div id="payment-modal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
