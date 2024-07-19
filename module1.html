@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG Clip-Path Hover Effect</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Clip-Path Hover Effect</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <div class="item">
-      <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <clipPath id="clip">
-            <circle cx="150" cy="100" r="100" />
-          </clipPath>
-        </defs>
-        <image xlink:href="https://via.placeholder.com/300x200" width="300" height="200" clip-path="url(#clip)" />
-        <text class="text" x="50%" y="50%" dy=".3em">X-rays</text>
-      </svg>
+    <div class="container">
+        <div class="item">
+            <svg viewBox="0 0 200 200" class="clip-path">
+                <defs>
+                    <clipPath id="clip-circle">
+                        <circle cx="100" cy="100" r="50" />
+                    </clipPath>
+                </defs>
+                <image href="https://via.placeholder.com/200" width="200" height="200" clip-path="url(#clip-circle)" />
+            </svg>
+        </div>
     </div>
-    <!-- Добавьте больше .item здесь -->
-  </div>
-  <script src="script.js"></script>
 </body>
 </html>
