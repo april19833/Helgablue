@@ -1,59 +1,31 @@
-// Переключение темы
-document.getElementById('theme-toggle').addEventListener('change', function () {
-  if (this.checked) {
-    document.body.classList.add('light-theme');
-    document.body.classList.remove('dark-theme');
-  } else {
-    document.body.classList.add('dark-theme');
-    document.body.classList.remove('light-theme');
+document.addEventListener('DOMContentLoaded', function() {
+  const items = document.querySelectorAll('.item');
+  const point = document.querySelector('svg').createSVGPoint();
+
+  function getCoordinates(e, svg) {
+    point.x = e.clientX;
+    point.y = e.clientY;
+    return point.matrixTransform(svg.getScreenCTM().inverse());
   }
-});
 
-// Анимация элементов
-var items = [];
-var point = document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGPoint();
+  items.forEach((item, index) => {
+    const svg = item.querySelector('svg');
+    const circle = document.querySelector(`#clip-${index} circle`);
 
-function getCoordinates(e, svg) {
-  point.x = e.clientX;
-  point.y = e.clientY;
-  return point.matrixTransform(svg.getScreenCTM().inverse());
-}
+    item.addEventListener('mousemove', (e) => {
+      const coords = getCoordinates(e, svg);
+      circle.setAttribute('cx', coords.x);
+      circle.setAttribute('cy', coords.y);
+    });
 
-function changeColor(e) {
-  document.body.className = e.currentTarget.className;
-}
-
-function Item(config) {
-  Object.keys(config).forEach(function (item) {
-    this[item] = config[item];
-  }, this);
-  this.el.addEventListener('mousemove', this.mouseMoveHandler.bind(this));
-  this.el.addEventListener('touchmove', this.touchMoveHandler.bind(this));
-}
-
-Item.prototype = {
-  update: function update(c) {
-    this.clip.setAttribute('cx', c.x);
-    this.clip.setAttribute('cy', c.y);
-  },
-  mouseMoveHandler: function mouseMoveHandler(e) {
-    this.update(getCoordinates(e, this.svg));
-  },
-  touchMoveHandler: function touchMoveHandler(e) {
-    e.preventDefault();
-    var touch = e.targetTouches[0];
-    if (touch) return this.update(getCoordinates(touch, this.svg));
-  }
-};
-
-[].slice.call(document.querySelectorAll('.item'), 0).forEach(function (item, index) {
-  items.push(new Item({
-    el: item,
-    svg: item.querySelector('svg'),
-    clip: document.querySelector('#clip-' + index + ' circle'),
-  }));
-});
-
-[].slice.call(document.querySelectorAll('button'), 0).forEach(function (button) {
-  button.addEventListener('click', changeColor);
+    item.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      const touch = e.targetTouches[0];
+      if (touch) {
+        const coords = getCoordinates(touch, svg);
+        circle.setAttribute('cx', coords.x);
+        circle.setAttribute('cy', coords.y);
+      }
+    });
+  });
 });
