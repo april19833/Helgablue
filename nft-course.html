@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFT Course $ubscription</title>
+    <title>NFT Course Subscription</title>
     <style>
-        /* Ваши существующие стили */
         body {
             font-family: 'Harukaze', Arial, sans-serif;
             margin: 0;
@@ -25,12 +24,12 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            width: 60px; /* Increased size */
-            height: 60px; /* Increased size */
+            width: 60px;
+            height: 60px;
             background: url('https://cryptologos.cc/logos/bitcoin-btc-logo.png') no-repeat center center;
             background-size: contain;
             animation: pulse 1.5s infinite;
-            border-radius: 50%; /* Make logo circular */
+            border-radius: 50%;
             box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
         }
         @keyframes pulse {
@@ -48,7 +47,7 @@
             }
         }
         .glow {
-            font-size: 2em; /* Reduced font size */
+            font-size: 2em;
             color: #fff;
             text-align: center;
             animation: glow 1s ease-in-out infinite alternate;
@@ -77,6 +76,7 @@
             border: 1px solid #ccc;
             border-radius: 8px;
             width: 45%;
+            color: black;
         }
         .tariff h3 {
             margin-top: 0;
@@ -92,6 +92,7 @@
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 8px;
+            color: black;
         }
         .subscription-form input {
             width: 100%;
@@ -118,22 +119,22 @@
             margin: 5px;
         }
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
+            display: none;
+            position: fixed;
+            z-index: 1;
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
         }
         .modal-content {
             background-color: #fefefe;
-            margin: 15% auto; /* 15% from the top and centered */
+            margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; /* Could be more or less, depending on screen size */
+            width: 80%;
             border-radius: 8px;
             text-align: center;
         }
@@ -202,69 +203,132 @@
             <img src="https://cryptologos.cc/logos/arbitrum-arb-logo.png" alt="Arbitrum">
             <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="Binance Coin">
             <img src="https://cryptologos.cc/logos/polygon-matic-logo.png" alt="Polygon">
-            <img src="https://cryptologos.cc/logos/okx-okb-logo.png" alt="OKX Chain">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/MasterCard_logo.svg" alt="MasterCard">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/PayPal_logo_2014.png" alt="PayPal">
         </div>
-        <button onclick="showPaymentModal()">Make a Payment</button>
-        <div id="payment-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Payment with Arbitrum</h2>
-                <form id="payment-form">
-                    <label for="amount">Amount (ETH):</label>
-                    <input type="text" id="amount" name="amount" required><br>
-                    <input type="submit" value="Pay Now">
-                </form>
-            </div>
+        <div class="avatar-customization">
+            <h2>Customize Your Avatar</h2>
+            <form id="avatar-form" action="submit_avatar.php" method="post">
+                <input type="text" name="avatar_name" placeholder="Avatar Name" required><br>
+                <label for="avatar-hair">Hair Color:</label>
+                <select name="avatar_hair" id="avatar-hair">
+                    <option value="black">Black</option>
+                    <option value="blonde">Blonde</option>
+                    <option value="brown">Brown</option>
+                    <option value="red">Red</option>
+                    <option value="gray">Gray</option>
+                </select><br>
+                <label for="avatar-eyes">Eye Color:</label>
+                <select name="avatar_eyes" id="avatar-eyes">
+                    <option value="blue">Blue</option>
+                    <option value="brown">Brown</option>
+                    <option value="green">Green</option>
+                    <option value="gray">Gray</option>
+                </select><br>
+                <label for="avatar-outfit">Outfit:</label>
+                <select name="avatar_outfit" id="avatar-outfit">
+                    <option value="casual">Casual</option>
+                    <option value="formal">Formal</option>
+                    <option value="sporty">Sporty</option>
+                    <option value="futuristic">Futuristic</option>
+                </select><br>
+                <input type="submit" value="Create Avatar">
+            </form>
+        </div>
+        <div class="feedback-form">
+            <h2>Leave Your Feedback</h2>
+            <form id="feedback-form" action="submit_feedback.php" method="post">
+                <input type="text" name="name" placeholder="Your Name" required><br>
+                <input type="email" name="email" placeholder="Your Email" required><br>
+                <textarea name="feedback" placeholder="Your Feedback" rows="5" required></textarea><br>
+                <input type="submit" value="Submit Feedback">
+            </form>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.0/ethers.min.js"></script>
+    <!-- Modals -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Payment Options</h2>
+            <p>Choose your preferred payment method:</p>
+            <ul>
+                <li><a href="https://www.beam-mw.com/">Beam Wallet</a></li>
+                <li><a href="https://metamask.io/">MetaMask</a></li>
+                <li><a href="https://stripe.com/">Stripe</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="avatarModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Customize Your Avatar</h2>
+            <p>Choose your avatar's features:</p>
+            <form id="modal-avatar-form" action="submit_avatar.php" method="post">
+                <input type="text" name="avatar_name" placeholder="Avatar Name" required><br>
+                <label for="modal-avatar-hair">Hair Color:</label>
+                <select name="avatar_hair" id="modal-avatar-hair">
+                    <option value="black">Black</option>
+                    <option value="blonde">Blonde</option>
+                    <option value="brown">Brown</option>
+                    <option value="red">Red</option>
+                    <option value="gray">Gray</option>
+                </select><br>
+                <label for="modal-avatar-eyes">Eye Color:</label>
+                <select name="avatar_eyes" id="modal-avatar-eyes">
+                    <option value="blue">Blue</option>
+                    <option value="brown">Brown</option>
+                    <option value="green">Green</option>
+                    <option value="gray">Gray</option>
+                </select><br>
+                <label for="modal-avatar-outfit">Outfit:</label>
+                <select name="avatar_outfit" id="modal-avatar-outfit">
+                    <option value="casual">Casual</option>
+                    <option value="formal">Formal</option>
+                    <option value="sporty">Sporty</option>
+                    <option value="futuristic">Futuristic</option>
+                </select><br>
+                <input type="submit" value="Create Avatar">
+            </form>
+        </div>
+    </div>
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Feedback Form</h2>
+            <p>We value your feedback:</p>
+            <form id="modal-feedback-form" action="submit_feedback.php" method="post">
+                <input type="text" name="name" placeholder="Your Name" required><br>
+                <input type="email" name="email" placeholder="Your Email" required><br>
+                <textarea name="feedback" placeholder="Your Feedback" rows="5" required></textarea><br>
+                <input type="submit" value="Submit Feedback">
+            </form>
+        </div>
+    </div>
     <script>
-        const paymentForm = document.getElementById('payment-form');
-        const paymentModal = document.getElementById('payment-modal');
-        const closeBtn = document.querySelector('.close');
+        var modals = document.getElementsByClassName('modal');
+        var buttons = document.getElementsByTagName('button');
+        var spans = document.getElementsByClassName('close');
 
-        // Handle form submission
-        paymentForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const amount = document.getElementById('amount').value;
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].onclick = function() {
+                var modal = document.getElementById(this.dataset.modal);
+                modal.style.display = "block";
+            }
+        }
 
-            if (typeof window.ethereum !== 'undefined') {
-                const provider = new ethers.providers.Web3Provider(window.ethereum);
-                const signer = provider.getSigner();
-                const tx = {
-                    to: 'YOUR_ARBITRUM_ADDRESS', // Replace with your Arbitrum address
-                    value: ethers.utils.parseEther(amount),
-                };
-                try {
-                    const txResponse = await signer.sendTransaction(tx);
-                    console.log('Transaction Hash:', txResponse.hash);
-                    alert('Transaction sent!');
-                } catch (error) {
-                    console.error('Transaction Error:', error);
+        for (var i = 0; i < spans.length; i++) {
+            spans[i].onclick = function() {
+                for (var j = 0; j < modals.length; j++) {
+                    modals[j].style.display = "none";
                 }
-            } else {
-                alert('Please install MetaMask!');
             }
-        });
+        }
 
-        // Show modal
-        const showPaymentModal = () => {
-            paymentModal.style.display = 'block';
-        };
-
-        // Close modal
-        closeBtn.onclick = () => {
-            paymentModal.style.display = 'none';
-        };
-
-        // Close modal when clicking outside
-        window.onclick = (event) => {
-            if (event.target === paymentModal) {
-                paymentModal.style.display = 'none';
+        window.onclick = function(event) {
+            for (var i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    modals[i].style.display = "none";
+                }
             }
-        };
+        }
     </script>
 </body>
 </html>
