@@ -1,33 +1,4 @@
-<div class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="VeQjed" data-pen-title="[CSS+JS] clip hover effect" data-preview="true" data-editable="true" data-user="Rplus"  data-prefill='{"title":"[CSS+JS] clip hover effect","description":"simulate clip effect with box-shadow\n\ninspiration:  [Noel Delgado](http://codepen.io/noeldelgado/)&apos;s Pen [SVG clip-path Hover Effect](http://codepen.io/noeldelgado/pen/PZJGLx/).","tags":["clip","hover","animation","box-shadow"],"head":"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">","scripts":[],"stylesheets":[]}'>
-  <pre data-lang="pug">-
-  var items = [
-    { title: 'X-rays', src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-xrays.png' },
-    { title: 'Worms', src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-worms.png' },
-    { title: 'Aurora', src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-aurora.png' },
-    { title: 'Angus', src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-angus.png' },
-    { title: 'Huitzi', src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-huitzi.png' },
-    { title: 'Dalí', src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-dali.png' },
-    { title: 'The Bride', src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-bride.png' },
-    { title: 'The Man', src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-man.png' },
-    { title: 'D', src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-d.png' },
-    { title: 'V', src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-v.png' },
-    { title: 'V II', src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-v2.png' },
-    { title: 'V III', src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/i-v3.png' }
-  ];
-
-h1.intro [CSS+JS] clip hover effect
-
-ul.items
-  each item in items
-    li.item
-      figure.figure
-        img.figure__img(src=item.src, title=item.title)
-        .figure__mask
-        figcaption.figure__figcaption= item.title
-
-blockquote.info
-  | inspired from #[a(href="https://codepen.io/noeldelgado/") Noel Delgado]'s Pen #[a(href="https://codepen.io/noeldelgado/pen/PZJGLx/") SVG clip-path Hover Effect].</pre>
-  <pre data-lang="scss" data-option-autoprefixer="true">$text-color: #f5f5f5;
+$text-color: #f5f5f5;
 $mask-bgc: #3b3e46;
 $mask-size: 800px;
 $hole-size: 300px;
@@ -176,36 +147,3 @@ body {
   clip: rect(0,0,0,0);
   border: 0;
 }
-</pre>
-  <pre data-lang="babel">let items = document.getElementsByClassName('item');
-let masks = document.getElementsByClassName('figure__mask');
-
-let calcTouchPos = ($pos, $item, $i) => {
-  let rect = $item.rect;
-  let x = ~~Math.min(Math.max($pos.clientX - rect.left, 0), 300);
-  let y = ~~Math.min(Math.max($pos.clientY - rect.top, 0), 200);
-  masks[$i].style.transform = `translate(${x}px, ${y}px)`;
-};
-
-let isSupportTouch = 'ontouchstart' in window;
-
-[].forEach.call(items, (item, i) => {
-  item.addEventListener('mousemove', (e) => {
-    masks[i].style.transform = `translate(${e.offsetX}px, ${e.offsetY}px)`;
-  }, false);
-
-  if (isSupportTouch) {
-    item.addEventListener('touchstart', (e) => {
-      let pos = e.targetTouches[0];
-      let target = document.elementFromPoint(pos.clientX, pos.clientY);
-      item.rect = target.getBoundingClientRect();
-    });
-
-    item.addEventListener('touchmove', (e) => {
-      e.preventDefault();
-      calcTouchPos(e.targetTouches[0], item, i);
-    });
-  }
-});
-</pre></div>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
