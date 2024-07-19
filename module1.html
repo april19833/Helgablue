@@ -3,60 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVG Clip-Path Hover Effect</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Cube Slider with tsParticles</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #000;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="item">
-            <svg viewBox="0 0 200 200" class="clip-path">
-                <defs>
-                    <clipPath id="clip-circle">
-                        <circle cx="100" cy="100" r="50" />
-                    </clipPath>
-                </defs>
-                <image href="https://via.placeholder.com/200" width="200" height="200" clip-path="url(#clip-circle)" />
-            </svg>
+    <div id="particles-js"></div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="image1.jpg" alt="Image 1"></div>
+            <div class="swiper-slide"><img src="image2.jpg" alt="Image 2"></div>
+            <div class="swiper-slide"><img src="image3.jpg" alt="Image 3"></div>
         </div>
-        
-        <div class="item">
-            <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                    <clipPath id="clip-0">
-                        <circle cx="150" cy="100" r="100" />
-                    </clipPath>
-                </defs>
-                <image xlink:href="https://via.placeholder.com/300x200" width="300" height="200" clip-path="url(#clip-0)" />
-                <text class="text" x="50%" y="50%" dy=".3em">X-rays</text>
-            </svg>
-        </div>
-
-        <div class="item">
-            <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                    <clipPath id="clip-1">
-                        <circle cx="150" cy="100" r="100" />
-                    </clipPath>
-                </defs>
-                <image xlink:href="https://via.placeholder.com/300x200" width="300" height="200" clip-path="url(#clip-1)" />
-                <text class="text" x="50%" y="50%" dy=".3em">Nature</text>
-            </svg>
-        </div>
-
-        <div class="item">
-            <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                    <clipPath id="clip-2">
-                        <circle cx="150" cy="100" r="100" />
-                    </clipPath>
-                </defs>
-                <image xlink:href="https://via.placeholder.com/300x200" width="300" height="200" clip-path="url(#clip-2)" />
-                <text class="text" x="50%" y="50%" dy=".3em">Technology</text>
-            </svg>
-        </div>
-
-        <!-- Добавьте больше элементов .item по аналогии выше -->
-
     </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'cube',
+            grabCursor: true,
+            cubeEffect: {
+                shadow: true,
+                slideShadows: true,
+                shadowOffset: 20,
+                shadowScale: 0.94,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+
+        // Initialize tsParticles
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
 </body>
 </html>
