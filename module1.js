@@ -1,30 +1,47 @@
-let items = document.getElementsByClassName('item');
-let masks = document.getElementsByClassName('figure__mask');
+var items = [];
+var point = document.querySelector('svg').createSVGPoint();
 
-let calcTouchPos = ($pos, $item, $i) => {
-  let rect = $item.rect;
-  let x = Math.min(Math.max($pos.clientX - rect.left, 0), 300);
-  let y = Math.min(Math.max($pos.clientY - rect.top, 0), 200);
-  masks[$i].style.transform = `translate(${x}px, ${y}px)`;
+function getCoordinates(e, svg) {
+  point.x = e.clientX;
+  point.y = e.clientY;
+  return point.matrixTransform(svg.getScreenCTM().inverse());
+}
+
+function changeColor(e) {
+  document.body.className = e.currentTarget.className;
+}
+
+function Item(config) {
+  Object.keys(config).forEach(function (item) {
+    this[item] = config[item];
+  }, this);
+  this.el.addEventListener('mousemove', this.mouseMoveHandler.bind(this));
+  this.el.addEventListener('touchmove', this.touchMoveHandler.bind(this));
+}
+
+Item.prototype = {
+  update: function update(c) {
+    this.clip.setAttribute('cx', c.x);
+    this.clip.setAttribute('cy', c.y);
+  },
+  mouseMoveHandler: function mouseMoveHandler(e) {
+    this.update(getCoordinates(e, this.svg));
+  },
+  touchMoveHandler: function touchMoveHandler(e) {
+    e.preventDefault();
+    var touch = e.targetTouches[0];
+    if (touch) return this.update(getCoordinates(touch, this.svg));
+  }
 };
 
-let isSupportTouch = 'ontouchstart' in window;
+[].slice.call(document.querySelectorAll('.item'), 0).forEach(function (item, index) {
+  items.push(new Item({
+    el: item,
+    svg: item.querySelector('svg'),
+    clip: document.querySelector('#clip-' + index + ' circle'),
+  }));
+});
 
-[].forEach.call(items, (item, i) => {
-  item.addEventListener('mousemove', (e) => {
-    masks[i].style.transform = `translate(${e.offsetX}px, ${e.offsetY}px)`;
-  }, false);
-
-  if (isSupportTouch) {
-    item.addEventListener('touchstart', (e) => {
-      let pos = e.targetTouches[0];
-      let target = document.elementFromPoint(pos.clientX, pos.clientY);
-      item.rect = target.getBoundingClientRect();
-    });
-
-    item.addEventListener('touchmove', (e) => {
-      e.preventDefault();
-      calcTouchPos(e.targetTouches[0], item, i);
-    });
-  }
+[].slice.call(document.querySelectorAll('button'), 0).forEach(function (button) {
+  button.addEventListener('click', changeColor);
 });
