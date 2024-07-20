@@ -1,158 +1,163 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&display=swap");
+<body>
+    <main>
+      <!-- Swiper -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img
+              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/2af2c090-6cfe-4c67-938d-0334d5192bda"
+              alt="" />
+            <div class="content">
+              <div class="title">
+                <h1>
+                  <span class="white-point"></span> Starry Night
+                  <span class="white-point"></span>
+                </h1>
+                <h2>Vincent van Gogh (1853-1890)</h2>
+              </div>
+              <p>
+                When Van Gogh was staying at a mental hospital in France, he
+              painted it from memory, which means he painted what he felt. In
+              "Starry Night," you can see a dark blue night sky filled with
+              swirling stars. Below, there's a small village with tall cypress
+              trees. The stars in the painting are extra bright and seem to move
+              around. It's exhibited at Museum of Modern Art (MoMA) in New York
+              City, the USA.
+              </p>
+            </div>
+          </div>
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
-}
+          <div class="swiper-slide">
+            <img
+              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ce6f9dcf-1b51-477c-86c7-667bdb45dfc9"
+              alt="" />
+            <div class="content">
+              <div class="title">
+                <h1>
+                  <span class="white-point"></span> The Kiss
+                  <span class="white-point"></span>
+                </h1>
+                <h2>Gustav Klimt (1862-1918)</h2>
+              </div>
+              <p>
+                It was created between 1907 and 1908. In the painting, you can
+                see a couple locked in an intimate and passionate embrace. They
+                are covered in a pattern of shimmering gold and surrounded by
+                intricate geometric shapes and symbols. Today, "The Kiss" is
+                considered one of the most iconic and valuable artworks in the
+                world. It's exhibited at the Belvedere Museum in Vienna,
+                Austria.
+              </p>
+            </div>
+          </div>
 
-ul {
-  list-style: none;
-}
+          <div class="swiper-slide">
+            <img
+              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ffa0c567-807f-4bd1-9597-3d704eb1976c"
+              alt="" />
+            <div class="content">
+              <div class="title">
+                <h1>
+                  <span class="white-point"></span> The Birth of Venus
+                  <span class="white-point"></span>
+                </h1>
+                <h2>Sandro Botticelli (1445-1510)</h2>
+              </div>
+              <p>
+                It was created around the years 1484-1486. In the painting, you
+                can see a beautiful woman standing on a seashell in the middle
+                of the sea. This woman is Venus, the goddess of love and beauty
+                in ancient mythology. She is born from the sea foam, and the
+                wind gods are gently blowing her to the shore. It's exhibited in
+                the Uffizi Gallery in Florence, Italy.
+              </p>
+            </div>
+          </div>
 
-body {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #23232a;
-  min-height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  padding: 10px;
-}
+          <div class="swiper-slide">
+            <img
+              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4a5aedde-34ce-484a-8499-a09394fed77e"
+              alt="" />
+            <div class="content">
+              <div class="title">
+                <h1>
+                  <span class="white-point"></span> Girl with a Pearl Earring
+                  <span class="white-point"></span>
+                </h1>
+                <h2>Johannes Vermeer (1632-1675)</h2>
+              </div>
+              <p>
+                It was created around 1665. The painting shows a young woman
+                with a beautiful pearl earring in her ear. She has a simple,
+                elegant outfit, and she looks over her shoulder with a
+                mysterious expression. Today, it is exhibited in the Rijksmuseum
+                Amsterdam, The Netherlands, where people from all over the world
+                come to see its beauty.
+              </p>
+            </div>
+          </div>
 
-/* SWIPER */
+          <div class="swiper-slide">
+            <img
+              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/d0beb676-ca36-4a8c-a9f2-bdce2855fa33"
+              alt="" />
+            <div class="content">
+              <div class="title">
+                <h1>
+                  <span class="white-point"></span> Mona Lisa
+                  <span class="white-point"></span>
+                </h1>
+                <h2>Leonardo da Vinci (1452-1519)</h2>
+              </div>
+              <p>
+                He painted it between 1503 and 1506 during the Renaissance
+                period. The painting shows a woman with a mysterious smile and
+                long, dark hair. She's wearing a simple dress and sits against a
+                distant landscape with a winding river and a bridge. Her smile
+                seems to change as you look at it from different angles. It's
+                now exhibited in the Louvre Museum in Paris, France.
+              </p>
+            </div>
+          </div>
+          
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </main>
 
-.swiper {
-  max-width: 750px;
-  aspect-ratio: 5/3;
-  z-index: 2;
-}
-
-.swiper-pagination {
-  transform: translateY(-10px);
-  --swiper-pagination-color: #7edd90;
-  --swiper-pagination-bullet-size: 12px;
-  --swiper-pagination-bullet-horizontal-gap: 5px;
-}
-
-.swiper-slide {
-  display: grid;
-  grid-template-columns: 40% 50%;
-  place-items: center;
-  gap: 15px;
-  padding: 20px;
-  border-radius: 50px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  background: #23232a;
-  box-shadow: inset 18px 18px 8px rgba(0, 0, 0, 0.2),
-    inset -10px -18px 8px rgba(255, 255, 255, 0.1);
-}
-
-.swiper-slide img {
-  width: 80%;
-  height: 80%;
-  border-radius: 30px;
-  border: 2px solid #fff;
-  filter: grayscale(40%);
-}
-
-.content {
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 25px;
-  color: #fff;
-  user-select: none;
-}
-
-.title h1 {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  line-height: 1.4;
-  letter-spacing: 0.2rem;
-  font-size: 1.3rem;
-}
-
-.title h2 {
-  line-height: 1.5;
-  letter-spacing: 0.05rem;
-  opacity: 0.3;
-  font-size: 1.1rem;
-}
-
-.content p {
-  line-height: 1.5;
-  color: #9ca3af;
-  font-size: 1rem;
-}
-
-.white-point {
-  display: inline-flex;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background-color: #fff;
-}
-
-/* PARTICLES */
-
-.particles {
-  position: absolute;
-  display: flex;
-  width: 100%;
-  padding: 0 10px;
-  z-index: 1;
-}
-
-.particles li {
-  position: relative;
-  bottom: 30px;
-  width: 30px;
-  height: 30px;
-  background: #7edd90;
-  box-shadow: 0 0 0 10px #7edd9044, 0 0 50px #7edd90, -100px 0 #475c9a99,
-    100px 0 #475c9a99;
-  margin: 0 4px;
-  border-radius: 50%;
-  animation: particles-animation calc(190s / var(--i)) ease infinite;
-}
-
-.particles li:nth-child(2n) {
-  background: #475c9a;
-  box-shadow: 0 0 0 10px #475c9a44, 0 0 50px #475c9a, -100px 0 #7edd9099,
-    100px 0 #7edd9099;
-}
-
-.particles li:nth-child(3n) {
-  background: #9a4772;
-  box-shadow: 0 0 0 10px #9a477244, 0 0 50px #9a4772, -100px 0 #7edd9099,
-    100px 0 #7edd9099;
-}
-
-@keyframes particles-animation {
-  0% {
-    transform: translateY(120vh) scale(0) rotate(180deg);
-  }
-
-  20% {
-    transform: translateY(100vh) scale(1) rotate(0deg);
-  }
-
-  100% {
-    transform: translateY(-120vh) scale(0.5) rotate(360deg);
-  }
-}
-
-@media (max-width: 800px) {
-  .swiper {
-    max-width: 650px;
-    aspect-ratio: 5/4;
-  }
-}
+    <ul class="particles">
+      <li style="--i: 11"></li>
+      <li style="--i: 12"></li>
+      <li style="--i: 13"></li>
+      <li style="--i: 14"></li>
+      <li style="--i: 15"></li>
+      <li style="--i: 16"></li>
+      <li style="--i: 17"></li>
+      <li style="--i: 18"></li>
+      <li style="--i: 19"></li>
+      <li style="--i: 20"></li>
+      <li style="--i: 21"></li>
+      <li style="--i: 11"></li>
+      <li style="--i: 12"></li>
+      <li style="--i: 13"></li>
+      <li style="--i: 14"></li>
+      <li style="--i: 15"></li>
+      <li style="--i: 16"></li>
+      <li style="--i: 17"></li>
+      <li style="--i: 18"></li>
+      <li style="--i: 19"></li>
+      <li style="--i: 20"></li>
+      <li style="--i: 21"></li>
+      <li style="--i: 11"></li>
+      <li style="--i: 12"></li>
+      <li style="--i: 13"></li>
+      <li style="--i: 14"></li>
+      <li style="--i: 15"></li>
+      <li style="--i: 16"></li>
+      <li style="--i: 17"></li>
+      <li style="--i: 18"></li>
+      <li style="--i: 19"></li>
+      <li style="--i: 20"></li>
+      <li style="--i: 21"></li>
+    </ul>
+  </body>
