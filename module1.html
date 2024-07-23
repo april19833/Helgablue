@@ -496,11 +496,19 @@
             margin-right: 20px; /* Distance between animations */
         }
 
+        .space {
+            display: inline-block;
+            width: 100px; /* Adjust the width to control the size of the gap */
+        }
+
         /* Add media query for responsiveness */
         @media (max-width: 768px) {
             dotlottie-player {
                 width: 100px;
                 height: 100px;
+            }
+            .space {
+                width: 50px; /* Adjust the width for smaller screens */
             }
         }
     </style>
@@ -510,10 +518,14 @@
     <div class="scroll-container">
         <div class="scroll-content">
             <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <div class="space"></div>
             <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <div class="space"></div>
             <!-- Repeat elements to create an infinite effect -->
             <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <div class="space"></div>
             <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <div class="space"></div>
             <!-- Add as many elements as needed for the infinite effect -->
         </div>
     </div>
