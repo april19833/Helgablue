@@ -479,6 +479,8 @@
             border-radius: 20px; /* Rounded corners for a softer look */
             box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.2); /* Large, diffused shadow */
             padding: 10px; /* Padding inside the container */
+            display: flex;
+            align-items: center;
         }
 
         .scroll-content {
@@ -507,6 +509,27 @@
             width: 20px; /* Adjust the width to control the size of the gap */
         }
 
+        .hello-text {
+            display: inline-block;
+            font-size: 30px;
+            font-weight: bold;
+            color: #FFA500; /* Orange color */
+            margin-right: 20px; /* Space between the text and the next element */
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
         /* Add media query for responsiveness */
         @media (max-width: 768px) {
             dotlottie-player {
@@ -516,6 +539,9 @@
             .space {
                 width: 10px; /* Adjust the width for smaller screens */
             }
+            .hello-text {
+                font-size: 20px; /* Adjust the font size for smaller screens */
+            }
         }
     </style>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
@@ -523,7 +549,7 @@
 <body>
     <div class="scroll-container">
         <div class="scroll-content">
-            <!-- Add new element -->
+            <div class="hello-text">Hello!!</div>
             <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
             <div class="space"></div>
             <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
