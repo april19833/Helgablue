@@ -472,7 +472,11 @@
             overflow: hidden;
             white-space: nowrap;
             position: relative;
-            background-color: #f0f0f0; /* Container background color */
+            background: #FDFC47;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to bottom, #24FE41, #FDFC47);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, #24FE41, #FDFC47); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            backdrop-filter: blur(10px); /* Apply a blur effect */
+            -webkit-backdrop-filter: blur(10px); /* For Safari support */
         }
 
         .scroll-content {
