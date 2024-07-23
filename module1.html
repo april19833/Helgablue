@@ -465,6 +465,7 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden; /* Remove horizontal scroll */
+            background: #f0f0f0; /* Background color for the page */
         }
         
         .scroll-container {
@@ -472,11 +473,11 @@
             overflow: hidden;
             white-space: nowrap;
             position: relative;
-            background: #FDFC47;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to bottom, #24FE41, #FDFC47);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to bottom, #24FE41, #FDFC47); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to bottom, rgba(36, 254, 65, 0.5), rgba(253, 252, 71, 0.5)); /* Semi-transparent gradient */
             backdrop-filter: blur(10px); /* Apply a blur effect */
             -webkit-backdrop-filter: blur(10px); /* For Safari support */
+            border-radius: 50px; /* Rounded corners for a softer look */
+            box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.2); /* Large, diffused shadow */
         }
 
         .scroll-content {
@@ -502,7 +503,7 @@
 
         .space {
             display: inline-block;
-            width: 100px; /* Adjust the width to control the size of the gap */
+            width: 20px; /* Adjust the width to control the size of the gap */
         }
 
         /* Add media query for responsiveness */
@@ -512,7 +513,7 @@
                 height: 100px;
             }
             .space {
-                width: 50px; /* Adjust the width for smaller screens */
+                width: 10px; /* Adjust the width for smaller screens */
             }
         }
     </style>
@@ -521,16 +522,15 @@
 <body>
     <div class="scroll-container">
         <div class="scroll-content">
-            <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
-            <div class="space"></div>
-            <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
-            <div class="space"></div>
             <!-- Repeat elements to create an infinite effect -->
             <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
             <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
-            <!-- Duplicate the content to ensure continuity -->
+            <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <div class="space"></div>
+            <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <div class="space"></div>
             <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
             <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
