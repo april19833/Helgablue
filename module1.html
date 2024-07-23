@@ -459,363 +459,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 1: "Unlocking the Secrets of NFTs"</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Scrolling Animations</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Nunito:wght@300;600&display=swap');
-
-        *,
-        *::before,
-        *::after {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden; /* Убираем горизонтальный скролл */
         }
-
-        body {
-            background-image: radial-gradient(
-                circle at 20% 100%,
-                rgba(184, 184, 184, 0.1) 0%,
-                rgba(184, 184, 184, 0.1) 33%,
-                rgba(96, 96, 96, 0.1) 33%,
-                rgba(96, 96, 96, 0.1) 66%,
-                rgba(7, 7, 7, 0.1) 66%,
-                rgba(7, 7, 7, 0.1) 99%
-            ),
-            linear-gradient(40deg, #040a22, #162561, #202e64, #6f7aa6);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        section {
-            display: grid;
-            grid-template-columns: 50% 45%;
-            place-items: center;
-            gap: 60px;
-            min-height: 100vh;
-            padding: 20px 60px;
-        }
-
-        .content {
-            max-width: 2400px;
-        }
-
-        .content h1 {
-            font-family: 'Comfortaa', sans-serif;
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: 1px;
-            margin-bottom: 36px;
-            color: #fff;
-        }
-
-        .content p {
-            font-size: clamp(1rem, 4vw, 1.1rem);
-            font-weight: 300;
-            line-height: 1.5;
-            margin-bottom: 30px;
-            color: #fff;
-        }
-
-        .content button {
-            background: #eaeaea;
-            color: #202134;
-            font-size: clamp(0.9rem, 4vw, 1rem);
-            font-weight: 600;
-            border: 0;
-            outline: 0;
-            padding: 8px 14px;
-            border-radius: 7px;
-            transform: scale(1);
-            transition: all 0.4s ease-in;
-            cursor: pointer;
-        }
-
-        .content button:is(:hover, :focus) {
-            transform: scale(0.98);
-            background-color: #6f7aa6;
-            color: #eaeaea;
-        }
-
-        .swiper {
-            position: relative;
-            width: 400px;
-            height: 490px;
-        }
-
-        .swiper-slide {
-            position: relative;
-            background-position: center;
-            background-size: cover;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            user-select: none;
-            border-radius: 20px;
-        }
-
-        .cost {
-            position: absolute;
-            top: 8px;
-            right: 6px;
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-            border-radius: 30px;
-            padding: 6px 10px;
-            color: #fff;
-            font-size: clamp(0.8rem, 4vw, 0.9rem);
-            font-weight: 600;
-        }
-
-        .dark-text {
-            color: #202134;
-        }
-
-        .swiper-slide img {
+        
+        .scroll-container {
             width: 100%;
-            height: 100%;
-            border-radius: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            background-color: #f0f0f0; /* Цвет фона контейнера */
         }
 
-        .overlay {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 150px;
-            padding: 10px 20px;
-            background: rgba(93, 95, 145, 0.2);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-            border-radius: 0 0 20px 20px;
+        .scroll-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll-left 20s linear infinite;
         }
 
-        .overlay h1 {
-            font-size: clamp(1.2rem, 4vw, 1.5rem);
-            font-weight: 600;
-        }
-
-        .overlay p {
-            font-size: clamp(0.8rem, 4vw, 0.9rem);
-            font-weight: 300;
-            line-height: 1.3;
-        }
-
-        .ratings {
-            display: flex;
-            column-gap: 10px;
-            margin-top: -6px;
-        }
-
-        .ratings span {
-            font-size: clamp(0.8rem, 4vw, 0.9rem);
-            font-weight: 300;
-        }
-
-        .star {
-            color: #afe312;
-        }
-
-        @media (max-width: 1050px) {
-            .swiper {
-                width: 350px;
-                height: 450px;
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
             }
         }
 
-        @media (max-width: 930px) {
-            section {
-                grid-template-columns: 100%;
-                grid-template-rows: 55% 40%;
-                grid-template-areas:
-                    "slider"
-                    "content";
-                place-items: center;
-                gap: 64px;
-                padding: 60px;
-            }
-
-            .swiper {
-                grid-area: slider;
-            }
-
-            .content {
-                grid-area: content;
-                text-align: center;
-            }
-
-            .content h1 {
-                margin-bottom: 20px;
-            }
-        }
-
-        @media (max-width: 470px) {
-            section {
-                padding: 40px 40px 60px;
-            }
-
-            .swiper {
-                width: 300px;
-                height: 400px;
-            }
-        }
-
-        .hidden {
-            display: none;
+        dotlottie-player {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 20px; /* Расстояние между анимациями */
         }
     </style>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 <body>
-    <div id="tsparticles"></div>
-    <section>
-        <div class="content">
-            <h1>Module 1: "Unlocking the Secrets of NFTs"</h1>
-            <p>
-                Welcome to Module 1! In this module, we’ll embark on an exciting journey to uncover the mysteries surrounding NFTs (Non-Fungible Tokens). We'll explore their origins, understand what makes them unique, and delve into their impact on the digital world.
-            </p>
-            <button onclick="startPuzzle()">Start Puzzle</button>
-            <div id="puzzle" class="hidden">
-                <p>Find the hidden numbers in the images and enter them below to unlock the NFT link:</p>
-                <input type="text" id="puzzleInput" placeholder="Enter numbers">
-                <button onclick="checkPuzzle()">Submit</button>
-            </div>
-            <div id="result" class="hidden">
-                <p>Congratulations! You've solved the puzzle. Here's your NFT link: <a id="nftLink" href="#" target="_blank">NFT Link</a></p>
-            </div>
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <!-- Повторяем элементы, чтобы создать бесконечный эффект -->
+            <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <!-- Добавьте столько элементов, сколько нужно для бесконечного эффекта -->
         </div>
-
-        <div class="swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/49db1b5f-09f6-4433-be57-51687585600c" />
-                    <div class="cost">1</div>
-                    <div class="overlay">
-                        <h1>The Enigma of NFTs</h1>
-                        <p>
-                            Discover the fascinating beauty of this historic city by
-                            strolling through the rich cultural tapestry that makes Florence
-                            a timeless destination.
-                        </p>
-                        <div class="ratings">
-                            <div class="stars">
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star-half-outline"></ion-icon>
-                            </div>
-                            <span>138 reviews</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/2d165721-fe2e-4cf0-a63e-20bc5bc3f847" />
-                    <div class="cost">2</div>
-                    <div class="overlay">
-                        <h1>The NFT Timeline</h1>
-                        <p>
-                            Explore the city's majestic castles and fascinating history by
-                            joining our guided tour for an unforgettable journey through
-                            Scotland's capital.
-                        </p>
-                        <div class="ratings">
-                            <div class="stars">
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                            </div>
-                            <span>307 reviews</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/d311d1de-7382-4c03-b083-5f7e88458158" />
-                    <div class="cost dark-text">3</div>
-                    <div class="overlay">
-                        <h1>Meet the Innovators</h1>
-                        <p>
-                            Experience the energy and excitement of New York City from Times
-                            Square's dazzling lights to the serene beauty of Central Park.
-                        </p>
-                        <div class="ratings">
-                            <div class="stars">
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star-half-outline"></ion-icon>
-                            </div>
-                            <span>1152 reviews</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/be223a30-52d1-4a0b-8d57-2e52f02e2245" />
-                    <div class="cost dark-text">4</div>
-                    <div class="overlay">
-                        <h1>Beyond the Basics</h1>
-                        <p>
-                            Embark on a magical journey through Tokyo by discovering the
-                            beauty of the city as cherry blossom trees paint the streets in
-                            hues of pink.
-                        </p>
-                        <div class="ratings">
-                            <div class="stars">
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star-outline"></ion-icon>
-                            </div>
-                            <span>619 reviews</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.swiper', {
-            direction: 'horizontal',
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            autoplay: {
-                delay: 5000,
-            },
-        });
-
-        function startPuzzle() {
-            document.getElementById('puzzle').classList.remove('hidden');
-        }
-
-        function checkPuzzle() {
-            const input = document.getElementById('puzzleInput').value;
-            if (input === '1234') {
-                document.getElementById('result').classList.remove('hidden');
-                document.getElementById('nftLink').href = 'https://example.com/nft';
-            } else {
-                alert('Incorrect numbers. Please try again.');
-            }
-        }
-    </script>
+    </div>
 </body>
 </html>
