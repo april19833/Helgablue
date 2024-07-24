@@ -310,6 +310,71 @@
                 transform: translateY(0);
             }
         }
+
+        /* Module Cards Styles */
+        .module-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .module-card {
+            width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: scale(1.05);
+        }
+
+        .module-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .module-card .card-content {
+            padding: 20px;
+            color: #fff;
+        }
+
+        .module-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .module-card p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .module-card button {
+            background: #eaeaea;
+            color: #202134;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 0;
+            outline: 0;
+            padding: 8px 14px;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .module-card button:hover {
+            background: #6f7aa6;
+            color: #eaeaea;
+        }
     </style>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
@@ -430,6 +495,57 @@
             <dotlottie-player src="https://lottie.host/da60d222-e5f1-4947-a384-60f94ac8b3ae/2bgY6zZ3ol.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <dotlottie-player src="https://lottie.host/5dd490af-7981-4e88-bc7a-d7f790807ea7/GUT8vN8Bu7.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
+        </div>
+    </div>
+
+    <div class="module-container">
+        <div class="module-card">
+            <img src="https://via.placeholder.com/300" alt="Module 1">
+            <div class="card-content">
+                <h2>Module 1</h2>
+                <p>Learn the basics of NFTs and their impact on the digital world.</p>
+                <button>Explore</button>
+            </div>
+        </div>
+        <div class="module-card">
+            <img src="https://via.placeholder.com/300" alt="Module 2">
+            <div class="card-content">
+                <h2>Module 2</h2>
+                <p>Dive deeper into the technology behind NFTs and their applications.</p>
+                <button>Explore</button>
+            </div>
+        </div>
+        <div class="module-card">
+            <img src="https://via.placeholder.com/300" alt="Module 3">
+            <div class="card-content">
+                <h2>Module 3</h2>
+                <p>Discover the future trends and possibilities of NFTs.</p>
+                <button>Explore</button>
+            </div>
+        </div>
+        <div class="module-card">
+            <img src="https://via.placeholder.com/300" alt="Module 4">
+            <div class="card-content">
+                <h2>Module 4</h2>
+                <p>Explore the legal and ethical considerations of NFTs.</p>
+                <button>Explore</button>
+            </div>
+        </div>
+        <div class="module-card">
+            <img src="https://via.placeholder.com/300" alt="Module 5">
+            <div class="card-content">
+                <h2>Module 5</h2>
+                <p>Learn how to create and sell your own NFTs.</p>
+                <button>Explore</button>
+            </div>
+        </div>
+        <div class="module-card">
+            <img src="https://via.placeholder.com/300" alt="Module 6">
+            <div class="card-content">
+                <h2>Module 6</h2>
+                <p>Case studies and real-world examples of successful NFT projects.</p>
+                <button>Explore</button>
+            </div>
         </div>
     </div>
 
