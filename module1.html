@@ -212,71 +212,6 @@
             }
         }
 
-        /* New Module Styles */
-        .module-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            margin: 40px 0;
-        }
-
-        .module-card {
-            width: 300px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .module-card:hover {
-            transform: scale(1.05);
-        }
-
-        .module-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .module-card .card-content {
-            padding: 20px;
-            color: #fff;
-        }
-
-        .module-card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .module-card p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-        }
-
-        .module-card button {
-            background: #eaeaea;
-            color: #202134;
-            font-size: 1rem;
-            font-weight: 600;
-            border: 0;
-            outline: 0;
-            padding: 8px 14px;
-            border-radius: 7px;
-            cursor: pointer;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .module-card button:hover {
-            background: #6f7aa6;
-            color: #eaeaea;
-        }
-
         /* Scrolling Text Styles */
         .scroll-container {
             width: 100%;
@@ -374,6 +309,71 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        /* New Module Styles */
+        .module-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .module-card {
+            width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: scale(1.05);
+        }
+
+        .module-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .module-card .card-content {
+            padding: 20px;
+            color: #fff;
+        }
+
+        .module-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .module-card p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .module-card button {
+            background: #eaeaea;
+            color: #202134;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 0;
+            outline: 0;
+            padding: 8px 14px;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .module-card button:hover {
+            background: #6f7aa6;
+            color: #eaeaea;
         }
     </style>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
