@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 1: "Unlocking the Secrets of NFTs"</title>
+    <title>Stylish NFT Module</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
@@ -211,6 +211,71 @@
                 height: 400px;
             }
         }
+
+        /* New Module Styles */
+        .module-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .module-card {
+            width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: scale(1.05);
+        }
+
+        .module-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .module-card .card-content {
+            padding: 20px;
+            color: #fff;
+        }
+
+        .module-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .module-card p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .module-card button {
+            background: #eaeaea;
+            color: #202134;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 0;
+            outline: 0;
+            padding: 8px 14px;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .module-card button:hover {
+            background: #6f7aa6;
+            color: #eaeaea;
+        }
     </style>
 </head>
 <body>
@@ -249,13 +314,14 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/0e4377af-d6e0-41af-96d0-e0648d0ea704" />
-                    <div class="cost">from $230 per group</div>
+                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/2d165721-fe2e-4cf0-a63e-20bc5bc3f847" />
+                    <div class="cost">from $380 per group</div>
                     <div class="overlay">
-                        <h1>Secrets Unveiled</h1>
+                        <h1>The NFT Timeline</h1>
                         <p>
-                            Experience the magic of NFTs through curated exhibitions and
-                            interactive sessions designed to engage and enlighten.
+                            Explore the city's majestic castles and fascinating history by
+                            joining our guided tour for an unforgettable journey through
+                            Scotland's capital.
                         </p>
                         <div class="ratings">
                             <div class="stars">
@@ -263,20 +329,42 @@
                                 <ion-icon class="star" name="star"></ion-icon>
                                 <ion-icon class="star" name="star"></ion-icon>
                                 <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star-outline"></ion-icon>
+                                <ion-icon class="star" name="star"></ion-icon>
                             </div>
-                            <span>78 reviews</span>
+                            <span>307 reviews</span>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/a1a0c6b6-0c6b-445a-b547-daa417445a2a" />
-                    <div class="cost">from $230 per group</div>
+                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/d311d1de-7382-4c03-b083-5f7e88458158" />
+                    <div class="cost dark-text">from $99 per adult</div>
                     <div class="overlay">
-                        <h1>Future of Art</h1>
+                        <h1>Meet the Innovators</h1>
                         <p>
-                            Delve into the world of digital art with NFTs, showcasing innovative
-                            artworks and discussing the future trajectory of digital collectibles.
+                            Experience the energy and excitement of New York City from Times
+                            Square's dazzling lights to the serene beauty of Central Park.
+                        </p>
+                        <div class="ratings">
+                            <div class="stars">
+                                <ion-icon class="star" name="star"></ion-icon>
+                                <ion-icon class="star" name="star"></ion-icon>
+                                <ion-icon class="star" name="star"></ion-icon>
+                                <ion-icon class="star" name="star"></ion-icon>
+                                <ion-icon class="star" name="star-half-outline"></ion-icon>
+                            </div>
+                            <span>1152 reviews</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/be223a30-52d1-4a0b-8d57-2e52f02e2245" />
+                    <div class="cost dark-text">from $117 per adult</div>
+                    <div class="overlay">
+                        <h1>Beyond the Basics</h1>
+                        <p>
+                            Embark on a magical journey through Tokyo by discovering the
+                            beauty of the city as cherry blossom trees paint the streets in
+                            hues of pink.
                         </p>
                         <div class="ratings">
                             <div class="stars">
@@ -286,30 +374,198 @@
                                 <ion-icon class="star" name="star"></ion-icon>
                                 <ion-icon class="star" name="star-outline"></ion-icon>
                             </div>
-                            <span>112 reviews</span>
+                            <span>619 reviews</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </div>
     </section>
+
+    <div class="module-container">
+        <div class="module-card">
+            <img src="https://via.placeholder.com/300" alt="Module 1">
+            <div class="card-content">
+                <h2>Module 1</h2>
+                <p>Learn the basics of NFTs and their impact on the digital world.</p>
+                <button>Explore</button>
+            </div>
+        </div>
+        <div class="module-card">
+            <img src="https://via.placeholder.com/300" alt="Module 2">
+            <div class="card-content">
+                <h2>Module 2</h2>
+                <p>Dive deeper into the technology behind NFTs and their applications.</p>
+                <button>Explore</button>
+            </div>
+        </div>
+        <div class="module-card">
+            <img src="https://via.placeholder.com/300" alt="Module 3">
+            <div class="card-content">
+                <h2>Module 3</h2>
+                <p>Discover the future trends and possibilities of NFTs.</p>
+                <button>Explore</button>
+            </div>
+        </div>
+        <div class="module-card">
+            <img src="https://via.placeholder.com/300" alt="Module 4">
+            <div class="card-content">
+                <h2>Module 4</h2>
+                <p>Explore the legal and ethical considerations of NFTs.</p>
+                <button>Explore</button>
+            </div>
+        </div>
+        <div class="module-card">
+            <img src="https://via.placeholder.com/300" alt="Module 5">
+            <div class="card-content">
+                <h2>Module 5</h2>
+                <p>Learn how to create and sell your own NFTs.</p>
+                <button>Explore</button>
+            </div>
+        </div>
+        <div class="module-card">
+            <img src="https://via.placeholder.com/300" alt="Module 6">
+            <div class="card-content">
+                <h2>Module 6</h2>
+                <p>Case studies and real-world examples of successful NFT projects.</p>
+                <button>Explore</button>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.26.0/dist/tsparticles.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script>
-        const swiper = new Swiper('.swiper', {
+        var swiper = new Swiper(".swiper", {
+            effect: "cube",
+            grabCursor: true,
             loop: true,
-            slidesPerView: 1,
-            spaceBetween: 10,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
+            speed: 1000,
+            cubeEffect: {
+                shadow: false,
+                slideShadows: true,
+                shadowOffset: 10,
+                shadowScale: 0.94,
             },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+            autoplay: {
+                delay: 2600,
+                pauseOnMouseEnter: true,
             },
+        });
+
+        tsParticles.load("tsparticles", {
+            fpsLimit: 60,
+            backgroundMode: {
+                enable: true,
+                zIndex: -1,
+            },
+            particles: {
+                number: {
+                    value: 30,
+                    density: {
+                        enable: true,
+                        area: 800,
+                    },
+                },
+                color: {
+                    value: [
+                        "#3998D0",
+                        "#2EB6AF",
+                        "#A9BD33",
+                        "#FEC73B",
+                        "#F89930",
+                        "#F45623",
+                        "#D62E32",
+                    ],
+                },
+                destroy: {
+                    mode: "split",
+                    split: {
+                        count: 1,
+                        factor: {
+                            value: 5,
+                            random: {
+                                enable: true,
+                                minimumValue: 4,
+                            },
+                        },
+                        rate: {
+                            value: 10,
+                            random: {
+                                enable: true,
+                                minimumValue: 5,
+                            },
+                        },
+                        particles: {
+                            collisions: {
+                                enable: false,
+                            },
+                            destroy: {
+                                mode: "none",
+                            },
+                            life: {
+                                count: 1,
+                                duration: {
+                                    value: 1,
+                                },
+                            },
+                        },
+                    },
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000",
+                    },
+                    polygon: {
+                        sides: 5,
+                    },
+                },
+                opacity: {
+                    value: 1,
+                    random: false,
+                    animation: {
+                        enable: false,
+                        speed: 1,
+                        minimumValue: 0.1,
+                        sync: false,
+                    },
+                },
+                size: {
+                    value: 8,
+                    random: {
+                        enable: true,
+                        minimumValue: 4,
+                    },
+                    animation: {
+                        enable: false,
+                        speed: 40,
+                        minimumValue: 0.1,
+                        sync: false,
+                    },
+                },
+                collisions: {
+                    enable: true,
+                    mode: "destroy",
+                },
+                move: {
+                    enable: true,
+                    speed: 7,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200,
+                    },
+                },
+            },
+            detectRetina: true,
         });
     </script>
 </body>
