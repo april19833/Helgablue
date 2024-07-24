@@ -249,57 +249,13 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/2d165721-fe2e-4cf0-a63e-20bc5bc3f847" />
-                    <div class="cost">from $380 per group</div>
+                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/0e4377af-d6e0-41af-96d0-e0648d0ea704" />
+                    <div class="cost">from $230 per group</div>
                     <div class="overlay">
-                        <h1>The NFT Timeline</h1>
+                        <h1>Secrets Unveiled</h1>
                         <p>
-                            Explore the city's majestic castles and fascinating history by
-                            joining our guided tour for an unforgettable journey through
-                            Scotland's capital.
-                        </p>
-                        <div class="ratings">
-                            <div class="stars">
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                            </div>
-                            <span>307 reviews</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/d311d1de-7382-4c03-b083-5f7e88458158" />
-                    <div class="cost dark-text">from $99 per adult</div>
-                    <div class="overlay">
-                        <h1>Meet the Innovators</h1>
-                        <p>
-                            Experience the energy and excitement of New York City from Times
-                            Square's dazzling lights to the serene beauty of Central Park.
-                        </p>
-                        <div class="ratings">
-                            <div class="stars">
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star"></ion-icon>
-                                <ion-icon class="star" name="star-half-outline"></ion-icon>
-                            </div>
-                            <span>1152 reviews</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/be223a30-52d1-4a0b-8d57-2e52f02e2245" />
-                    <div class="cost dark-text">from $117 per adult</div>
-                    <div class="overlay">
-                        <h1>Beyond the Basics</h1>
-                        <p>
-                            Embark on a magical journey through Tokyo by discovering the
-                            beauty of the city as cherry blossom trees paint the streets in
-                            hues of pink.
+                            Experience the magic of NFTs through curated exhibitions and
+                            interactive sessions designed to engage and enlighten.
                         </p>
                         <div class="ratings">
                             <div class="stars">
@@ -309,312 +265,52 @@
                                 <ion-icon class="star" name="star"></ion-icon>
                                 <ion-icon class="star" name="star-outline"></ion-icon>
                             </div>
-                            <span>619 reviews</span>
+                            <span>78 reviews</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/a1a0c6b6-0c6b-445a-b547-daa417445a2a" />
+                    <div class="cost">from $230 per group</div>
+                    <div class="overlay">
+                        <h1>Future of Art</h1>
+                        <p>
+                            Delve into the world of digital art with NFTs, showcasing innovative
+                            artworks and discussing the future trajectory of digital collectibles.
+                        </p>
+                        <div class="ratings">
+                            <div class="stars">
+                                <ion-icon class="star" name="star"></ion-icon>
+                                <ion-icon class="star" name="star"></ion-icon>
+                                <ion-icon class="star" name="star"></ion-icon>
+                                <ion-icon class="star" name="star"></ion-icon>
+                                <ion-icon class="star" name="star-outline"></ion-icon>
+                            </div>
+                            <span>112 reviews</span>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </section>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.26.0/dist/tsparticles.min.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script>
-        var swiper = new Swiper(".swiper", {
-            effect: "cube",
-            grabCursor: true,
+        const swiper = new Swiper('.swiper', {
             loop: true,
-            speed: 1000,
-            cubeEffect: {
-                shadow: false,
-                slideShadows: true,
-                shadowOffset: 10,
-                shadowScale: 0.94,
+            slidesPerView: 1,
+            spaceBetween: 10,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
             },
-            autoplay: {
-                delay: 2600,
-                pauseOnMouseEnter: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
             },
         });
-
-     tsParticles.load("tsparticles", {
-    fpsLimit: 60,
-    backgroundMode: {
-        enable: true,
-        zIndex: -1,
-    },
-    particles: {
-        number: {
-            value: 30,
-            density: {
-                enable: true,
-                area: 800,
-            },
-        },
-        color: {
-            value: [
-                "#3998D0",
-                "#2EB6AF",
-                "#A9BD33",
-                "#FEC73B",
-                "#F89930",
-                "#F45623",
-                "#D62E32",
-            ],
-        },
-        destroy: {
-            mode: "split",
-            split: {
-                count: 1,
-                factor: {
-                    value: 5,
-                    random: {
-                        enable: true,
-                        minimumValue: 4,
-                    },
-                },
-                rate: {
-                    value: 10,
-                    random: {
-                        enable: true,
-                        minimumValue: 5,
-                    },
-                },
-                particles: {
-                    collisions: {
-                        enable: false,
-                    },
-                    destroy: {
-                        mode: "none",
-                    },
-                    life: {
-                        count: 1,
-                        duration: {
-                            value: 1,
-                        },
-                    },
-                },
-            },
-        },
-        shape: {
-            type: "circle",
-            stroke: {
-                width: 0,
-                color: "#000000",
-            },
-            polygon: {
-                sides: 5,
-            },
-        },
-        opacity: {
-            value: 1,
-            random: false,
-            animation: {
-                enable: false,
-                speed: 1,
-                minimumValue: 0.1,
-                sync: false,
-            },
-        },
-        size: {
-            value: 8,
-            random: {
-                enable: true,
-                minimumValue: 4,
-            },
-            animation: {
-                enable: false,
-                speed: 40,
-                minimumValue: 0.1,
-                sync: false,
-            },
-        },
-        collisions: {
-            enable: true,
-            mode: "destroy",
-        },
-        move: {
-            enable: true,
-            speed: 7,
-            direction: "none",
-            random: false,
-            straight: false,
-            out_mode: "out",
-            attract: {
-                enable: false,
-                rotateX: 600,
-                rotateY: 1200,
-            },
-        },
-    },
-    detectRetina: true,
-});
     </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrolling Animations</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden; /* Remove horizontal scroll */
-            background: #f0f0f0; /* Background color for the page */
-        }
-        
-        .scroll-container {
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            background: #BBD2C5;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to bottom, #292E49, #536976, #BBD2C5);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to bottom, #292E49, #536976, #BBD2C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            backdrop-filter: blur(10px); /* Apply a blur effect */
-            -webkit-backdrop-filter: blur(10px); /* For Safari support */
-            border-radius: 20px; /* Rounded corners for a softer look */
-            box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.2); /* Large, diffused shadow */
-            padding: 10px; /* Padding inside the container */
-            display: flex;
-            align-items: center;
-        }
-
-        .scroll-content {
-            display: inline-block;
-            white-space: nowrap;
-            animation: scroll-left 30s linear infinite; /* Slowed down animation */
-        }
-
-        @keyframes scroll-left {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        dotlottie-player {
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 20px; /* Distance between animations */
-        }
-
-        .space {
-            display: inline-block;
-            width: 20px; /* Adjust the width to control the size of the gap */
-        }
-
-        .hello-text {
-            display: inline-block;
-            font-size: 30px;
-            font-weight: bold;
-            color: #FFA500; /* Orange color */
-            text-shadow: 0 0 10px rgba(255, 165, 0, 0.8); /* Glowing effect */
-            margin-right: 20px; /* Space between the text and the next element */
-            animation: pulse 1.5s infinite;
-            font-family: 'Roboto', sans-serif; /* Robotic-style font */
-            white-space: nowrap; /* Prevent text from wrapping */
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* Add media query for responsiveness */
-        @media (max-width: 768px) {
-            dotlottie-player {
-                width: 100px;
-                height: 100px;
-            }
-            .space {
-                width: 10px; /* Adjust the width for smaller screens */
-            }
-            .hello-text {
-                font-size: 20px; /* Adjust the font size for smaller screens */
-            }
-        }
-
-        /* Animation for each letter */
-        .hello-text span {
-            display: inline-block;
-            animation: letter-fade 1.5s infinite;
-        }
-
-        @keyframes letter-fade {
-            0% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            50% {
-                opacity: 0.5;
-                transform: translateY(-10px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="scroll-container">
-        <div class="scroll-content">
-            <!-- Repeat elements to ensure continuous scrolling -->
-            <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
-            <div class="hello-text">
-                <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
-            </div>
-            <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
-            <div class="space"></div>
-            <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
-            <div class="hello-text">
-                <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
-            </div>
-            <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
-            <div class="space"></div>
-            <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
-            <div class="hello-text">
-                <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
-            </div>
-            <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
-            <div class="space"></div>
-            <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
-            <div class="hello-text">
-                <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
-            </div>
-            <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
-            <div class="space"></div>
-            <!-- Additional cloned content to ensure continuity -->
-            <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
-            <div class="hello-text">
-                <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
-            </div>
-            <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
-            <div class="space"></div>
-            <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
-            <div class="hello-text">
-                <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
-            </div>
-            <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
-            <div class="space"></div>
-        </div>
-    </div>
 </body>
 </html>
