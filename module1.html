@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Nunito:wght@300;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
         *,
         *::before,
@@ -243,12 +244,6 @@
             }
         }
 
-        dotlottie-player {
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 20px;
-        }
-
         .space {
             display: inline-block;
             width: 20px;
@@ -258,12 +253,12 @@
             display: inline-block;
             font-size: 30px;
             font-weight: bold;
-            color: #FFA500;
-            text-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
-            margin-right: 20px;
+            color: #FFA500; /* Orange color */
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.8); /* Glowing effect */
+            margin-right: 20px; /* Space between the text and the next element */
             animation: pulse 1.5s infinite;
-            font-family: 'Roboto', sans-serif;
-            white-space: nowrap;
+            font-family: 'Roboto', sans-serif; /* Robotic-style font */
+            white-space: nowrap; /* Prevent text from wrapping */
         }
 
         @keyframes pulse {
@@ -279,15 +274,11 @@
         }
 
         @media (max-width: 768px) {
-            dotlottie-player {
-                width: 100px;
-                height: 100px;
-            }
             .space {
-                width: 10px;
+                width: 10px; /* Adjust the width for smaller screens */
             }
             .hello-text {
-                font-size: 20px;
+                font-size: 20px; /* Adjust the font size for smaller screens */
             }
         }
 
@@ -322,6 +313,20 @@
             backdrop-filter: blur(10px);
             border-radius: 20px;
             margin: 40px 0;
+            position: relative;
+        }
+
+        .module-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json') no-repeat center center;
+            background-size: cover;
+            opacity: 0.2;
+            z-index: -1;
         }
 
         .module-card {
@@ -377,7 +382,6 @@
         }
     </style>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="tsparticles"></div>
@@ -485,17 +489,17 @@
 
     <div class="scroll-container">
         <div class="scroll-content">
-            <dotlottie-player src="https://lottie.host/b7b99d5f-c683-454e-9598-593d7b1b06ed/C3YnyO6yBU.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
             <div class="hello-text">
                 <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
             </div>
-            <dotlottie-player src="https://lottie.host/eb50c26f-5573-4c90-9411-50fefe4e6351/oaKNSFyXgx.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
-            <dotlottie-player src="https://lottie.host/b7b99d5f-c683-454e-9598-593d7b1b06ed/C3YnyO6yBU.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
             <div class="hello-text">
                 <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
             </div>
-            <dotlottie-player src="https://lottie.host/eb50c26f-5573-4c90-9411-50fefe4e6351/oaKNSFyXgx.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
         </div>
     </div>
