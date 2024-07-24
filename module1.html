@@ -473,7 +473,9 @@
             overflow: hidden;
             white-space: nowrap;
             position: relative;
-            background: linear-gradient(to bottom, rgba(36, 254, 65, 0.5), rgba(253, 252, 71, 0.5)); /* Semi-transparent gradient */
+            background: #BBD2C5;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to bottom, #292E49, #536976, #BBD2C5);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, #292E49, #536976, #BBD2C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             backdrop-filter: blur(10px); /* Apply a blur effect */
             -webkit-backdrop-filter: blur(10px); /* For Safari support */
             border-radius: 20px; /* Rounded corners for a softer look */
@@ -517,6 +519,8 @@
             text-shadow: 0 0 10px rgba(255, 165, 0, 0.8); /* Glowing effect */
             margin-right: 20px; /* Space between the text and the next element */
             animation: pulse 1.5s infinite;
+            font-family: 'Roboto', sans-serif; /* Robotic-style font */
+            white-space: nowrap; /* Prevent text from wrapping */
         }
 
         @keyframes pulse {
@@ -544,37 +548,70 @@
                 font-size: 20px; /* Adjust the font size for smaller screens */
             }
         }
+
+        /* Animation for each letter */
+        .hello-text span {
+            display: inline-block;
+            animation: letter-fade 1.5s infinite;
+        }
+
+        @keyframes letter-fade {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="scroll-container">
         <div class="scroll-content">
             <!-- Repeat elements to ensure continuous scrolling -->
             <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
-            <div class="hello-text">HELLO!!!</div>
+            <div class="hello-text">
+                <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
+            </div>
             <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
             <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
-            <div class="hello-text">HELLO!!!</div>
+            <div class="hello-text">
+                <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
+            </div>
             <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
             <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
-            <div class="hello-text">HELLO!!!</div>
+            <div class="hello-text">
+                <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
+            </div>
             <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
             <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
-            <div class="hello-text">HELLO!!!</div>
+            <div class="hello-text">
+                <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
+            </div>
             <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
-
             <!-- Additional cloned content to ensure continuity -->
             <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
-            <div class="hello-text">HELLO!!!</div>
+            <div class="hello-text">
+                <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
+            </div>
             <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
             <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
-            <div class="hello-text">HELLO!!!</div>
+            <div class="hello-text">
+                <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
+            </div>
             <dotlottie-player src="https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
         </div>
