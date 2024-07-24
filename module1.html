@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Nunito:wght@300;600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
         *,
         *::before,
@@ -244,6 +243,12 @@
             }
         }
 
+        dotlottie-player {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+
         .space {
             display: inline-block;
             width: 20px;
@@ -253,12 +258,12 @@
             display: inline-block;
             font-size: 30px;
             font-weight: bold;
-            color: #FFA500; /* Orange color */
-            text-shadow: 0 0 10px rgba(255, 165, 0, 0.8); /* Glowing effect */
-            margin-right: 20px; /* Space between the text and the next element */
+            color: #FFA500;
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+            margin-right: 20px;
             animation: pulse 1.5s infinite;
-            font-family: 'Roboto', sans-serif; /* Robotic-style font */
-            white-space: nowrap; /* Prevent text from wrapping */
+            font-family: 'Roboto', sans-serif;
+            white-space: nowrap;
         }
 
         @keyframes pulse {
@@ -274,11 +279,15 @@
         }
 
         @media (max-width: 768px) {
+            dotlottie-player {
+                width: 100px;
+                height: 100px;
+            }
             .space {
-                width: 10px; /* Adjust the width for smaller screens */
+                width: 10px;
             }
             .hello-text {
-                font-size: 20px; /* Adjust the font size for smaller screens */
+                font-size: 20px;
             }
         }
 
@@ -301,87 +310,9 @@
                 transform: translateY(0);
             }
         }
-
-        /* New Module Styles */
-        .module-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            margin: 40px 0;
-            position: relative;
-        }
-
-        .module-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://lottie.host/b7603fc2-2846-49e7-9502-3f94fcac65e9/ZDIGU3ymgE.json') no-repeat center center;
-            background-size: cover;
-            opacity: 0.2;
-            z-index: -1;
-        }
-
-        .module-card {
-            width: 300px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .module-card:hover {
-            transform: scale(1.05);
-        }
-
-        .module-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .module-card .card-content {
-            padding: 20px;
-            color: #fff;
-        }
-
-        .module-card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .module-card p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-        }
-
-        .module-card button {
-            background: #eaeaea;
-            color: #202134;
-            font-size: 1rem;
-            font-weight: 600;
-            border: 0;
-            outline: 0;
-            padding: 8px 14px;
-            border-radius: 7px;
-            cursor: pointer;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .module-card button:hover {
-            background: #6f7aa6;
-            color: #eaeaea;
-        }
     </style>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="tsparticles"></div>
@@ -489,69 +420,18 @@
 
     <div class="scroll-container">
         <div class="scroll-content">
-            <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
+            <dotlottie-player src="https://lottie.host/b7b99d5f-c683-454e-9598-593d7b1b06ed/C3YnyO6yBU.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="hello-text">
                 <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
             </div>
-            <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <dotlottie-player src="https://lottie.host/eb50c26f-5573-4c90-9411-50fefe4e6351/oaKNSFyXgx.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
-            <img src="images/orange bitcoiner-character-programmer 3.gif" alt="Programmer Character" style="width: 150px; height: 150px; display: inline-block;">
+            <dotlottie-player src="https://lottie.host/b7b99d5f-c683-454e-9598-593d7b1b06ed/C3YnyO6yBU.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="hello-text">
                 <span>H</span><span>E</span><span>L</span><span>L</span><span>O</span><span>!</span><span>!</span><span>!</span>
             </div>
-            <dotlottie-player src="https://lottie.host/0d4f3d00-0eb1-4c36-8a13-388f19bd952f/UJ9Mf2lWPG.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+            <dotlottie-player src="https://lottie.host/eb50c26f-5573-4c90-9411-50fefe4e6351/oaKNSFyXgx.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             <div class="space"></div>
-        </div>
-    </div>
-
-    <div class="module-container">
-        <div class="module-card">
-            <img src="https://via.placeholder.com/300" alt="Module 1">
-            <div class="card-content">
-                <h2>Module 1</h2>
-                <p>Learn the basics of NFTs and their impact on the digital world.</p>
-                <button>Explore</button>
-            </div>
-        </div>
-        <div class="module-card">
-            <img src="https://via.placeholder.com/300" alt="Module 2">
-            <div class="card-content">
-                <h2>Module 2</h2>
-                <p>Dive deeper into the technology behind NFTs and their applications.</p>
-                <button>Explore</button>
-            </div>
-        </div>
-        <div class="module-card">
-            <img src="https://via.placeholder.com/300" alt="Module 3">
-            <div class="card-content">
-                <h2>Module 3</h2>
-                <p>Discover the future trends and possibilities of NFTs.</p>
-                <button>Explore</button>
-            </div>
-        </div>
-        <div class="module-card">
-            <img src="https://via.placeholder.com/300" alt="Module 4">
-            <div class="card-content">
-                <h2>Module 4</h2>
-                <p>Explore the legal and ethical considerations of NFTs.</p>
-                <button>Explore</button>
-            </div>
-        </div>
-        <div class="module-card">
-            <img src="https://via.placeholder.com/300" alt="Module 5">
-            <div class="card-content">
-                <h2>Module 5</h2>
-                <p>Learn how to create and sell your own NFTs.</p>
-                <button>Explore</button>
-            </div>
-        </div>
-        <div class="module-card">
-            <img src="https://via.placeholder.com/300" alt="Module 6">
-            <div class="card-content">
-                <h2>Module 6</h2>
-                <p>Case studies and real-world examples of successful NFT projects.</p>
-                <button>Explore</button>
-            </div>
         </div>
     </div>
 
