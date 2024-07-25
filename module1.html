@@ -34,16 +34,16 @@
         }
 
         section {
-            display: grid;
-            grid-template-columns: 50% 45%;
-            place-items: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             gap: 60px;
             min-height: 100vh;
             padding: 20px 60px;
         }
 
         .content {
-            max-width: 2400px;
+            max-width: 50%;
         }
 
         .content h1 {
@@ -177,27 +177,22 @@
 
         @media (max-width: 930px) {
             section {
-                grid-template-columns: 100%;
-                grid-template-rows: 55% 40%;
-                grid-template-areas:
-                    "slider"
-                    "content";
-                place-items: center;
-                gap: 64px;
+                flex-direction: column;
+                gap: 30px;
                 padding: 60px;
             }
 
-            .swiper {
-                grid-area: slider;
-            }
-
             .content {
-                grid-area: content;
+                max-width: 100%;
                 text-align: center;
             }
 
             .content h1 {
                 margin-bottom: 20px;
+            }
+
+            .character {
+                order: -1;
             }
         }
 
@@ -417,20 +412,13 @@
 
         /* Character Positioning */
         .character {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
+            width: 50%;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
             .character {
-                position: relative;
-                top: auto;
-                left: auto;
-                transform: none;
-                margin-bottom: 20px;
+                width: 100%;
             }
         }
     </style>
